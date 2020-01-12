@@ -15,7 +15,6 @@ class PostPlayers extends React.Component {
     }
 
     render() {
-        console.log(this.props.players);
         const {players} = this.props;
         console.log(players);
         // const kyle = players[0];
