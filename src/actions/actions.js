@@ -1,20 +1,22 @@
-import apiRequest from '../apis/ballDontLie.js';
+import nba from 'nba-api-client';
 
 export const fetchPlayers = () => {
     return async (dispatch) => {
-        const response = await apiRequest.get();
+        const response = await nba.leaguePlayerGeneralStats({TeamID: 1610612761, Season: "2019-20"}).then(function(data) {
+            const dataArray = Object.values(data.LeagueDashPlayerStats);
+            return dataArray;
+        });
 
-        // console.log(response.data.data, 'data.data');
+        dispatch({ type: 'FETCH_PLAYERS', payload: response});
+    }
+};
 
-        console.log(response.data.data.map((item)=> {
-            return item.player.team_id;
-        }), 'response.data.data mapped');
-        
-        console.log(response.data.data.filter((item)=> {
-            return item.player.team_id === 28;
-        }), 'response.data.data.filter');
-
-
-        dispatch({ type: 'FETCH_PLAYERS', payload: response.data.data})
+export const selectPlayer = (player) => {
+    if(!player) {
+        return null;
+    }
+    return {
+        type: 'SELECT_PLAYER',
+        payload: player
     }
 };

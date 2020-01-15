@@ -1,7 +1,4 @@
-#container {
-  display: flex;
-  justify-content: space-evenly;
-}
+
 
 .App {
   text-align: center;
@@ -11,7 +8,7 @@
   height: 40vmin;
 }
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -19,9 +16,14 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
-}
+  color: pink;
+} */
 
 .App-link {
   color: #09d3ac;
+}
+
+#container {
+  display: flex;
+  justify-content: space-evenly;
 }
