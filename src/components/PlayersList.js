@@ -21,6 +21,7 @@ class PlayersList extends React.Component {
     }
 
     render() {
+        console.log(this.props.players);
         return (
             <div>
                 <h3>Players</h3>

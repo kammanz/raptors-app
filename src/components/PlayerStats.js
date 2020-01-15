@@ -1,13 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const PlayerStats = (props) => {
+const PlayerStats = ({player}) => {
+    console.log(player);
+
+    if (!player) {
+        return <h3>Select a Player</h3>
+    }
+
     return (
         <div>
-            <h3>The player's stats</h3>
-            <div>{props.player.PLAYER_NAME}</div>
-        </div>
-        
+            <h3>Player Stats</h3>
+            
+            <div>Feild Goal Percentage:{player.FG_PCT}</div>
+            <div>Points: {player.PTS}</div>
+            <div>Rebounds: {player.REB}</div>
+        </div>        
     );
 }
 
