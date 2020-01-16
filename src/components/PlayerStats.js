@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const PlayerStats = ({player}) => {
-    console.log(player);
+    // console.log(player);
 
     if (!player) {
         return <h3>Select a Player</h3>
