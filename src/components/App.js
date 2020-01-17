@@ -3,7 +3,7 @@ import PlayersList from './PlayersList';
 import PlayerDetails from './PlayerDetails';
 import '../App.css';
 
-const App= () => {
+const App = () => {
   return (
     <div className="App">
           <h1>Raptors App</h1>
