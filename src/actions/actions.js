@@ -2,17 +2,14 @@ import nba from 'nba-api-client';
 
 export const fetchPlayers = () => {
     return async (dispatch) => {
-        const response = await nba.leaguePlayerGeneralStats({TeamID: 1610612761, Season: "2019-20"}).then(function(data) {
-            const dataArray = Object.values(data.LeagueDashPlayerStats);
-            return dataArray;
-        });
-
-        dispatch({ type: 'FETCH_PLAYERS', payload: response});
+        const response = await nba.leaguePlayerGeneralStats({TeamID: 1610612761, Season: "2019-20"}).then((data) => Object.values(data.LeagueDashPlayerStats));
+        
+        dispatch({ type: 'GET_PLAYERS_LIST', payload: response });
     }
 };
 
 export const selectPlayer = (player) => {
-    if(!player) {
+    if (!player) {
         return null;
     }
     return {
