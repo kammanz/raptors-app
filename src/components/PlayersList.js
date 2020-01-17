@@ -12,20 +12,19 @@ class PlayersList extends React.Component {
         const { players } = this.props;
         return players.map((player, index) => {
             return (
-                <div key={ index } onClick={ () => this.props.selectPlayer(player) }>
-                    { player.PLAYER_NAME }
+                <div key={index} onClick={() => this.props.selectPlayer(player)}>
+                    {player.PLAYER_NAME}
                 </div>
             ); 
         });
     }
 
     render() {
-        
         console.log(this.props.players);
         return (
             <div>
                 <h3>Players</h3>
-                <div>{ this.renderPlayers() }</div>
+                <div>{this.renderPlayers()}</div>
                 <br/>
             </div>
         )
@@ -37,6 +36,8 @@ const getMyState = (state) => {
 }
 
 export default connect(getMyState,
-        { fetchPlayers },
-        { selectPlayer },
+        { 
+            fetchPlayers,
+            selectPlayer,
+        }
 )(PlayersList);
