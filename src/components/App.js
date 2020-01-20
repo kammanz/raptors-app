@@ -7,6 +7,7 @@ const App = () => {
   return (
     <div className="App">
           <h1>Raptors App</h1>
+          <h3>Testing new branch</h3>
           <div id="container">
             <PlayersList />
             <PlayerDetails />
