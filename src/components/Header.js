@@ -8,7 +8,7 @@ const Header = () => {
             <li>Raptors logo</li>
             <Link to='/'>Players</Link>
             <Link to='/teams'>Team</Link>
-            <Link to='./games'>Games</Link>
+            <Link to='/games'>Games</Link>
             <li>username</li>
         </ul>
     );
