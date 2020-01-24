@@ -5,8 +5,8 @@ import { selectPlayer } from '../actions/actions.js';
 
 class PlayersList extends React.Component {
     componentDidMount() {
-        // this.props.getPlayers();
-        console.log('this.props', this.props.getPlayers());
+        this.props.getPlayers();
+        console.log('this.props here', this.props.getPlayers());
     }
 
     renderPlayers() {
@@ -14,7 +14,11 @@ class PlayersList extends React.Component {
         return players.map((player, index) => {
             return (
                 <div key={index} onClick={() => this.props.selectPlayer(player)}>
-                    {player.PLAYER_NAME}
+                    <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${player.person_id}.png`} />
+                    <div>{player.display_name}</div>
+                    <div>Height: {player.height_ft}-{player.height_in}</div>
+                    <div>Weight: {player.weight_lbs}lbs</div>
+                    <div>Position: {player.position_full}</div>
                 </div>
             ); 
         });

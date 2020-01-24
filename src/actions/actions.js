@@ -1,10 +1,10 @@
 import dataNbaNet from '../apis/dataNbaNet';
 
-export const getPlayers = async dispatch => {
-        const response = await dataNbaNet.get('/json/cms/noseason/team/pistons/roster.json');
-        console.log('here', response);
-        dispatch({ type: 'GET_PLAYERS', payload: response});
-    };
+export const getPlayers = () => async dispatch => {
+    const response = await dataNbaNet.get('/json/cms/noseason/team/raptors/roster.json');
+    console.log('actiond.js/ response.data...', response.data.sports_content.roster.players.player);
+    dispatch({ type: 'GET_PLAYERS', payload: response.data.sports_content.roster.players.player })
+};
 
 
 
