@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchPlayers } from '../actions/actions.js';
+import { getPlayers } from '../actions/actions.js';
 import { selectPlayer } from '../actions/actions.js';
 
 class PlayersList extends React.Component {
     componentDidMount() {
-        this.props.fetchPlayers();
+        // this.props.getPlayers();
+        console.log('this.props', this.props.getPlayers());
     }
 
     renderPlayers() {
@@ -31,13 +32,13 @@ class PlayersList extends React.Component {
     }
 }
 
-const getMyState = (state) => {
+const mapStateToProps = (state) => {
     return { players: state.players };
 }
 
-export default connect(getMyState,
+export default connect(mapStateToProps,
         { 
-            fetchPlayers,
+            getPlayers,
             selectPlayer,
         }
 )(PlayersList);
