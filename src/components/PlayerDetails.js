@@ -1,21 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const PlayerDetails = ({ player }) => {
-    if (!player) {
+const PlayerDetails = (props)=> {
+        const { selectPlayer } = props;
+        console.log(props.selectPlayer);
+
+    if (!selectPlayer) {
         return <h3>Select a Player</h3>
     }
 
     return (
         <div>
-            <h3>Player Stats</h3>            
-            <div>Field Goal Percentage:{player.FG_PCT}</div>
-            <div>Points: {player.PTS}</div>
-            <div>Rebounds: {player.REB}</div>
+            <h3>Stats</h3>            
+            <div>Total Points: {selectPlayer.points}</div>
+            <div>Points per Game: {selectPlayer.ppg}</div>
+            <div>Blocks: {selectPlayer.blocks}</div>
+            <div>Steals: {selectPlayer.steals}</div>
         </div>        
     );
 }
 
-const getMyState = state => ({ player: state.selectPlayer });
+const mapStateToProps = state => {
+    return { selectPlayer: state.selectPlayer}
+}
 
-export default connect(getMyState)(PlayerDetails);
+export default connect(mapStateToProps,)(PlayerDetails);
