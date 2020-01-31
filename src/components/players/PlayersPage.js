@@ -1,8 +1,15 @@
 import React from 'react';
+import PlayersList from './PlayersList'; 
+import PlayerDetails from './PlayerDetails'; 
 
 const PlayersPage = () => {
 
-    return <div>Players Page</div>
+    return (
+        <div>
+            <PlayersList />
+            <PlayerDetails />
+        </div>
+    )
 }
 
 export default PlayersPage;
