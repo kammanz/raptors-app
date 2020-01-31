@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchPlayers } from '../actions/actions.js';
-import { selectPlayer } from '../actions/actions.js';
+import { fetchPlayers } from '../../actions/actions.js';
+import { selectPlayer } from '../../actions/actions.js';
 
 class PlayersList extends React.Component {
     componentDidMount() {

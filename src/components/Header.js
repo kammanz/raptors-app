@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import TeamPage from './TeamPage';
+import StandingsPage from './standings/StandingsPage';
 
 const Header = () => {
     return (
