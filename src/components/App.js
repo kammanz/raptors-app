@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import PlayersList from './PlayersList';
 import PlayerDetails from './PlayerDetails';
-import '../App.css';
+import '../App.scss';
 import Header from './Header';
 import TeamPage from './TeamPage';
 import GamePage from './GamePage';
