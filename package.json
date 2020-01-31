@@ -2,6 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://data.nba.net",
   "dependencies": {
     "axios": "^0.19.1",
     "nba-api-client": "^1.0.9",
