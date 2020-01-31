@@ -10,9 +10,9 @@ const PlayerDetails = (props)=> {
 
     return (
         <div>
-            <h3>Stats</h3>
-            <h4>{selectPlayer.playerName}</h4>
-            <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${selectPlayer.playerId}.png`} />            
+            <h3>Player Stats</h3>
+            
+            <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${selectPlayer.playerId}.png`} /> <h4>{selectPlayer.playerName}</h4>           
             <div>Total Points: {selectPlayer.points}</div>
             <div>Points per Game: {selectPlayer.ppg}</div>
             <div>Blocks: {selectPlayer.blocks}</div>

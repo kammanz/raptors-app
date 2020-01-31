@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-#container {
+.container.players {
   display: flex;
   justify-content: space-evenly;
 }
