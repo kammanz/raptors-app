@@ -1,19 +1,15 @@
-import nba from 'nba-api-client';
+import dataNbaNet from '../apis/dataNbaNet';
 
-export const fetchPlayers = () => {
-    return async (dispatch) => {
-        const response = await nba.leaguePlayerGeneralStats({TeamID: 1610612761, Season: "2019-20"}).then((data) => Object.values(data.LeagueDashPlayerStats));
-        
-        dispatch({ type: 'GET_PLAYERS_LIST', payload: response });
-    }
+export const getPlayers = () => async dispatch => {
+    const response = await dataNbaNet.get('/json/cms/noseason/team/raptors/roster.json');
+    dispatch({ type: 'GET_PLAYERS', payload: response.data.sports_content.roster.players.player })
 };
 
-export const selectPlayer = (player) => {
-    if (!player) {
+export const selectPlayer = (playerId, playerName) => async dispatch => {
+    if (!playerId) {
         return null;
-    }
-    return {
-        type: 'SELECT_PLAYER',
-        payload: player
-    }
+    };
+
+    const response = await dataNbaNet.get("/prod/v1/2019/players/" + playerId + "_profile.json");
+    dispatch({ type: 'SELECT_PLAYER', payload: {...response.data.league.standard.stats.latest, playerName, playerId }});    
 };
