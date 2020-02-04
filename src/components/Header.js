@@ -1,15 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import raptorsLogo from '../assets/raptors-logo-2.png';
 
 const Header = () => {
     return (
-        <ul className="nav-bar">
-            <li className="header team-name">Toronto Raptors</li>
-            <Link to='/'>Players</Link>
-            <Link to='/standings'>Standings</Link>
-            <Link to='/games'>Games</Link>
-            <li>username</li>
-        </ul>
+        <div className="header container">
+            <div className="header team">
+                <div className="logo-container">
+                    <img src={raptorsLogo} height="50" title="raptors logo" alt="raptors logo"></img>
+                </div>
+                <div>Toronto Raptors</div>
+                <div>Dropdown</div>
+            </div>
+            <div className="header links">
+                <Link to='/'>Players</Link>
+                <Link to='/standings'>Standings</Link>
+                <Link to='/games'>Games</Link>
+            </div>
+            
+            <div className="header user">username</div>
+        </div>
     );
 }
 

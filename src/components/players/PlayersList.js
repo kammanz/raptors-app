@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchPlayers } from '../../actions/actions.js';
+import { getPlayers } from '../../actions/actions.js';
 import { selectPlayer } from '../../actions/actions.js';
 
 class PlayersList extends React.Component {
     componentDidMount() {
-        this.props.fetchPlayers();
+        this.props.getPlayers();
     }
 
     renderPlayers() {
@@ -37,7 +37,7 @@ const getMyState = (state) => {
 
 export default connect(getMyState,
         { 
-            fetchPlayers,
+            getPlayers,
             selectPlayer,
         }
 )(PlayersList);

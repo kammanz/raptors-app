@@ -1,5 +1,8 @@
-$background-color: #F4F4F4;
-$background-purple: #D0073E;
+$background-color-main: #F4F4F4;
+$background-color-purple: #D0073E;
+$background-color-grey: #EDEDED;
+
+$border-shadow: #D4D3D3;
 
 // navbar "raptors" font Abadi MT condensed bold
 
@@ -9,7 +12,7 @@ $background-purple: #D0073E;
 }
 
 body {
-  background-color: $background-color;
+  background-color: $background-color-main;
 }
 
 .App {
@@ -21,9 +24,62 @@ body {
   justify-content: space-evenly;
 }
 
-.nav-bar {
+.header {
+  border: 1px solid $border-shadow;
+}
+
+.header.container {
   display: flex;
   justify-content: space-evenly;
   list-style: none;
   font-family: Abadi;
+  // background: white;
+  height: 60px;
+  // border: 1px solid $border-shadow;
 }
+
+.header.team {
+  display: -webkit-inline-flex;
+  flex:1;
+  background: $background-color-purple;
+  color: white;
+  text-transform: uppercase;
+}
+
+.header.team::after {
+  content: '';
+    border-top: 59px solid #D0073E;
+    border-bottom: 50px solid transparent;
+    border-left: 0px solid transparent;
+    border-right: 30px solid transparent;
+    position: relative;
+    right: -283px;
+}
+
+.logo-container {
+  background: white;
+  border-radius: 50px;
+  border: 2px solid white;
+
+  img {
+    // display: block;
+    // margin-left: auto;
+    // margin-right: auto;
+    // width: 50%;
+    // width: 100%;
+    // height: 100%;
+    // object-fit: cover;
+  }
+
+}
+
+.header.links {
+  background-color: white;
+  flex: 1;
+}
+
+.header.user {
+  background: $background-color-grey;
+  flex: 1;
+}
+ 
