@@ -12,6 +12,7 @@ const Header = () => {
                 <div>Toronto Raptors</div>
                 <div>Dropdown</div>
             </div>
+            {/* <div className=" header slanted-border"></div> */}
             <div className="header links">
                 <Link to='/'>Players</Link>
                 <Link to='/standings'>Standings</Link>
