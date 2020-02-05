@@ -2,12 +2,8 @@ $background-color-main: #F4F4F4;
 $background-color-purple: #D0073E;
 $background-color-grey: #EDEDED;
 $text-dark-grey: #919191;
-
 $border-shadow: #D4D3D3;
 $border-dark-grey: #919191;
-
-
-// navbar "raptors" font Abadi MT condensed bold
 
 @font-face {
   src: url(Abadi-MT-Condensed-Extra-Bold.ttf);
@@ -38,6 +34,7 @@ body {
   list-style: none;
   font-family: Abadi;
   height: 60px;
+  box-shadow: 1px -1px 2px #D4D3D3;
 }
 
 .header.team {
