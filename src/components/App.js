@@ -1,11 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import PlayersList from './PlayersList';
-import PlayerDetails from './PlayerDetails';
-import '../App.css';
+import '../scss/App.scss';
 import Header from './Header';
-import TeamPage from './TeamPage';
-import GamePage from './GamePage';
+import StandingsPage from './standings/StandingsPage';
+import GamesPage from './games/GamesPage';
+import PlayersPage from './players/PlayersPage';
 
 
 const App = () => {
@@ -14,13 +13,11 @@ const App = () => {
       <BrowserRouter >
         <Header/>
         <div id="container">
-            <Route path="/" exact component={PlayersList}/>
-            <Route path="/" exact component={PlayerDetails} />
-            <Route path="/teams" component={TeamPage} />
-            <Route path="/games" component={GamePage} />
+            <Route path="/" exact component={PlayersPage}/>
+            <Route path="/standings" component={StandingsPage} />
+            <Route path="/games" component={GamesPage} />
         </div>
       </BrowserRouter>
-          
     </div>
   );
 }

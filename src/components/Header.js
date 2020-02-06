@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import TeamPage from './TeamPage';
 
 const Header = () => {
     return (
         <ul className="nav-bar">
-            <li>Raptors logo</li>
+            <li className="header team-name">Toronto Raptors</li>
             <Link to='/'>Players</Link>
-            <Link to='/teams'>Team</Link>
+            <Link to='/standings'>Standings</Link>
             <Link to='/games'>Games</Link>
             <li>username</li>
         </ul>

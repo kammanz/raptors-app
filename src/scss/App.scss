@@ -1,0 +1,29 @@
+$background-color: #F4F4F4;
+$background-purple: #D0073E;
+
+// navbar "raptors" font Abadi MT condensed bold
+
+@font-face {
+  src: url(Abadi-MT-Condensed-Extra-Bold.ttf);
+  font-family: Abadi;
+}
+
+body {
+  background-color: $background-color;
+}
+
+.App {
+  text-align: center;
+}
+
+.container.players {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  font-family: Abadi;
+}
