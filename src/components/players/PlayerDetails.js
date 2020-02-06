@@ -1,15 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const PlayerDetails = (props)=> {
-    const { selectPlayer } = props;
-    console.log(props, 'props');
+const PlayerDetails = ({ player })=> {
 
-    if (!selectPlayer) {
+    if (!player) {
         return <h3>Select a Player</h3>
     }
 
-    const { playerName, playerId, points, ppg, blocks, steals } = selectPlayer;
+    const { playerName, playerId, points, ppg, blocks, steals } = player;
 
     return (
         <div>

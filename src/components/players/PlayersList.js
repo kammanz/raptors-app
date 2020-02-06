@@ -10,18 +10,21 @@ class PlayersList extends React.Component {
 
     renderPlayers() {
         const { players } = this.props;
-        console.log(this.props, 'this.props in renderplayers function');
         return players.map((player, index) => {
             return (
-                <div key={index} onClick={() => this.props.selectPlayer(player)}>
-                    {player.first_name}
+                <div key={index} onClick={() => this.props.selectPlayer(player.person_id, player.display_name, )}>
+                    <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${player.person_id}.png`} />
+                    <div>{player.display_name}</div>
+                    <div>Height: {player.height_ft}-{player.height_in}</div>
+                    <div>Weight: {player.weight_lbs}lbs</div>
+                    <div>Position: {player.position_full}</div>
                 </div>
             ); 
         });
     }
 
     render() {
-        console.log(this.props.players.first_name);
+        console.log(this.props.players);
         return (
             <div>
                 <h3>Players</h3>
