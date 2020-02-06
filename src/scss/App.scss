@@ -153,24 +153,16 @@ body {
 
 .player-image {
   background-image: repeating-linear-gradient(50deg, #E4E4E4, #E0E0E0 33.3%);
-  // position: relative;
-
-  
 }
 
-// .player-image img {
-//     position: absolute;
-//     top:0;
-//     bottom: 0;
-//     left: 0;
-//     right: 0;
-//   }
+.player-image img {
+    position: relative;
+    top: 4px;
+  }
  
 .player-details {
-  // border-top: 2px solid $background-color-purple;
   margin-top: 10px;
   display: flex;
-  // align-items: center;
   .number {
     font-size: 24px;
     font-weight: bold;
@@ -184,7 +176,6 @@ body {
     flex: 2;
     text-align: left;
     padding: 5px 0 5px 12px;
-    // background-color: yellow;
     
     :first-child {
       font-weight: 600;
