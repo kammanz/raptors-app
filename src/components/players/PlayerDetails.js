@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 const PlayerDetails = (props)=> {
     const { selectPlayer } = props;
+    console.log(props, 'props');
 
     if (!selectPlayer) {
         return <h3>Select a Player</h3>
@@ -23,8 +24,6 @@ const PlayerDetails = (props)=> {
     );
 }
 
-const mapStateToProps = state => {
-    return { selectPlayer: state.selectPlayer }
-}
+const getMyState = state => ({ player: state.selectPlayer });
 
-export default connect(mapStateToProps)(PlayerDetails);
+export default connect(getMyState)(PlayerDetails);
