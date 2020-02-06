@@ -4,6 +4,7 @@ $background-color-grey: #EDEDED;
 $text-dark-grey: #919191;
 $border-shadow: #D4D3D3;
 $border-dark-grey: #919191;
+$off-black: #0E0E0E;
 
 @font-face {
   src: url(Abadi-MT-Condensed-Extra-Bold.ttf);
@@ -142,4 +143,65 @@ body {
     border-top: 10px solid $text-dark-grey;
   }
 }
+
+.player {
+  font-family: Arial, Helvetica, sans-serif;
+  background: white;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+
+.player-image {
+  background-image: repeating-linear-gradient(50deg, #E4E4E4, #E0E0E0 33.3%);
+  // position: relative;
+
+  
+}
+
+// .player-image img {
+//     position: absolute;
+//     top:0;
+//     bottom: 0;
+//     left: 0;
+//     right: 0;
+//   }
  
+.player-details {
+  // border-top: 2px solid $background-color-purple;
+  margin-top: 10px;
+  display: flex;
+  // align-items: center;
+  .number {
+    font-size: 24px;
+    font-weight: bold;
+    color: $text-dark-grey;
+    flex: .5;
+    background-color: $background-color-grey;
+    border-radius: 5px;
+    padding: 7%;
+  }
+  .name {
+    flex: 2;
+    text-align: left;
+    padding: 5px 0 5px 12px;
+    // background-color: yellow;
+    
+    :first-child {
+      font-weight: 600;
+      color: $off-black;
+    }
+
+    :nth-child(2) {
+      font-size: 14px;
+      padding-top: 5px;
+      color: $text-dark-grey;
+    }
+
+    :nth-child(3) {
+      padding-top: 5px;
+      font-size: 12px;
+      color: $border-dark-grey;
+
+    }
+  }
+}

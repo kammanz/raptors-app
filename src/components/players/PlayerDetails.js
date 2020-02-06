@@ -13,11 +13,13 @@ const PlayerDetails = ({ player })=> {
         <div>
             <h3>Stats</h3>
             <h4>{playerName}</h4>
-            <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${playerId}.png`} />            
-            <div>Total Points: {points}</div>
-            <div>Points per Game: {ppg}</div>
-            <div>Blocks: {blocks}</div>
-            <div>Steals: {steals}</div>
+            <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${playerId}.png`} />
+            <div className="player-details">
+                <div>Total Points: {points}</div>
+                <div>Points per Game: {ppg}</div>
+                <div>Blocks: {blocks}</div>
+                <div>Steals: {steals}</div>  
+            </div>            
         </div>        
     );
 }

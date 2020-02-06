@@ -12,12 +12,18 @@ class PlayersList extends React.Component {
         const { players } = this.props;
         return players.map((player, index) => {
             return (
-                <div key={index} onClick={() => this.props.selectPlayer(player.person_id, player.display_name, )}>
-                    <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${player.person_id}.png`} />
-                    <div>{player.display_name}</div>
-                    <div>Height: {player.height_ft}-{player.height_in}</div>
-                    <div>Weight: {player.weight_lbs}lbs</div>
-                    <div>Position: {player.position_full}</div>
+                <div key={index} onClick={() => this.props.selectPlayer(player.person_id, player.display_name, )} className="player">
+                    <div className="player-image">
+                        <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${player.person_id}.png`} />
+                    </div>
+                    <div className="player-details">
+                        <div className="number">{player.jersey_number}</div>
+                        <div className="name">
+                            <div>{player.first_name} {player.last_name}</div>
+                            <div>{player.position_full}</div>
+                            <div>{player.height_ft}-{player.height_in}, {player.weight_lbs} lbs</div> 
+                        </div>
+                    </div>
                 </div>
             ); 
         });
