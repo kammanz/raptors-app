@@ -1,21 +1,30 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const PlayerDetails = ({ player }) => {
-    if (!player) {
+const PlayerDetails = (props)=> {
+    const { selectPlayer } = props;
+
+    if (!selectPlayer) {
         return <h3>Select a Player</h3>
     }
 
+    const { playerName, playerId, points, ppg, blocks, steals } = selectPlayer;
+
     return (
         <div>
-            <h3>Player Stats</h3>            
-            <div>Field Goal Percentage:{player.FG_PCT}</div>
-            <div>Points: {player.PTS}</div>
-            <div>Rebounds: {player.REB}</div>
+            <h3>Stats</h3>
+            <h4>{playerName}</h4>
+            <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${playerId}.png`} />            
+            <div>Total Points: {points}</div>
+            <div>Points per Game: {ppg}</div>
+            <div>Blocks: {blocks}</div>
+            <div>Steals: {steals}</div>
         </div>        
     );
 }
 
-const getMyState = state => ({ player: state.selectPlayer });
+const mapStateToProps = state => {
+    return { selectPlayer: state.selectPlayer }
+}
 
-export default connect(getMyState)(PlayerDetails);
+export default connect(mapStateToProps)(PlayerDetails);
