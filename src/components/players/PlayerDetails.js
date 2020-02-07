@@ -2,21 +2,23 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const PlayerDetails = (props)=> {
-        const { selectPlayer } = props;
+    const { selectPlayer } = props;
 
     if (!selectPlayer) {
         return <h3>Select a Player</h3>
     }
 
+    const { playerName, playerId, points, ppg, blocks, steals } = selectPlayer;
+
     return (
         <div>
-            <h3>Player Stats</h3>
-            
-            <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${selectPlayer.playerId}.png`} /> <h4>{selectPlayer.playerName}</h4>           
-            <div>Total Points: {selectPlayer.points}</div>
-            <div>Points per Game: {selectPlayer.ppg}</div>
-            <div>Blocks: {selectPlayer.blocks}</div>
-            <div>Steals: {selectPlayer.steals}</div>
+            <h3>Stats</h3>
+            <h4>{playerName}</h4>
+            <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${playerId}.png`} />            
+            <div>Total Points: {points}</div>
+            <div>Points per Game: {ppg}</div>
+            <div>Blocks: {blocks}</div>
+            <div>Steals: {steals}</div>
         </div>        
     );
 }
