@@ -12,7 +12,7 @@ class PlayersList extends React.Component {
         const { players } = this.props;
         return players.map((player, index) => {
             return (
-                <div key={index} onClick={() => this.props.selectPlayer(player.person_id, player.display_name, )} className="player">
+                <div key={index} onClick={() => this.props.selectPlayer(player.person_id, player.display_name, )} className="player-card">
                     <div className="player-image">
                         <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${player.person_id}.png`} />
                     </div>
