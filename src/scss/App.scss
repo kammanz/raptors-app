@@ -5,6 +5,10 @@ $text-dark-grey: #919191;
 $border-shadow: #D4D3D3;
 $border-dark-grey: #919191;
 $off-black: #0E0E0E;
+$player-name-black: #424242;
+$player-position-grey: #777777;
+$player-size-grey: #A8A8A8;
+
 
 @font-face {
   src: url(Abadi-MT-Condensed-Extra-Bold.ttf);
@@ -18,6 +22,8 @@ $off-black: #0E0E0E;
 
 body {
   background-color: $background-color-main;
+  // background-color: cyan;
+
 }
 
 .App {
@@ -54,7 +60,7 @@ body {
   content: '';
   position: absolute;
   left: 100%;
-  z-index: 99;
+  z-index: 50;
   border-top: 60px solid #D0073E;
   border-right: 20px solid transparent;
 }
@@ -103,7 +109,7 @@ body {
   content: '';
   position: absolute;
   left: 100%;
-  z-index: 99;
+  z-index: 50;
   border-top: 60px solid white;
   border-right: 20px solid transparent;
 }
@@ -144,78 +150,156 @@ body {
   }
 }
 
+/////////////////////// Player card styles //////////////////////////////
+
 .player-card {
   font-family: Arial, Helvetica, sans-serif;
   background: white;
+  // background-color: transparent;
+  width: 306px;
   margin-bottom: 10px;
-  padding: 20px;
+  padding: 5px;
 
-  &:hover {
-    .player-details {
-      background-color: #EDEDED;
-      margin-top: 0;
-      padding-top: 10px;
-    }
-  }
+  // .selected-card {
+  //   .player-details-container {
+  //     background-color: $background-color-purple;
+  //     pointer-events: none;
+  //     &:hover {
+  //       background-color: $background-color-purple;
+  //     }
+  //   }
+  // }
 }
 
-.player-image {
-  background-image: repeating-linear-gradient(50deg, #E4E4E4, #E0E0E0 33.3%);
-}
-
-.player-image::after {
-  content: "";
-  border-bottom: 2px solid $background-color-purple;
-  display: block;
-  height: 4px;
-  background-color: white;
-}
-
-.player-image img {
-    position: relative;
-    top: 4px;
-}
-
-.player-image img::after {
-  content: "";
-  border-bottom: 2px solid $background-color-purple;
-  display: block;
-  height: 4px;
-  background-color: white;
-}
- 
-.player-details {
-  margin-top: 10px;
-  display: flex;
-  .number {
-    font-size: 24px;
-    font-weight: bold;
-    color: $text-dark-grey;
-    flex: .5;
+.player-card:hover {
+  .player-details-container {
     background-color: $background-color-grey;
-    border-radius: 5px;
-    padding: 7%;
+    pointer-events: none;
   }
-  .name {
-    flex: 2;
-    text-align: left;
-    padding: 5px 0 5px 12px;
-    
-    :first-child {
-      font-weight: 600;
-      color: $off-black;
+}
+
+.player-card .player-image-container {
+  background-image: repeating-linear-gradient(50deg, #E4E4E4, #E0E0E0 33.3%);
+  pointer-events: none;
+  height: 240px;
+  position: relative;
+}
+
+.player-card .player-image-container img {
+  position: absolute;
+  // top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  pointer-events: none;
+  height: 224px;
+}
+
+// .player-card .player-image-container::after {
+//   content: "";
+//   position: relative;
+//   bottom: 180px;
+//   border-bottom: 2px solid $background-color-purple;
+//   display: block;
+//   height: 4px;
+//   background-color: white;
+//   pointer-events: none;
+// }
+
+.player-card .player-details-container {
+  height: 120px;
+  margin-top: 0px;
+  // padding-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.empty-div {
+  width: 100%;
+  margin-top: 4px;
+  border-bottom: 2px solid $background-color-purple;
+  pointer-events: none;
+}
+
+// .player-card .player-details-container::before {
+//   content: "";
+//   // position: relative;
+//   // bottom: 180px;
+//   background-color: cyan;
+//   display: block;
+//   width: 100%;
+//   height: 4px;
+//   border-bottom: 2px solid $background-color-purple;
+//   // display: block;
+  
+//   // background-color: white;
+//   pointer-events: none;
+// }
+
+.player-card .player-details-container .player-number {
+  font-size: 32px;
+  font-weight: bold;
+  color: $text-dark-grey;
+  flex: .5;
+  background-color: $background-color-grey;
+  border-radius: 5px;
+  padding: 7%;
+  pointer-events: none;
+}
+
+.player-card .player-details-container .player-attributes {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  text-align: left;
+  padding: 5px 0 5px 12px;
+  pointer-events: none;
+
+  div {
+    padding: 2px;
+  }
+}   
+
+.player-name {
+  font-weight: bold;
+  font-size: 18px;
+  color: $player-name-black;
+  pointer-events: none;
+}
+
+.player-position {
+  font-size: 16px;
+  color: $player-position-grey;
+  padding-top: 5px;
+  color: $text-dark-grey;
+  pointer-events: none;
+}
+
+.player-size {
+  padding-top: 5px;
+  font-size: 14px;
+  color: $player-size-grey;
+  pointer-events: none;
+}
+  
+.selected-card {
+  .player-details-container {
+    background-color: $background-color-purple !important;
+    margin-top: 0px;
+    padding-top: 0px;
+    z-index: 99;
+    pointer-events: none;
+    .player-number {
+      background-color: $background-color-purple;
+      color: white;
     }
 
-    :nth-child(2) {
-      font-size: 14px;
-      padding-top: 5px;
-      color: $text-dark-grey;
+    .player-name {
+      color: white;
     }
 
-    :nth-child(3) {
-      padding-top: 5px;
-      font-size: 12px;
-      color: $border-dark-grey;
+    .player-position {
+      color: $player-size-grey;
     }
   }
 }
