@@ -155,20 +155,9 @@ body {
 .player-card {
   font-family: Arial, Helvetica, sans-serif;
   background: white;
-  // background-color: transparent;
   width: 306px;
   margin-bottom: 10px;
   padding: 5px;
-
-  // .selected-card {
-  //   .player-details-container {
-  //     background-color: $background-color-purple;
-  //     pointer-events: none;
-  //     &:hover {
-  //       background-color: $background-color-purple;
-  //     }
-  //   }
-  // }
 }
 
 .player-card:hover {
@@ -187,7 +176,6 @@ body {
 
 .player-card .player-image-container img {
   position: absolute;
-  // top: 0;
   bottom: 0;
   right: 0;
   left: 0;
@@ -195,21 +183,9 @@ body {
   height: 224px;
 }
 
-// .player-card .player-image-container::after {
-//   content: "";
-//   position: relative;
-//   bottom: 180px;
-//   border-bottom: 2px solid $background-color-purple;
-//   display: block;
-//   height: 4px;
-//   background-color: white;
-//   pointer-events: none;
-// }
-
 .player-card .player-details-container {
   height: 120px;
   margin-top: 0px;
-  // padding-top: 10px;
   display: flex;
   align-items: center;
 }
@@ -220,21 +196,6 @@ body {
   border-bottom: 2px solid $background-color-purple;
   pointer-events: none;
 }
-
-// .player-card .player-details-container::before {
-//   content: "";
-//   // position: relative;
-//   // bottom: 180px;
-//   background-color: cyan;
-//   display: block;
-//   width: 100%;
-//   height: 4px;
-//   border-bottom: 2px solid $background-color-purple;
-//   // display: block;
-  
-//   // background-color: white;
-//   pointer-events: none;
-// }
 
 .player-card .player-details-container .player-number {
   font-size: 32px;
