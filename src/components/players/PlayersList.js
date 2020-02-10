@@ -77,7 +77,7 @@ class PlayersList extends React.Component {
     render() {
         // console.log(this.state, 'this.state');
         return (
-            <div>
+            <div className="players-list-container">
                 <h3>Players</h3>
                 <div>{this.renderPlayers()}</div>
                 <br/>
