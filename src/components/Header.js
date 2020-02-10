@@ -7,18 +7,18 @@ import kobe from '../assets/kobe.jpg';
 
 const Header = () => {
     return (
-        <div className="header container">
-            <div className="header team">
-                <div className="logo-container">
+        <div className="header-container">
+            <div className="team">
+                <div className="logo">
                     <img src={raptorsLogo} height="40" title="raptors logo" alt="raptors logo"></img>
                 </div>
-                <div>Toronto Raptors</div>
+                <div className="name">Toronto Raptors</div>
                 <div className="drop-down">
                     <i className="down"></i>
                 </div>
             </div>
 
-            <div className="header links">
+            <div className="nav-bar">
                 <div className="link-container">
                     <Link to='/'>Players</Link>
                 </div>
@@ -30,7 +30,7 @@ const Header = () => {
                 </div>
             </div>
             
-            <div className="header user">
+            <div className="user">
                 <div>
                     <img src={bell} alt="notification-bell" height="25"></img>
                 </div>

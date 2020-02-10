@@ -1,0 +1,121 @@
+$team-background-color: $primary-color;
+$team-font-color: white;
+$logo-background-color: white;
+
+
+.header-container {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  font-family: Abadi;
+  height: 60px;
+  box-shadow: 1px -1px 2px #D4D3D3;
+  
+  .team {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    flex:1;
+    background: $primary-color;
+    color: $team-font-color;
+    text-transform: uppercase;
+    font-size: 30px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 100%;
+      z-index: 50;
+      border-top: 60px solid #D0073E;
+      border-right: 20px solid transparent;
+    }
+
+     .logo {
+      display: flex;
+      background-color: $logo-background-color;
+      border: 2px solid white;
+      border-radius: 50px;
+      box-shadow: 1px 1px 5px $border-dark-grey;
+    }
+
+    .drop-down {
+      border-top: 10px solid white;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+    }
+  }
+  
+  .nav-bar {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 1.5;
+    background-color: white;
+    font-family: Avenir;
+    text-transform: uppercase;
+    font-size: 25px;
+  
+    .link-container {
+      display: inline-block;
+      height: 100%;
+      height: calc(100%-4px);
+
+      a {
+        color: black;
+        display: inline-block;
+        height: calc(100% - 15px);    
+        padding-top: 15px;
+        text-decoration: none;
+  
+        &:hover {
+          height: calc(100% - 19px);
+          border-bottom: 4px solid $background-color-purple;
+          color: $background-color-purple;
+        }
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 100%;
+      z-index: 50;
+      border-top: 60px solid white;
+      border-right: 20px solid transparent;
+    }
+  }
+    
+  .user {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 1;
+    background: $background-color-grey;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: $text-dark-grey;
+  
+    div {
+      display: flex;
+      flex: 1;
+
+      img {
+        height: 30px;
+      }
+
+      .user-pic {
+        height: 40px;
+        border: 2px solid $border-dark-grey;
+        border-radius: 40px;
+      }
+
+      .drop-down.user {
+      border-top: 10px solid $text-dark-grey;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      }
+    }
+  }
+}
