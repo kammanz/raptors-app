@@ -7,7 +7,7 @@ import kobe from '../assets/kobe.jpg';
 
 const Header = () => {
     return (
-        <div className="header container">
+        <div className="header-container">
             <div className="header team">
                 <div className="logo-container">
                     <img src={raptorsLogo} height="40" title="raptors logo" alt="raptors logo"></img>

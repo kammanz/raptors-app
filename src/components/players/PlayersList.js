@@ -20,7 +20,6 @@ class PlayersList extends React.Component {
     }
 
     render() {
-        console.log(this.props.players);
         return (
             <div>
                 <h3>Players</h3>
@@ -31,11 +30,11 @@ class PlayersList extends React.Component {
     }
 }
 
-const getMyState = (state) => {
+const mapStateToProps = (state) => {
     return { players: state.players };
 }
 
-export default connect(getMyState,
+export default connect(mapStateToProps,
         { 
             getPlayers,
             selectPlayer,

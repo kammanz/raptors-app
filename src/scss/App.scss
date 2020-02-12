@@ -19,21 +19,21 @@ body {
   background-color: $background-color-main;
 }
 
-.App {
+.app {
   text-align: center;
 }
 
-.container.players {
+.players {
   display: flex;
   justify-content: space-evenly;
 }
 
-.header.container {
+.header-container {
   display: flex;
   justify-content: space-evenly;
   list-style: none;
   font-family: Abadi;
-  height: 60px;
+  height: 45px;
   box-shadow: 1px -1px 2px #D4D3D3;
 }
 
@@ -54,7 +54,7 @@ body {
   position: absolute;
   left: 100%;
   z-index: 99;
-  border-top: 60px solid #D0073E;
+  border-top: 45px solid #D0073E;
   border-right: 20px solid transparent;
 }
 
@@ -103,7 +103,7 @@ body {
   position: absolute;
   left: 100%;
   z-index: 99;
-  border-top: 60px solid white;
+  border-top: 45px solid white;
   border-right: 20px solid transparent;
 }
 

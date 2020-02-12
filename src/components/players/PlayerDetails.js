@@ -6,7 +6,7 @@ const PlayerDetails = ({ player }) => {
         return <h3>Select a Player</h3>
     }
 
-    const { playerName, playerId, points, ppg, blocks, steals } = selectPlayer;
+    const { playerName, playerId, points, ppg, blocks, steals } = player;
 
     return (
         <div>
@@ -21,6 +21,6 @@ const PlayerDetails = ({ player }) => {
     );
 }
 
-const getMyState = state => ({ player: state.selectPlayer });
+const mapStateToProps = state => ({ player: state.selectPlayer });
 
-export default connect(getMyState)(PlayerDetails);
+export default connect(mapStateToProps)(PlayerDetails);
