@@ -4,19 +4,26 @@ $background-color-grey: #EDEDED;
 $text-dark-grey: #919191;
 $border-shadow: #D4D3D3;
 $border-dark-grey: #919191;
+$grey-three: #919191;
 
 @font-face {
-  src: url(Abadi-MT-Condensed-Extra-Bold.ttf);
+  src: url('../assets/fonts/Abadi-MT-Condensed-Extra-Bold.ttf');
   font-family: Abadi;
 }
 
 @font-face {
-  src: url(AvenirNextLTPro-Cn.otf);
+  src: url('../assets/fonts/AvenirNextLTPro-Cn.otf');
   font-family: Avenir;
+}
+
+@font-face {
+  src: url('../assets/fonts/nba-spurs.ttf');
+  font-family: spurs;
 }
 
 body {
   background-color: $background-color-main;
+  margin: 0;
 }
 
 .app {
@@ -37,19 +44,41 @@ body {
   box-shadow: 1px -1px 2px #D4D3D3;
 }
 
-.header.team {
+.header-team {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   position: relative;
-  flex:1;
+  // flex:1;
   background: $background-color-purple;
-  color: white;
-  text-transform: uppercase;
-  font-size: 30px;
+
+  // div {
+  //   // padding: 0 5px;
+  //   margin: 0 20px;
+  // }
+
+  button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: inherit;
+    color: white;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-family: spurs;
+    margin: 0 15px 0 0;
+    i {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 10px;
+    }
+  }
+  
 }
 
-.header.team::after {
+.header-team::after {
   content: '';
   position: absolute;
   left: 100%;
@@ -61,9 +90,9 @@ body {
 .logo-container {
   display: flex;
   background-color: white;
-  border: 2px solid white;
-  border-radius: 50px;
+  border-radius: 24px;
   box-shadow: 1px 1px 5px $border-dark-grey;
+  margin: 0 15px;
 }
 
 .header.links {
@@ -75,7 +104,7 @@ body {
   background-color: white;
   font-family: Avenir;
   text-transform: uppercase;
-  font-size: 25px;
+  font-size: 16px;
 
   .link-container {
     display: inline-block;
@@ -134,12 +163,12 @@ body {
 }
 
 .drop-down {
-  border-top: 10px solid white;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
+  border-top: 6px solid white;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
 
   &.user {
-    border-top: 10px solid $text-dark-grey;
+    border-top: 6px solid $text-dark-grey;
   }
 }
  

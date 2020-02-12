@@ -1,21 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import raptorsLogo from '../assets/raptors-logo-2.png';
 import bell from '../assets/bell7.png';
 import settingsIcon from '../assets/settings-icon7.png';
 import kobe from '../assets/kobe.jpg';
+import raptorsLogo2 from '../assets/imgs/raptors-logo2.svg';
 
 const Header = () => {
     return (
         <div className="header-container">
-            <div className="header team">
+            <div className="header-team">
                 <div className="logo-container">
-                    <img src={raptorsLogo} height="40" title="raptors logo" alt="raptors logo"></img>
+                    <img src={raptorsLogo2} title="raptors logo" alt="raptors logo"></img>
                 </div>
-                <div>Toronto Raptors</div>
-                <div className="drop-down">
-                    <i className="down"></i>
-                </div>
+                <button>Toronto Raptors <i className="drop-down"></i></button>
+                {/* <div className="drop-down">
+                    
+                </div> */}
             </div>
 
             <div className="header links">
