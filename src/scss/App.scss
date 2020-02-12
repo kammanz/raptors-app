@@ -30,6 +30,13 @@ body {
   text-align: center;
 }
 
+.active {
+  // background-color: pink;
+  color: $background-color-purple !important;
+  border-bottom: 4px solid $background-color-purple;
+
+}
+
 .players {
   display: flex;
   justify-content: space-evenly;
@@ -115,14 +122,14 @@ body {
   a {
     color: black;
     display: inline-block;
-    height: calc(100% - 15px);    
+    height: calc(100% - 19px);    
     padding-top: 15px;
     text-decoration: none;
 
     &:hover {
       height: calc(100% - 19px);
-      border-bottom: 4px solid $background-color-purple;
-      color: $background-color-purple;
+      // border-bottom: 4px solid $background-color-purple;
+      color: $grey-three;
     }
   }
 }

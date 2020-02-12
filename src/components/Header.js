@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import bell from '../assets/bell7.png';
 import settingsIcon from '../assets/settings-icon7.png';
 import kobe from '../assets/kobe.jpg';
@@ -20,13 +20,13 @@ const Header = () => {
 
             <div className="header links">
                 <div className="link-container">
-                    <Link to='/'>Players</Link>
+                    <NavLink to='/' exact >Players</NavLink>
                 </div>
                 <div className="link-container">
-                    <Link to='/standings'>Standings</Link>
+                    <NavLink to='/standings'>Standings</NavLink>
                 </div>
                 <div className="link-container">
-                    <Link to='/games'>Games</Link>
+                    <NavLink to='/games'>Games</NavLink>
                 </div>
             </div>
             

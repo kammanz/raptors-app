@@ -6,16 +6,15 @@ import StandingsPage from './standings/StandingsPage';
 import GamesPage from './games/GamesPage';
 import PlayersPage from './players/PlayersPage';
 
-
 const App = () => {
   return (
     <div className="App">
       <BrowserRouter >
         <Header/>
         <div id="container">
-            <Route path="/" exact component={PlayersPage}/>
-            <Route path="/standings" component={StandingsPage} />
-            <Route path="/games" component={GamesPage} />
+            <Route to="/" exact component={PlayersPage} />
+            <Route to="/standings" component={StandingsPage} />
+            <Route to="/games" component={GamesPage} />
         </div>
       </BrowserRouter>
     </div>
