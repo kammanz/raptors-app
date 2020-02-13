@@ -176,7 +176,7 @@ body {
 }
 
 .player-card .player-image-container {
-  background-image: repeating-linear-gradient(50deg, #E4E4E4, #E0E0E0 33.3%);
+  background-image: url('../assets/imgs/player-backdrop.png');
   pointer-events: none;
   height: 240px;
   position: relative;
