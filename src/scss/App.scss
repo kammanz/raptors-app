@@ -5,6 +5,7 @@ $text-dark-grey: #919191;
 $border-shadow: #D4D3D3;
 $border-dark-grey: #919191;
 $grey-three: #919191;
+$white: white;
 
 @font-face {
   src: url('../assets/fonts/Abadi-MT-Condensed-Extra-Bold.ttf');
@@ -22,17 +23,12 @@ $grey-three: #919191;
 }
 
 body {
-  background-color: $background-color-main;
   margin: 0;
+  background-color: $background-color-main;
 }
 
 .app {
   text-align: center;
-}
-
-.active {
-  color: $background-color-purple !important;
-  border-bottom: 4px solid $background-color-purple;
 }
 
 .players {
@@ -42,39 +38,38 @@ body {
 
 .header-container {
   display: flex;
-  justify-content: space-evenly;
-  list-style: none;
-  font-family: Abadi;
   height: 45px;
-  box-shadow: 1px -1px 2px #D4D3D3;
-
+  justify-content: space-evenly;
+  box-shadow: 1px -1px 2px $border-shadow;
+  font-family: Abadi;
+  list-style: none;
+  
   .team {
+    position: relative;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    position: relative;
     background: $background-color-purple;
 
     .logo-container {
       display: flex;
-      background-color: white;
       border-radius: 24px;
       box-shadow: 1px 1px 5px $border-dark-grey;
       margin: 0 15px;
+      background-color: white;
     }
 
     button {
-      background: none;
-      color: inherit;
-      border: none;
-      padding: 0;
-      cursor: pointer;
-      outline: inherit;
-      color: white;
-      text-transform: uppercase;
-      font-size: 22px;
-      font-family: spurs;
       margin: 0 15px 0 0;
+      padding: 0;
+      border: none;
+      background: none;
+      color: $white;
+      font-family: spurs;
+      font-size: 22px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
 
       i {
         display: inline-block;
@@ -87,8 +82,8 @@ body {
       content: '';
       position: absolute;
       left: 100%;
-      z-index: 99;
-      border-top: 45px solid #D0073E;
+      z-index: 5;
+      border-top: 45px solid $background-color-purple;
       border-right: 20px solid transparent;
     }
   }
@@ -96,9 +91,9 @@ body {
   .links {
     position: relative;
     display: flex;
+    flex: 1.5;
     justify-content: center;
     align-items: center;
-    flex: 1.5;
     background-color: white;
     font-family: Avenir;
     text-transform: uppercase;
@@ -107,19 +102,24 @@ body {
     .link-container {
       display: inline-block;
       height: 100%;
-      margin: 0 25px;
+      padding: 0 25px;
     }
   
     a {
-      color: black;
       display: inline-block;
       height: calc(100% - 19px);    
       padding-top: 15px;
+      color: black;
       text-decoration: none;
-  
-      &:hover {
+
+       &:hover {
         height: calc(100% - 19px);
         color: $grey-three;
+      }
+
+      &.active {
+        border-bottom: 4px solid $background-color-purple;
+        color: $background-color-purple;
       }
     }
 
@@ -127,7 +127,6 @@ body {
       content: '';
       position: absolute;
       left: 100%;
-      z-index: 99;
       border-top: 45px solid white;
       border-right: 20px solid transparent;
     }
@@ -137,38 +136,38 @@ body {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    padding-left: 30px;
+    color: $text-dark-grey;
     background: $background-color-grey;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
-    color: $text-dark-grey;
-    padding-left: 15px;
   
     div {
       display: flex;
-      margin: 0 20px;
+      padding: 15px;
     }
 
     button {
       display: flex;
       align-items: center;
+      padding: 15px;
+      border: none;
       background: none;
       color: inherit;
-      border: none;
-      padding: 0;
-      cursor: pointer;
-      outline: inherit;
       font-size: 14px;
-      margin: 0 15px 0 0;
 
+      cursor: pointer;
+      
       .user-pic {
         border: 2px solid $border-dark-grey;
         border-radius: 25px;
+        margin-right: 10px;
       }
     }
   } 
 
   .drop-down-team {
-    border-top: 6px solid white;
+    border-top: 6px solid $white;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
   }
@@ -177,6 +176,7 @@ body {
     border-top: 6px solid $text-dark-grey;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
+    margin: 15px;
   }
 }
 

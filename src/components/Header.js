@@ -1,16 +1,17 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+
 import bell from '../assets/imgs/notification-bell.svg';
 import settingsIcon from '../assets/imgs/settings-icon.svg';
+
 import kobe from '../assets/kobe.jpg';
-import raptorsLogo2 from '../assets/imgs/raptors-logo2.svg';
 
 const Header = () => {
     return (
         <div className="header-container">
             <div className="team">
                 <div className="logo-container">
-                    <img src={raptorsLogo2} title="raptors logo" alt="raptors logo"></img>
+                    <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/TOR.svg" height="28" title="raptors logo" alt="raptors logo"></img>
                 </div>
                 <button>Toronto Raptors <i className="drop-down-team"></i></button>
             </div>

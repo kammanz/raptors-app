@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { connect } from 'react-redux';
+
 import { getPlayers } from '../../actions/actions.js';
 import { selectPlayer } from '../../actions/actions.js';
 
