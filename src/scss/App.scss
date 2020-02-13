@@ -137,21 +137,16 @@ body {
     justify-content: space-evenly;
     align-items: center;
     padding-left: 30px;
-    color: $text-dark-grey;
     background: $background-color-grey;
+    color: $text-dark-grey;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
-  
-    > * div {
-      display: flex;
-      padding: 0 20px;
-      height: 100%;
-    }
 
     button {
       display: flex;
       align-items: center;
-      padding: 15px;
+      padding: 0 15px;
+      height: 100%;
       border: none;
       background: none;
       color: inherit;
