@@ -75,6 +75,7 @@ body {
       font-size: 22px;
       font-family: spurs;
       margin: 0 15px 0 0;
+
       i {
         display: inline-block;
         vertical-align: middle;
@@ -91,95 +92,93 @@ body {
       border-right: 20px solid transparent;
     }
   }
-}
 
+  .links {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1.5;
+    background-color: white;
+    font-family: Avenir;
+    text-transform: uppercase;
+    font-size: 16px;
   
+    .link-container {
+      display: inline-block;
+      height: 100%;
+      margin: 0 25px;
+    }
+  
+    a {
+      color: black;
+      display: inline-block;
+      height: calc(100% - 19px);    
+      padding-top: 15px;
+      text-decoration: none;
+  
+      &:hover {
+        height: calc(100% - 19px);
+        color: $grey-three;
+      }
+    }
 
-
-
-
-
-.header.links {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1.5;
-  background-color: white;
-  font-family: Avenir;
-  text-transform: uppercase;
-  font-size: 16px;
-
-  .link-container {
-    display: inline-block;
-    height: 100%;
-    margin: 0 25px;
-  }
-
-  a {
-    color: black;
-    display: inline-block;
-    height: calc(100% - 19px);    
-    padding-top: 15px;
-    text-decoration: none;
-
-    &:hover {
-      height: calc(100% - 19px);
-      color: $grey-three;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 100%;
+      z-index: 99;
+      border-top: 45px solid white;
+      border-right: 20px solid transparent;
     }
   }
-}
 
-.header.links::after {
-  content: '';
-  position: absolute;
-  left: 100%;
-  z-index: 99;
-  border-top: 45px solid white;
-  border-right: 20px solid transparent;
-}
-
-.header.user {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  background: $background-color-grey;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  color: $text-dark-grey;
-  padding-left: 15px;
-
-  div {
+  .user {
     display: flex;
-    margin: 0 15px;
+    justify-content: space-evenly;
+    align-items: center;
+    background: $background-color-grey;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: $text-dark-grey;
+    padding-left: 15px;
+  
+    div {
+      display: flex;
+      margin: 0 20px;
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      background: none;
+      color: inherit;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      outline: inherit;
+      font-size: 14px;
+      margin: 0 15px 0 0;
+
+      .user-pic {
+        border: 2px solid $border-dark-grey;
+        border-radius: 25px;
+      }
+    }
+  } 
+
+  .drop-down-team {
+    border-top: 6px solid white;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
   }
-
-  .user-pic {
-    border: 2px solid $border-dark-grey;
-    border-radius: 25px;
-  }
-}
-
-.header.user button {
-  display: flex;
-  align-items: center;
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  outline: inherit;
-  font-size: 14px;
-  margin: 0 15px 0 0;
-}
-
-.drop-down {
-  border-top: 6px solid white;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-
-  &.user {
+  
+  .drop-down-user{
     border-top: 6px solid $text-dark-grey;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
   }
 }
+
+
  

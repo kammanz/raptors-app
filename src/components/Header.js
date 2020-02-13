@@ -8,14 +8,14 @@ import raptorsLogo2 from '../assets/imgs/raptors-logo2.svg';
 const Header = () => {
     return (
         <div className="header-container">
-            <div /*className="header-team"*/ className="team">
+            <div className="team">
                 <div className="logo-container">
                     <img src={raptorsLogo2} title="raptors logo" alt="raptors logo"></img>
                 </div>
-                <button>Toronto Raptors <i className="drop-down"></i></button>
+                <button>Toronto Raptors <i className="drop-down-team"></i></button>
             </div>
 
-            <div className="header links">
+            <div className="links">
                 <div className="link-container">
                     <NavLink to='/' exact >Players</NavLink>
                 </div>
@@ -27,7 +27,7 @@ const Header = () => {
                 </div>
             </div>
             
-            <div className="header user">
+            <div className="user">
                 <div>
                     <img src={bell} alt="notification-bell"></img>
                 </div>
@@ -37,9 +37,8 @@ const Header = () => {
                 <button>
                     <img src={kobe} alt="user-pic" height="25" className="user-pic"></img>
                     <div>Kobe Bryant</div>
-                    <div className="drop-down user"></div>
+                    <i className="drop-down-user"></i>
                 </button>
-                
             </div>
         </div>
     );
