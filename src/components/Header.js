@@ -1,10 +1,8 @@
 import React from 'react';
-
 import { NavLink } from 'react-router-dom';
 
 import bell from '../assets/icons/notification-bell.svg';
 import settingsIcon from '../assets/icons/settings-icon.svg';
-
 import kobe from '../assets/imgs/kobe.jpg';
 
 const Header = () => {
@@ -30,12 +28,12 @@ const Header = () => {
             </div>
             
             <div className="user">
-                <div>
+                <button>
                     <img src={bell} alt="notification-bell"></img>
-                </div>
-                <div>
+                </button>
+                <button>
                     <img src={settingsIcon} alt="settings-icon"></img>
-                </div>
+                </button>
                 <button>
                     <img src={kobe} alt="user-pic" height="25" className="user-pic"></img>
                     <div>Kobe Bryant</div>
