@@ -1,14 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const PlayerDetails = (props)=> {
-    const { selectPlayer } = props;
-
-    if (!selectPlayer) {
+const PlayerDetails = ({ player }) => {
+    if (!player) {
         return <h3>Select a Player</h3>
     }
 
-    const { playerName, playerId, points, ppg, blocks, steals } = selectPlayer;
+    const { playerName, playerId, points, ppg, blocks, steals } = player;
 
     return (
         <div>
@@ -23,8 +21,6 @@ const PlayerDetails = (props)=> {
     );
 }
 
-const mapStateToProps = state => {
-    return { selectPlayer: state.selectPlayer }
-}
+const mapStateToProps = state => ({ player: state.selectPlayer });
 
 export default connect(mapStateToProps)(PlayerDetails);
