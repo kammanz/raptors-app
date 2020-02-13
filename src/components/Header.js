@@ -8,7 +8,7 @@ import raptorsLogo2 from '../assets/imgs/raptors-logo2.svg';
 const Header = () => {
     return (
         <div className="header-container">
-            <div className="header-team">
+            <div /*className="header-team"*/ className="team">
                 <div className="logo-container">
                     <img src={raptorsLogo2} title="raptors logo" alt="raptors logo"></img>
                 </div>
