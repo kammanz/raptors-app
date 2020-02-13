@@ -31,10 +31,8 @@ body {
 }
 
 .active {
-  // background-color: pink;
   color: $background-color-purple !important;
   border-bottom: 4px solid $background-color-purple;
-
 }
 
 .players {
@@ -56,13 +54,7 @@ body {
   justify-content: space-evenly;
   align-items: center;
   position: relative;
-  // flex:1;
   background: $background-color-purple;
-
-  // div {
-  //   // padding: 0 5px;
-  //   margin: 0 20px;
-  // }
 
   button {
     background: none;
@@ -82,7 +74,6 @@ body {
       margin-left: 10px;
     }
   }
-  
 }
 
 .header-team::after {
@@ -105,7 +96,7 @@ body {
 .header.links {
   position: relative;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   flex: 1.5;
   background-color: white;
@@ -116,7 +107,7 @@ body {
   .link-container {
     display: inline-block;
     height: 100%;
-    height: calc(100%-4px);
+    margin: 0 25px;
   }
 
   a {
@@ -128,7 +119,6 @@ body {
 
     &:hover {
       height: calc(100% - 19px);
-      // border-bottom: 4px solid $background-color-purple;
       color: $grey-three;
     }
   }
@@ -147,7 +137,6 @@ body {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  // flex: 1;
   background: $background-color-grey;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
@@ -160,11 +149,22 @@ body {
   }
 
   .user-pic {
-    // height: 40px;
     border: 2px solid $border-dark-grey;
     border-radius: 25px;
   }
-  
+}
+
+.header.user button {
+  display: flex;
+  align-items: center;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: inherit;
+  font-size: 14px;
+  margin: 0 15px 0 0;
 }
 
 .drop-down {

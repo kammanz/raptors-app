@@ -34,11 +34,12 @@ const Header = () => {
                 <div>
                     <img src={settingsIcon} alt="settings-icon"></img>
                 </div>
-                <div >
+                <button>
                     <img src={kobe} alt="user-pic" height="25" className="user-pic"></img>
-                </div>
-                <div>Kobe Bryant</div>
-                <div className="drop-down user"></div>
+                    <div>Kobe Bryant</div>
+                    <div className="drop-down user"></div>
+                </button>
+                
             </div>
         </div>
     );
