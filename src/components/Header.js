@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import bell from '../assets/bell7.png';
-import settingsIcon from '../assets/settings-icon7.png';
+import { NavLink } from 'react-router-dom';
+import bell from '../assets/imgs/notification-bell.svg';
+import settingsIcon from '../assets/imgs/settings-icon.svg';
 import kobe from '../assets/kobe.jpg';
 import raptorsLogo2 from '../assets/imgs/raptors-logo2.svg';
 
@@ -13,9 +13,6 @@ const Header = () => {
                     <img src={raptorsLogo2} title="raptors logo" alt="raptors logo"></img>
                 </div>
                 <button>Toronto Raptors <i className="drop-down"></i></button>
-                {/* <div className="drop-down">
-                    
-                </div> */}
             </div>
 
             <div className="header links">
@@ -32,13 +29,13 @@ const Header = () => {
             
             <div className="header user">
                 <div>
-                    <img src={bell} alt="notification-bell" height="25"></img>
+                    <img src={bell} alt="notification-bell"></img>
                 </div>
                 <div>
-                    <img src={settingsIcon} alt="settings-icon" height="25"></img>
+                    <img src={settingsIcon} alt="settings-icon"></img>
                 </div>
                 <div >
-                    <img src={kobe} alt="user-pic" height="30" className="user-pic"></img>
+                    <img src={kobe} alt="user-pic" height="25" className="user-pic"></img>
                 </div>
                 <div>Kobe Bryant</div>
                 <div className="drop-down user"></div>

@@ -12,9 +12,9 @@ const App = () => {
       <BrowserRouter >
         <Header/>
         <div id="container">
-            <Route to="/" exact component={PlayersPage} />
-            <Route to="/standings" component={StandingsPage} />
-            <Route to="/games" component={GamesPage} />
+            <Route path="/" exact component={PlayersPage} />
+            <Route path="/standings" component={StandingsPage} />
+            <Route path="/games" component={GamesPage} />
         </div>
       </BrowserRouter>
     </div>
