@@ -1,10 +1,11 @@
 import React from 'react';
+
 import { NavLink } from 'react-router-dom';
 
-import bell from '../assets/imgs/notification-bell.svg';
-import settingsIcon from '../assets/imgs/settings-icon.svg';
+import bell from '../assets/icons/notification-bell.svg';
+import settingsIcon from '../assets/icons/settings-icon.svg';
 
-import kobe from '../assets/kobe.jpg';
+import kobe from '../assets/imgs/kobe.jpg';
 
 const Header = () => {
     return (
