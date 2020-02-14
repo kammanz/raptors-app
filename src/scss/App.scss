@@ -7,6 +7,24 @@ $border-dark-grey: #919191;
 $grey-three: #919191;
 $white: #FFFFFF;
 
+// Player Card Number Background
+$grey1: #f5f5f5;
+
+// Player Card Position Selected 
+$grey1b: #e7e7e7; 
+
+// Player Card Height
+$grey2: #a8a8a8;
+
+//Player Card Number
+$grey3: #959595;
+
+// Player Card Position
+$grey4: #777777;
+
+// Header Links, Player Card Name
+$grey5: #4e4e4e;
+
 @font-face {
   src: url('../assets/fonts/Abadi-MT-Condensed-Extra-Bold.ttf');
   font-family: Abadi;
@@ -25,8 +43,6 @@ $white: #FFFFFF;
 body {
   margin: 0;
   background-color: $background-color-main;
-  // background-color: cyan;
-
 }
 
 .app {
@@ -69,7 +85,7 @@ body {
       color: $white;
       font-family: spurs;
       font-size: 22px;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       text-transform: uppercase;
       cursor: pointer;
 
@@ -96,7 +112,7 @@ body {
     flex: 1.5;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: $white;
     font-family: Avenir;
     font-size: 16px;
     text-transform: uppercase;
@@ -178,132 +194,135 @@ body {
 }
   
 .selected-card {
-  .player-details-container {
+  .details-container {
     background-color: $background-color-purple !important;
     margin-top: 0px;
     padding-top: 0px;
     z-index: 99;
     pointer-events: none;
-    .player-number {
+    .number {
       background-color: $background-color-purple;
       color: white;
     }
-
   }
 } 
 
-///////////////
+/////////////// Player Card Styles //////////////
 
 .player-card {
-  font-family: Arial, Helvetica, sans-serif;
-  background: white;
   width: 306px;
   margin-bottom: 10px;
   padding: 5px;
-}
+  background: white;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
 
-.player-card:hover {
-  .player-details-container {
-    background-color: $background-color-grey;
+  // & > * {
+  //   pointer-events: none;
+  // }
+  
+  &:hover {
+    .details-container {
+      background-color: $background-color-grey;
+      pointer-events: none;
+    }
+  }
+
+  .image-container {
+    position: relative;
+    height: 240px;
+    background-image: url('../assets/imgs/player-backdrop.png');
+    pointer-events: none;
+
+      img {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      height: 224px;
+      pointer-events: none;
+    }
+  }
+  
+  .image-border-bottom {
+    width: 100%;
+    margin-top: 4px;
+    border-bottom: 2px solid $background-color-purple;
     pointer-events: none;
   }
-}
 
-.player-card .player-image-container {
-  background-image: url('../assets/imgs/player-backdrop.png');
-  pointer-events: none;
-  height: 240px;
-  position: relative;
-}
+  .details-container {
+    display: flex;
+    align-items: center;
+    height: 120px;
+    margin-top: 0px;
 
-.player-card .player-image-container img {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  pointer-events: none;
-  height: 224px;
-}
+    .number {
+      flex: .5;
+      padding: 7%;
+      border-radius: 5px;
+      background-color: $background-color-grey;
+      color: $grey3;
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+      pointer-events: none;
+    }
 
-.player-card .player-details-container {
-  height: 120px;
-  margin-top: 0px;
-  display: flex;
-  align-items: center;
-}
-
-.empty-div {
-  width: 100%;
-  margin-top: 4px;
-  border-bottom: 2px solid $background-color-purple;
-  pointer-events: none;
-}
-
-.player-card .player-details-container .player-number {
-  font-size: 32px;
-  font-weight: bold;
-  color: $text-dark-grey;
-  flex: .5;
-  background-color: $background-color-grey;
-  border-radius: 5px;
-  padding: 7%;
-  pointer-events: none;
-}
-
-.player-card .player-details-container .player-attributes {
-  display: flex;
-  flex-direction: column;
-  flex: 2;
-  text-align: left;
-  padding: 5px 0 5px 12px;
-  pointer-events: none;
-
-  div {
-    padding: 2px;
+    .details {
+      display: flex;
+      flex-direction: column;
+      flex: 2;
+      padding: 5px 0 5px 12px;
+      text-align: left;
+      pointer-events: none;
+    
+      div {
+        padding: 2px;
+      }
+    
+      .name {
+        color: $grey5;
+        font-size: 18px;
+        font-weight: bold;
+        pointer-events: none;
+      }
+    
+      .position {
+        padding-top: 5px;
+        color: $grey4;
+        font-size: 16px;
+        pointer-events: none;
+      }
+    
+      .size {
+        padding-top: 5px;
+        color: $grey2;
+        font-size: 14px;
+        pointer-events: none;
+      }
+    }   
   }
-}   
 
-.player-name {
-  font-weight: bold;
-  font-size: 18px;
-  color: black;
-  pointer-events: none;
-}
+  &.selected-card {
+    .details-container {
+      margin-top: 0px;
+      padding-top: 0px;
+      z-index: 99;
+      background-color: $background-color-purple;
+      pointer-events: none;
 
-.player-position {
-  font-size: 16px;
-  color: $grey-three;
-  padding-top: 5px;
-  color: $text-dark-grey;
-  pointer-events: none;
-}
+      .number, .name {
+        background-color: $background-color-purple;
+        color: $white;
+      }
 
-.player-size {
-  padding-top: 5px;
-  font-size: 14px;
-  color: $text-dark-grey;
-  pointer-events: none;
+      .position, .size {
+        color: $grey1b;
+      }
+    }
+  }
 }
   
-.selected-card {
-  .player-details-container {
-    background-color: $background-color-purple !important;
-    margin-top: 0px;
-    padding-top: 0px;
-    z-index: 99;
-    pointer-events: none;
-    .player-number {
-      background-color: $background-color-purple;
-      color: white;
-    }
 
-    .player-name {
-      color: white;
-    }
-
-    .player-position {
-      color: $text-dark-grey;
-    }
-  }
-}
 
