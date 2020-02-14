@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import Header from './Header';
+import SearchBar from './SearchBar';
 import StandingsPage from './standings/StandingsPage';
 import GamesPage from './games/GamesPage';
 import PlayersPage from './players/PlayersPage';
@@ -13,6 +14,7 @@ const App = () => {
     <div className="App">
       <BrowserRouter >
         <Header/>
+        <SearchBar/>
         <div id="container">
             <Route path="/" exact component={PlayersPage} />
             <Route path="/standings" component={StandingsPage} />

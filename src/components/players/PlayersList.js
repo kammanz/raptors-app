@@ -37,7 +37,7 @@ class PlayersList extends React.Component {
                             el.classList.add("selected-card");
                         }
                     
-                        this.props.selectPlayer(player.person_id, player.display_name);
+                        this.props.selectPlayer(player.person_id, player.first_name, player.last_name, player.position_full, player.jersey_number);
                     }}
                     className="player-card"
                 >
@@ -61,9 +61,7 @@ class PlayersList extends React.Component {
     render() {
         return (
             <div className="players-list-container">
-                {/* <h3>Players</h3> */}
                 {this.renderPlayers()}
-                {/* <br/> */}
             </div>
         )
     }

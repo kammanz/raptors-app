@@ -5,13 +5,13 @@ export const getPlayers = () => async dispatch => {
     dispatch({ type: 'GET_PLAYERS', payload: response.data.sports_content.roster.players.player })
 };
 
-export const selectPlayer = (playerId, playerName) => async dispatch => {
+export const selectPlayer = (playerId, playerFirstName, playerLastName, playerPosition, playerJerseyNumber) => async dispatch => {
     if (!playerId) {
         return null;
     };
 
     const response = await dataNbaNet.get("/prod/v1/2019/players/" + playerId + "_profile.json");
-    dispatch({ type: 'SELECT_PLAYER', payload: { ...response.data.league.standard.stats.latest, playerName, playerId }});    
+    dispatch({ type: 'SELECT_PLAYER', payload: { ...response.data.league.standard.stats.latest, playerId, playerFirstName, playerLastName, playerPosition, playerJerseyNumber }});    
 };
 
 export const isClicked = () => {

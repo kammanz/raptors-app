@@ -55,10 +55,11 @@ body {
 }
 
 .header-container {
+  position: relative;
   display: flex;
-  height: 45px;
   justify-content: space-evenly;
-  box-shadow: 1px -1px 2px $border-shadow;
+  height: 45px;
+  box-shadow: -1px 0px 8px grey;
   font-family: Abadi;
   list-style: none;
   
@@ -193,6 +194,14 @@ body {
   }
 } 
 
+///// Search Bar Styles /////@extend
+
+.search-bar {
+  height: 45px;
+  background-color: $white;
+}
+
+
 /////////////// Player Container Styles ////////
 
 .players-list-container {
@@ -203,10 +212,58 @@ body {
 }
 
 .player-details-container {
-  // flex: 1;
   background-color: yellow;
-}
+  padding: 15px;
 
+  .image-container-details {
+    position: relative;
+    background-image: url('../assets/imgs/player-backdrop.png');
+
+    img {
+      position: relative;
+      top: 4px;
+      width: 440px;
+    }
+  }
+
+  .image-border-bottom {
+    width: 100%;
+    margin-top: 4px;
+    border-bottom: 2px solid $background-color-purple;
+  }
+
+  .details-details-container {
+    #details-name-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .player-details-name {
+      font-size: 30px;
+      color: $grey5;
+      font-weight: bold;
+      font-family: arial;
+      }
+
+      .player-details-number {
+      flex: 1;
+      text-align: end;
+      padding-right: 35px;
+      color: $background-color-purple;
+      font-size: 46px;
+      font-weight: bold;
+      font-family: arial;
+      vertical-align: sub;
+      }
+    }
+
+    .player-details-position {
+      color: $grey4;
+      font-size: 22px;
+      font-family: arial;
+    }
+  }
+}
 
 /////////////// Player Card Styles //////////////
 
@@ -233,7 +290,7 @@ body {
     height: 240px;
     background-image: url('../assets/imgs/player-backdrop.png');
 
-      img {
+    img {
       position: absolute;
       bottom: 0;
       right: 0;
