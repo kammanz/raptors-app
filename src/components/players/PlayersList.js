@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getPlayers, selectPlayer, isClicked } from '../../actions/actions.js';
+
+import { getPlayers } from '../../actions/actions.js';
+import { selectPlayer } from '../../actions/actions.js';
 
 class PlayersList extends React.Component {
     constructor(props) {
@@ -75,7 +77,6 @@ class PlayersList extends React.Component {
     }
 
     render() {
-        // console.log(this.state, 'this.state');
         return (
             <div className="players-list-container">
                 <h3>Players</h3>
@@ -86,11 +87,11 @@ class PlayersList extends React.Component {
     }
 }
 
-const getMyState = (state) => {
+const mapStateToProps = (state) => {
     return { players: state.players };
 }
 
-export default connect(getMyState,
+export default connect(mapStateToProps,
         { 
             getPlayers,
             selectPlayer,
