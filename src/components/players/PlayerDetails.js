@@ -4,13 +4,18 @@ import { connect } from 'react-redux';
 const PlayerDetails = ({ player })=> {
 
     if (!player) {
-        return <h3>Select a Player</h3>
+        return (
+            // <div className="player-details-container">
+            //     <h3>Select a Player</h3>
+            // </div>
+            null
+        )
     }
 
     const { playerName, playerId, points, ppg, blocks, steals } = player;
 
     return (
-        <div>
+        <div className="player-details-container">
             <h3>Stats</h3>
             <h4>{playerName}</h4>
             <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${playerId}.png`} alt="Player Headshot" />            

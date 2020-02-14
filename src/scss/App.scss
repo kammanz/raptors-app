@@ -193,6 +193,21 @@ body {
   }
 } 
 
+/////////////// Player Container Styles ////////
+
+.players-list-container {
+  display: flex;
+    background-color: pink;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.player-details-container {
+  // flex: 1;
+  background-color: yellow;
+}
+
+
 /////////////// Player Card Styles //////////////
 
 .player-card {

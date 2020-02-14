@@ -9,6 +9,7 @@ class PlayersList extends React.Component {
 
         this.state = {
             selectedCard: null,
+            toggled: null,
         }
     }
 
@@ -60,9 +61,9 @@ class PlayersList extends React.Component {
     render() {
         return (
             <div className="players-list-container">
-                <h3>Players</h3>
-                <div>{this.renderPlayers()}</div>
-                <br/>
+                {/* <h3>Players</h3> */}
+                {this.renderPlayers()}
+                {/* <br/> */}
             </div>
         )
     }
