@@ -95,6 +95,5 @@ export default connect(mapStateToProps,
         { 
             getPlayers,
             selectPlayer,
-            isClicked,
         }
 )(PlayersList);

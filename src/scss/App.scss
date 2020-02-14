@@ -191,3 +191,119 @@ body {
 
   }
 } 
+
+///////////////
+
+.player-card {
+  font-family: Arial, Helvetica, sans-serif;
+  background: white;
+  width: 306px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.player-card:hover {
+  .player-details-container {
+    background-color: $background-color-grey;
+    pointer-events: none;
+  }
+}
+
+.player-card .player-image-container {
+  background-image: url('../assets/imgs/player-backdrop.png');
+  pointer-events: none;
+  height: 240px;
+  position: relative;
+}
+
+.player-card .player-image-container img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  pointer-events: none;
+  height: 224px;
+}
+
+.player-card .player-details-container {
+  height: 120px;
+  margin-top: 0px;
+  display: flex;
+  align-items: center;
+}
+
+.empty-div {
+  width: 100%;
+  margin-top: 4px;
+  border-bottom: 2px solid $background-color-purple;
+  pointer-events: none;
+}
+
+.player-card .player-details-container .player-number {
+  font-size: 32px;
+  font-weight: bold;
+  color: $text-dark-grey;
+  flex: .5;
+  background-color: $background-color-grey;
+  border-radius: 5px;
+  padding: 7%;
+  pointer-events: none;
+}
+
+.player-card .player-details-container .player-attributes {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  text-align: left;
+  padding: 5px 0 5px 12px;
+  pointer-events: none;
+
+  div {
+    padding: 2px;
+  }
+}   
+
+.player-name {
+  font-weight: bold;
+  font-size: 18px;
+  color: black;
+  pointer-events: none;
+}
+
+.player-position {
+  font-size: 16px;
+  color: $grey-three;
+  padding-top: 5px;
+  color: $text-dark-grey;
+  pointer-events: none;
+}
+
+.player-size {
+  padding-top: 5px;
+  font-size: 14px;
+  color: $text-dark-grey;
+  pointer-events: none;
+}
+  
+.selected-card {
+  .player-details-container {
+    background-color: $background-color-purple !important;
+    margin-top: 0px;
+    padding-top: 0px;
+    z-index: 99;
+    pointer-events: none;
+    .player-number {
+      background-color: $background-color-purple;
+      color: white;
+    }
+
+    .player-name {
+      color: white;
+    }
+
+    .player-position {
+      color: $text-dark-grey;
+    }
+  }
+}
+
