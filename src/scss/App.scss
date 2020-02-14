@@ -191,20 +191,6 @@ body {
     border-right: 6px solid transparent;
     margin: 15px;
   }
-}
-  
-.selected-card {
-  .details-container {
-    background-color: $background-color-purple !important;
-    margin-top: 0px;
-    padding-top: 0px;
-    z-index: 99;
-    pointer-events: none;
-    .number {
-      background-color: $background-color-purple;
-      color: white;
-    }
-  }
 } 
 
 /////////////// Player Card Styles //////////////
@@ -213,18 +199,17 @@ body {
   width: 306px;
   margin-bottom: 10px;
   padding: 5px;
-  background: white;
-  font-family: Arial, Helvetica, sans-serif;
+  background: $white;
+  font-family: Arial;
   cursor: pointer;
 
-  // & > * {
-  //   pointer-events: none;
-  // }
+  & > * {
+    pointer-events: none;
+  }
   
   &:hover {
     .details-container {
       background-color: $background-color-grey;
-      pointer-events: none;
     }
   }
 
@@ -232,7 +217,6 @@ body {
     position: relative;
     height: 240px;
     background-image: url('../assets/imgs/player-backdrop.png');
-    pointer-events: none;
 
       img {
       position: absolute;
@@ -240,7 +224,6 @@ body {
       right: 0;
       left: 0;
       height: 224px;
-      pointer-events: none;
     }
   }
   
@@ -248,14 +231,12 @@ body {
     width: 100%;
     margin-top: 4px;
     border-bottom: 2px solid $background-color-purple;
-    pointer-events: none;
   }
 
   .details-container {
     display: flex;
     align-items: center;
     height: 120px;
-    margin-top: 0px;
 
     .number {
       flex: .5;
@@ -266,7 +247,6 @@ body {
       font-size: 30px;
       font-weight: bold;
       text-align: center;
-      pointer-events: none;
     }
 
     .details {
@@ -275,50 +255,48 @@ body {
       flex: 2;
       padding: 5px 0 5px 12px;
       text-align: left;
-      pointer-events: none;
     
-      div {
-        padding: 2px;
+      & > * {
+        padding: 3px;
       }
     
       .name {
         color: $grey5;
         font-size: 18px;
         font-weight: bold;
-        pointer-events: none;
       }
     
       .position {
-        padding-top: 5px;
         color: $grey4;
         font-size: 16px;
-        pointer-events: none;
       }
     
       .size {
-        padding-top: 5px;
         color: $grey2;
         font-size: 14px;
-        pointer-events: none;
       }
     }   
   }
 
   &.selected-card {
     .details-container {
-      margin-top: 0px;
-      padding-top: 0px;
-      z-index: 99;
       background-color: $background-color-purple;
-      pointer-events: none;
 
-      .number, .name {
+      .number {
         background-color: $background-color-purple;
         color: $white;
       }
 
-      .position, .size {
-        color: $grey1b;
+      .details {
+        background-color: $background-color-purple;
+
+        .name {
+          color: $white;
+        }
+
+        .position, .size {
+          color: $grey1b;
+        }
       }
     }
   }

@@ -26,13 +26,13 @@ class PlayersList extends React.Component {
                     onClick={(index) => {
                         const el = index.target;
                         if (this.state.selectedCard === null) {
-                            this.setState({ selectedCard: el});
+                            this.setState({selectedCard: el});
                             el.classList.add("selected-card");
                         }
 
                         if (this.state.selectedCard !== null && el !== this.state.selectedCard) {
                             this.state.selectedCard.classList.remove("selected-card");
-                            this.setState({ selectedCard: el});
+                            this.setState({selectedCard: el});
                             el.classList.add("selected-card");
                         }
                     
@@ -41,7 +41,7 @@ class PlayersList extends React.Component {
                     className="player-card"
                 >
                     <div className="image-container">
-                        <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${player.person_id}.png`} />
+                        <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${player.person_id}.png`} alt="Player Headshot"/>
                     </div>
                     <div className="image-border-bottom"></div>
                     <div className="details-container">
