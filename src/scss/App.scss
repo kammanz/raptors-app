@@ -59,7 +59,7 @@ body {
   display: flex;
   justify-content: space-evenly;
   height: 45px;
-  box-shadow: -1px 0px 8px grey;
+  box-shadow: -1px -3px 10px $grey2;
   font-family: Abadi;
   list-style: none;
   
@@ -75,7 +75,7 @@ body {
       border-radius: 24px;
       box-shadow: 1px 1px 5px $border-dark-grey;
       margin: 0 15px;
-      background-color: white;
+      background-color: $white;
     }
 
     button {
@@ -128,7 +128,7 @@ body {
       display: inline-block;
       height: calc(100% - 19px);    
       padding-top: 15px;
-      color: black;
+      color: $grey5;
       text-decoration: none;
 
        &:hover {
@@ -194,83 +194,99 @@ body {
   }
 } 
 
-///// Search Bar Styles /////@extend
+///// Search Bar Styles /////
 
 .search-bar {
   height: 45px;
   background-color: $white;
 }
 
+///// Player Container Styles /////
 
-/////////////// Player Container Styles ////////
+.players-container {
+  display: flex;
+  // border-top: 1px solid $grey3;
+  // box-shadow: -1px 0px 8px $grey3;
+  box-shadow: -1px 0px 1px $grey3;
+} 
 
 .players-list-container {
   display: flex;
-    background-color: pink;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  flex-wrap: wrap;
+  width: 72%;
+  justify-content: space-between;
+  background-color: $white;
 }
 
 .player-details-container {
-  background-color: yellow;
-  padding: 15px;
+  width: 28%;
+  border-left: 1px solid $grey1;
+  background-color:$white;
+  
 
-  .image-container-details {
-    position: relative;
-    background-image: url('../assets/imgs/player-backdrop-large.png');
+  .player-details-card {
+    padding: 5px 8px;
 
-    img {
+    .image-container {
       position: relative;
-      top: 4px;
-      width: 440px;
-    }
-  }
+      background-image: url('../assets/imgs/player-backdrop-large.png');
 
-  .image-border-bottom {
-    width: 100%;
-    margin-top: 4px;
-    border-bottom: 2px solid $background-color-purple;
-  }
-
-  .details-details-container {
-    #details-name-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .player-details-name {
-      font-size: 30px;
-      color: $grey5;
-      font-weight: bold;
-      font-family: arial;
-      }
-
-      .player-details-number {
-      flex: 1;
-      text-align: end;
-      padding-right: 35px;
-      color: $background-color-purple;
-      font-size: 46px;
-      font-weight: bold;
-      font-family: arial;
-      vertical-align: sub;
+      img {
+        position: relative;
+        top: 4px;
+        width: 100%;
       }
     }
 
-    .player-details-position {
-      color: $grey4;
-      font-size: 22px;
-      font-family: arial;
+    .image-border-bottom {
+      width: 100%;
+      margin-top: 4px;
+      border-bottom: 2px solid $background-color-purple;
+    }
+
+    .player-stats-container {
+      padding-left: 3px;
+
+      .stats-name-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+  
+        .stats-name {
+        font-size: 30px;
+        color: $grey5;
+        font-weight: bold;
+        font-family: arial;
+        }
+  
+        .stats-number {
+        flex: 1;
+        text-align: end;
+        padding-right: 35px;
+        color: $background-color-purple;
+        font-size: 46px;
+        font-weight: bold;
+        font-family: arial;
+        vertical-align: sub;
+        }
+      }
+  
+      .stats-position {
+        color: $grey4;
+        font-size: 22px;
+        font-family: arial;
+      }
     }
   }
 }
 
-/////////////// Player Card Styles //////////////
+///// Player Card Styles /////
 
 .player-card {
-  width: 306px;
+  // width: 250px;
+  width: 24%;
   margin-bottom: 10px;
-  padding: 5px;
+  padding: 5px 4px;
   background: $white;
   font-family: Arial;
   cursor: pointer;
@@ -287,7 +303,7 @@ body {
 
   .image-container {
     position: relative;
-    height: 240px;
+    height: 194px;
     background-image: url('../assets/imgs/player-backdrop.png');
 
     img {
@@ -295,7 +311,7 @@ body {
       bottom: 0;
       right: 0;
       left: 0;
-      height: 224px;
+      width: 95%;
     }
   }
   
@@ -314,9 +330,8 @@ body {
       flex: .5;
       padding: 7%;
       border-radius: 5px;
-      background-color: $background-color-grey;
       color: $grey3;
-      font-size: 30px;
+      font-size: 32px;
       font-weight: bold;
       text-align: center;
     }
@@ -334,18 +349,18 @@ body {
     
       .name {
         color: $grey5;
-        font-size: 18px;
+        font-size: 14px;
         font-weight: bold;
       }
     
       .position {
         color: $grey4;
-        font-size: 16px;
+        font-size: 13px;
       }
     
       .size {
         color: $grey2;
-        font-size: 14px;
+        font-size: 12px;
       }
     }   
   }

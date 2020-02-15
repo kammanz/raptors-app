@@ -5,27 +5,29 @@ const PlayerDetails = ({ player })=> {
     console.log(player, 'player');
 
     if (!player) {
-        return null;
+        return <div className="player-details-container"></div>;
     }
 
     const { playerId, playerFirstName, playerLastName,  points, ppg, blocks, steals, playerPosition, playerJerseyNumber } = player;
 
     return (
         <div className="player-details-container">
-            <div className="image-container-details">
-              <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${playerId}.png`} alt="Player Headshot"/>  
-            </div>
-            
-            <div className="image-border-bottom"></div>
-            <div className="details-details-container">
-                <div id="details-name-container">
-                    <div className="player-details-name">{playerFirstName} {playerLastName}</div>
-                   <div className="player-details-number">{playerJerseyNumber}</div>
+            <div className="player-details-card">
+                <div className="image-container">
+                    <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${playerId}.png`} alt="Player Headshot"/>  
                 </div>
-                <div className="player-details-position">{playerPosition}</div>
+                    
+                <div className="image-border-bottom"></div>
+                <div className="player-stats-container">
+                    <div className="stats-name-container">
+                        <div className="stats-name">{playerFirstName} {playerLastName}</div>
+                        <div className="stats-number">{playerJerseyNumber}</div>
+                    </div>
+                    <div className="stats-position">{playerPosition}</div>
+                </div>
             </div>  
-        </div>        
-    );
+        </div>
+    )
 }
 
 const mapStateToProps = state => ({ player: state.selectPlayer });
