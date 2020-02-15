@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+import raptorsLogo from '../assets/icons/raptors-logo.svg';
+
 import bell from '../assets/icons/notification-bell.svg';
 import settingsIcon from '../assets/icons/settings-icon.svg';
 import kobe from '../assets/imgs/kobe.jpg';
@@ -10,7 +12,7 @@ const Header = () => {
         <div className="header-container">
             <div className="team">
                 <div className="logo-container">
-                    <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/TOR.svg" height="28" title="raptors logo" alt="raptors logo"></img>
+                    <img src={raptorsLogo} title="raptors logo" alt="raptors logo"></img>
                 </div>
                 <button>Toronto Raptors <i className="drop-down-team"></i></button>
             </div>
