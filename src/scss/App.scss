@@ -55,6 +55,8 @@ body {
   justify-content: space-evenly;
 }
 
+///// Header Styling /////
+
 .header-container {
   position: relative;
   display: flex;
@@ -72,10 +74,10 @@ body {
     background: $background-color-purple;
 
     .logo-container {
-      display: flex;
-      margin: 0 15px;
 
       img {
+        display: block;
+        margin: 0 10px;
         height: 40px;
       }
     }
