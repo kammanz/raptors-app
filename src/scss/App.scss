@@ -54,6 +54,8 @@ body {
   justify-content: space-evenly;
 }
 
+// Header Styles
+
 .header-container {
   position: relative;
   display: flex;
@@ -202,7 +204,7 @@ body {
   background-color: $white;
 }
 
-///// Player Container Styles /////
+// Player Container Styles
 
 .players-container {
   display: flex;
@@ -279,7 +281,7 @@ body {
   }
 }
 
-///// Player Card Styles /////
+// Player Card Styles
 
 .player-card {
   width: 24%;
