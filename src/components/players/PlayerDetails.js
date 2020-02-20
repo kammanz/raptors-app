@@ -2,10 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const PlayerDetails = ({ player })=> {
-    console.log(player, 'player');
-
     if (!player) {
-        return <div className="player-details-container"></div>;
+        return <div className="player-details-container" />;
     }
 
     const { playerId, playerFirstName, playerLastName,  points, ppg, blocks, steals, playerPosition, playerJerseyNumber } = player;
@@ -18,7 +16,7 @@ const PlayerDetails = ({ player })=> {
                 </div>
                     
                 <div className="image-border-bottom"></div>
-                <div className="player-stats-container">
+                <div className="stats-container">
                     <div className="stats-name-container">
                         <div className="stats-name">{playerFirstName} {playerLastName}</div>
                         <div className="stats-number">{playerJerseyNumber}</div>
