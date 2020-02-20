@@ -70,21 +70,12 @@ body {
   .team {
     position: relative;
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
     background: $background-color-purple;
 
-    .logo-container {
-
-      img {
-        display: block;
-        margin-left: 10px;
-        height: 40px;
-      }
-    }
-
     button {
-      padding: 0 15px;
+      display: flex;
+      align-items: center;
+      padding: 0 15px 0 10px;
       height: 100%;
       border: none;
       background: none;
@@ -95,10 +86,12 @@ body {
       text-transform: uppercase;
       cursor: pointer;
 
-      i {
-        display: inline-block;
-        vertical-align: middle;
-        margin-left: 10px;
+      img {
+        height: 35px;
+      }
+
+      span {
+        margin: 2px 13px 0 8px;
       }
     }
 
@@ -106,7 +99,7 @@ body {
       content: '';
       position: absolute;
       left: 100%;
-      z-index: 5;
+      z-index: 1;
       border-top: 45px solid $background-color-purple;
       border-right: 16px solid transparent;
     }

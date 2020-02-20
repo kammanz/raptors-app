@@ -10,10 +10,11 @@ const Header = () => {
     return (
         <div className="header-container">
             <div className="team">
-                <div className="logo-container">
+                <button className="logo-container">
                     <img src={raptorsLogo} title="raptors logo" alt="raptors logo"></img>
-                </div>
-                <button>Toronto Raptors <i className="drop-down-team"></i></button>
+                    <span>Toronto Raptors </span>
+                    <i className="drop-down-team" />
+                </button>
             </div>
 
             <div className="links">
