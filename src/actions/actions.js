@@ -13,10 +13,3 @@ export const selectPlayer = (playerId, playerFirstName, playerLastName, playerPo
     const response = await dataNbaNet.get("/prod/v1/2019/players/" + playerId + "_profile.json");
     dispatch({ type: 'SELECT_PLAYER', payload: { ...response.data.league.standard.stats.latest, playerId, playerFirstName, playerLastName, playerPosition, playerJerseyNumber }});    
 };
-
-export const isClicked = () => {
-    return {
-        type: 'IS_CLICKED',
-        payload: true,
-    }
-} 
