@@ -7,6 +7,26 @@ $border-dark-grey: #919191;
 $grey-three: #919191;
 $white: #FFFFFF;
 
+// TODO rename color variables and remove temporary comments
+
+// Player Card Number Background
+$grey1: #f5f5f5;
+
+// Player Card Position Selected 
+$grey1b: #e7e7e7; 
+
+// Player Card Height
+$grey2: #a8a8a8;
+
+//Player Card Number
+$grey3: #959595;
+
+// Player Card Position
+$grey4: #777777;
+
+// Header Links, Player Card Name
+$grey5: #4e4e4e;
+
 @font-face {
   src: url('../assets/fonts/Abadi-MT-Condensed-Extra-Bold.ttf');
   font-family: Abadi;
@@ -36,31 +56,26 @@ body {
   justify-content: space-evenly;
 }
 
+// Header Styling
+
 .header-container {
+  position: relative;
   display: flex;
-  height: 45px;
   justify-content: space-evenly;
-  box-shadow: 1px -1px 2px $border-shadow;
+  height: 45px;
+  box-shadow: -1px -3px 10px $grey2;
   font-family: Abadi;
   list-style: none;
   
   .team {
     position: relative;
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
     background: $background-color-purple;
 
-    .logo-container {
-      display: flex;
-      border-radius: 24px;
-      box-shadow: 1px 1px 5px $border-dark-grey;
-      margin: 0 15px;
-      background-color: white;
-    }
-
     button {
-      padding: 0 15px;
+      display: flex;
+      align-items: center;
+      padding: 0 15px 0 10px;
       height: 100%;
       border: none;
       background: none;
@@ -71,10 +86,12 @@ body {
       text-transform: uppercase;
       cursor: pointer;
 
-      i {
-        display: inline-block;
-        vertical-align: middle;
-        margin-left: 10px;
+      img {
+        height: 35px;
+      }
+
+      span {
+        margin: 2px 13px 0 8px;
       }
     }
 
@@ -82,9 +99,9 @@ body {
       content: '';
       position: absolute;
       left: 100%;
-      z-index: 5;
+      z-index: 1;
       border-top: 45px solid $background-color-purple;
-      border-right: 20px solid transparent;
+      border-right: 16px solid transparent;
     }
   }
 
@@ -94,7 +111,7 @@ body {
     flex: 1.5;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: $white;
     font-family: Avenir;
     font-size: 16px;
     text-transform: uppercase;
@@ -109,7 +126,7 @@ body {
       display: inline-block;
       height: calc(100% - 19px);    
       padding-top: 15px;
-      color: black;
+      color: $grey5;
       text-decoration: none;
 
        &:hover {
@@ -128,7 +145,7 @@ body {
       position: absolute;
       left: 100%;
       border-top: 45px solid $white;
-      border-right: 20px solid transparent;
+      border-right: 16px solid transparent;
     }
   }
 
@@ -174,6 +191,3 @@ body {
     margin: 15px;
   }
 }
-
-
- 
