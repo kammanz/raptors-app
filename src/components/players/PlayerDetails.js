@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const PlayerDetails = ({ player })=> {
+const PlayerDetails = ({ player }) => {
     if (!player) {
         return <div className="player-details-container" />;
     }
