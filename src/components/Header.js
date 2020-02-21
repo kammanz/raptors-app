@@ -6,13 +6,17 @@ import bell from '../assets/icons/notification-bell.svg';
 import settingsIcon from '../assets/icons/settings-icon.svg';
 import kobe from '../assets/imgs/kobe.png';
 
+import styles from '../scss/header.module.scss';
+
 const Header = () => {
+    console.log(styles, 'styles');
+
     return (
         <div className="header-container">
             <div className="team">
                 <button className="logo-container">
                     <img src={raptorsLogo} title="raptors logo" alt="raptors logo"></img>
-                    <span>Toronto Raptors </span>
+                    <span className={styles.redStuff}>Toronto Raptors </span>
                     <i className="drop-down-team" />
                 </button>
             </div>

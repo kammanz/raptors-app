@@ -1,0 +1,165 @@
+// Header Styles
+
+$background-color-main: #F4F4F4;
+$background-color-purple: #D0073E;
+$background-color-grey: #EDEDED;
+$text-dark-grey: #919191;
+$border-shadow: #D4D3D3;
+$border-dark-grey: #919191;
+$grey-three: #919191;
+$white: #FFFFFF;
+
+// TODO rename color variables and remove temporary comments
+
+// Player Card Number Background
+$grey1: #f5f5f5;
+
+// Player Card Position Selected 
+$grey1b: #e7e7e7; 
+
+// Player Card Height
+$grey2: #a8a8a8;
+
+//Player Card Number
+$grey3: #959595;
+
+// Player Card Position
+$grey4: #777777;
+
+// Header Links, Player Card Name
+$grey5: #4e4e4e;
+
+
+.header-container {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    height: 45px;
+    box-shadow: -1px -3px 10px $grey2;
+    font-family: Abadi;
+    list-style: none;
+    
+    .team {
+      position: relative;
+      display: flex;
+      background: $background-color-purple;
+  
+      button {
+        display: flex;
+        align-items: center;
+        padding: 0 15px 0 10px;
+        height: 100%;
+        border: none;
+        background: none;
+        color: $white;
+        font-family: spurs;
+        font-size: 22px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+  
+        img {
+          height: 35px;
+        }
+  
+        span {
+          margin: 2px 13px 0 8px;
+        }
+      }
+  
+      &::after {
+        content: '';
+        position: absolute;
+        left: 100%;
+        z-index: 1;
+        border-top: 45px solid $background-color-purple;
+        border-right: 16px solid transparent;
+      }
+    }
+  
+    .links {
+      position: relative;
+      display: flex;
+      flex: 1.5;
+      justify-content: center;
+      align-items: center;
+      background-color: $white;
+      font-family: Avenir;
+      font-size: 16px;
+      text-transform: uppercase;
+      
+      .link-container {
+        display: inline-block;
+        height: 100%;
+        padding: 0 25px;
+      }
+    
+      a {
+        display: inline-block;
+        height: calc(100% - 19px);    
+        padding-top: 15px;
+        color: $grey5;
+        text-decoration: none;
+  
+         &:hover {
+          height: calc(100% - 19px);
+          color: $grey-three;
+        }
+  
+        &.active {
+          border-bottom: 4px solid $background-color-purple;
+          color: $background-color-purple;
+        }
+      }
+  
+      &::after {
+        content: '';
+        position: absolute;
+        left: 100%;
+        border-top: 45px solid $white;
+        border-right: 16px solid transparent;
+      }
+    }
+  
+    .user {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      padding-left: 30px;
+      background: $background-color-grey;
+      color: $text-dark-grey;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+  
+      button {
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        height: 100%;
+        border: none;
+        background: none;
+        color: inherit;
+        font-size: 14px;
+        cursor: pointer;
+        
+        .user-pic {
+          border: 2px solid $border-dark-grey;
+          border-radius: 25px;
+          margin-right: 10px;
+        }
+      }
+    } 
+  
+    .drop-down-team {
+      border-top: 6px solid $white;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+    }
+    
+    .drop-down-user{
+      border-top: 6px solid $text-dark-grey;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      margin: 15px;
+    }
+} 
