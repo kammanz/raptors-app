@@ -1,68 +1,121 @@
+
+.players-container {
+    display: flex;
+    box-shadow: -1px 0px 1px $grey3;
+}
+
+
 .players-list-container {
     display: flex;
     flex-wrap: wrap;
     width: 1044px;
     justify-content: space-between;
     background-color: $white;
-  }
+}
   
-  .player-details-container {
-    flex: 1;
-    border-left: 1px solid $grey1;
-    background-color:$white;
+
+// Player Card Styles
+
+.player-card {
+    width: 250px;
+    margin-bottom: 10px;
+    padding: 5px 4px;
+    background: $white;
+    font-family: Arial;
+    cursor: pointer;
+  
+    & > * {
+      pointer-events: none;
+    }
     
+    &:hover {
+      .details-container {
+        background-color: $background-color-grey;
+      }
+    }
   
-    .player-details-card {
-      padding: 5px 8px;
+    .image-container {
+      position: relative;
+      height: 194px;
+      background-image: url('../../assets/imgs/player-backdrop.png');
   
-      .image-container {
-        position: relative;
-        background-image: url('../../assets/imgs/player-backdrop-large.png');
+      img {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 95%;
+      }
+    }
+    
+    .image-border-bottom {
+      width: 100%;
+      margin-top: 4px;
+      border-bottom: 2px solid $background-color-purple;
+    }
   
-        img {
-          position: relative;
-          top: 4px;
-          width: 100%;
-        }
+    .details-container {
+      display: flex;
+      align-items: center;
+      height: 120px;
+  
+      .number {
+        flex: .5;
+        border-radius: 5px;
+        color: $grey3;
+        font-size: 32px;
+        font-weight: bold;
+        text-align: center;
       }
   
-      .image-border-bottom {
-        width: 100%;
-        margin-top: 4px;
-        border-bottom: 2px solid $background-color-purple;
-      }
-  
-      .stats-container {
-        padding-left: 3px;
-  
-        .stats-name-container {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-    
-          .stats-name {
-            font-size: 30px;
-            color: $grey5;
-            font-weight: bold;
-            font-family: arial;
-          }
-    
-          .stats-number {
-            flex: 1;
-            text-align: end;
-            padding-right: 35px;
-            color: $background-color-purple;
-            font-size: 46px;
-            font-weight: bold;
-            font-family: arial;
-            vertical-align: sub;
-          }
+      .details {
+        display: flex;
+        flex-direction: column;
+        flex: 2;
+        padding: 5px 0 5px 12px;
+        text-align: left;
+      
+        & > * {
+          padding: 3px;
         }
-    
-        .stats-position {
+      
+        .name {
+          color: $grey5;
+          font-size: 14px;
+          font-weight: bold;
+        }
+      
+        .position {
           color: $grey4;
-          font-size: 22px;
-          font-family: arial;
+          font-size: 13px;
+        }
+      
+        .size {
+          color: $grey2;
+          font-size: 12px;
+        }
+      }   
+    }
+  
+    &.selected-card {
+      .details-container {
+        background-color: $background-color-purple;
+  
+        .number {
+          background-color: $background-color-purple;
+          color: $white;
+        }
+  
+        .details {
+          background-color: $background-color-purple;
+  
+          .name {
+            color: $white;
+          }
+  
+          .position, .size {
+            color: $grey1b;
+          }
         }
       }
     }
