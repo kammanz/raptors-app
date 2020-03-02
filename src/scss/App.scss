@@ -1,7 +1,7 @@
-@import './header.module.scss';
-@import './filters.module.scss';
-@import './players/playersList.module.scss';
-@import './players/playerDetails.module.scss';
+@import '../components/header.module.scss';
+@import '../components/filters.module.scss';
+@import '../components/players/playersList.module.scss';
+@import '../component/players/playerDetails.module.scss';
 
 $background-color-main: #F4F4F4;
 $background-color-purple: #D0073E;
