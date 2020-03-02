@@ -6,7 +6,7 @@ import bell from '../assets/icons/notification-bell.svg';
 import settingsIcon from '../assets/icons/settings-icon.svg';
 import kobe from '../assets/imgs/kobe.png';
 
-import styles from '../scss/header.module.scss';
+import styles from './header.module.scss';
 
 const Header = () => {
     console.log(styles, 'styles');

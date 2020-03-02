@@ -1,60 +1,60 @@
 .player-details-container {
-    flex: 1;
-    border-left: 1px solid $grey1;
-    background-color:$white;
-  
-    .player-details-card {
-      padding: 5px 8px;
-  
-      .image-container {
+  flex: 1;
+  border-left: 1px solid $grey1;
+  background-color:$white;
+
+  .player-details-card {
+    padding: 5px 8px;
+
+    .image-container {
+      position: relative;
+      background-image: url('../../assets/imgs/player-backdrop-large.png');
+
+      img {
         position: relative;
-        background-image: url('../../assets/imgs/player-backdrop-large.png');
-  
-        img {
-          position: relative;
-          top: 4px;
-          width: 100%;
-        }
-      }
-  
-      .image-border-bottom {
+        top: 4px;
         width: 100%;
-        margin-top: 4px;
-        border-bottom: 2px solid $background-color-purple;
-      }
-  
-      .stats-container {
-        padding-left: 3px;
-  
-        .stats-name-container {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-    
-          .stats-name {
-            font-size: 30px;
-            color: $grey5;
-            font-weight: bold;
-            font-family: arial;
-          }
-    
-          .stats-number {
-            flex: 1;
-            text-align: end;
-            padding-right: 35px;
-            color: $background-color-purple;
-            font-size: 46px;
-            font-weight: bold;
-            font-family: arial;
-            vertical-align: sub;
-          }
-        }
-    
-        .stats-position {
-          color: $grey4;
-          font-size: 22px;
-          font-family: arial;
-        }
       }
     }
+
+    .image-border-bottom {
+      width: 100%;
+      margin-top: 4px;
+      border-bottom: 2px solid $background-color-purple;
+    }
+
+    .stats-container {
+      padding-left: 3px;
+
+      .stats-name-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+  
+        .stats-name {
+          font-size: 30px;
+          color: $grey5;
+          font-weight: bold;
+          font-family: arial;
+        }
+  
+        .stats-number {
+          flex: 1;
+          text-align: end;
+          padding-right: 35px;
+          color: $background-color-purple;
+          font-size: 46px;
+          font-weight: bold;
+          font-family: arial;
+          vertical-align: sub;
+        }
+      }
+  
+      .stats-position {
+        color: $grey4;
+        font-size: 22px;
+        font-family: arial;
+      }
+    }
+  }
 }
