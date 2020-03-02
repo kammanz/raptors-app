@@ -29,4 +29,7 @@ body {
   text-align: center;
 }
 
-
+.players {
+  display: flex;
+  justify-content: space-evenly;
+}
