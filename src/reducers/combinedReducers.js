@@ -4,5 +4,5 @@ import selectPlayerReducer from './selectPlayerReducer.js';
 
 export default combineReducers({
     players: playersListReducer,
-    selectPlayer: selectPlayerReducer
+    selectPlayer: selectPlayerReducer,
 });

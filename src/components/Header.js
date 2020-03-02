@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import raptorsLogo from '../assets/icons/raptors-logo.svg';
 import bell from '../assets/icons/notification-bell.svg';
 import settingsIcon from '../assets/icons/settings-icon.svg';
-import kobe from '../assets/imgs/kobe.jpg';
+import kobe from '../assets/imgs/kobe.png';
 
 const Header = () => {
     return (

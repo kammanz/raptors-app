@@ -3,22 +3,29 @@ import { connect } from 'react-redux';
 
 const PlayerDetails = ({ player }) => {
     if (!player) {
-        return <h3>Select a Player</h3>
+        return <div className="player-details-container" />;
     }
 
-    const { playerName, playerId, points, ppg, blocks, steals } = player;
+    const { playerId, playerFirstName, playerLastName,  points, ppg, blocks, steals, playerPosition, playerJerseyNumber } = player;
 
     return (
-        <div>
-            <h3>Stats</h3>
-            <h4>{playerName}</h4>
-            <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${playerId}.png`} />            
-            <div>Total Points: {points}</div>
-            <div>Points per Game: {ppg}</div>
-            <div>Blocks: {blocks}</div>
-            <div>Steals: {steals}</div>
-        </div>        
-    );
+        <div className="player-details-container">
+            <div className="player-details-card">
+                <div className="image-container">
+                    <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${playerId}.png`} alt="Player Headshot"/>  
+                </div>
+                    
+                <div className="image-border-bottom"></div>
+                <div className="stats-container">
+                    <div className="stats-name-container">
+                        <div className="stats-name">{playerFirstName} {playerLastName}</div>
+                        <div className="stats-number">{playerJerseyNumber}</div>
+                    </div>
+                    <div className="stats-position">{playerPosition}</div>
+                </div>
+            </div>  
+        </div>
+    )
 }
 
 const mapStateToProps = state => ({ player: state.selectPlayer });

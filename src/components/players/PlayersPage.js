@@ -6,7 +6,7 @@ import PlayerDetails from './PlayerDetails';
 const PlayersPage = () => {
 
     return (
-        <div className="container players">
+        <div className="players-container">
             <PlayersList />
             <PlayerDetails />
         </div>
