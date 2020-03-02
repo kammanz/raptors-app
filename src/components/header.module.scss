@@ -1,34 +1,6 @@
 // Header Styles
 
-$background-color-main: #F4F4F4;
-$background-color-purple: #D0073E;
-$background-color-grey: #EDEDED;
-$text-dark-grey: #919191;
-$border-shadow: #D4D3D3;
-$border-dark-grey: #919191;
-$grey-three: #919191;
-$white: #FFFFFF;
-
-// TODO rename color variables and remove temporary comments
-
-// Player Card Number Background
-$grey1: #f5f5f5;
-
-// Player Card Position Selected 
-$grey1b: #e7e7e7; 
-
-// Player Card Height
-$grey2: #a8a8a8;
-
-//Player Card Number
-$grey3: #959595;
-
-// Player Card Position
-$grey4: #777777;
-
-// Header Links, Player Card Name
-$grey5: #4e4e4e;
-
+@import '../scss/variables.scss';
 
 .header-container {
   position: relative;
