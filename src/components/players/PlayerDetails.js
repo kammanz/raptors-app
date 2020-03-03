@@ -3,7 +3,24 @@ import { connect } from 'react-redux';
 
 const PlayerDetails = ({ player }) => {
     if (!player) {
-        return <div className="player-details-container" />;
+        return (
+            <div className="player-details-container">
+                <div className="picture"></div>
+                <div className="underline"></div>
+
+                <div className="box">
+                    <div>
+                        <div className="text1"></div>
+                        <div className="text2"></div> 
+                    </div>
+                    <div className="circle"></div>
+                </div>
+                
+                
+
+                <div className="text3"></div>
+            </div>
+        )
     }
 
     const { playerId, playerFirstName, playerLastName,  points, ppg, blocks, steals, playerPosition, playerJerseyNumber } = player;

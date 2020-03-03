@@ -1,3 +1,60 @@
+.placeholder-container {
+
+}
+
+.picture {
+  width: 374px;
+  height: 292px;
+  margin: 12px 12px 5px;
+  background-color: $grey1b;
+}
+
+.underline {
+  width: 374px; 
+  height: 3px;
+  margin: 5px;
+  margin-left: 12px;
+  background-color: $grey1b;
+}
+
+.box {
+  display: flex;
+  width: 374PX;
+  margin-left: 10px;
+  margin-top: 22px;
+}
+
+.text1 {
+  width: 202px;
+  height: 30px;
+  margin: 5px;
+  background-color: $grey1b;
+}
+
+.text2 {
+  width: 112px;
+  height: 18px;
+  margin: 5px;
+  background-color: $grey1b;
+}
+
+.circle {
+  height: 58px;
+  width: 58px;
+  border-radius: 50%;
+  margin-left: 105px;
+  background-color: $grey1b;
+
+}
+
+.text3 {
+  width: 88px;
+  height: 12px;
+  margin: 3px;
+  margin-left: 15px;
+  background-color: $grey1b;
+}
+
 .player-details-container {
   flex: 1;
   border-left: 1px solid $grey1;
