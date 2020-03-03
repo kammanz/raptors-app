@@ -5,20 +5,16 @@ const PlayerDetails = ({ player }) => {
     if (!player) {
         return (
             <div className="player-details-container">
-                <div className="picture"></div>
-                <div className="underline"></div>
-
+                <div className="picture"/>
+                <div className="underline"/>
                 <div className="box">
                     <div>
-                        <div className="text1"></div>
-                        <div className="text2"></div> 
+                        <div className="text1"/>
+                        <div className="text2"/> 
                     </div>
-                    <div className="circle"></div>
+                    <div className="circle"/>
                 </div>
-                
-                
-
-                <div className="text3"></div>
+                <div className="text3"/>
             </div>
         )
     }

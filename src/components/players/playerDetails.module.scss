@@ -12,8 +12,7 @@
 .underline {
   width: 374px; 
   height: 3px;
-  margin: 5px;
-  margin-left: 12px;
+  margin: 5px 5px 5px 12px;
   background-color: $grey1b;
 }
 
@@ -44,7 +43,6 @@
   border-radius: 50%;
   margin-left: 105px;
   background-color: $grey1b;
-
 }
 
 .text3 {
@@ -57,6 +55,8 @@
 
 .player-details-container {
   flex: 1;
+  min-width: 400px;
+  // max-width: 400px;
   border-left: 1px solid $grey1;
   background-color:$white;
 
