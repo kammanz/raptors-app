@@ -35,6 +35,24 @@ const PlayerDetails = ({ player }) => {
                         <div className="stats-number">{playerJerseyNumber}</div>
                     </div>
                     <div className="stats-position">{playerPosition}</div>
+                    <div className="simple-stats-container">
+                        <div>
+                            <div className="title">Ppg</div>
+                            <div className="stat">99</div>
+                        </div>
+                        <div>
+                            <div className="title">Reb</div>
+                            <div className="stat">99</div>
+                        </div>
+                        <div>
+                            <div className="title">Ast</div>
+                            <div className="stat">99</div>
+                        </div>
+                        <div>
+                            <div className="title">Fg %</div>
+                            <div className="stat">99</div>
+                        </div>
+                    </div>
                 </div>
             </div>  
         </div>

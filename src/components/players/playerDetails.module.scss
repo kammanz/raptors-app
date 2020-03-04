@@ -115,3 +115,38 @@
     }
   }
 }
+
+.simple-stats-container {
+  display: flex;
+
+  div {
+    width: 90px;
+    height: 65px;
+    margin: 3px;
+
+    .title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 16px;
+      background-color: $background-color-purple;
+      color: $white;
+      font-family: arial;
+      font-size: 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .stat {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $white;
+      color: $grey5;
+      font-family: arial;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  }
+}
+
