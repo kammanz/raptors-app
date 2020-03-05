@@ -12,7 +12,7 @@ const Header = () => {
             <div className="team">
                 <button className="logo-container">
                     <img src={raptorsLogo} title="raptors logo" alt="raptors logo"></img>
-                    <span>Toronto Raptors </span>
+                    <span>Toronto Raptors !!</span>
                     <i className="drop-down-team" />
                 </button>
             </div>
