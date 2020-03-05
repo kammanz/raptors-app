@@ -11,5 +11,7 @@ export const selectPlayer = (playerId, playerFirstName, playerLastName, playerPo
     };
 
     const response = await dataNbaNet.get("/prod/v1/2019/players/" + playerId + "_profile.json");
+
+    console.log(response, 'here');
     dispatch({ type: 'SELECT_PLAYER', payload: { ...response.data.league.standard.stats.latest, playerId, playerFirstName, playerLastName, playerPosition, playerJerseyNumber }});    
 };

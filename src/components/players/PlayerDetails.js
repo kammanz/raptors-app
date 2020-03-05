@@ -53,6 +53,61 @@ const PlayerDetails = ({ player }) => {
                             <div className="stat">99</div>
                         </div>
                     </div>
+                    <div className="title">Stats</div>
+                    <div className="long-stats-container">
+                        <div className="box">
+                            <div className="long-stats-title">Gp</div>
+                            <div className="long-stat">99</div>
+                        </div> 
+                        <div className="box">
+                            <div className="long-stats-title">Min</div>
+                            <div className="long-stat">99</div>
+                        </div>
+                        <div className="box">
+                            <div className="long-stats-title">Fg%</div>
+                            <div className="long-stat">99</div>
+                        </div>
+                        <div className="box">
+                            <div className="long-stats-title">3p%</div>
+                            <div className="long-stat">99</div>
+                        </div>
+                        <div className="box">
+                            <div className="long-stats-title">Ft%</div>
+                            <div className="long-stat">99</div>
+                        </div>
+                        <div className="box">
+                            <div className="long-stats-title">Reb</div>
+                            <div className="long-stat">99</div>
+                        </div>
+                        <div className="box">
+                            <div className="long-stats-title">Ast</div>
+                            <div className="long-stat">99</div>
+                        </div>
+                        <div className="box">
+                            <div className="long-stats-title">Blk</div>
+                            <div className="long-stat">99</div>
+                        </div>
+                        <div className="box">
+                            <div className="long-stats-title">Stl</div>
+                            <div className="long-stat">Pts</div>
+                        </div>
+                        <div className="box">
+                            <div className="long-stats-title">Pf</div>
+                            <div className="long-stat">99</div>
+                        </div>
+                        <div className="box">
+                            <div className="long-stats-title">To</div>
+                            <div className="long-stat">99</div>
+                        </div>
+                        <div className="box">
+                            <div className="long-stats-title">Pts</div>
+                            <div className="long-stat">99</div>
+                        </div>
+                    </div>
+                    <div className="title">Recent Games</div>
+                    <div className="game-container">
+                        <div><span>@</span><span><img/></span><span>Team1</span><span>Date</span></div>
+                    </div>
                 </div>
             </div>  
         </div>

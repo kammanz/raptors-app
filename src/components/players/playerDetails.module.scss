@@ -121,21 +121,10 @@
 
   div {
     width: 90px;
-    height: 65px;
+    // height: 65px;
     margin: 3px;
 
-    .title {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 16px;
-      background-color: $background-color-purple;
-      color: $white;
-      font-family: arial;
-      font-size: 10px;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
+
 
     .stat {
       display: flex;
@@ -148,5 +137,43 @@
       font-weight: bold;
     }
   }
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 16px;
+  background-color: $background-color-purple;
+  color: $white;
+  font-family: arial;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.long-stats-container {
+  display: flex;
+}
+
+.box {
+  flex-direction: column;
+}
+
+.long-stats-title {
+  font-family: arial;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: $grey5;
+}
+
+.long-stat {
+
+  font-family: arial;
+  color: $grey4;
+  font-size: 12px;
+  text-transform: uppercase;
+  border-top: 1px solid $grey3;
 }
 

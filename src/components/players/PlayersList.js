@@ -21,6 +21,7 @@ class PlayersList extends React.Component {
         
         return players.map((player, index) => {
             const isSelected = player.person_id === this.state.selectedId;
+            console.log(player);
             
             return (
                 <div 

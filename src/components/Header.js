@@ -9,7 +9,7 @@ import kobe from '../assets/imgs/kobe.png';
 import styles from './header.module.scss';
 
 const Header = () => {
-    console.log(styles, 'styles');
+    // console.log(styles, 'styles');
 
     return (
         <div className="header-container">
