@@ -15,7 +15,7 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
   },
-  "homepage": "https://kammanz.github.io/raptors-app",
+  "homepage": "https://kammanz.github.io",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
