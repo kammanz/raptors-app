@@ -8,11 +8,11 @@
 .players-list-container {
     display: flex;
     flex-wrap: wrap;
-    // width: 1044px;
+    height: 100vh;
     justify-content: space-between;
     background-color: $white;
+    overflow-y: scroll;
 }
-  
 
 // Player Card Styles
 
