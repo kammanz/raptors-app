@@ -1,14 +1,14 @@
 @import 'src/scss/variables.scss';
 
-.player-details-container {
+.playerDetailsContainer {
   flex: 1;
   border-left: 1px solid $grey1;
   background-color:$white;
 
-  .player-details-card {
+  .playerDetailsCard {
     padding: 5px 8px;
 
-    .image-container {
+    .imageContainer {
       position: relative;
       background-image: url('../../assets/imgs/player-backdrop-large.png');
 
@@ -19,28 +19,28 @@
       }
     }
 
-    .image-border-bottom {
+    .imageBorderBottom {
       width: 100%;
       margin-top: 4px;
       border-bottom: 2px solid $background-color-purple;
     }
 
-    .stats-container {
+    .statsContainer {
       padding-left: 3px;
 
-      .stats-name-container {
+      .statsNameContainer {
         display: flex;
         justify-content: center;
         align-items: center;
   
-        .stats-name {
+        .statsName {
           font-size: 30px;
           color: $grey5;
           font-weight: bold;
           font-family: arial;
         }
   
-        .stats-number {
+        .statsNumber {
           flex: 1;
           text-align: end;
           padding-right: 35px;
@@ -52,7 +52,7 @@
         }
       }
   
-      .stats-position {
+      .statsPosition {
         color: $grey4;
         font-size: 22px;
         font-family: arial;

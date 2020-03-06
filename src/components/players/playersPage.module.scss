@@ -1,0 +1,6 @@
+@import 'src/scss/variables.scss';
+
+.playersContainer {
+    display: flex;
+    box-shadow: -1px 0px 1px $grey3;
+}

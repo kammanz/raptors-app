@@ -11,28 +11,28 @@ import styles from './header.module.scss';
 const Header = () => {
 
     return (
-        <div className="header-container">
-            <div className="team">
-                <button className="logo-container">
+        <div className={styles.headerContainer}>
+            <div className={styles.team}>
+                <button className={styles.logoContainer}>
                     <img src={raptorsLogo} title="raptors logo" alt="raptors logo"></img>
                     <span>Toronto Raptors </span>
-                    <i className="drop-down-team" />
+                    <i className={styles.dropDownTeam}/>
                 </button>
             </div>
 
-            <div className="links">
-                <div className="link-container">
-                    <NavLink to='/' exact >Players</NavLink>
+            <div className={styles.links}>
+                <div className={styles.linkContainer}>
+                    <NavLink to='/' exact activeClassName={styles.active}>Players</NavLink>
                 </div>
-                <div className="link-container">
-                    <NavLink to='/standings'>Standings</NavLink>
+                <div className={styles.linkContainer}>
+                    <NavLink to='/standings' activeClassName={styles.active}>Standings</NavLink>
                 </div>
-                <div className="link-container">
-                    <NavLink to='/games'>Games</NavLink>
+                <div className={styles.linkContainer}>
+                    <NavLink to='/games' activeClassName={styles.active}>Games</NavLink>
                 </div>
             </div>
             
-            <div className="user">
+            <div className={styles.user}>
                 <button>
                     <img src={bell} alt="notification-bell"></img>
                 </button>
@@ -40,9 +40,9 @@ const Header = () => {
                     <img src={settingsIcon} alt="settings-icon"></img>
                 </button>
                 <button>
-                    <img src={kobe} alt="user-pic" height="25" className="user-pic"></img>
+                    <img src={kobe} alt="user-pic" height="25" className={styles.userPic}></img>
                     <div>Kobe Bryant</div>
-                    <i className="drop-down-user"></i>
+                    <i className={styles.dropDownUser}></i>
                 </button>
             </div>
         </div>

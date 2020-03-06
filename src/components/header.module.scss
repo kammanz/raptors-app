@@ -1,6 +1,6 @@
 @import 'src/scss/variables.scss';
 
-.header-container {
+.headerContainer {
   position: relative;
   display: flex;
   justify-content: space-evenly;
@@ -59,7 +59,7 @@
     font-size: 16px;
     text-transform: uppercase;
     
-    .link-container {
+    .linkContainer {
       display: inline-block;
       height: 100%;
       padding: 0 25px;
@@ -113,7 +113,7 @@
       font-size: 14px;
       cursor: pointer;
       
-      .user-pic {
+      .userPic {
         border: 2px solid $border-dark-grey;
         border-radius: 25px;
         margin-right: 10px;
@@ -121,13 +121,13 @@
     }
   } 
 
-  .drop-down-team {
+  .dropDownTeam {
     border-top: 6px solid $white;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
   }
   
-  .drop-down-user{
+  .dropDownUser{
     border-top: 6px solid $text-dark-grey;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
