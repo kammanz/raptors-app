@@ -10,7 +10,7 @@ class PlayersList extends React.Component {
         super(props);
 
         this.state = {
-            selectedCard: null,
+            selectedId: null,
         }
     }
 
@@ -22,25 +22,16 @@ class PlayersList extends React.Component {
         const { players } = this.props;
         
         return players.map((player, index) => {
+            const isSelected = this.state.selectedId === player.person_id;
+
             return (
                 <div 
                     key={index}
-                    onClick={(index) => {
-                        const el = index.target;
-                        if (this.state.selectedCard === null) {
-                            this.setState({selectedCard: el});
-                            el.classList.add("selectedCard");
-                        }
-
-                        if (this.state.selectedCard !== null && el !== this.state.selectedCard) {
-                            this.state.selectedCard.classList.remove("selectedCard");
-                            this.setState({selectedCard: el});
-                            el.classList.add("selectedCard");
-                        }
-                    
+                    onClick={() => {
+                        this.setState( { selectedId: player.person_id })
                         this.props.selectPlayer(player.person_id, player.first_name, player.last_name, player.position_full, player.jersey_number);
                     }}
-                    className={styles.playerCard}
+                    className={isSelected ? `${styles.playerCard} ${styles.selectedCard}` : styles.playerCard}
                 >
                     <div className={styles.imageContainer}>
                         <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${player.person_id}.png`} alt="Player Headshot"/>
