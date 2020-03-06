@@ -15,8 +15,13 @@ const Header = () => {
             <div className={styles.team}>
                 <button className={styles.logoContainer}>
                     <img src={raptorsLogo} title="raptors logo" alt="raptors logo"></img>
+<<<<<<< HEAD
                     <span>Toronto Raptors </span>
                     <i className={styles.dropDownTeam}/>
+=======
+                    <span>Toronto Raptors</span>
+                    <i className="drop-down-team" />
+>>>>>>> master
                 </button>
             </div>
 
