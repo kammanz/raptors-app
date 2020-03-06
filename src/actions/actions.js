@@ -12,6 +12,14 @@ export const selectPlayer = (playerId, playerFirstName, playerLastName, playerPo
 
     const response = await dataNbaNet.get("/prod/v1/2019/players/" + playerId + "_profile.json");
 
-    console.log(response, 'here');
+    // console.log(response, 'here');
     dispatch({ type: 'SELECT_PLAYER', payload: { ...response.data.league.standard.stats.latest, playerId, playerFirstName, playerLastName, playerPosition, playerJerseyNumber }});    
 };
+
+export const todaysGame = (personId) => async dispatch => {
+    const response = await dataNbaNet.get("/prod/v1/2019/players/" + personId + "_gamelog.json");
+
+    // console.log(response.data.league.standard[0] , 'here');
+
+    dispatch({ type: 'TODAYS_GAME', payload: { ...response.data.league.standard[0] }});
+}

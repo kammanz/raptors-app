@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getPlayers, selectPlayer } from '../../actions/actions.js';
+import { getPlayers, selectPlayer, todaysGame } from '../../actions/actions.js';
 
 class PlayersList extends React.Component {
     constructor(props) {
@@ -14,6 +14,7 @@ class PlayersList extends React.Component {
 
     componentDidMount() {
         this.props.getPlayers();
+        // this.props.todaysGame();
     }
 
     renderPlayers() {
@@ -21,7 +22,7 @@ class PlayersList extends React.Component {
         
         return players.map((player, index) => {
             const isSelected = player.person_id === this.state.selectedId;
-            console.log(player);
+            // console.log(player);
             
             return (
                 <div 
@@ -29,6 +30,7 @@ class PlayersList extends React.Component {
                     onClick={() => {
                         this.setState({ selectedId: player.person_id})
                         this.props.selectPlayer(player.person_id, player.first_name, player.last_name, player.position_full, player.jersey_number);
+                        this.props.todaysGame(player.person_id);
                     }}
                     className={isSelected ? 'player-card selected-card' : 'player-card'}
                 >
@@ -66,5 +68,6 @@ export default connect(mapStateToProps,
         { 
             getPlayers,
             selectPlayer,
+            todaysGame,
         }
 )(PlayersList);
