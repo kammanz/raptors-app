@@ -23,3 +23,11 @@ export const todaysGame = (personId) => async dispatch => {
 
     dispatch({ type: 'TODAYS_GAME', payload: { ...response.data.league.standard[0] }});
 }
+
+export const selectedTeam = () => async dispatch => {
+    const response = await dataNbaNet.get("/prod/v1/2016/teams.json");
+
+    console.log(response, 'teams');
+
+    dispatch({ type: 'SELECTED_TEAM', payload: { ...response }})
+}
