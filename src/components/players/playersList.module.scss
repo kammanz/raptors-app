@@ -1,9 +1,11 @@
+@import 'src/scss/variables.scss';
+
 .players-container {
   display: flex;
   box-shadow: -1px 0px 1px $grey3;
 }
 
-.players-list-container {
+.playersListContainer {
   display: flex;
   flex-wrap: wrap;
   width: 1044px;
@@ -11,7 +13,7 @@
   background-color: $white;
 }
 
-.player-card {
+.playerCard {
   width: 250px;
   margin-bottom: 10px;
   padding: 5px 4px;
@@ -24,12 +26,12 @@
   }
   
   &:hover {
-    .details-container {
+    .detailsContainer {
       background-color: $background-color-grey;
     }
   }
 
-  .image-container {
+  .imageContainer {
     position: relative;
     height: 194px;
     background-image: url('../../assets/imgs/player-backdrop.png');
@@ -43,13 +45,13 @@
     }
   }
   
-  .image-border-bottom {
+  .imageBorderBottom {
     width: 100%;
     margin-top: 4px;
     border-bottom: 2px solid $background-color-purple;
   }
 
-  .details-container {
+  .detailsContainer {
     display: flex;
     align-items: center;
     height: 120px;
@@ -92,8 +94,8 @@
     }   
   }
 
-  &.selected-card {
-    .details-container {
+  &.selectedCard {
+    .detailsContainer {
       background-color: $background-color-purple;
 
       .number {
@@ -115,3 +117,11 @@
     }
   }
 }
+
+// .details {
+//   display: flex;
+//   flex-direction: column;
+//   flex: 2;
+//   padding: 5px 0 5px 12px;
+//   text-align: left;
+// }
