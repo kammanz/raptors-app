@@ -20,6 +20,7 @@ class PlayersList extends React.Component {
         const { players } = this.props;
         
         return players.map((player, index) => {
+            console.log(player, 'here');
             return (
                 <div 
                     key={index}
