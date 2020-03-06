@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getPlayers, selectPlayer, todaysGame } from '../../actions/actions.js';
+import { getPlayers, selectPlayer } from '../../actions/actions.js';
+
+import styles from './playersList.module.scss';
 
 class PlayersList extends React.Component {
     constructor(props) {
@@ -14,36 +16,33 @@ class PlayersList extends React.Component {
 
     componentDidMount() {
         this.props.getPlayers();
-        // this.props.todaysGame();
     }
 
     renderPlayers() {
         const { players } = this.props;
         
         return players.map((player, index) => {
-            const isSelected = player.person_id === this.state.selectedId;
-            // console.log(player);
-            
+            const isSelected = this.state.selectedId === player.person_id;
+
             return (
                 <div 
                     key={index}
                     onClick={() => {
-                        this.setState({ selectedId: player.person_id})
+                        this.setState( { selectedId: player.person_id })
                         this.props.selectPlayer(player.person_id, player.first_name, player.last_name, player.position_full, player.jersey_number);
-                        this.props.todaysGame(player.person_id);
                     }}
-                    className={isSelected ? 'player-card selected-card' : 'player-card'}
+                    className={isSelected ? `${styles.playerCard} ${styles.selectedCard}` : styles.playerCard}
                 >
-                    <div className="image-container">
+                    <div className={styles.imageContainer}>
                         <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${player.person_id}.png`} alt="Player Headshot"/>
                     </div>
-                    <div className="image-border-bottom"></div>
-                    <div className="details-container">
-                        <div className="number">{player.jersey_number}</div>
-                        <div className="details">
-                            <div className="name">{player.first_name} {player.last_name}</div>
-                            <div className="position">{player.position_full}</div>
-                            <div className="size">{player.height_ft}-{player.height_in}, {player.weight_lbs} lbs</div> 
+                    <div className={styles.imageBorderBottom}></div>
+                    <div className={styles.detailsContainer}>
+                        <div className={styles.number}>{player.jersey_number}</div>
+                        <div className={styles.details}>
+                            <div className={styles.name}>{player.first_name} {player.last_name}</div>
+                            <div className={styles.position}>{player.position_full}</div>
+                            <div className={styles.size}>{player.height_ft}-{player.height_in}, {player.weight_lbs} lbs</div> 
                         </div>
                     </div>
                 </div>
@@ -53,7 +52,7 @@ class PlayersList extends React.Component {
 
     render() {
         return (
-            <div className="players-list-container">
+            <div className={styles.playersListContainer}>
                 {this.renderPlayers()}
             </div>
         )
@@ -68,6 +67,5 @@ export default connect(mapStateToProps,
         { 
             getPlayers,
             selectPlayer,
-            todaysGame,
         }
 )(PlayersList);

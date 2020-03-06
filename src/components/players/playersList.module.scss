@@ -1,11 +1,8 @@
-
-.players-container {
-    display: flex;
-    box-shadow: -1px 0px 1px $grey3;
-}
+@import 'src/scss/variables.scss';
 
 
-.players-list-container {
+
+.playersListContainer {
     display: flex;
     flex-wrap: wrap;
     height: 100vh;
@@ -16,7 +13,7 @@
 
 // Player Card Styles
 
-.player-card {
+.playerCard {
     width: calc(25% - 8px);
     margin-bottom: 10px;
     padding: 5px 4px;
@@ -29,12 +26,12 @@
     }
     
     &:hover {
-      .details-container {
+      .detailsContainer {
         background-color: $background-color-grey;
       }
     }
   
-    .image-container {
+    .imageContainer {
       display: flex;
       padding-top: 10px;
       background-image: url('../../assets/imgs/player-backdrop.png');
@@ -45,13 +42,13 @@
       }
     }
     
-    .image-border-bottom {
+    .imageBorderBottom {
       width: 100%;
       margin-top: 4px;
       border-bottom: 2px solid $background-color-purple;
     }
   
-    .details-container {
+    .detailsContainer {
       display: flex;
       align-items: center;
       height: 120px;
@@ -94,8 +91,8 @@
       }   
     }
   
-    &.selected-card {
-      .details-container {
+    &.selectedCard {
+      .detailsContainer {
         background-color: $background-color-purple;
   
         .number {
