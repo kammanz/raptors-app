@@ -1,0 +1,62 @@
+@import 'src/scss/variables.scss';
+
+.playerDetailsContainer {
+  flex: 1;
+  border-left: 1px solid $grey1;
+  background-color:$white;
+
+  .playerDetailsCard {
+    padding: 5px 8px;
+
+    .imageContainer {
+      position: relative;
+      background-image: url('../../assets/imgs/player-backdrop-large.png');
+
+      img {
+        position: relative;
+        top: 4px;
+        width: 100%;
+      }
+    }
+
+    .imageBorderBottom {
+      width: 100%;
+      margin-top: 4px;
+      border-bottom: 2px solid $background-color-purple;
+    }
+
+    .statsContainer {
+      padding-left: 3px;
+
+      .statsNameContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+  
+        .statsName {
+          font-size: 30px;
+          color: $grey5;
+          font-weight: bold;
+          font-family: arial;
+        }
+  
+        .statsNumber {
+          flex: 1;
+          text-align: end;
+          padding-right: 35px;
+          color: $background-color-purple;
+          font-size: 46px;
+          font-weight: bold;
+          font-family: arial;
+          vertical-align: sub;
+        }
+      }
+  
+      .statsPosition {
+        color: $grey4;
+        font-size: 22px;
+        font-family: arial;
+      }
+    }
+  }
+}
