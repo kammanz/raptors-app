@@ -2,10 +2,10 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import Header from './Header';
-import Filters from './Filters';
-import StandingsPage from './standings/StandingsPage';
-import GamesPage from './games/GamesPage';
-import PlayersPage from './players/PlayersPage';
+import Filters from './filters';
+import StandingsPage from './standings/standingsPage';
+import GamesPage from './games/gamesPage';
+import PlayersPage from './players/playersPage';
 
 import '../scss/App.scss';
 
