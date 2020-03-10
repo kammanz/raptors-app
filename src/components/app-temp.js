@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import Header from './header';
+import Header from './header-temp';
 import Filters from './filters';
-import StandingsPage from './standings/standingsPage';
-import GamesPage from './games/gamesPage';
-import PlayersPage from './players/playersPage';
+import StandingsPage from './standings/standingsPage-temp';
+import GamesPage from './games/gamesPage-temp';
+import PlayersPage from './players/playersPage-temp';
 
 import './app.scss';
 

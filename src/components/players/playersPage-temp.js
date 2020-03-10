@@ -1,7 +1,7 @@
 import React from 'react';
 
-import PlayersList from './playersList';
-import PlayerDetails from './playerDetails';
+import PlayersList from './playersList-temp';
+import PlayerDetails from './playerDetails-temp';
 
 import styles from './playersPage.module.scss';
 
