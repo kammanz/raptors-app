@@ -1,11 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import DetailsPlaceholder from './detailsPlaceholder.js'
+
 import styles from './playerDetails.module.scss';
 
 const PlayerDetails = ({ player }) => {
     if (!player) {
-        return <div className={styles.playerDetailsContainer} />;
+        return (
+            <div className={styles.playerDetailsContainer}>
+                < DetailsPlaceholder />
+            </div>
+        );
     }
 
     const { playerId, playerFirstName, playerLastName, playerPosition, playerJerseyNumber } = player;
