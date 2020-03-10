@@ -22,17 +22,13 @@ class PlayersList extends React.Component {
         const { players } = this.props;
         
         return players.map((player, index) => {
-<<<<<<< HEAD
             const isSelected = this.state.selectedId === player.person_id;
 
-=======
-            console.log(player, 'here');
->>>>>>> master
             return (
                 <div 
                     key={index}
                     onClick={() => {
-                        this.setState( { selectedId: player.person_id })
+                        this.setState({ selectedId: player.person_id })
                         this.props.selectPlayer(player.person_id, player.first_name, player.last_name, player.position_full, player.jersey_number);
                     }}
                     className={isSelected ? `${styles.playerCard} ${styles.selectedCard}` : styles.playerCard}

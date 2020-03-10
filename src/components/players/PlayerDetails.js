@@ -8,7 +8,7 @@ const PlayerDetails = ({ player }) => {
         return <div className={styles.playerDetailsContainer} />;
     }
 
-    const { playerId, playerFirstName, playerLastName,  points, ppg, blocks, steals, playerPosition, playerJerseyNumber } = player;
+    const { playerId, playerFirstName, playerLastName, playerPosition, playerJerseyNumber } = player;
 
     return (
         <div className={styles.playerDetailsContainer}>
