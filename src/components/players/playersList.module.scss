@@ -3,13 +3,12 @@
 .playersListContainer {
   display: flex;
   flex-wrap: wrap;
-  width: 1044px;
   justify-content: space-between;
   background-color: $white;
 }
 
 .playerCard {
-  width: 250px;
+  width: calc(25% - 8px);
   margin-bottom: 10px;
   padding: 5px 4px;
   background: $white;
@@ -27,16 +26,13 @@
   }
 
   .imageContainer {
-    position: relative;
-    height: 194px;
+    display: flex;
+    padding-top: 10px;
     background-image: url('../../assets/imgs/player-backdrop.png');
+    background-size: cover;
 
     img {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      width: 95%;
+      width: 100%;
     }
   }
   
