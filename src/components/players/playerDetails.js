@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import DetailsPlaceholder from './detailsPlaceholder.js'
+import Placeholder from './placeholder.js'
 
 import styles from './playerDetails.module.scss';
 
@@ -9,7 +9,7 @@ const PlayerDetails = ({ player }) => {
     if (!player) {
         return (
             <div className={styles.container}>
-                <DetailsPlaceholder />
+                <Placeholder />
             </div>
         );
     }

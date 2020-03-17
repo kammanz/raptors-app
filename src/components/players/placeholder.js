@@ -1,19 +1,19 @@
 import React from 'react';
 
-import styles from './detailsPlaceholder.module.scss';
+import styles from './placeholder.module.scss';
 
 const DetailsPlaceholder = () => {
     return (
         <div className={styles.container}>
-            <div className={styles.placeholderImage} />
+            <div className={styles.placeholderImage}><span>Select a Player for details</span></div>
             <div className={styles.underline} />
             <div className={styles.box}>
-                <div className={styles.textBox}>
+                <div className={styles.barContainer}>
                     <div className={styles.barOne} />
                     <div className={styles.barTwo} /> 
                     <div className={styles.barThree} />
                 </div>
-                <div className={styles.circleBox}>
+                <div className={styles.circleContainer}>
                     <div className={styles.circle} />
                 </div>
             </div>

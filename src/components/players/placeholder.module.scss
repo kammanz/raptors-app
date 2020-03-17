@@ -2,12 +2,20 @@
 
 .container {
     min-width: 400px;
-    padding: 10px;
+    padding: 5px;
 }
 
 .placeholderImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 292px;
     background-color: $grey1b;
+    color: $grey2;
+    text-align: center;
+    font-family: arial; 
+    font-weight: bold;
+    font-size: 16px;
 }
 
 .underline {
@@ -21,7 +29,7 @@
     margin-top: 20px;
 }
 
-.textBox {
+.barContainer {
     display: flex;
     flex-direction: column;
 }
@@ -46,7 +54,7 @@
     background-color: $grey1b;
 }
 
-.circleBox {
+.circleContainer {
     display: flex;
     justify-content: flex-end;
     width: 100%;
