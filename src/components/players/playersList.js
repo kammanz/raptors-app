@@ -29,7 +29,7 @@ class PlayersList extends React.Component {
                     key={index}
                     onClick={() => {
                         this.setState({ selectedId: player.person_id })
-                        this.props.selectPlayer(player.person_id, player.first_name, player.last_name, player.position_full, player.jersey_number);
+                        this.props.selectPlayer(player.person_id, player.first_name, player.last_name, player.position_full, player.jersey_number, player.height_ft, player.height_in, player.weight_lbs);
                     }}
                     className={isSelected ? `${styles.playerCard} ${styles.selectedCard}` : styles.playerCard}
                 >

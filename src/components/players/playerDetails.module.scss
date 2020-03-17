@@ -26,9 +26,9 @@
     }
 
     .statsContainer {
-      margin-top: 20px;
+      margin: 20px 0 0 5px;
 
-      .statsNameContainer {
+      .nameContainer {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -59,7 +59,10 @@
       }
 
       .personalStats {
-
+        margin-top: 5px;
+        font-family: arial;
+        font-size: 14px;
+        color: $grey2;
       }
     }
   }
