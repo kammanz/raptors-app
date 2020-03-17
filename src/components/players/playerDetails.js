@@ -30,6 +30,7 @@ const PlayerDetails = ({ player }) => {
                         <div className={styles.statsNumber}>{playerJerseyNumber}</div>
                     </div>
                     <div className={styles.statsPosition}>{playerPosition}</div>
+                    <div className={styles.personalStats}>{playerPosition}</div> 
                 </div>
             </div>  
         </div>
