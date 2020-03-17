@@ -20,10 +20,6 @@ class PlayersList extends React.Component {
 
     renderPlayers() {
         const { players } = this.props;
-
-        if (!players) {
-            alert('no players');
-        }
         
         return players.map((player, index) => {
             const isSelected = this.state.selectedId === player.person_id;
