@@ -2,6 +2,7 @@
 
 .playersListContainer {
   display: flex;
+  flex: 2.5;
   flex-wrap: wrap;
   justify-content: space-between;
   background-color: $white;
