@@ -9,7 +9,7 @@ const PlayerDetails = ({ player }) => {
     if (!player) {
         return (
             <div className={styles.playerDetailsContainer}>
-                < DetailsPlaceholder />
+                <DetailsPlaceholder />
             </div>
         );
     }

@@ -8,13 +8,13 @@ const DetailsPlaceholder = () => {
             <div className={styles.picture}/>
             <div className={styles.underline}/>
             <div className={styles.box}>
-            <div>
-                <div className={styles.text1}/>
-                <div className={styles.text2}/> 
+                <div className={styles.textBox}>
+                    <div className={styles.text1}/>
+                    <div className={styles.text2}/> 
+                    <div className={styles.text3}/>
+                </div>
+                <div className={styles.circle}/>
             </div>
-            <div className={styles.circle}/>
-            </div>
-            <div className={styles.text3}/>
         </div>
     );
 }

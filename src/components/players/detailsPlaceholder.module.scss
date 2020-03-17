@@ -1,1 +1,58 @@
 @import 'src/scss/variables.scss';
+
+.playerDetailsContainer {
+    min-width: 400px;
+    padding: 10px;
+}
+
+.picture {
+    height: 292px;
+    background-color: $grey1b;
+}
+
+.underline {
+    height: 3px;
+    margin-top: 5px;
+    background-color: $grey1b;
+}
+
+.box {
+    display: flex;
+    margin-top: 22px;
+}
+
+.textBox {
+    display: flex;
+    flex-direction: column;
+    margin: 0 2px;
+}
+
+.text1 {
+    width: 202px;
+    height: 30px;
+    background-color: $grey1b;
+}
+
+.text2 {
+    width: 112px;
+    height: 18px;
+    margin-top: 5px;
+    background-color: $grey1b;
+}
+
+.text3 {
+    width: 88px;
+    height: 12px;
+    margin-top: 5px;
+    background-color: $grey1b;
+}
+
+.circle {
+    height: 58px;
+    width: 58px;
+    flex: 1;
+    border-radius: 50%;
+    margin-left: calc(51% - 58px);
+    background-color: $grey1b;
+}
+
