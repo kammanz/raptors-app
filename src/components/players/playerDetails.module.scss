@@ -11,11 +11,13 @@
 
     .imageContainer {
       // position: relative;
+      display: flex;
+      padding-top: 10px;
       background-image: url('../../assets/imgs/player-backdrop-large.png');
 
       img {
-        position: relative;
-        top: 4px;
+        // position: relative;
+        // top: 4px;
         width: 100%;
       }
     }
