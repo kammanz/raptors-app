@@ -26,11 +26,11 @@ const PlayerDetails = ({ player }) => {
                 <div className={styles.imageBorderBottom}></div>
                 <div className={styles.statsContainer}>
                     <div className={styles.nameContainer}>
-                        <div className={styles.statsName}>{playerFirstName} {playerLastName}</div>
-                        <div className={styles.statsNumber}>{playerJerseyNumber}</div>
+                        <div className={styles.name}>{playerFirstName} {playerLastName}</div>
+                        <div className={styles.jerseyNumber}>{playerJerseyNumber}</div>
                     </div>
-                    <div className={styles.statsPosition}>{playerPosition}</div>
-                    <div className={styles.personalStats}>{playerHeightFeet}-{playerHeightInches}, {playerWeight} lbs</div> 
+                    <div className={styles.position}>{playerPosition}</div>
+                    <div className={styles.physicalDetails}>{playerHeightFeet}-{playerHeightInches}, {playerWeight} lbs</div> 
                 </div>
             </div>  
         </div>

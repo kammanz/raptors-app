@@ -33,14 +33,14 @@
         justify-content: center;
         align-items: center;
   
-        .statsName {
+        .name {
           font-size: 28px;
           color: $grey5;
           font-weight: bold;
           font-family: arial;
         }
   
-        .statsNumber {
+        .jerseyNumber {
           flex: 1;
           text-align: end;
           padding-right: 35px;
@@ -52,17 +52,17 @@
         }
       }
   
-      .statsPosition {
+      .position {
         color: $grey4;
         font-size: 18px;
         font-family: arial;
       }
 
-      .personalStats {
+      .physicalDetails {
         margin-top: 5px;
+        color: $grey2;
         font-family: arial;
         font-size: 14px;
-        color: $grey2;
       }
     }
   }
