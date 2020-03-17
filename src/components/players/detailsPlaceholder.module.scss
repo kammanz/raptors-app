@@ -1,11 +1,11 @@
 @import 'src/scss/variables.scss';
 
-.playerDetailsContainer {
+.container {
     min-width: 400px;
     padding: 10px;
 }
 
-.picture {
+.placeholderImage {
     height: 292px;
     background-color: $grey1b;
 }
@@ -18,41 +18,44 @@
 
 .box {
     display: flex;
-    margin-top: 22px;
+    margin-top: 20px;
 }
 
 .textBox {
     display: flex;
     flex-direction: column;
-    margin: 0 2px;
 }
 
-.text1 {
+.barOne {
     width: 202px;
     height: 30px;
     background-color: $grey1b;
 }
 
-.text2 {
+.barTwo {
     width: 112px;
     height: 18px;
     margin-top: 5px;
     background-color: $grey1b;
 }
 
-.text3 {
+.barThree {
     width: 88px;
     height: 12px;
     margin-top: 5px;
     background-color: $grey1b;
 }
 
+.circleBox {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
 .circle {
     height: 58px;
     width: 58px;
-    flex: 1;
     border-radius: 50%;
-    margin-left: calc(51% - 58px);
     background-color: $grey1b;
 }
 

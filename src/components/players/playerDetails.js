@@ -8,7 +8,7 @@ import styles from './playerDetails.module.scss';
 const PlayerDetails = ({ player }) => {
     if (!player) {
         return (
-            <div className={styles.playerDetailsContainer}>
+            <div className={styles.container}>
                 <DetailsPlaceholder />
             </div>
         );
@@ -17,7 +17,7 @@ const PlayerDetails = ({ player }) => {
     const { playerId, playerFirstName, playerLastName, playerPosition, playerJerseyNumber } = player;
 
     return (
-        <div className={styles.playerDetailsContainer}>
+        <div className={styles.container}>
             <div className={styles.playerDetailsCard}>
                 <div className={styles.imageContainer}>
                     <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${playerId}.png`} alt="Player Headshot"/>  

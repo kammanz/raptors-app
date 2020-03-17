@@ -1,6 +1,6 @@
 @import 'src/scss/variables.scss';
 
-.playerDetailsContainer {
+.container {
   flex: 1;
   min-width: 440px;
   border-left: 1px solid $grey1;
@@ -10,14 +10,11 @@
     padding: 10px;
 
     .imageContainer {
-      // position: relative;
       display: flex;
       padding-top: 10px;
       background-image: url('../../assets/imgs/player-backdrop-large.png');
 
       img {
-        // position: relative;
-        // top: 4px;
         width: 100%;
       }
     }
