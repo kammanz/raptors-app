@@ -18,8 +18,6 @@ const PlayerDetails = ({ player }) => {
 
     const { playerId, playerFirstName, playerLastName, playerPosition, playerJerseyNumber, playerHeightFeet, playerHeightInches, playerWeight } = player;
 
-    console.log(player);
-
     return (
         <div className={styles.container}>
             <div className={styles.playerDetailsCard}>
