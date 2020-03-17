@@ -1,13 +1,13 @@
 @import 'src/scss/variables.scss';
 
-.playerDetailsContainer {
+.container {
   flex: 1;
   min-width: 440px;
   border-left: 1px solid $grey1;
   background-color:$white;
 
   .playerDetailsCard {
-    padding: 10px;
+    padding: 5px;
 
     .imageContainer {
       display: flex;
