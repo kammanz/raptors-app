@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Placeholder from './placeholder.js'
+import Placeholder from './placeholder.js';
+import MainStat from './mainStat';
 
 import styles from './playerDetails.module.scss';
 
@@ -15,6 +16,8 @@ const PlayerDetails = ({ player }) => {
     }
 
     const { playerId, playerFirstName, playerLastName, playerPosition, playerJerseyNumber, playerHeightFeet, playerHeightInches, playerWeight } = player;
+
+    console.log(player);
 
     return (
         <div className={styles.container}>
@@ -32,6 +35,13 @@ const PlayerDetails = ({ player }) => {
                     <div className={styles.position}>{playerPosition}</div>
                     <div className={styles.physicalDetails}>{playerHeightFeet}-{playerHeightInches}, {playerWeight} lbs</div> 
                 </div>
+                <div className={styles.seasonStats}>
+                    <MainStat title="Ppg" stat={player.ppg} />
+                    <MainStat title="Reb" stat={player.totReb} />
+                    <MainStat title="Ast" stat={player.assists} />
+                    <MainStat title="FG %" stat={player.fgp} />
+                </div>
+                
             </div>  
         </div>
     )
