@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Placeholder from './placeholder.js';
-import MainStat from './mainStat';
+import MainStats from './mainStats';
+import AllStats from './allStats';
 
 import styles from './playerDetails.module.scss';
 
@@ -35,11 +36,26 @@ const PlayerDetails = ({ player }) => {
                     <div className={styles.position}>{playerPosition}</div>
                     <div className={styles.physicalDetails}>{playerHeightFeet}-{playerHeightInches}, {playerWeight} lbs</div> 
                 </div>
-                <div className={styles.seasonStats}>
-                    <MainStat title="Ppg" stat={player.ppg} />
-                    <MainStat title="Reb" stat={player.totReb} />
-                    <MainStat title="Ast" stat={player.assists} />
-                    <MainStat title="FG %" stat={player.fgp} />
+                <div className={styles.test}>
+                    <MainStats title="Ppg" stat={player.ppg} />
+                    <MainStats title="Reb" stat={player.totReb} />
+                    <MainStats title="Ast" stat={player.assists} />
+                    <MainStats title="FG %" stat={player.fgp} />
+                </div>
+                <div className={styles.testTwo}>Stats</div>
+                <div className={styles.test}>
+                    <AllStats title="GP" stat={player.gamesPlayed} />
+                    <AllStats title="Min" stat={player.min} />
+                    <AllStats title="Fg%" stat={player.gamesPlayed} />
+                    <AllStats title="3P%" stat={player.gamesPlayed} />
+                    <AllStats title="Ft%" stat={player.fgp} />
+                    <AllStats title="Reb" stat={player.totReb} />
+                    <AllStats title="Ast" stat={player.assists} />
+                    <AllStats title="Blk" stat={player.blocks} />
+                    <AllStats title="Stl" stat={player.steals} />
+                    <AllStats title="Pf" stat={player.pFouls} />
+                    <AllStats title="To" stat={player.turnovers} />
+                    <AllStats title="Pts" stat={player.points} />
                 </div>
                 
             </div>  

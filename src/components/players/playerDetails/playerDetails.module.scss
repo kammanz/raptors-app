@@ -68,10 +68,22 @@
   }
 }
 
-.seasonStats {
+.test {
   display: flex;
   flex: 1;
   justify-content: space-between;
   margin-top: 20px;
-  
+}
+
+.testTwo {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  height: 16px;
+  background-color: $background-color-purple;
+  color: $white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: bold; 
+  text-transform: uppercase;
 }

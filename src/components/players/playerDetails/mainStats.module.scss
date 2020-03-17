@@ -1,0 +1,41 @@
+@import 'src/scss/variables.scss';
+
+.container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    margin: 5px;
+}
+
+.title {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    height: 16px;
+    background-color: $background-color-purple;
+    color: $white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: bold; 
+    text-transform: uppercase;
+}
+
+.stat {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    margin-top: 8px;
+    color:$grey5;
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+.allStats {
+    color: blue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    // background-color: pink;
+}

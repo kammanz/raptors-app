@@ -4,18 +4,18 @@
     display: flex;
     flex: 1;
     flex-direction: column;
-    margin: 5px;
+    margin: 5px 0;
 }
 
 .title {
     display: flex; 
     justify-content: center;
     align-items: center;
-    height: 16px;
-    background-color: $background-color-purple;
-    color: $white;
+    height: 13px;
+    padding-bottom: 6px;
+    color: $grey5;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: bold; 
     text-transform: uppercase;
 }
@@ -24,11 +24,9 @@
     display: flex; 
     justify-content: center;
     align-items: center;
-    height: 40px;
-    margin-top: 8px;
-    color:$grey5;
-    font-size: 24px;
+    padding-top: 8px;
+    color: $grey3;
     font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    text-align: center;
+    font-size: 12px;
+    border-top: 1px solid $grey3;
 }
