@@ -36,14 +36,14 @@ const PlayerDetails = ({ player }) => {
                     <div className={styles.position}>{playerPosition}</div>
                     <div className={styles.physicalDetails}>{playerHeightFeet}-{playerHeightInches}, {playerWeight} lbs</div> 
                 </div>
-                <div className={styles.test}>
+                <div className={styles.mainStatsContainer}>
                     <MainStats title="Ppg" stat={player.ppg} />
                     <MainStats title="Reb" stat={player.totReb} />
                     <MainStats title="Ast" stat={player.assists} />
                     <MainStats title="FG %" stat={player.fgp} />
                 </div>
-                <div className={styles.testTwo}>Stats</div>
-                <div className={styles.test}>
+                <div className={styles.title}>Stats</div>
+                <div className={styles.mainStatsContainer}>
                     <AllStats title="GP" stat={player.gamesPlayed} />
                     <AllStats title="Min" stat={player.min} />
                     <AllStats title="Fg%" stat={player.gamesPlayed} />
