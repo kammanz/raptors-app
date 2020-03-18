@@ -46,6 +46,6 @@ const PlayerDetails = ({ player }) => {
     )
 }
 
-const mapStateToProps = state => ({ player: state.selectPlayer });
+const mapStateToProps = state => ({ player: state.player });
 
 export default connect(mapStateToProps)(PlayerDetails);

@@ -8,5 +8,5 @@ export const getPlayers = () => async dispatch => {
 export const selectPlayer = (player) => async dispatch => {
     dispatch({ type: 'PRELOAD_PLAYER', payload: player });
     const response = await dataNbaNet.get("/prod/v1/2019/players/" + player.person_id + "_profile.json");
-    dispatch({ type: 'SELECT_PLAYER', payload: response.data.league.standard.stats.latest });
+    dispatch({ type: 'UPDATE_PLAYER', payload: response.data.league.standard.stats.latest });
 };
