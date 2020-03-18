@@ -1,10 +1,9 @@
 @import 'src/scss/variables.scss';
 
 .container {
-  flex: 1;
   min-width: 440px;
   border-left: 1px solid $grey1;
-  background-color:$white;
+  background-color: $white;
 
   .playerDetailsCard {
     padding: 5px;

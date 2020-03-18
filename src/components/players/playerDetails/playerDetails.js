@@ -22,9 +22,9 @@ const PlayerDetails = ({ player }) => {
         <div className={styles.container}>
             <div className={styles.playerDetailsCard}>
                 <div className={styles.imageContainer}>
-                    <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${playerId}.png`} alt="Player Headshot"/>  
+                    <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${playerId}.png`} alt="Player Headshot" />
                 </div>
-                    
+
                 <div className={styles.imageBorderBottom}></div>
                 <div className={styles.statsContainer}>
                     <div className={styles.nameContainer}>
@@ -34,6 +34,7 @@ const PlayerDetails = ({ player }) => {
                     <div className={styles.position}>{playerPosition}</div>
                     <div className={styles.physicalDetails}>{playerHeightFeet}-{playerHeightInches}, {playerWeight} lbs</div> 
                 </div>
+<<<<<<< HEAD:src/components/players/playerDetails/playerDetails.js
                 <div className={styles.mainStatsContainer}>
                     <MainStats title="Ppg" stat={player.ppg} />
                     <MainStats title="Reb" stat={player.totReb} />
@@ -57,6 +58,9 @@ const PlayerDetails = ({ player }) => {
                 </div>
                 
             </div>  
+=======
+            </div>
+>>>>>>> RAP-35__Player-details-card--final:src/components/players/playerDetails.js
         </div>
     )
 }
