@@ -7,7 +7,6 @@ const GameResult = () => {
     return (
         <div>
             <img />
-
         </div>
     );
 }
