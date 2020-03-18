@@ -1,8 +1,10 @@
-export default (selectPlayer = null, action) => {
+export default (state = null, action) => {
     switch (action.type) {
-        case 'SELECT_PLAYER':
+        case 'PRELOAD_PLAYER':
             return action.payload;
-        default: 
-            return selectPlayer;
+        case 'SELECT_PLAYER':
+            return { ...state, ...action.payload };
+        default:
+            return state;
     }
 }
