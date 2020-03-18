@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './placeholder.module.scss';
 
-const DetailsPlaceholder = () => {
+const Placeholder = () => {
     return (
         <div className={styles.container}>
             <div className={styles.placeholderImage}><span>Select a Player for details</span></div>
@@ -10,15 +10,13 @@ const DetailsPlaceholder = () => {
             <div className={styles.box}>
                 <div className={styles.barContainer}>
                     <div className={styles.barOne} />
-                    <div className={styles.barTwo} /> 
+                    <div className={styles.barTwo} />
                     <div className={styles.barThree} />
                 </div>
-                <div className={styles.circleContainer}>
-                    <div className={styles.circle} />
-                </div>
+                <div className={styles.circle} />
             </div>
         </div>
     );
 }
 
-export default DetailsPlaceholder;
+export default Placeholder;
