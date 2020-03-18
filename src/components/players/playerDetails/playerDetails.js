@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Placeholder from './placeholder.js';
 import MainStats from './mainStats';
 import AllStats from './allStats';
+import GameResult from './gameResult';
 
 import styles from './playerDetails.module.scss';
 
@@ -55,12 +56,15 @@ const PlayerDetails = ({ player }) => {
                     <AllStats title="To" stat={player.turnovers} />
                     <AllStats title="Pts" stat={player.points} />
                 </div>
-                
+                <div className={styles.title}>Recent Games</div>
+                <div className={styles}>
+                    <GameResult />
+                </div>
             </div>  
         </div>
     )
 }
 
-const mapStateToProps = state => ({ player: state.selectPlayer });
+const mapStateToProps = state => ({ player: state.selectPlayer, game: state.selectedGame });
 
 export default connect(mapStateToProps)(PlayerDetails);
