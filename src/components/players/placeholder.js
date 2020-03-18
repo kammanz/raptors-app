@@ -10,7 +10,7 @@ const Placeholder = () => {
             <div className={styles.box}>
                 <div className={styles.barContainer}>
                     <div className={styles.barOne} />
-                    <div className={styles.barTwo} /> 
+                    <div className={styles.barTwo} />
                     <div className={styles.barThree} />
                 </div>
                 <div className={styles.circle} />
