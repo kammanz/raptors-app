@@ -27,7 +27,7 @@
     }
 
     .statsContainer {
-      margin: 20px 0 0 5px;
+      margin: 20px 5px;
 
       .nameContainer {
         display: flex;
@@ -44,7 +44,7 @@
         .jerseyNumber {
           flex: 1;
           text-align: end;
-          padding-right: 15px;
+          padding-right: 5px;
           color: $background-color-purple;
           font-size: 40px;
           font-weight: bold;
@@ -73,7 +73,7 @@
   display: flex;
   flex: 1;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .title {
