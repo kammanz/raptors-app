@@ -3,7 +3,6 @@ export default (state = null, action) => {
         case 'PRELOAD_PLAYER':
             return action.payload;
         case 'UPDATE_PLAYER':
-          console.log(action.payload);
             return { ...state, ...action.payload };
         default:
             return state;
