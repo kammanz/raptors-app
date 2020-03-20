@@ -3,10 +3,14 @@ import { connect } from 'react-redux';
 
 import Placeholder from './placeholder.js';
 import Stats from './stats';
+import GameResult from './gameResult.js';
 
 import styles from './playerDetails.module.scss';
 
-const PlayerDetails = ({ player }) => {
+
+    // raptors team id: 1610612761
+
+const PlayerDetails = ({ player, teams, games }) => {
     if (!player) {
         return (
             <div className={styles.container}>
@@ -14,6 +18,23 @@ const PlayerDetails = ({ player }) => {
             </div>
         );
     }
+
+console.log(games, 'games');
+
+var threeGames = Object.values(games);
+
+var singleGame = threeGames.map((obj) => {
+    const team = obj.hTeam.teamId;
+    // console.log(team);
+    
+    if (team === 1610612761) {
+        return "you are the raptors";
+    }
+
+    return "you are not the raptors";
+});
+
+// console.log(singleGame);
 
     const {
       person_id,
@@ -72,6 +93,6 @@ const PlayerDetails = ({ player }) => {
     )
 }
 
-const mapStateToProps = state => ({ player: state.player });
+const mapStateToProps = state => ({ player: state.player, teams: state.teams, games: state.games });
 
 export default connect(mapStateToProps)(PlayerDetails);
