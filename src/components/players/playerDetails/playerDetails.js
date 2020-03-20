@@ -7,8 +7,7 @@ import GameResult from './gameResult.js';
 
 import styles from './playerDetails.module.scss';
 
-
-    // raptors team id: 1610612761
+// raptors team id: 1610612761
 
 const PlayerDetails = ({ player, teams, games }) => {
     if (!player) {
