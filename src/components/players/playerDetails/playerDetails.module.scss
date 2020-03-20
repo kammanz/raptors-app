@@ -10,6 +10,7 @@
 
     .imageContainer {
       display: flex;
+      // height: 292px;
       padding-top: 10px;
       background-image: url('../../../assets/imgs/player-backdrop-large.png');
 
@@ -21,7 +22,7 @@
     .imageBorderBottom {
       width: 100%;
       margin-top: 5px;
-      border-bottom: 2px solid $background-color-purple;
+      border-bottom: 3px solid $background-color-purple;
     }
 
     .statsContainer {
@@ -42,7 +43,7 @@
         .jerseyNumber {
           flex: 1;
           text-align: end;
-          padding-right: 35px;
+          padding-right: 15px;
           color: $background-color-purple;
           font-size: 40px;
           font-weight: bold;
@@ -57,7 +58,7 @@
         font-family: arial;
       }
 
-      .physicalDetails {
+      .details {
         margin-top: 5px;
         color: $grey2;
         font-family: arial;
