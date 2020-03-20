@@ -4,7 +4,7 @@
     display: flex;
     flex: 1;
     flex-direction: column;
-    margin: 5px 0;
+    margin: 5px;
 }
 
 .title {
@@ -31,6 +31,12 @@
     border-top: 1px solid $grey3;
 }
 
+.quickStatContainer {
+    display: flex;
+    flex-direction: column;
+    width: calc(25% - 5px);
+}
+
 .quickStatTitle {
     display: flex; 
     justify-content: center;
@@ -42,6 +48,17 @@
     font-size: 10px;
     font-weight: bold; 
     text-transform: uppercase;
+    // margin-right: 5px;
+
+    // &:nth-last-of-type() {
+    //     margin-right: 0;
+    // }
+}
+
+.quickStatTitle:last-child {
+    margin-right: 0;
+    background-color: pink;
+
 }
 
 .quickStat {
@@ -56,3 +73,4 @@
     font-weight: bold;
     text-align: center;
 }
+
