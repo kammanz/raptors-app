@@ -28,7 +28,7 @@ const PlayerDetails = ({ player }) => {
 
     return (
         <div className={styles.container}>
-            <div className={styles.playerDetailsCard}>
+            <div className={styles.card}>
                 <div className={styles.imageContainer}>
                     <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${person_id}.png`} alt="Player Headshot" />
                 </div>

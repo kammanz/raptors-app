@@ -2,5 +2,6 @@
 
 .playersContainer {
     display: flex;
+    align-items: stretch;
     box-shadow: -1px 0px 1px $grey3;
 }
