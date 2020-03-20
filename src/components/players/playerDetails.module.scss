@@ -10,51 +10,60 @@
 
     .imageContainer {
       display: flex;
-      padding-top: 10px;
+      height: 292px;
+      justify-content: center;
+      align-items: flex-end;
       background-image: url('../../assets/imgs/player-backdrop-large.png');
 
       img {
-        width: 100%;
+        height: calc(100% - 10px);
       }
     }
 
     .imageBorderBottom {
       width: 100%;
-      margin-top: 4px;
-      border-bottom: 2px solid $background-color-purple;
+      margin-top: 5px;
+      border-bottom: 3px solid $background-color-purple;
     }
 
     .statsContainer {
-      padding-left: 3px;
+      margin: 20px 0 0 5px;
 
-      .statsNameContainer {
+      .nameContainer {
         display: flex;
         justify-content: center;
         align-items: center;
   
-        .statsName {
-          font-size: 30px;
+        .name {
+          font-size: 28px;
           color: $grey5;
           font-weight: bold;
           font-family: arial;
         }
   
-        .statsNumber {
+        .jerseyNumber {
           flex: 1;
           text-align: end;
-          padding-right: 35px;
+          padding-right: 15px;
           color: $background-color-purple;
-          font-size: 46px;
+          font-size: 40px;
           font-weight: bold;
           font-family: arial;
           vertical-align: sub;
         }
       }
   
-      .statsPosition {
+      .position {
         color: $grey4;
-        font-size: 22px;
+        font-size: 18px;
         font-family: arial;
+      }
+
+      .details {
+        margin-top: 5px;
+        color: $grey2;
+        font-family: arial;
+        font-size: 14px;
       }
     }
   }

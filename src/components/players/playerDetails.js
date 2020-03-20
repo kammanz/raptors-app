@@ -14,28 +14,38 @@ const PlayerDetails = ({ player }) => {
         );
     }
 
-    const { playerId, playerFirstName, playerLastName, playerPosition, playerJerseyNumber } = player;
+    const {
+      person_id,
+      first_name,
+      last_name,
+      position_full,
+      jersey_number,
+      height_ft,
+      height_in,
+      weight_lbs,
+    } = player;
 
     return (
         <div className={styles.container}>
             <div className={styles.playerDetailsCard}>
                 <div className={styles.imageContainer}>
-                    <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${playerId}.png`} alt="Player Headshot" />
+                    <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${person_id}.png`} alt="Player Headshot" />
                 </div>
 
                 <div className={styles.imageBorderBottom}></div>
                 <div className={styles.statsContainer}>
-                    <div className={styles.statsNameContainer}>
-                        <div className={styles.statsName}>{playerFirstName} {playerLastName}</div>
-                        <div className={styles.statsNumber}>{playerJerseyNumber}</div>
+                    <div className={styles.nameContainer}>
+                        <div className={styles.name}>{first_name} {last_name}</div>
+                        <div className={styles.jerseyNumber}>{jersey_number}</div>
                     </div>
-                    <div className={styles.statsPosition}>{playerPosition}</div>
+                    <div className={styles.position}>{position_full}</div>
+                    <div className={styles.details}>{height_ft}-{height_in}, {weight_lbs} lbs</div>
                 </div>
             </div>
         </div>
     )
 }
 
-const mapStateToProps = state => ({ player: state.selectPlayer });
+const mapStateToProps = state => ({ player: state.player });
 
 export default connect(mapStateToProps)(PlayerDetails);
