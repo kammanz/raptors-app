@@ -4,10 +4,39 @@
     display: flex;
     flex: 1;
     flex-direction: column;
-    margin: 5px;
 }
 
 .title {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    height: 13px;
+    padding-bottom: 6px;
+    color: $grey5;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold; 
+    text-transform: uppercase;
+}
+
+.stat {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    padding-top: 8px;
+    color: $grey3;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    border-top: 1px solid $grey3;
+}
+
+.quickStatContainer {
+    display: flex;
+    flex-direction: column;
+    width: calc(25% - 5px);
+}
+
+.quickStatTitle {
     display: flex; 
     justify-content: center;
     align-items: center;
@@ -20,7 +49,7 @@
     text-transform: uppercase;
 }
 
-.stat {
+.quickStat {
     display: flex; 
     justify-content: center;
     align-items: center;
@@ -32,3 +61,4 @@
     font-weight: bold;
     text-align: center;
 }
+

@@ -20,19 +20,16 @@ class PlayersList extends React.Component {
 
     renderPlayers() {
         const { players } = this.props;
-        
+
         return players.map((player, index) => {
             const isSelected = this.state.selectedId === player.person_id;
 
-            // console.log(player.person_id);
-
             return (
-                <div 
+                <div
                     key={index}
                     onClick={() => {
                         this.setState({ selectedId: player.person_id })
-                        this.props.selectPlayer(player.person_id, player.first_name, player.last_name, player.position_full, player.jersey_number, player.height_ft, player.height_in, player.weight_lbs);
-                        this.props.selectGame();
+                        this.props.selectPlayer(player);
                     }}
                     className={isSelected ? `${styles.playerCard} ${styles.selectedCard}` : styles.playerCard}
                 >
@@ -45,11 +42,11 @@ class PlayersList extends React.Component {
                         <div className={styles.details}>
                             <div className={styles.name}>{player.first_name} {player.last_name}</div>
                             <div className={styles.position}>{player.position_full}</div>
-                            <div className={styles.size}>{player.height_ft}-{player.height_in}, {player.weight_lbs} lbs</div> 
+                            <div className={styles.size}>{player.height_ft}-{player.height_in}, {player.weight_lbs} lbs</div>
                         </div>
                     </div>
                 </div>
-            ); 
+            );
         });
     }
 
@@ -67,7 +64,7 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps,
-        { 
+        {
             getPlayers,
             selectPlayer,
             selectGame,
