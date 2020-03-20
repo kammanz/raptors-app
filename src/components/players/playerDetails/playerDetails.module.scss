@@ -10,13 +10,13 @@
 
     .imageContainer {
       display: flex;
-      height: calc(292px - 15px);
-      padding-top: 15px;
-      background-image: url('../../../assets/imgs/player-backdrop-large.png');
+      height: 292px;
+      justify-content: center;
+      align-items: flex-end;
+      background-image: url('../../assets/imgs/player-backdrop-large.png');
 
       img {
-        height: 100%;
-        margin: auto;
+        height: calc(100% - 10px);
       }
     }
 

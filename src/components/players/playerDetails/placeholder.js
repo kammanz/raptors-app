@@ -5,7 +5,7 @@ import styles from './placeholder.module.scss';
 const Placeholder = () => {
     return (
         <div className={styles.container}>
-            <div className={styles.placeholderImage}><span>Select a Player for details</span></div>
+            <div className={styles.placeholderImage}><span>Select a player for details</span></div>
             <div className={styles.underline} />
             <div className={styles.box}>
                 <div className={styles.barContainer}>
