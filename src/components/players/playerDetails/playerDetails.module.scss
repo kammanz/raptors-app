@@ -13,7 +13,7 @@
       height: 292px;
       justify-content: center;
       align-items: flex-end;
-      background-image: url('../../assets/imgs/player-backdrop-large.png');
+      background-image: url('../../../assets/imgs/player-backdrop-large.png');
 
       img {
         height: calc(100% - 10px);
@@ -33,14 +33,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
-  
+
         .name {
           font-size: 28px;
           color: $grey5;
           font-weight: bold;
           font-family: arial;
         }
-  
+
         .jerseyNumber {
           flex: 1;
           text-align: end;
@@ -52,7 +52,7 @@
           vertical-align: sub;
         }
       }
-  
+
       .position {
         color: $grey4;
         font-size: 18px;
@@ -77,15 +77,15 @@
 }
 
 .title {
-  display: flex; 
+  display: flex;
   justify-content: center;
   align-items: center;
   height: 16px;
-  margin-top: 20px;  
+  margin-top: 20px;
   background-color: $background-color-purple;
   color: $white;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 10px;
-  font-weight: bold; 
+  font-weight: bold;
   text-transform: uppercase;
 }
