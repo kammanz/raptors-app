@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import Placeholder from './placeholder.js';
 import Stats from './stats';
+import Title from './title';
+
 
 import styles from './playerDetails.module.scss';
 
@@ -14,6 +16,8 @@ const PlayerDetails = ({ player }) => {
             </div>
         );
     }
+
+    console.log(player);
 
     const {
       person_id,
@@ -44,18 +48,18 @@ const PlayerDetails = ({ player }) => {
                 </div>
                 <div className={styles.mainStatsContainer}>
                     <Stats isQuickStats={true} title="Ppg" stat={player.ppg} />
-                    <Stats isQuickStats={true} title="Reb" stat={player.totReb} />
+                    <Stats isQuickStats={true} title="Rpg" stat={player.rpg} />
                     <Stats isQuickStats={true} title="Ast" stat={player.assists} />
-                    <Stats isQuickStats={true} title="FG %" stat={player.fgp} />
+                    <Stats isQuickStats={true} title="FG%" stat={player.fgp} />
                 </div>
-                <div className={styles.title}>Stats</div>
+                <Title title="Stats" />
                 <div className={styles.mainStatsContainer}>
                     <Stats isQuickStats={false} title="GP" stat={player.gamesPlayed} />
                     <Stats isQuickStats={false} title="Min" stat={player.min} />
-                    <Stats isQuickStats={false} title="Fg%" stat={player.gamesPlayed} />
-                    <Stats isQuickStats={false} title="3P%" stat={player.gamesPlayed} />
-                    <Stats isQuickStats={false} title="Ft%" stat={player.fgp} />
-                    <Stats isQuickStats={false} title="Reb" stat={player.totReb} />
+                    <Stats isQuickStats={false} title="Fg%" stat={player.fgp} />
+                    <Stats isQuickStats={false} title="3P%" stat={player.tpp} />
+                    <Stats isQuickStats={false} title="Ft%" stat={player.ftp} />
+                    <Stats isQuickStats={false} title="Rpg" stat={player.rpg} />
                     <Stats isQuickStats={false} title="Ast" stat={player.assists} />
                     <Stats isQuickStats={false} title="Blk" stat={player.blocks} />
                     <Stats isQuickStats={false} title="Stl" stat={player.steals} />
@@ -63,7 +67,6 @@ const PlayerDetails = ({ player }) => {
                     <Stats isQuickStats={false} title="To" stat={player.turnovers} />
                     <Stats isQuickStats={false} title="Pts" stat={player.points} />
                 </div>
-                
             </div>  
         </div>
     )
