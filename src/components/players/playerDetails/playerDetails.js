@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Placeholder from './placeholder.js';
-import MainStats from './mainStats';
-import AllStats from './allStats';
+import Stats from './stats';
 
 import styles from './playerDetails.module.scss';
 
@@ -44,25 +43,25 @@ const PlayerDetails = ({ player }) => {
                     <div className={styles.details}>{height_ft}-{height_in}, {weight_lbs} lbs</div>
                 </div>
                 <div className={styles.mainStatsContainer}>
-                    <MainStats title="Ppg" stat={player.ppg} />
-                    <MainStats title="Reb" stat={player.totReb} />
-                    <MainStats title="Ast" stat={player.assists} />
-                    <MainStats title="FG %" stat={player.fgp} />
+                    <Stats isQuickStats={true} title="Ppg" stat={player.ppg} />
+                    <Stats isQuickStats={true} title="Reb" stat={player.totReb} />
+                    <Stats isQuickStats={true} title="Ast" stat={player.assists} />
+                    <Stats isQuickStats={true} title="FG %" stat={player.fgp} />
                 </div>
                 <div className={styles.title}>Stats</div>
                 <div className={styles.mainStatsContainer}>
-                    <AllStats title="GP" stat={player.gamesPlayed} />
-                    <AllStats title="Min" stat={player.min} />
-                    <AllStats title="Fg%" stat={player.gamesPlayed} />
-                    <AllStats title="3P%" stat={player.gamesPlayed} />
-                    <AllStats title="Ft%" stat={player.fgp} />
-                    <AllStats title="Reb" stat={player.totReb} />
-                    <AllStats title="Ast" stat={player.assists} />
-                    <AllStats title="Blk" stat={player.blocks} />
-                    <AllStats title="Stl" stat={player.steals} />
-                    <AllStats title="Pf" stat={player.pFouls} />
-                    <AllStats title="To" stat={player.turnovers} />
-                    <AllStats title="Pts" stat={player.points} />
+                    <Stats isQuickStats={false} title="GP" stat={player.gamesPlayed} />
+                    <Stats isQuickStats={false} title="Min" stat={player.min} />
+                    <Stats isQuickStats={false} title="Fg%" stat={player.gamesPlayed} />
+                    <Stats isQuickStats={false} title="3P%" stat={player.gamesPlayed} />
+                    <Stats isQuickStats={false} title="Ft%" stat={player.fgp} />
+                    <Stats isQuickStats={false} title="Reb" stat={player.totReb} />
+                    <Stats isQuickStats={false} title="Ast" stat={player.assists} />
+                    <Stats isQuickStats={false} title="Blk" stat={player.blocks} />
+                    <Stats isQuickStats={false} title="Stl" stat={player.steals} />
+                    <Stats isQuickStats={false} title="Pf" stat={player.pFouls} />
+                    <Stats isQuickStats={false} title="To" stat={player.turnovers} />
+                    <Stats isQuickStats={false} title="Pts" stat={player.points} />
                 </div>
                 
             </div>  
