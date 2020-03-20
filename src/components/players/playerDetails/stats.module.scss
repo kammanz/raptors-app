@@ -1,64 +1,56 @@
 @import 'src/scss/variables.scss';
 
+.container,
+.quickStatContainer {
+  display: flex;
+  flex-direction: column;
+}
+
 .container {
-    display: flex;
     flex: 1;
-    flex-direction: column;
 }
 
 .title {
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    height: 13px;
-    padding-bottom: 6px;
-    color: $grey5;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 11px;
-    font-weight: bold; 
-    text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  height: 13px;
+  padding-bottom: 6px;
+  color: $grey5;
+  border-bottom: 1px solid $grey3;
+  font-size: 11px;
 }
 
 .stat {
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    padding-top: 8px;
-    color: $grey3;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    border-top: 1px solid $grey3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: $grey3;
+  font-size: 12px;
 }
 
 .quickStatContainer {
-    display: flex;
-    flex-direction: column;
     width: calc(25% - 5px);
-}
 
-.quickStatTitle {
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    height: 16px;
-    background-color: $background-color-purple;
-    color: $white;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 10px;
-    font-weight: bold; 
-    text-transform: uppercase;
-}
+    .title {
+        height: 16px;
+        padding: 0;
+        background-color: $background-color-purple;
+        color: $white;
+        border: none;
+        font-size: 10px;
+    }
 
-.quickStat {
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    height: 40px;
-    margin-top: 8px;
-    color:$grey5;
-    font-size: 24px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    text-align: center;
+    .stat {
+        height: 40px;
+        color: $grey5;
+        font-size: 24px;
+        font-weight: bold;
+    }
 }
-
