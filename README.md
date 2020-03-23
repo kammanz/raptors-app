@@ -1,12 +1,12 @@
-# NBA Player Search App
+## NBA Player Search App
 
 This app lets you search through NBA players and view their statistics, as well as view the results of recent Raptor games and their current place in the standings.    
 
-Getting Started
+### Getting Started
 
 ```git clone```
 
-npm install
+``` npm install ```
 
 Prerequisites
 What things you need to install the software and how to install them
