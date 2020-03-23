@@ -2,7 +2,7 @@
 
 This app lets you search through NBA players and view their statistics. Good for those who play Fantasy Basketball and want to look up player stats, or simply avid fans exploring their curiosity. You can also view team standings and recent game results. 
 
-*** Due to Covid-19 the 2019-20 NBA season has been cancelled. Statistics will only goes so far as March 12, 2020 ***
+*** Due to Covid-19 the 2019-20 NBA season has been cancelled. Statistics will go far as March 12, 2020 ***
 
 ### Installation
 
