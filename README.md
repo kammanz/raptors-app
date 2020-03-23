@@ -10,9 +10,18 @@ This app lets you search through NBA players and view their statistics. Good for
 
 ``` npm start ```
 
+### Built With
+
+``` React ```
+``` Redux ```
+``` Axios ```
+``` CSS Modules ```
+``` NBA Database Api ```
+
 #### Authors
 
 Kammanz - Development
+
 Freshly Grazed - Design
 
 #### License
