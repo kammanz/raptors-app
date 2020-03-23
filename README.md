@@ -1,6 +1,6 @@
 #NBA Player Search App
 
-This app lets you search through Raptor players and view their statistics, as well as view the results of recent Raptor games and their current place in the standings.    
+This app lets you search through NBA players and view their statistics, as well as view the results of recent Raptor games and their current place in the standings.    
 
 Getting Started
 
