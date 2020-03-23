@@ -3,7 +3,10 @@
 This app lets you search through Raptor players and view their statistics, as well as view the results of recent Raptor games and their current place in the standings.    
 
 Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+git clone
+
+npm install
 
 Prerequisites
 What things you need to install the software and how to install them
