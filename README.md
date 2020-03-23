@@ -18,7 +18,7 @@ This app lets you search through NBA players and view their statistics. Good for
 ``` Redux ```
 ``` Axios ```
 ``` CSS Modules ```
-``` NBA Database Api ```
+``` NBA Database Api: http://nbasense.com/nba-api/ ```
 
 ### Authors
 
