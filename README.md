@@ -20,12 +20,12 @@ This app lets you search through NBA players and view their statistics. Good for
 ``` CSS Modules ```
 ``` NBA Database Api ```
 
-#### Authors
+### Authors
 
 Kammanz - Development
 
 Freshly Grazed - Design
 
-#### License
+### License
 
 This project is licensed under the MIT License - see the LICENSE.md file for details
