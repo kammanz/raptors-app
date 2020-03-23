@@ -1,8 +1,8 @@
-#Raptors Search App
+#NBA Player Search App
 
-This app lets you search through Raptor players and view their statistics, as well as view the results of recent Raptor games and their current place in the standings.    
+This app lets you search NBA players for their statistics. You can search by team and/or NBA season. I made this app to help Fantasy NBA players look up stats and choose their team, or avid fans interested in player performance. 
 
-Getting Started
+#Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 Prerequisites
