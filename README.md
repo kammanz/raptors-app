@@ -6,7 +6,7 @@ This app lets you search through NBA players and view their statistics. Good for
 
 ### Installation
 
-``` git clone ```
+``` git clone https://github.com/kammanz/raptors-app.git ```
 
 ``` npm install ```
 
