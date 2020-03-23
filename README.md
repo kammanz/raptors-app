@@ -4,7 +4,7 @@ This app lets you search through Raptor players and view their statistics, as we
 
 Getting Started
 
-git clone
+```git clone```
 
 npm install
 
