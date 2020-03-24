@@ -19,22 +19,47 @@ const PlayerDetails = ({ player, teams, games }) => {
         );
     }
 
-console.log(games, 'games');
+// console.log(games, 'games');
 
-var threeGames = Object.values(games);
+var gamesArray = Object.values(games);
+console.log(gamesArray, 'gamesArray');
 
-var singleGame = threeGames.map((obj) => {
-    const team = obj.hTeam.teamId;
-    // console.log(team);
-    
-    if (team === 1610612761) {
-        return "you are the raptors";
-    }
-
-    return "you are not the raptors";
+const isHomeGameArray = gamesArray.map((obj)=>{
+    return obj.isHomeGame;
 });
 
-// console.log(singleGame);
+const gameDateArray = gamesArray.map((obj)=> {
+    return obj.gameDateUTC;
+})
+
+console.log(gameDateArray[0]);
+
+const gamesTeamIdArray = gamesArray.map((obj) => {    
+    if (obj.hTeam.teamId !== "1610612761") {
+        return obj.hTeam.teamId;
+    }
+    
+    if (obj.vTeam.teamId !== "1610612761") {
+        return obj.vTeam.teamId;
+    }
+});
+// console.log(gamesTeamIdArray);
+
+const teamsArray = Object.values(teams);
+
+const filteredTeamsArray = teamsArray.filter(obj => obj.ttsName);
+
+const threeTeamsArray = filteredTeamsArray.filter(obj => {
+    return obj.teamId === gamesTeamIdArray[0] || obj.teamId === gamesTeamIdArray[1] || obj.teamId === gamesTeamIdArray[2];
+}); 
+
+const teamNames = threeTeamsArray.map((team)=> {
+    return team.ttsName;
+});
+
+const teamTricodes = threeTeamsArray.map((team)=> {
+    return team.tricode;
+})
 
     const {
       person_id,
@@ -83,9 +108,9 @@ var singleGame = threeGames.map((obj) => {
                     <Stats title="to" stat={player.turnovers} />
                     <Stats title="pts" stat={player.points} />
                 </div>
-                <div className={styles.title}>Recent Games</div>
+                <Title title="Recent Games" />
                 <div className={styles}>
-                    <GameResult />
+                    <GameResult opponentName={teamNames[0]} tricode={teamTricodes[0]} isHomeGame={isHomeGameArray[2]} gameDate={gameDateArray[0]} />
                 </div>
             </div>  
         </div>

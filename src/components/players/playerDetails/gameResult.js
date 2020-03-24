@@ -1,12 +1,17 @@
 import React from 'react';
 
-// import myData from '../../../assets/teams.json';
-
-const GameResult = () => {
+const GameResult = ({opponentName, tricode, isHomeGame, gameDate}) => {
+    const date = new Date(gameDate);
+    const date2 = date.toDateString();
+    console.log(date2);
     return (
         <div>
-            here
+            {isHomeGame ? <div>@</div> : <div>vs</div>}
+            <div>{opponentName}</div>
+            <img src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${tricode}.svg`} />
+            <div>{date2}</div>
         </div>
+        
     );
 }
 
