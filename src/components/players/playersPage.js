@@ -6,13 +6,12 @@ import PlayerDetails from './playerDetails/playerDetails';
 import styles from './playersPage.module.scss';
 
 const PlayersPage = () => {
-
     return (
         <div className={styles.playersContainer}>
             <PlayersList />
             <PlayerDetails />
         </div>
-    )
-}
+    );
+};
 
 export default PlayersPage;
