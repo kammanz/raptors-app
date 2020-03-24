@@ -26,25 +26,25 @@
       border-bottom: 3px solid $background-color-purple;
     }
 
-    .statsContainer {
-      margin: 20px 0 0 5px;
+    .detailsContainer {
+      margin: 20px 5px;
 
       .nameContainer {
         display: flex;
         justify-content: center;
         align-items: center;
-  
+
         .name {
           font-size: 28px;
           color: $grey5;
           font-weight: bold;
           font-family: arial;
         }
-  
+
         .jerseyNumber {
           flex: 1;
           text-align: end;
-          padding-right: 15px;
+          padding-right: 5px;
           color: $background-color-purple;
           font-size: 40px;
           font-weight: bold;
@@ -52,7 +52,7 @@
           vertical-align: sub;
         }
       }
-  
+
       .position {
         color: $grey4;
         font-size: 18px;
@@ -69,23 +69,9 @@
   }
 }
 
-.mainStatsContainer {
+.statsContainer {
   display: flex;
   flex: 1;
   justify-content: space-between;
-  margin-top: 20px;
-}
-
-.title {
-  display: flex; 
-  justify-content: center;
-  align-items: center;
-  height: 16px;
-  margin-top: 20px;  
-  background-color: $background-color-purple;
-  color: $white;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 10px;
-  font-weight: bold; 
-  text-transform: uppercase;
+  margin-bottom: 10px;
 }

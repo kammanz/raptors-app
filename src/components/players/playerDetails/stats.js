@@ -1,12 +1,17 @@
 import React from 'react';
 
+import Title from './title.js';
+
 import styles from './stats.module.scss';
 
-const Stats = (props) => {
+const Stats = ({ isQuickStats, title, stat }) => {
     return (
-        <div className={props.isQuickStats ? styles.quickStatContainer : styles.container}>
-            <div className={props.isQuickStats ? styles.quickStatTitle : styles.title}>{props.title}</div>
-            <div className={props.isQuickStats ? styles.quickStat : styles.stat}>{props.stat}</div>
+        <div className={isQuickStats ? styles.quickStatContainer : styles.container}>
+            {isQuickStats ? 
+                <Title title={title} /> : 
+                <div className={styles.title}>{title}</div>
+            }
+            <div className={styles.stat}>{stat}</div>
         </div>
     )
 }
