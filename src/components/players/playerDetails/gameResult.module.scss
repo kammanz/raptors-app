@@ -1,1 +1,22 @@
 @import 'src/scss/variables.scss';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    background-color: pink;
+    // justify-content: space-between;
+}
+
+.titleContainer {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.resultsContainer {
+    display: flex;
+    flex: 1;
+    // justify-content: space-between;
+    background-color: lightyellow;
+}

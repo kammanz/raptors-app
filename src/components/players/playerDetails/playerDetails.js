@@ -21,45 +21,45 @@ const PlayerDetails = ({ player, teams, games }) => {
 
 // console.log(games, 'games');
 
-var gamesArray = Object.values(games);
-console.log(gamesArray, 'gamesArray');
+// var gamesArray = Object.values(games);
+// console.log(gamesArray, 'gamesArray');
 
-const isHomeGameArray = gamesArray.map((obj)=>{
-    return obj.isHomeGame;
-});
+// const isHomeGameArray = gamesArray.map((obj)=>{
+//     return obj.isHomeGame;
+// });
 
-const gameDateArray = gamesArray.map((obj)=> {
-    return obj.gameDateUTC;
-})
+// const gameDateArray = gamesArray.map((obj)=> {
+//     return obj.gameDateUTC;
+// })
 
 // console.log(gameDateArray[0]);
 
-const gamesTeamIdArray = gamesArray.map((obj) => {    
-    if (obj.hTeam.teamId !== "1610612761") {
-        return obj.hTeam.teamId;
-    }
+// const gamesTeamIdArray = gamesArray.map((obj) => {    
+//     if (obj.hTeam.teamId !== "1610612761") {
+//         return obj.hTeam.teamId;
+//     }
     
-    if (obj.vTeam.teamId !== "1610612761") {
-        return obj.vTeam.teamId;
-    }
-});
+//     if (obj.vTeam.teamId !== "1610612761") {
+//         return obj.vTeam.teamId;
+//     }
+// });
 // console.log(gamesTeamIdArray);
 
-const teamsArray = Object.values(teams);
+// const teamsArray = Object.values(teams);
 
-const filteredTeamsArray = teamsArray.filter(obj => obj.ttsName);
+// const filteredTeamsArray = teamsArray.filter(obj => obj.ttsName);
 
-const threeTeamsArray = filteredTeamsArray.filter(obj => {
-    return obj.teamId === gamesTeamIdArray[0] || obj.teamId === gamesTeamIdArray[1] || obj.teamId === gamesTeamIdArray[2];
-}); 
+// const threeTeamsArray = filteredTeamsArray.filter(obj => {
+//     return obj.teamId === gamesTeamIdArray[0] || obj.teamId === gamesTeamIdArray[1] || obj.teamId === gamesTeamIdArray[2];
+// }); 
 
-const teamNames = threeTeamsArray.map((team)=> {
-    return team.ttsName;
-});
+// const teamNames = threeTeamsArray.map((team)=> {
+//     return team.ttsName;
+// });
 
-const teamTricodes = threeTeamsArray.map((team)=> {
-    return team.tricode;
-})
+// const teamTricodes = threeTeamsArray.map((team)=> {
+//     return team.tricode;
+// })
 
     const {
       person_id,
@@ -110,7 +110,7 @@ const teamTricodes = threeTeamsArray.map((team)=> {
                 </div>
                 <Title title="Recent Games" />
                 <div className={styles}>
-                    <GameResult opponentName={teamNames[0]} tricode={teamTricodes[0]} isHomeGame={isHomeGameArray[2]} gameDate={gameDateArray[0]} />
+                    <GameResult /*opponentName={teamNames[0]} tricode={teamTricodes[0]} isHomeGame={isHomeGameArray[2]} gameDate={gameDateArray[0]}*/ />
                 </div>
             </div>  
         </div>
