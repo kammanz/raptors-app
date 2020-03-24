@@ -5,11 +5,12 @@ import Title from './title.js';
 import styles from './stats.module.scss';
 
 const Stats = (props) => {
+    const { isQuickStats, title, stat } = props;
 
     return (
-        <div className={props.isQuickStats ? styles.quickStatContainer : styles.container}>
-            {props.isQuickStats ? <Title title={props.title} /> : <div className={styles.title}>{props.title}</div>}
-            <div className={styles.stat}>{props.stat}</div>
+        <div className={isQuickStats ? styles.quickStatContainer : styles.container}>
+            {isQuickStats ? <Title title={title} /> : <div className={styles.title}>{title}</div>}
+            <div className={styles.stat}>{stat}</div>
         </div>
     )
 }
