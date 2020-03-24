@@ -3,7 +3,7 @@ import React from 'react';
 const GameResult = ({opponentName, tricode, isHomeGame, gameDate}) => {
     const date = new Date(gameDate);
     const date2 = date.toDateString();
-    console.log(date2);
+    // console.log(date2);
     return (
         <div>
             {isHomeGame ? <div>@</div> : <div>vs</div>}

@@ -32,7 +32,7 @@ const gameDateArray = gamesArray.map((obj)=> {
     return obj.gameDateUTC;
 })
 
-console.log(gameDateArray[0]);
+// console.log(gameDateArray[0]);
 
 const gamesTeamIdArray = gamesArray.map((obj) => {    
     if (obj.hTeam.teamId !== "1610612761") {

@@ -11,10 +11,10 @@ export const selectPlayer = (player) => async dispatch => {
     dispatch({ type: 'UPDATE_PLAYER', payload: response.data.league.standard.stats.latest });
 };
 
-export const getGameStats = (playerId) => async dispatch => {
+export const getGames = (playerId) => async dispatch => {
     const response = await dataNbaNet.get("/data/10s/prod/v1/2019/players/" + playerId + "_gamelog.json");
     // console.log(response.data.league.standard, 'getGameStats');
-    dispatch({ type: 'GET_GAMESTATS', payload: { ...response.data.league.standard }});
+    dispatch({ type: 'GET_GAMES', payload: { ...response.data.league.standard }});
 }
 
 export const getTeams = () => async dispatch => {
