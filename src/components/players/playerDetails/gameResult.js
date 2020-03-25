@@ -87,7 +87,7 @@ const GameResult = ({ teams, games }) => {
               hTeam,
               vTeam,
             }) => {
-              const gameResult = () => {
+              const getGameResult = () => {
                 const homeTeam = isHomeGame ? hTeam : vTeam;
                 return homeTeam.isWinner ? 'W' : 'L';
               };
@@ -103,7 +103,7 @@ const GameResult = ({ teams, games }) => {
                 <div key={gameId}>
                   <div>{isHomeGame ? 'vs' :'@'}</div>
                   <div>{oppTeam.ttsName} {oppTeam.tricode}</div>
-                  <div>{gameResult}</div>
+                  <div>{getGameResult()}</div>
                   <div>{score}</div>
                 </div>
               );
