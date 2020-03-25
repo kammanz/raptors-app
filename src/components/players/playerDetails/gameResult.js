@@ -87,17 +87,22 @@ const GameResult = ({ teams, games }) => {
               hTeam,
               vTeam,
             }) => {
-              const homeTeam = isHomeGame ? hTeam : vTeam;
-              const oppTeamId = isHomeGame ? vTeam.teamId : hTeam.teamId;
-              const oppTeamObj = teamsArray.find(team => team.teamId === oppTeamId);
+              const gameResult = () => {
+                const homeTeam = isHomeGame ? hTeam : vTeam;
+                return homeTeam.isWinner ? 'W' : 'L';
+              };
+              const oppTeam = teamsArray.find(team => {
+                const oppTeamId = isHomeGame ? vTeam.teamId : hTeam.teamId;
+                return team.teamId === oppTeamId;
+              });
+              const score = parseInt(hTeam.score) > parseInt(vTeam.score) ?
+                `${hTeam.score} - ${vTeam.score}` :
+                `${vTeam.score} - ${hTeam.score}`;
 
-              const gameResult = homeTeam.isWinner ? 'W' : 'L';
-              const score = parseInt(hTeam.score) > parseInt(vTeam.score) ? `${hTeam.score} - ${vTeam.score}` : `${vTeam.score} - ${hTeam.score}`;
               return (
                 <div key={gameId}>
                   <div>{isHomeGame ? 'vs' :'@'}</div>
-                  <div>{oppTeamId}</div>
-                  <div>{oppTeamObj.ttsName} {oppTeamObj.tricode}</div>
+                  <div>{oppTeam.ttsName} {oppTeam.tricode}</div>
                   <div>{gameResult}</div>
                   <div>{score}</div>
                 </div>
