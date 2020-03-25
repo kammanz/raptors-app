@@ -100,7 +100,7 @@ const GameResult = ({ teams, games }) => {
                 `${vTeam.score} - ${hTeam.score}`;
 
               return (
-                <div key={gameId}>
+                <div key={gameId} className={styles.container}>
                   <div>{isHomeGame ? 'vs' :'@'}</div>
                   <div>{oppTeam.ttsName} {oppTeam.tricode}</div>
                   <div>{getGameResult()}</div>
