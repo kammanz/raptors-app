@@ -63,15 +63,15 @@ const GameResult = ({teams, games}) => {
                         <div>{selectedTeamScore} - {score}</div>
                     }
                     <div>
-                        <div>points: {points}</div>
+                        {/* <div>points: {points}</div>
                         <div>assists {assists}</div>
                         <div>offensive rebounds: {offReb}</div>
                         <div>defensive rebounds: {defReb}</div>
                         <div>total rebounds: {totReb}</div>
-                        <div>assists: {assists}</div>
+                        <div>assists: {assists}</div> */}
                     </div>
                     
-                    {/* <Stats title="Points" stats={points} /> */}
+                    <Stats title="Points" stats={points} />
                 </div>
                 
             </div>
