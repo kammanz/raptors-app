@@ -71,7 +71,7 @@ const GameResult = ({teams, games}) => {
                         <div>assists: {assists}</div> */}
                     </div>
                     
-                    <Stats title="Points" stats={points} />
+                    <Stats title="Points" stat={points} />
                 </div>
                 
             </div>
@@ -82,13 +82,6 @@ const GameResult = ({teams, games}) => {
 
     return (
         <div>{individualGame}</div>
-        // <div>
-        //     {isHomeGame ? <div>@</div> : <div>vs</div>}
-        //     <div>{opponentName}</div>
-        //     <img src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${tricode}.svg`} />
-        //     <div>{date2}</div>
-        // </div>
-        
     );
     // return <div>Nothing yet</div>;
 }
