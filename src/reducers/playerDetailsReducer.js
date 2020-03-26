@@ -4,6 +4,8 @@ export default (state = null, action) => {
             return action.payload;
         case 'UPDATE_PLAYER':
             return { ...state, ...action.payload };
+        case 'GET_GAMES':
+            return { ...state, ...action.payload };
         default:
             return state;
     }
