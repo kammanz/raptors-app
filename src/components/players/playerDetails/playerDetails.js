@@ -66,9 +66,9 @@ const PlayerDetails = ({ player, teams, games }) => {
                 </div>
                 <Title title="Recent Games" />
                 <div className={styles}>
-                    <GameResult />
+                    <GameResult teams={teams} games={games} />
                 </div>
-            </div>  
+            </div>
         </div>
     )
 }
