@@ -4,6 +4,7 @@
 .quickStatContainer {
   display: flex;
   flex-direction: column;
+  margin-bottom: 15px;
 }
 
 .container {
@@ -50,12 +51,14 @@
 }
 
 .quickStatContainer {
-    width: calc(25% - 5px);
+  width: calc(25% - 5px);
+  margin-bottom: 13px;
 
-    .stat {
-        height: 40px;
-        color: $grey5;
-        font-size: 24px;
-        font-weight: bold;
-    }
+  .stat {
+      height: 40px;
+      margin-top: 0;
+      color: $grey5;
+      font-size: 24px;
+      font-weight: bold;
+  }
 }

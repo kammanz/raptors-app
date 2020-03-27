@@ -49,9 +49,9 @@ const PlayerDetails = ({ player, teams, games }) => {
                     <Stats isQuickStats title="ast" stat={player.assists} />
                     <Stats isQuickStats title="fg%" stat={player.fgp} />
                 </div>
-                <Title title="Stats" />
+                <Title title="stats" />
                 <div className={styles.statsContainer}>
-                    <Stats title="gp" stat={player.gamesPlayed} />
+                    <Stats stats title="gp" stat={player.gamesPlayed} />
                     <Stats title="min" stat={player.min} />
                     <Stats title="fg%" stat={player.fgp} />
                     <Stats title="3p%" stat={player.tpp} />
@@ -64,7 +64,7 @@ const PlayerDetails = ({ player, teams, games }) => {
                     <Stats title="to" stat={player.turnovers} />
                     <Stats title="pts" stat={player.points} />
                 </div>
-                <Title title="Recent Games" />
+                <Title title="recent games" />
                 <div className={styles}>
                     <Games teams={teams} games={games} />
                 </div>

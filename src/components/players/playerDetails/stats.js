@@ -13,7 +13,7 @@ const Stats = ({ isQuickStats, title, stat, result }) => {
                 <Title title={title} /> : 
                 <div className={styles.title}>{title}</div>
             }
-            <BorderBottom />
+            {!isQuickStats ? <BorderBottom /> : null}
             {result ? 
                 <div className={styles.stat}><span className={result === "W" ? styles.won : styles.lost}>{result}</span> {stat}</div> :
                 <div className={styles.stat}>{stat}</div>
