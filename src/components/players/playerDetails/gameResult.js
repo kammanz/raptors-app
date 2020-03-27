@@ -36,8 +36,8 @@ const GameResult = ({ teams, games }) => {
                 const el = array[2];
 
                 return (el.charAt(0) === "0" ? 
-                  array[0] + "." + " " + array[1] + " " + el.substring(1) + ", " + array[3]:
-                  array[0] + "." + " " + array[1] + " " + el + ", " + array[3]);
+                  `${array[0]}. ${array[1]} ${el.substring(1)}, ${array[3]}`:
+                  `${array[0]}. ${array[1]} ${el}, ${array[3]}`);
               }; 
 
               return (
