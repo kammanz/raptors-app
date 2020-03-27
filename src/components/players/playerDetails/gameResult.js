@@ -37,7 +37,8 @@ const GameResult = ({ teams, games }) => {
 
                 return (el.charAt(0) === "0" ? 
                   `${array[0]}. ${array[1]} ${el.substring(1)}, ${array[3]}`:
-                  `${array[0]}. ${array[1]} ${el}, ${array[3]}`);
+                  `${array[0]}. ${array[1]} ${el}, ${array[3]}`
+                );
               }; 
 
               return (
@@ -49,11 +50,16 @@ const GameResult = ({ teams, games }) => {
                     <div className={styles.date}>{formattedDate(dateArray)}</div>
                   </header>
                   <section>
-                    <div>{getGameResult()}</div>
-                    <div>{score}</div>
+                    {/* <div className={styles.result}>{getGameResult()}</div> */}
+                    {/* <div>{score}</div> */}
+                    <Stats title="result" stat={score} result={getGameResult()}/>
+                    <Stats title="points" stat={score} />
+                    <Stats title="assists" stat={score} />
+                    <Stats title="off reb" stat={score} />
+                    <Stats title="def reb" stat={score} />
+                    <Stats title="tot reb" stat={score} />
                   </section>
                 </div>
-                
               );
           })}
         </div>

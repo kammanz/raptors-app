@@ -20,12 +20,9 @@ header {
         display: inline-block;
         padding: 3px;
     }
-
-    
 }
 
 .date {
-    // display: inline-block;
     display: flex;
     margin-left: auto;
     text-align: right;
@@ -44,4 +41,8 @@ header {
     flex: 1;
     // justify-content: space-between;
     background-color: lightyellow;
+}
+
+section {
+    display: flex;
 }

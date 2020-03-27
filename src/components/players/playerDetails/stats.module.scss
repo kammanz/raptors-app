@@ -1,4 +1,5 @@
 @import 'src/scss/variables.scss';
+// @import result from './';
 
 .container,
 .quickStatContainer {
@@ -34,6 +35,14 @@
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   text-align: center;
+
+  .won {
+    color: green;
+  }
+
+  .lost {
+    color: red;
+  }
 }
 
 .quickStatContainer {
