@@ -16,9 +16,9 @@
   justify-content: center;
   align-items: center;
   height: 13px;
-  margin-top: 14px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid $grey3;
+  margin-top: 5px;
+  padding-bottom: 5px;
+  // border-bottom: 1px solid $grey3;
   color: $grey5;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
@@ -30,18 +30,27 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 14px;
+  margin-top: 4px;
   color: $grey3;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   text-align: center;
 
+  span {
+    padding-right: 8px;
+    font-size: 12px;
+    font-weight: bold;
+
+  }
+
   .won {
-    color: green;
+    color: $won;
+    // padding-right: 10px;
   }
 
   .lost {
-    color: red;
+    color: $lost;
+    // padding-right: 10px;
   }
 }
 

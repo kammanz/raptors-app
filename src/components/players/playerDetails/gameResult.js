@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './gameResult.module.scss';
 import Stats from './stats';
+import BorderBottom from './borderBottom';
 
 const GameResult = ({ teams, games }) => {
     const gamesArray = Object.values(games);
@@ -42,13 +43,14 @@ const GameResult = ({ teams, games }) => {
               }; 
 
               return (
-                <div key={gameId}>
+                <div key={gameId} className={styles.game}>
                   <header /*className={styles.container}*/>
                     <div>{isHomeGame ? 'vs' :'@'}</div>
                     <img src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${oppTeam.tricode}.svg`} height="42" alt="team logo" />
                     <div>{oppTeam.ttsName} </div>
                     <div className={styles.date}>{formattedDate(dateArray)}</div>
                   </header>
+                  <BorderBottom />
                   <section>
                     {/* <div className={styles.result}>{getGameResult()}</div> */}
                     {/* <div>{score}</div> */}

@@ -1,16 +1,21 @@
 @import 'src/scss/variables.scss';
 
+
+.game {
+    margin-bottom: 25px;
+}
+
 header {
     display: flex;
     align-items: center;
-    // flex-direction: column;
-    border-bottom: 2px solid $grey1;
     height: 40px;
-    // background-color: pink;
-    // justify-content: space-between;
     font-family: arial;
     font-size: 14px;
     color: $grey5;
+
+    &:first-child {
+        padding-left: 7px;
+    }
 
     div {
         padding: 3px;
