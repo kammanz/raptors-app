@@ -1,5 +1,4 @@
 @import 'src/scss/variables.scss';
-// @import result from './';
 
 .container,
 .quickStatContainer {
@@ -18,7 +17,6 @@
   height: 13px;
   margin-top: 5px;
   padding-bottom: 5px;
-  // border-bottom: 1px solid $grey3;
   color: $grey5;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
@@ -40,17 +38,14 @@
     padding-right: 8px;
     font-size: 12px;
     font-weight: bold;
-
   }
 
   .won {
     color: $won;
-    // padding-right: 10px;
   }
 
   .lost {
     color: $lost;
-    // padding-right: 10px;
   }
 }
 

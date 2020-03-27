@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import Placeholder from './placeholder.js';
 import Stats from './stats';
-import GameResult from './gameResult.js';
+import Games from './games.js';
 import Title from './title';
 
 import styles from './playerDetails.module.scss';
@@ -66,7 +66,7 @@ const PlayerDetails = ({ player, teams, games }) => {
                 </div>
                 <Title title="Recent Games" />
                 <div className={styles}>
-                    <GameResult teams={teams} games={games} />
+                    <Games teams={teams} games={games} />
                 </div>
             </div>
         </div>

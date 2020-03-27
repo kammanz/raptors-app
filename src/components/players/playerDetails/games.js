@@ -1,11 +1,12 @@
 import React from 'react';
-import styles from './gameResult.module.scss';
+import styles from './games.module.scss';
 import Stats from './stats';
 import BorderBottom from './borderBottom';
 
-const GameResult = ({ teams, games }) => {
+const Games = ({ teams, games }) => {
     const gamesArray = Object.values(games);
     const teamsArray = Object.values(teams);
+    console.log(gamesArray);
 
     return (
         <div>
@@ -16,7 +17,10 @@ const GameResult = ({ teams, games }) => {
               hTeam,
               vTeam,
               gameDateUTC,
+              stats,
             }) => {
+
+              const { points, assists, offReb, defReb, totReb } = stats;
 
               const getGameResult = () => {
                 const playersTeam = isHomeGame ? hTeam : vTeam;
@@ -44,22 +48,20 @@ const GameResult = ({ teams, games }) => {
 
               return (
                 <div key={gameId} className={styles.game}>
-                  <header /*className={styles.container}*/>
+                  <header>
                     <div>{isHomeGame ? 'vs' :'@'}</div>
                     <img src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${oppTeam.tricode}.svg`} height="42" alt="team logo" />
-                    <div>{oppTeam.ttsName} </div>
+                    <div>{oppTeam.ttsName}</div>
                     <div className={styles.date}>{formattedDate(dateArray)}</div>
                   </header>
                   <BorderBottom />
                   <section>
-                    {/* <div className={styles.result}>{getGameResult()}</div> */}
-                    {/* <div>{score}</div> */}
-                    <Stats title="result" stat={score} result={getGameResult()}/>
-                    <Stats title="points" stat={score} />
-                    <Stats title="assists" stat={score} />
-                    <Stats title="off reb" stat={score} />
-                    <Stats title="def reb" stat={score} />
-                    <Stats title="tot reb" stat={score} />
+                    <Stats title="result" stat={score} result={getGameResult()} />
+                    <Stats title="points" stat={points} />
+                    <Stats title="assists" stat={assists} />
+                    <Stats title="off reb" stat={offReb} />
+                    <Stats title="def reb" stat={defReb} />
+                    <Stats title="tot reb" stat={totReb} />
                   </section>
                 </div>
               );
@@ -68,4 +70,4 @@ const GameResult = ({ teams, games }) => {
     );
 };
 
-export default GameResult;
+export default Games;
