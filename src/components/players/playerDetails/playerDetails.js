@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Placeholder from './placeholder.js';
-import Stats from './stats';
+import Stats from '../../../common/tableCell';
 import Games from './games.js';
-import Title from './title';
+import Title from '../../../common/title';
 
 import styles from './playerDetails.module.scss';
 

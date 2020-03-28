@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './games.module.scss';
-import Stats from './stats';
-import BorderBottom from './borderBottom';
+import Stats from '../../../common/tableCell';
+import BorderBottom from '../../../common/borderBottom';
 
 const Games = ({ teams, games }) => {
     const gamesArray = Object.values(games);
