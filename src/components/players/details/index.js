@@ -1,14 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Placeholder from './placeholder.js';
-import Stats from '../../../common/tableCell';
+import Placeholder from './stats/placeholder.js';
+
+import Stats from '../../_shared/tableCell';
 import Games from './games.js';
-import Title from '../../../common/title';
+import Title from '../../_shared/title';
 
-import styles from './playerDetails.module.scss';
+import styles from './index.module.scss';
 
-const PlayerDetails = ({ player, teams, games }) => {
+
+const Details = ({ player, teams, games }) => {
     if (!player) {
         return (
             <div className={styles.container}>
@@ -34,7 +36,7 @@ const PlayerDetails = ({ player, teams, games }) => {
                 <div className={styles.imageContainer}>
                     <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${person_id}.png`} alt="Player Headshot" />
                 </div>
-                <div className={styles.imageBorderBottom}></div>
+                <div className={styles.imageLine}></div>
                 <div className={styles.detailsContainer}>
                     <div className={styles.nameContainer}>
                         <div className={styles.name}>{first_name} {last_name}</div>
@@ -75,4 +77,4 @@ const PlayerDetails = ({ player, teams, games }) => {
 
 const mapStateToProps = state => ({ player: state.player, teams: state.teams, games: state.games });
 
-export default connect(mapStateToProps)(PlayerDetails);
+export default connect(mapStateToProps)(Details);

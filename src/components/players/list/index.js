@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getPlayers, selectPlayer } from '../../actions/actions.js';
+import { getPlayers, selectPlayer } from '../../../actions/actions.js';
 
-import styles from './playersList.module.scss';
+import styles from './index.module.scss';
 
-class PlayersList extends React.Component {
+class List extends React.Component {
     constructor(props) {
         super(props);
 
@@ -40,7 +40,7 @@ class PlayersList extends React.Component {
                     <div className={styles.imageContainer}>
                         <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${player.person_id}.png`} alt="Player Headshot"/>
                     </div>
-                    <div className={styles.imageBorderBottom}></div>
+                    <div className={styles.imageLine}></div>
                     <div className={styles.detailsContainer}>
                         <div className={styles.number}>{player.jersey_number}</div>
                         <div className={styles.details}>
@@ -72,4 +72,4 @@ export default connect(mapStateToProps,
             getPlayers,
             selectPlayer,
         }
-)(PlayersList);
+)(List);

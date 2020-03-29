@@ -1,16 +1,16 @@
 import React from 'react';
 
-import PlayersList from './playersList';
-import PlayerDetails from './playerDetails/playerDetails';
+import PlayersList from './list';
+import Details from './details';
 
-import styles from './playersPage.module.scss';
+import styles from './index.module.scss';
 
 const PlayersPage = () => {
 
     return (
         <div className={styles.playersContainer}>
             <PlayersList />
-            <PlayerDetails />
+            <Details />
         </div>
     )
 }

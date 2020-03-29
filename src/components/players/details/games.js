@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './games.module.scss';
-import Stats from '../../../common/tableCell';
-import BorderBottom from '../../../common/borderBottom';
+import Stats from '../../_shared/tableCell';
+import Line from '../../_shared/line';
 
 const Games = ({ teams, games }) => {
     const gamesArray = Object.values(games);
@@ -54,7 +54,7 @@ const Games = ({ teams, games }) => {
                     <div>{oppTeam.ttsName}</div>
                     <div className={styles.date}>{formattedDate(dateArray)}</div>
                   </header>
-                  <BorderBottom />
+                  <Line />
                   <section>
                     <Stats title="result" stat={score} result={getGameResult()} />
                     <Stats title="points" stat={points} />

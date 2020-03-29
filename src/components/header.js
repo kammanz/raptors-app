@@ -11,9 +11,9 @@ import kobe from '../assets/imgs/kobe.png';
 import styles from './header.module.scss';
 
 class Header extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
 
     componentDidMount() {
         this.props.getTeams();
