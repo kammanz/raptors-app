@@ -89,11 +89,8 @@ const Details = ({ player, teams, games }) => {
                     <TableCell title="to" stat={player.turnovers} />
                     <TableCell title="pts" stat={player.points} />
                 </div> */}
-                <Title title="recent games" />
                 
-                <div className={styles}>
-                    <Games teams={teams} games={games} />
-                </div>
+                <Games teams={teams} games={games} />
             </div>
         </div>
     )

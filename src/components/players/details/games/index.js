@@ -6,15 +6,18 @@ import Title from '../../../_shared/title';
 import Table from '../../../_shared/table';
 
 const Games = ({ teams, games }) => {
-    const gamesArray = Object.values(games);
-    const teamsArray = Object.values(teams);
-    // console.log(gamesArray);
-    console.log(games);
+  const gamesArray = Object.values(games);
+  const teamsArray = Object.values(teams);
+  console.log(gamesArray);
+  console.log(games);
 
-    return (
-        <div>
-          {
-            gamesArray.map(({
+  // top 
+
+  // bottom
+
+  // const statsForThreeGames = gamesArray.map(({stats})=>  stats.points );
+
+  const shanty = gamesArray.map(({
               gameId,
               isHomeGame,
               hTeam,
@@ -40,6 +43,7 @@ const Games = ({ teams, games }) => {
                 `${vTeam.score} - ${hTeam.score}`;
 
               const dateArray = new Date(gameDateUTC).toDateString().split(' ');
+
               const formattedDate = (array) => {
                 const el = array[2];
 
@@ -48,6 +52,9 @@ const Games = ({ teams, games }) => {
                   `${array[0]}. ${array[1]} ${el}, ${array[3]}`
                 );
               }; 
+
+              const tableObj = { result: score, points, assists, offReb, defReb, totReb };
+              console.log('here', tableObj);
 
               // return (
               //   // <div key={gameId} className={styles.game}>
@@ -73,16 +80,25 @@ const Games = ({ teams, games }) => {
               //     {/* <Table obj={gamesArray}/> */}
               //   </section>
               // );
-              return <div>go fuk yourself</div>;
-          })}
-        </div>
-    );
 
-          {/* // return (
-          // <div>go fuk yrself {dateArray}</div>
-          // );
-      
-    // ); */}
-};
+              return (
+                <section>
+                  <header>
+                    <div>{isHomeGame ? 'vs' :'@'}</div>
+                    <img src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${oppTeam.tricode}.svg`} height="42" alt="team logo" />
+                    <div>{oppTeam.ttsName}</div>
+                    <div className={styles.date}>{formattedDate(dateArray)}</div>
+                  </header>
+                  <Line />
+                  <Table obj={tableObj} />
+                </section>
+              );
+            });
+            return (<div>
+              <Title title="recent games"/>
+              {shanty}
+              
+            </div>);
+}         
 
 export default Games;
