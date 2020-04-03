@@ -1,20 +1,18 @@
 import React from 'react';
 
+import Line from './line.js';
+
 // import Title from './title.js';
 
 import styles from './tableCell.module.scss';
-import Line from './line.js';
 
-const TableCell = ({ title, stat, result }) => {
-
+const TableCell = ({ title, value }) => {
     return (
         <div className={styles.container}>
             <div className={styles.title}>{title}</div>
-            <Line />
-            {result ? 
-                <div className={styles.stat}><span className={result === "W" ? styles.won : styles.lost}>{result}</span> {stat}</div> :
-                <div className={styles.stat}>{stat}</div>
-            }
+            {/* <Line /> */}
+            <div className={styles.line}></div>
+            <div>{value}</div>
         </div>
     )
 }

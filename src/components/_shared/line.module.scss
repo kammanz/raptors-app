@@ -1,3 +1,6 @@
 @import 'src/scss/variables.scss';
 
-.line {border-bottom: 2px solid $grey1};
+.line {
+    border-bottom: 1px solid $grey1c;
+    padding-top: 5px;
+}

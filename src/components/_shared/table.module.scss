@@ -1,0 +1,25 @@
+@import 'src/scss/variables.scss';
+
+.table {
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+tr {
+    text-align: center;
+}
+
+th {
+    height: 40px;
+    font-family: arial;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $grey6;
+}
+
+td {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: $grey4;
+}

@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Placeholder from './stats/placeholder.js';
+import Placeholder from './card/placeholder.js';
 
 import TableCell from '../../_shared/tableCell';
-import Games from './games.js';
+import Games from './games/index.js';
 import Title from '../../_shared/title';
+import Stats from './stats';
 
 import styles from './index.module.scss';
 
@@ -19,6 +20,8 @@ const Details = ({ player, teams, games }) => {
         );
     }
 
+    // console.log(teams, 'here');
+
     const {
       person_id,
       first_name,
@@ -29,6 +32,21 @@ const Details = ({ player, teams, games }) => {
       height_in,
       weight_lbs,
     } = player;
+
+    const statsObj = { 
+        gp: player.gamesPlayed, 
+        min: player.min, 
+        fgp: player.fgp, 
+        ttp: player.tpp,
+        ftp: player.ftp,
+        rpg: player.rpg,
+        ast: player.assists,
+        blk: player.blocks,
+        stl: player.steals,
+        pf: player.pFouls,
+        to: player.turnovers,
+        pts: player.points
+    };
 
     return (
         <div className={styles.container}>
@@ -51,8 +69,13 @@ const Details = ({ player, teams, games }) => {
                     <TableCell isQuickStats title="ast" stat={player.assists} />
                     <TableCell isQuickStats title="fg%" stat={player.fgp} />
                 </div>
-                <Title title="TableCell" />
+                <Stats obj={statsObj} />
+                {/* <Games teams={null} games={null} /> */}
+
+                
+                {/* <Title title="stats" />
                 <div className={styles.tableCellContainer}>
+
                     <TableCell TableCell title="gp" stat={player.gamesPlayed} />
                     <TableCell title="min" stat={player.min} />
                     <TableCell title="fg%" stat={player.fgp} />
@@ -65,8 +88,9 @@ const Details = ({ player, teams, games }) => {
                     <TableCell title="pf" stat={player.pFouls} />
                     <TableCell title="to" stat={player.turnovers} />
                     <TableCell title="pts" stat={player.points} />
-                </div>
+                </div> */}
                 <Title title="recent games" />
+                
                 <div className={styles}>
                     <Games teams={teams} games={games} />
                 </div>
