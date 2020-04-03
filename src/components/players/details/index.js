@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import Placeholder from './card/placeholder.js';
 
+import QuickStats from './quickStats/';
 import TableCell from '../../_shared/tableCell';
 import Games from './games/index.js';
 import Title from '../../_shared/title';
@@ -33,12 +34,20 @@ const Details = ({ player, teams, games }) => {
       weight_lbs,
     } = player;
 
+    // const fg = 'fg %';
+    const quickStatsObj = {
+        ppg: player.ppg, 
+        reb: player.totReb, 
+        ast: player.assists, 
+        "fg %": player.fgp, 
+    }
+
     const statsObj = { 
         gp: player.gamesPlayed, 
         min: player.min, 
-        fgp: player.fgp, 
-        ttp: player.tpp,
-        ftp: player.ftp,
+        "fg%": player.fgp, 
+        "3p%": player.tpp,
+        "ft%": player.ftp,
         rpg: player.rpg,
         ast: player.assists,
         blk: player.blocks,
@@ -63,12 +72,7 @@ const Details = ({ player, teams, games }) => {
                     <div className={styles.position}>{position_full}</div>
                     <div className={styles.details}>{height_ft}-{height_in}, {weight_lbs} lbs</div>
                 </div>
-                <div className={styles.tableCellContainer}>
-                    <TableCell isQuickStats title="ppg" stat={player.ppg} />
-                    <TableCell isQuickStats title="rpg" stat={player.rpg} />
-                    <TableCell isQuickStats title="ast" stat={player.assists} />
-                    <TableCell isQuickStats title="fg%" stat={player.fgp} />
-                </div>
+                <QuickStats obj={quickStatsObj}/>
                 <Stats obj={statsObj} />
                 <Games teams={teams} games={games} />
             </div>

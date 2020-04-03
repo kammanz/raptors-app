@@ -6,7 +6,7 @@ import styles from './table.module.scss';
 import TableCell from './tableCell';
 
 
-const Table = ({ obj, result}) => {
+const Table = ({ obj, result }) => {
     const arr = Object.entries(obj);
     console.log(result);
 
