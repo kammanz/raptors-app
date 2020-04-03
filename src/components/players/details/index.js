@@ -70,26 +70,6 @@ const Details = ({ player, teams, games }) => {
                     <TableCell isQuickStats title="fg%" stat={player.fgp} />
                 </div>
                 <Stats obj={statsObj} />
-                {/* <Games teams={null} games={null} /> */}
-
-                
-                {/* <Title title="stats" />
-                <div className={styles.tableCellContainer}>
-
-                    <TableCell TableCell title="gp" stat={player.gamesPlayed} />
-                    <TableCell title="min" stat={player.min} />
-                    <TableCell title="fg%" stat={player.fgp} />
-                    <TableCell title="3p%" stat={player.tpp} />
-                    <TableCell title="ft%" stat={player.ftp} />
-                    <TableCell title="rpg" stat={player.rpg} />
-                    <TableCell title="ast" stat={player.assists} />
-                    <TableCell title="blk" stat={player.blocks} />
-                    <TableCell title="stl" stat={player.steals} />
-                    <TableCell title="pf" stat={player.pFouls} />
-                    <TableCell title="to" stat={player.turnovers} />
-                    <TableCell title="pts" stat={player.points} />
-                </div> */}
-                
                 <Games teams={teams} games={games} />
             </div>
         </div>

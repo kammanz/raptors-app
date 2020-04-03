@@ -1,23 +1,16 @@
 import React from 'react';
-import styles from './index.module.scss';
-import Stats from '../../../_shared/tableCell';
+
 import Line from '../../../_shared/line';
 import Title from '../../../_shared/title';
 import Table from '../../../_shared/table';
 
+import styles from './index.module.scss';
+
 const Games = ({ teams, games }) => {
   const gamesArray = Object.values(games);
   const teamsArray = Object.values(teams);
-  console.log(gamesArray);
-  console.log(games);
 
-  // top 
-
-  // bottom
-
-  // const statsForThreeGames = gamesArray.map(({stats})=>  stats.points );
-
-  const shanty = gamesArray.map(({
+  const game = gamesArray.map(({
               gameId,
               isHomeGame,
               hTeam,
@@ -56,33 +49,8 @@ const Games = ({ teams, games }) => {
               const tableObj = { result: score, points, assists, offReb, defReb, totReb };
               console.log('here', tableObj);
 
-              // return (
-              //   // <div key={gameId} className={styles.game}>
-              //   //   <header>
-              //   //     <div>{isHomeGame ? 'vs' :'@'}</div>
-              //   //     <img src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${oppTeam.tricode}.svg`} height="42" alt="team logo" />
-              //   //     <div>{oppTeam.ttsName}</div>
-              //   //     <div className={styles.date}>{formattedDate(dateArray)}</div>
-              //   //   </header>
-              //   //   <Line />
-              //   //   <section>
-              //   //     <Stats title="result" stat={score} result={getGameResult()} />
-              //   //     <Stats title="points" stat={points} />
-              //   //     <Stats title="assists" stat={assists} />
-              //   //     <Stats title="off reb" stat={offReb} />
-              //   //     <Stats title="def reb" stat={defReb} />
-              //   //     <Stats title="tot reb" stat={totReb} />
-              //   //   </section>
-              //   // </div>
-              //   <section>
-              //     <Title title="recent games"/>
-              //     <div></div>
-              //     {/* <Table obj={gamesArray}/> */}
-              //   </section>
-              // );
-
               return (
-                <section>
+                <section key={gameId}>
                   <header>
                     <div>{isHomeGame ? 'vs' :'@'}</div>
                     <img src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${oppTeam.tricode}.svg`} height="42" alt="team logo" />
@@ -90,15 +58,16 @@ const Games = ({ teams, games }) => {
                     <div className={styles.date}>{formattedDate(dateArray)}</div>
                   </header>
                   <Line />
-                  <Table obj={tableObj} />
+                  <Table obj={tableObj} result={getGameResult()}/>
                 </section>
               );
             });
-            return (<div>
-              <Title title="recent games"/>
-              {shanty}
-              
-            </div>);
+            return (
+              <div>
+                <Title title="recent games"/>
+                {game}
+              </div>
+            );
 }         
 
 export default Games;
