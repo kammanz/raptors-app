@@ -12,9 +12,9 @@ const QuickStats = ({ obj }) => {
 
     const cell = arr.map((x, i) => {
         return (
-            <div className={styles.container}>
-                <div key={i} className={styles.header}>{x[0]}</div>
-                <div key={i} className={styles.data}>{x[1]}</div>
+            <div key={i} className={styles.container}>
+                <div className={styles.header}>{x[0]}</div>
+                <div className={styles.data}>{x[1]}</div>
             </div>
         );
     });
