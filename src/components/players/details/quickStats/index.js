@@ -6,9 +6,8 @@ import Table from '../../../_shared/table';
 
 import styles from './index.module.scss';
 
-const QuickStats = ({ obj }) => {
-    const arr = Object.entries(obj);
-    console.log();
+const QuickStats = ({ quickStats }) => {
+    const arr = Object.entries(quickStats);
 
     const cell = arr.map((x, i) => {
         return (

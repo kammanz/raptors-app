@@ -3,12 +3,10 @@ import React from 'react';
 import Line from './line';
 
 import styles from './table.module.scss';
-import TableCell from './tableCell';
-
 
 const Table = ({ obj, result }) => {
+    // console.log('stats', stats);
     const arr = Object.entries(obj);
-    console.log(result);
 
     const header = arr.map((x, i) => {
         return <th key={i}>{x[0]}<Line /></th>;

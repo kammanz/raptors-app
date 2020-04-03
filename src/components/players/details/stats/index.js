@@ -1,15 +1,13 @@
 import React from 'react';
 import Table from '../../../_shared/table';
 import Title from '../../../_shared/title';
-import Line from '../../../_shared/line';
 import styles from './index.module.scss';
 
-const Stats = ({ obj }) => {
+const Stats = ({ stats }) => {
     return (
-        <section>
+        <section className={styles.stats}>
             <Title title="stats"/>
-            {/* <Line /> */}
-            <Table obj={obj}/>
+            <Table obj={stats}/>
         </section>
     )
 }

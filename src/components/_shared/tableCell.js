@@ -2,8 +2,6 @@ import React from 'react';
 
 import Line from './line.js';
 
-// import Title from './title.js';
-
 import styles from './tableCell.module.scss';
 
 const TableCell = ({ title, value }) => {
