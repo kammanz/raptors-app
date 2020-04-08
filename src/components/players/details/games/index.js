@@ -10,7 +10,7 @@ const Games = ({ teams, games }) => {
   const gamesArray = Object.values(games);
   const teamsArray = Object.values(teams);
 
-  const game = gamesArray.map(({
+  const recentGames = gamesArray.map(({
     gameId,
     isHomeGame,
     hTeam,
@@ -49,7 +49,7 @@ const Games = ({ teams, games }) => {
       const tableObj = { result: score, points, assists, "off reb": offReb, "def reb":defReb, "tot reb": totReb };
 
       return (
-        <section key={gameId}>
+        <div key={gameId}>
           <header>
             <div>{isHomeGame ? 'vs' :'@'}</div>
             <img src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${oppTeam.tricode}.svg`} height="42" alt="team logo" />
@@ -58,15 +58,15 @@ const Games = ({ teams, games }) => {
           </header>
           <Line />
           <Table obj={tableObj} result={getGameResult()}/>
-        </section>
+        </div>
       );
   });
 
   return (
-    <div>
+    <section className={styles.games}>
       <Title title="recent games"/>
-      {game}
-    </div>
+      {recentGames}
+    </section>
   );
 }         
 

@@ -21,7 +21,7 @@ const Table = ({ obj, result }) => {
     });
 
     return (
-        <table cellSpacing="0" cellPadding="0">
+        <table cellSpacing="0" cellPadding="0" className={styles.table}>
             <tbody>
                 <tr>{header}</tr>
                 <tr>{data}</tr>
