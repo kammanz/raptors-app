@@ -1,15 +1,15 @@
 import React from 'react';
 
-import Line from './line.js';
+import Line from './line';
+import Title from './title';
 
 import styles from './tableCell.module.scss';
 
-const TableCell = ({ title, value }) => {
+const TableCell = ({ value }) => {
     return (
         <div className={styles.container}>
-            <div className={styles.title}>{title}</div>
-            {/* <Line /> */}
-            <div className={styles.line}></div>
+            <Title />
+            <Line />
             <div>{value}</div>
         </div>
     )

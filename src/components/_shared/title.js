@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './title.module.scss';
 
-const Title = ({title}) => {
+const Title = ({ title }) => {
     return <div className={styles.title}>{title}</div>;
 }   
 

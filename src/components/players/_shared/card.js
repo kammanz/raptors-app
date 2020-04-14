@@ -14,8 +14,6 @@ const Card = ({ player }) => {
         weight_lbs,
     } = player;
 
-    console.log(player);
-
     return (
         <div className={styles.card}>
             <div className={styles.imageContainer}>
