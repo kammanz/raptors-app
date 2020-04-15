@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getPlayers, selectPlayer } from '../../../actions/actions.js';
+import { getPlayers, selectPlayer, selectedTeam } from '../../../actions/actions.js';
 
 import styles from './index.module.scss';
 
@@ -12,17 +12,30 @@ class List extends React.Component {
         this.state = {
             selectedId: null,
         }
+
+        console.log(this.props, 'here');
     }
 
     componentDidMount() {
-        this.props.getPlayers();
+        // this.props.getPlayers();
+        // this.props.getGameStats();
+    }
+
+    componentDidUpdate(prevProps) {
+        // console.log(this.props.selectedTeam.urlName);
+        if(this.props.selectedTeam !== prevProps.selectedTeam) {
+            console.log(this.props.selectedTeam.urlName, 'here');
+            const teamName = this.props.selectedTeam.urlName;
+            console.log(teamName, 'kkkd');
+            this.props.getPlayers(teamName);
+        }
         // this.props.getGameStats();
     }
 
     renderPlayers() {
         const { players } = this.props;
 
-        // console.log('this.props', this.props);
+        console.log('this.props', this.props);
 
         return players.map((player, index) => {
             // console.log(player, 'player');
@@ -64,12 +77,13 @@ class List extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return { players: state.players };
+    return { players: state.players, selectedTeam: state.selectedTeam };
 }
 
 export default connect(mapStateToProps,
         {
             getPlayers,
             selectPlayer,
+            // selectedTeam,
         }
 )(List);

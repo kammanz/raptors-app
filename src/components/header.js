@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getTeams } from '../actions/actions.js';
+import { getTeams2, selectedTeam } from '../actions/actions.js';
 
 import raptorsLogo from '../assets/icons/raptors-logo.svg';
 import bell from '../assets/icons/notification-bell.svg';
@@ -15,19 +16,32 @@ class Header extends React.Component {
     //     super(props);
     // }
 
+    state={ selectedTeam: null }
+
     componentDidMount() {
-        this.props.getTeams();
+        this.props.getTeams2();
+    }
+
+    onTeamSelect = (e) => {
+        // console.log(this.props);
+        // console.log(this.props.teams[e.target.value]);
+        this.props.selectedTeam(this.props.teams[e.target.value]);
     }
 
     render() {
-        // const { props } = this.props;
-        // console.log('props', this.props);
+
         return (
             <div className={styles.headerContainer}>
                 <div className={styles.team}>
-                    <button className={styles.logoContainer}>
+                    <button onClick={this.onButtonClick} className={styles.logoContainer}>
+                        <select id="teams" onChange={this.onTeamSelect}>
+                            {this.props.teams.map((team, i)=> {
+                                return <option key={i} value={i}>{team.fullName}</option>
+                            })
+                        }
+                        </select>
                         <img src={raptorsLogo} title="raptors logo" alt="raptors logo"></img>
-                        <span>Toronto Raptors </span>
+                        <span>Toronto Raptors</span>
                         <i className={styles.dropDownTeam}/>
                     </button>
                 </div>
@@ -63,8 +77,8 @@ class Header extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return { teams: state.teams };
+    return { teams: state.teams2, selectedTeam: state.selectedTeam };
 }
 
 // we always export default the connect. the connect is one curried function and we only export one function
-export default connect(mapStateToProps, { getTeams })(Header);
+export default connect(mapStateToProps, { getTeams, getTeams2, selectedTeam })(Header);
