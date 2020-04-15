@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Select from 'react-select';
+
 import { getTeams } from '../actions/actions.js';
 import { getTeams2, selectedTeam } from '../actions/actions.js';
 
@@ -23,25 +25,48 @@ class Header extends React.Component {
     }
 
     onTeamSelect = (e) => {
-        // console.log(this.props);
-        // console.log(this.props.teams[e.target.value]);
+        this.setState({ selectedTeam: this.props.teams[e.target.value]})
         this.props.selectedTeam(this.props.teams[e.target.value]);
+        // console.log(theTeam);
     }
 
     render() {
+
+        // console.log(this.state.selectedTeam, 'here');
+        const { selectedTeam } = this.state;
+        const { teams } = this.props;
+        // console.log(selectedTeam.fullName, 'here fuck' );
+
+        const options = [
+
+            { value: 'raptors', label: 'raptors' },
+            { value: 'nets', label: 'nets' },
+            { value: 'bulls', label: 'bulls' }
+
+        ]
+
+        console.log(this.props.teams);
+        const optionsArray = teams.map((team)=> {
+            return { value: team.fullName, label: team.fullName };
+        });
+        console.log(optionsArray);
+
+        // what is the team name prop? it is ... fullName
 
         return (
             <div className={styles.headerContainer}>
                 <div className={styles.team}>
                     <button onClick={this.onButtonClick} className={styles.logoContainer}>
-                        <select id="teams" onChange={this.onTeamSelect}>
+                        {/* <select id="teams" onChange={this.onTeamSelect}>
                             {this.props.teams.map((team, i)=> {
                                 return <option key={i} value={i}>{team.fullName}</option>
                             })
                         }
-                        </select>
+                        </select> */}
                         <img src={raptorsLogo} title="raptors logo" alt="raptors logo"></img>
-                        <span>Toronto Raptors</span>
+                        <Select placeholder="select team" style={{ width: '50px'}} options={optionsArray}/>
+                        
+                        {/* <span>{selectedTeam.fullName}</span> */}
                         <i className={styles.dropDownTeam}/>
                     </button>
                 </div>

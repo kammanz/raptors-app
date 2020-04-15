@@ -12,33 +12,19 @@ class List extends React.Component {
         this.state = {
             selectedId: null,
         }
-
-        console.log(this.props, 'here');
-    }
-
-    componentDidMount() {
-        // this.props.getPlayers();
-        // this.props.getGameStats();
     }
 
     componentDidUpdate(prevProps) {
-        // console.log(this.props.selectedTeam.urlName);
-        if(this.props.selectedTeam !== prevProps.selectedTeam) {
-            console.log(this.props.selectedTeam.urlName, 'here');
-            const teamName = this.props.selectedTeam.urlName;
-            console.log(teamName, 'kkkd');
-            this.props.getPlayers(teamName);
-        }
-        // this.props.getGameStats();
-    }
+        // if(this.props.selectedTeam !== prevProps.selectedTeam) {
+        //     const teamName = this.props.selectedTeam.urlName;
+        //     this.props.getPlayers(teamName);
+        // };
+    };
 
     renderPlayers() {
         const { players } = this.props;
 
-        console.log('this.props', this.props);
-
         return players.map((player, index) => {
-            // console.log(player, 'player');
             const isSelected = this.state.selectedId === player.person_id;
 
             return (
@@ -84,6 +70,5 @@ export default connect(mapStateToProps,
         {
             getPlayers,
             selectPlayer,
-            // selectedTeam,
         }
 )(List);
