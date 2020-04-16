@@ -17,26 +17,36 @@ import selectedTeamReducer from '../reducers/getSelectedTeamReducer.js';
 
 class Header extends React.Component {
 
-    state={ 
-        selectedTeamName: null, selectedTeamTricode: null,
-    }
+    constructor(props) {
+        super(props);
 
-    
+          this.state={ 
+            selectedTeamName: null, 
+            selectedTeamTricode: null,
+            selectedDefault: 27
+        }
+    }
 
     componentDidMount() {
         this.props.getTeams2();
-        console.log(this.props.selectedTeam, 'sailor moon wants a raps obj');
         const raps = this.props.teams.find(team => team.tricode === true);
 
         // console.log(this.props.teams.filter((team) => team.fullName === "Toronto Raptors"));
 
-        console.log(raps);
         // this.props.getSelectedTeam(this.props.teams[e.target.value]);
     }
 
     onSelectChange = (e) => {
-        this.setState({ selectedTeamName: this.props.teams[e.target.value].fullName, selectedTeamTricode: this.props.teams[e.target.value].tricode });
+
+        // console.log(this.props.teams);
+        console.log(this.props.teams[e.target.value]);
+        this.setState({ 
+            selectedTeamName: this.props.teams[e.target.value].fullName, 
+            selectedTeamTricode: this.props.teams[e.target.value].tricode,
+            selectedDefault: e.target.value, 
+        });
         this.props.getSelectedTeam(this.props.teams[e.target.value]);
+        
     }
 
     render() {
@@ -44,8 +54,7 @@ class Header extends React.Component {
         const { selectedTeamName, selectedTeamTricode } = this.state;
         const { teams } = this.props;
         const { selectedTeam } = this.props;
-        // console.log(selectedTeam, 'moona');
-        console.log(selectedTeam.fullName, 'yuk');
+        console.log(this.state.selectedDefault, 'yuk');
 
         return (
             <div className={styles.headerContainer}>
@@ -57,9 +66,9 @@ class Header extends React.Component {
                                     `https://cdn.nba.net/assets/logos/teams/secondary/web/TOR.svg`
                              } title="raptors logo" alt="raptors logo"
                         />
-                        <select placeholder={selectedTeam.fullName} onChange={this.onSelectChange} >
+                        <select value={this.state.selectedDefault} /*placeholder={selectedTeam.fullName}*/ onChange={this.onSelectChange} >
                                 {teams.map((team, i) => {
-                                    return <option key={i} value={i}>{team.fullName}</option>;
+                                    return <option key={i} value={i}>{team.urlName}</option>;
                                 })}
                         </select>
                     </button>
