@@ -2,9 +2,10 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Select from 'react-select';
+// import Dropdown from './_shared/dropdown';
 
 import { getTeams } from '../actions/actions.js';
-import { getTeams2, selectedTeam } from '../actions/actions.js';
+import { getTeams2, getSelectedTeam } from '../actions/actions.js';
 
 import raptorsLogo from '../assets/icons/raptors-logo.svg';
 import bell from '../assets/icons/notification-bell.svg';
@@ -12,62 +13,55 @@ import settingsIcon from '../assets/icons/settings-icon.svg';
 import kobe from '../assets/imgs/kobe.png';
 
 import styles from './header.module.scss';
+import selectedTeamReducer from '../reducers/getSelectedTeamReducer.js';
 
 class Header extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    // }
 
-    state={ selectedTeam: null }
+    state={ 
+        selectedTeamName: null, selectedTeamTricode: null,
+    }
+
+    
 
     componentDidMount() {
         this.props.getTeams2();
+        console.log(this.props.selectedTeam, 'sailor moon wants a raps obj');
+        const raps = this.props.teams.find(team => team.tricode === true);
+
+        // console.log(this.props.teams.filter((team) => team.fullName === "Toronto Raptors"));
+
+        console.log(raps);
+        // this.props.getSelectedTeam(this.props.teams[e.target.value]);
     }
 
-    onTeamSelect = (e) => {
-        this.setState({ selectedTeam: this.props.teams[e.target.value]})
-        this.props.selectedTeam(this.props.teams[e.target.value]);
-        // console.log(theTeam);
+    onSelectChange = (e) => {
+        this.setState({ selectedTeamName: this.props.teams[e.target.value].fullName, selectedTeamTricode: this.props.teams[e.target.value].tricode });
+        this.props.getSelectedTeam(this.props.teams[e.target.value]);
     }
 
     render() {
 
-        // console.log(this.state.selectedTeam, 'here');
-        const { selectedTeam } = this.state;
+        const { selectedTeamName, selectedTeamTricode } = this.state;
         const { teams } = this.props;
-        // console.log(selectedTeam.fullName, 'here fuck' );
-
-        const options = [
-
-            { value: 'raptors', label: 'raptors' },
-            { value: 'nets', label: 'nets' },
-            { value: 'bulls', label: 'bulls' }
-
-        ]
-
-        console.log(this.props.teams);
-        const optionsArray = teams.map((team)=> {
-            return { value: team.fullName, label: team.fullName };
-        });
-        console.log(optionsArray);
-
-        // what is the team name prop? it is ... fullName
+        const { selectedTeam } = this.props;
+        // console.log(selectedTeam, 'moona');
+        console.log(selectedTeam.fullName, 'yuk');
 
         return (
             <div className={styles.headerContainer}>
                 <div className={styles.team}>
                     <button onClick={this.onButtonClick} className={styles.logoContainer}>
-                        {/* <select id="teams" onChange={this.onTeamSelect}>
-                            {this.props.teams.map((team, i)=> {
-                                return <option key={i} value={i}>{team.fullName}</option>
-                            })
-                        }
-                        </select> */}
-                        <img src={raptorsLogo} title="raptors logo" alt="raptors logo"></img>
-                        <Select placeholder="select team" style={{ width: '50px'}} options={optionsArray}/>
-                        
-                        {/* <span>{selectedTeam.fullName}</span> */}
-                        <i className={styles.dropDownTeam}/>
+                        <img 
+                             src={selectedTeamTricode ? 
+                                    `https://cdn.nba.net/assets/logos/teams/secondary/web/${selectedTeamTricode}.svg` :
+                                    `https://cdn.nba.net/assets/logos/teams/secondary/web/TOR.svg`
+                             } title="raptors logo" alt="raptors logo"
+                        />
+                        <select placeholder={selectedTeam.fullName} onChange={this.onSelectChange} >
+                                {teams.map((team, i) => {
+                                    return <option key={i} value={i}>{team.fullName}</option>;
+                                })}
+                        </select>
                     </button>
                 </div>
     
@@ -106,4 +100,4 @@ const mapStateToProps = (state) => {
 }
 
 // we always export default the connect. the connect is one curried function and we only export one function
-export default connect(mapStateToProps, { getTeams, getTeams2, selectedTeam })(Header);
+export default connect(mapStateToProps, { getTeams, getTeams2, getSelectedTeam })(Header);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getPlayers, selectPlayer, selectedTeam } from '../../../actions/actions.js';
+import { getPlayers, getSelectedPlayer, selectedTeam } from '../../../actions/actions.js';
 
 import styles from './index.module.scss';
 
@@ -23,6 +23,7 @@ class List extends React.Component {
 
     renderPlayers() {
         const { players } = this.props;
+        // console.log(this.props);
 
         return players.map((player, index) => {
             const isSelected = this.state.selectedId === player.person_id;
@@ -32,7 +33,7 @@ class List extends React.Component {
                     key={index}
                     onClick={() => {
                         this.setState({ selectedId: player.person_id })
-                        this.props.selectPlayer(player);
+                        this.props.getSelectedPlayer(player);
                     }}
                     className={isSelected ? `${styles.playerCard} ${styles.selectedCard}` : styles.playerCard}
                 >
@@ -69,6 +70,6 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps,
         {
             getPlayers,
-            selectPlayer,
+            getSelectedPlayer,
         }
 )(List);
