@@ -80,13 +80,21 @@ class Header extends React.Component {
     
                 <div className={styles.links}>
                     <div className={styles.linkContainer}>
-                        <NavLink to='/' exact activeClassName={styles.active}>Players</NavLink>
+                        <NavLink 
+                            to='/' 
+                            exact 
+                            activeClassName={styles.active} 
+                            activeStyle={{ color: `${selectedTeamColor}`, borderBottom: `4px solid ${selectedTeamColor}` }}
+                        >
+                            Players
+                        </NavLink>
                     </div>
-                    <div className={styles.linkContainer}>
-                        <NavLink to='/standings' activeClassName={styles.active}>Standings</NavLink>
+                    <div className={styles.linkContainer} >
+                        <NavLink to='/standings' activeClassName={styles.active}
+                        activeStyle={{ color: `${selectedTeamColor}`, borderBottom: `4px solid ${selectedTeamColor}` }}>Standings</NavLink>
                     </div>
-                    <div className={styles.linkContainer}>
-                        <NavLink to='/games' activeClassName={styles.active}>Games</NavLink>
+                    <div className={styles.linkContainer} activeStyle={{ color: `${selectedTeamColor}`, borderBottom: `4px solid ${selectedTeamColor}` }}>
+                        <NavLink to='/games' activeClassName={styles.active} activeStyle={{ color: `${selectedTeamColor}`, borderBottom: `4px solid ${selectedTeamColor}` }}>Games</NavLink>
                     </div>
                 </div>
                 
