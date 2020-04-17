@@ -5,6 +5,9 @@ import dataNbaNet from '../apis/dataNbaNet';
 export const getSelectedTeam = (team) => async dispatch => {
     dispatch({ type: 'GET_SELECTED_TEAM', payload: team });
 
+    dispatch({ type: 'GET_TEAM_COLOR', payload: team.primaryColor });
+
+    console.log(team.primaryColor, 'is the new team color, updated');
     const playersResponse = await dataNbaNet.get(`/json/cms/noseason/team/${team.urlName}/roster.json`);
 
     dispatch({ type: 'GET_PLAYERS', payload: playersResponse.data.sports_content.roster.players.player });
@@ -39,12 +42,25 @@ export const getSelectedPlayer = (player) => async dispatch => {
     dispatch({ type: 'GET_GAMES', payload: { ...gamesResponse.data.league.standard }});
 };
 
-export const getTeams = () => async dispatch => {
+export const getTeamsConfig = () => async dispatch => {
     const response = await dataNbaNet.get("/prod/2019/teams_config.json");
-    dispatch({ type: 'GET_TEAMS', payload: { ...response.data.teams.config }});
+
+    const teamsConfigArray = Object.values(response.data.teams.config).filter((team)=> team.ttsName);
+  
+    dispatch({ type: 'GET_TEAMS_CONFIG', payload: teamsConfigArray });
+    
+    const raptors = teamsConfigArray.find(team => team.teamId == 1610612761); 
+
+    dispatch({ type: 'GET_SELECTED_TEAM', payload: raptors });
+
+    
+
+    dispatch({ type: 'GET_TEAM_COLOR', payload: raptors.primaryColor });
+
+    console.log(raptors.primaryColor, 'is first team color');
 };
 
-export const getTeams2 = () => async dispatch => {
+export const getTeamsConfig2 = () => async dispatch => {
     const response = await dataNbaNet.get('/prod/v1/2019/teams.json');
     // console.log(response.data.league.standard.city, 'here');
     const fuckFace = { ...response.data.league.standard }; 
@@ -53,8 +69,8 @@ export const getTeams2 = () => async dispatch => {
     
     dispatch({ type: 'GET_TEAMS2', payload: newArray });
 
-    const raptors = arr.find(team => team.city === "Toronto"); 
-    dispatch({ type: 'GET_SELECTED_TEAM', payload: raptors });
+    
+    // dispatch({ type: 'GET_SELECTED_TEAM', payload: raptors });
 
     const raptorsResponse = await dataNbaNet.get(`/json/cms/noseason/team/raptors/roster.json`);
 

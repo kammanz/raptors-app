@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import Select from 'react-select';
 // import Dropdown from './_shared/dropdown';
 
-import { getTeams } from '../actions/actions.js';
-import { getTeams2, getSelectedTeam } from '../actions/actions.js';
+import { getTeamsConfig } from '../actions/actions.js';
+import { getTeamsConfig2, getSelectedTeam } from '../actions/actions.js';
 
 import raptorsLogo from '../assets/icons/raptors-logo.svg';
 import bell from '../assets/icons/notification-bell.svg';
@@ -13,6 +13,8 @@ import settingsIcon from '../assets/icons/settings-icon.svg';
 import kobe from '../assets/imgs/kobe.png';
 
 import styles from './header.module.scss';
+import primaryColor from '../../src/scss/variables.scss';
+// import varStyles from '../scss/variables';
 import selectedTeamReducer from '../reducers/getSelectedTeamReducer.js';
 
 class Header extends React.Component {
@@ -23,42 +25,31 @@ class Header extends React.Component {
           this.state={ 
             selectedTeamName: null, 
             selectedTeamTricode: null,
-            selectedDefault: 27
-        }
+            selectedTeam: 27
+        }        
     }
 
     componentDidMount() {
-        this.props.getTeams2();
-        const raps = this.props.teams.find(team => team.tricode === true);
-
-        // console.log(this.props.teams.filter((team) => team.fullName === "Toronto Raptors"));
-
-        // this.props.getSelectedTeam(this.props.teams[e.target.value]);
+        this.props.getTeamsConfig();
     }
 
     onSelectChange = (e) => {
-
-        // console.log(this.props.teams);
-        console.log(this.props.teams[e.target.value]);
         this.setState({ 
-            selectedTeamName: this.props.teams[e.target.value].fullName, 
-            selectedTeamTricode: this.props.teams[e.target.value].tricode,
-            selectedDefault: e.target.value, 
+            selectedTeamName: this.props.teamsConfig[e.target.value].ttsName, 
+            selectedTeamTricode: this.props.teamsConfig[e.target.value].tricode,
+            selectedTeam: e.target.value, 
         });
-        this.props.getSelectedTeam(this.props.teams[e.target.value]);
-        
+
+        this.props.getSelectedTeam(this.props.teamsConfig[e.target.value]);
     }
 
     render() {
-
-        const { selectedTeamName, selectedTeamTricode } = this.state;
-        const { teams } = this.props;
-        const { selectedTeam } = this.props;
-        console.log(this.state.selectedDefault, 'yuk');
+        const { selectedTeamTricode } = this.state;
+        const { teamsConfig, selectedTeamColor } = this.props;
 
         return (
             <div className={styles.headerContainer}>
-                <div className={styles.team}>
+                <div className={`${styles.team} ${styles.primeColor}`}  style={{backgroundColor: `${selectedTeamColor}`}}>
                     <button onClick={this.onButtonClick} className={styles.logoContainer}>
                         <img 
                              src={selectedTeamTricode ? 
@@ -66,12 +57,25 @@ class Header extends React.Component {
                                     `https://cdn.nba.net/assets/logos/teams/secondary/web/TOR.svg`
                              } title="raptors logo" alt="raptors logo"
                         />
-                        <select value={this.state.selectedDefault} /*placeholder={selectedTeam.fullName}*/ onChange={this.onSelectChange} >
-                                {teams.map((team, i) => {
-                                    return <option key={i} value={i}>{team.urlName}</option>;
+                        <select value={this.state.selectedTeam} onChange={this.onSelectChange} >
+                                {teamsConfig.map((team, i) => {
+                                    return <option key={i} value={i}>{team.ttsName}</option>;
                                 })}
                         </select>
                     </button>
+                    <div
+                        // NOTE: in-line style to access team color variable  
+                        style={{ 
+                        width: 0, 
+                        height: 0, 
+                        borderStyle: 'solid', 
+                        borderWidth: '45px 20px 0 0', 
+                        borderColor: `${selectedTeamColor} transparent transparent transparent`,
+                        position: 'absolute',
+                        left: '100%',
+                        zIndex: 1
+                        }} 
+                    />
                 </div>
     
                 <div className={styles.links}>
@@ -105,8 +109,7 @@ class Header extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return { teams: state.teams2, selectedTeam: state.selectedTeam };
+    return { teamsConfig: state.teamsConfig, selectedTeam: state.selectedTeam, selectedTeamColor: state.selectedTeamColor };
 }
 
-// we always export default the connect. the connect is one curried function and we only export one function
-export default connect(mapStateToProps, { getTeams, getTeams2, getSelectedTeam })(Header);
+export default connect(mapStateToProps, { getTeamsConfig, getTeamsConfig2, getSelectedTeam })(Header);
