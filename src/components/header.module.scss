@@ -133,3 +133,21 @@
   border-radius: 50%;
   background-color: $white;
 }
+
+select {
+  position: relative;
+  border: none;
+  margin-left: 10px;
+  padding-right: 20px;
+  color: $white;
+  font-family: spurs;
+  font-size: 22px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  appearance: none;
+  background: url('../assets/icons/dropdownWhite.svg');
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 50%;
+}

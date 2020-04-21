@@ -8,6 +8,7 @@ import { getTeamsConfig } from '../actions/actions.js';
 import { getTeamsConfig2, getSelectedTeam } from '../actions/actions.js';
 
 import raptorsLogo from '../assets/icons/raptors-logo.svg';
+import dropdownWhite from '../assets/icons/dropdownWhite.svg';
 import bell from '../assets/icons/notification-bell.svg';
 import settingsIcon from '../assets/icons/settings-icon.svg';
 import kobe from '../assets/imgs/kobe.png';
@@ -54,14 +55,18 @@ class Header extends React.Component {
                         <div className={styles.imgContainer}>
                            <img 
                                 src={selectedTeamTricode ? 
-                                        `https://cdn.nba.net/assets/logos/teams/secondary/web/${selectedTeamTricode}.svg` :
-                                        `https://cdn.nba.net/assets/logos/teams/secondary/web/TOR.svg`
+                                    `https://cdn.nba.net/assets/logos/teams/secondary/web/${selectedTeamTricode}.svg` :
+                                    `https://cdn.nba.net/assets/logos/teams/secondary/web/TOR.svg`
                                 } 
                                 title="raptors logo" 
                                 alt="raptors logo"
                             /> 
                         </div>
-                        <select value={this.state.selectedTeam} onChange={this.onSelectChange} >
+                        <select 
+                            value={this.state.selectedTeam} 
+                            onChange={this.onSelectChange} 
+                            style={{ backgroundColor: `${selectedTeamColor}`}}
+                        >
                                 {teamsConfig.map((team, i) => {
                                     return <option key={i} value={i}>{team.ttsName}</option>;
                                 })}
