@@ -51,12 +51,16 @@ class Header extends React.Component {
             <div className={styles.headerContainer}>
                 <div className={`${styles.team} ${styles.primeColor}`}  style={{backgroundColor: `${selectedTeamColor}`}}>
                     <button onClick={this.onButtonClick} className={styles.logoContainer}>
-                        <img 
-                             src={selectedTeamTricode ? 
-                                    `https://cdn.nba.net/assets/logos/teams/secondary/web/${selectedTeamTricode}.svg` :
-                                    `https://cdn.nba.net/assets/logos/teams/secondary/web/TOR.svg`
-                             } title="raptors logo" alt="raptors logo"
-                        />
+                        <div className={styles.imgContainer}>
+                           <img 
+                                src={selectedTeamTricode ? 
+                                        `https://cdn.nba.net/assets/logos/teams/secondary/web/${selectedTeamTricode}.svg` :
+                                        `https://cdn.nba.net/assets/logos/teams/secondary/web/TOR.svg`
+                                } 
+                                title="raptors logo" 
+                                alt="raptors logo"
+                            /> 
+                        </div>
                         <select value={this.state.selectedTeam} onChange={this.onSelectChange} >
                                 {teamsConfig.map((team, i) => {
                                     return <option key={i} value={i}>{team.ttsName}</option>;
@@ -93,7 +97,7 @@ class Header extends React.Component {
                         <NavLink to='/standings' activeClassName={styles.active}
                         activeStyle={{ color: `${selectedTeamColor}`, borderBottom: `4px solid ${selectedTeamColor}` }}>Standings</NavLink>
                     </div>
-                    <div className={styles.linkContainer} activeStyle={{ color: `${selectedTeamColor}`, borderBottom: `4px solid ${selectedTeamColor}` }}>
+                    <div className={styles.linkContainer} activestyle={{ color: `${selectedTeamColor}`, borderBottom: `4px solid ${selectedTeamColor}` }}>
                         <NavLink to='/games' activeClassName={styles.active} activeStyle={{ color: `${selectedTeamColor}`, borderBottom: `4px solid ${selectedTeamColor}` }}>Games</NavLink>
                     </div>
                 </div>

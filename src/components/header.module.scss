@@ -125,3 +125,11 @@
     margin: 15px;
   }
 } 
+
+.imgContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: $white;
+}
