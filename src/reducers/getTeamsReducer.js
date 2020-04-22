@@ -1,5 +1,5 @@
 export default (state=[], action) => {
-    if(action.type === 'GET_TEAMS_CONFIG') {
+    if(action.type === 'GET_TEAMS') {
         return action.payload;
     }
 

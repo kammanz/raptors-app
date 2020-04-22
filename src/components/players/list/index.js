@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getPlayers, getSelectedPlayer, selectedTeam } from '../../../actions/actions.js';
+import { getPlayers, getSelectedPlayer } from '../../../actions/actions.js';
 
 import styles from './index.module.scss';
 
@@ -14,16 +14,8 @@ class List extends React.Component {
         }
     }
 
-    componentDidUpdate(prevProps) {
-        // if(this.props.selectedTeam !== prevProps.selectedTeam) {
-        //     const teamName = this.props.selectedTeam.urlName;
-        //     this.props.getPlayers(teamName);
-        // };
-    };
-
     renderPlayers() {
         const { players } = this.props;
-        // console.log(this.props);
 
         return players.map((player, index) => {
             const isSelected = this.state.selectedId === player.person_id;

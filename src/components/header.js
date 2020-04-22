@@ -1,92 +1,93 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Select from 'react-select';
-// import Dropdown from './_shared/dropdown';
 
-import { getTeamsConfig } from '../actions/actions.js';
-import { getTeamsConfig2, getSelectedTeam } from '../actions/actions.js';
+import { getTeams, getSelectedTeam } from '../actions/actions.js';
 
-import raptorsLogo from '../assets/icons/raptors-logo.svg';
-import dropdownWhite from '../assets/icons/dropdownWhite.svg';
 import bell from '../assets/icons/notification-bell.svg';
 import settingsIcon from '../assets/icons/settings-icon.svg';
 import kobe from '../assets/imgs/kobe.png';
 
+import varStyles from '../scss/variables.scss';
+
 import styles from './header.module.scss';
-import primaryColor from '../../src/scss/variables.scss';
-// import varStyles from '../scss/variables';
-import selectedTeamReducer from '../reducers/getSelectedTeamReducer.js';
 
 class Header extends React.Component {
-
     constructor(props) {
         super(props);
 
-          this.state={ 
+        this.state = { 
             selectedTeamName: null, 
             selectedTeamTricode: null,
             selectedTeam: 27
-        }        
+        }  
     }
 
     componentDidMount() {
-        this.props.getTeamsConfig();
+        this.props.getTeams();
     }
 
     onSelectChange = (e) => {
+        const { teams, getSelectedTeam } = this.props;
+
         this.setState({ 
-            selectedTeamName: this.props.teamsConfig[e.target.value].ttsName, 
-            selectedTeamTricode: this.props.teamsConfig[e.target.value].tricode,
+            selectedTeamName: teams[e.target.value].ttsName, 
+            selectedTeamTricode: teams[e.target.value].tricode,
             selectedTeam: e.target.value, 
         });
 
-        this.props.getSelectedTeam(this.props.teamsConfig[e.target.value]);
+        getSelectedTeam(teams[e.target.value]);
     }
 
     render() {
-        const { selectedTeamTricode } = this.state;
-        const { teamsConfig, selectedTeamColor } = this.props;
+        const { selectedTeamTricode, selectedTeam } = this.state;
+        const { teams, selectedTeamColor } = this.props;
+
+        console.log(varStyles.grey1b);
+
+        // NOTE: I've used some in-line styling to access the 'selected team color' variable
 
         return (
             <div className={styles.headerContainer}>
-                <div className={`${styles.team} ${styles.primeColor}`}  style={{backgroundColor: `${selectedTeamColor}`}}>
-                    <button onClick={this.onButtonClick} className={styles.logoContainer}>
+                <div className={styles.team} style={{backgroundColor: `${selectedTeamColor}`}}>
+                    <button className={styles.logoContainer}>
                         <div className={styles.imgContainer}>
                            <img 
                                 src={selectedTeamTricode ? 
                                     `https://cdn.nba.net/assets/logos/teams/secondary/web/${selectedTeamTricode}.svg` :
                                     `https://cdn.nba.net/assets/logos/teams/secondary/web/TOR.svg`
                                 } 
-                                title="raptors logo" 
-                                alt="raptors logo"
+                                title="team logo" 
+                                alt="team logo"
                             /> 
                         </div>
-                        <select 
-                            value={this.state.selectedTeam} 
-                            onChange={this.onSelectChange} 
-                            style={{ backgroundColor: `${selectedTeamColor}`}}
-                        >
-                                {teamsConfig.map((team, i) => {
+                        <div className={styles.selectContainer}>
+                            <select 
+                                value={selectedTeam} 
+                                onChange={this.onSelectChange} 
+                                style={{ backgroundColor: `${selectedTeamColor}`}}
+                            >
+                                {teams.map((team, i) => {
                                     return <option key={i} value={i}>{team.ttsName}</option>;
                                 })}
-                        </select>
+                            </select>
+                        </div>
                     </button>
-                    <div
-                        // NOTE: in-line style to access team color variable  
-                        style={{ 
-                        width: 0, 
-                        height: 0, 
-                        borderStyle: 'solid', 
-                        borderWidth: '45px 20px 0 0', 
-                        borderColor: `${selectedTeamColor} transparent transparent transparent`,
-                        position: 'absolute',
-                        left: '100%',
-                        zIndex: 1
-                        }} 
+                    <div style={{ 
+                            width: 0, 
+                            height: 0, 
+                            borderStyle: 'solid', 
+                            borderWidth: '45px 20px 0 0', 
+                            borderColor: selectedTeamColor ? `${selectedTeamColor} transparent transparent transparent` :
+                            `inherit transparent transparent transparent`,
+                            position: 'absolute',
+                            left: '100%',
+                            zIndex: 1
+                        }}
+                        
+                        className={styles.borderTriangle}
                     />
                 </div>
-    
                 <div className={styles.links}>
                     <div className={styles.linkContainer}>
                         <NavLink 
@@ -98,15 +99,25 @@ class Header extends React.Component {
                             Players
                         </NavLink>
                     </div>
-                    <div className={styles.linkContainer} >
-                        <NavLink to='/standings' activeClassName={styles.active}
-                        activeStyle={{ color: `${selectedTeamColor}`, borderBottom: `4px solid ${selectedTeamColor}` }}>Standings</NavLink>
+                    <div className={styles.linkContainer}>
+                        <NavLink 
+                            to='/standings' 
+                            activeClassName={styles.active}
+                            activeStyle={{ color: `${selectedTeamColor}`, borderBottom: `4px solid ${selectedTeamColor}` }}
+                        >
+                            Standings
+                        </NavLink>
                     </div>
-                    <div className={styles.linkContainer} activestyle={{ color: `${selectedTeamColor}`, borderBottom: `4px solid ${selectedTeamColor}` }}>
-                        <NavLink to='/games' activeClassName={styles.active} activeStyle={{ color: `${selectedTeamColor}`, borderBottom: `4px solid ${selectedTeamColor}` }}>Games</NavLink>
+                    <div className={styles.linkContainer}>
+                        <NavLink 
+                            to='/games' 
+                            activeClassName={styles.active} 
+                            activeStyle={{ color: `${selectedTeamColor}`, borderBottom: `4px solid ${selectedTeamColor}` }}
+                        >
+                            Games
+                        </NavLink>
                     </div>
                 </div>
-                
                 <div className={styles.user}>
                     <button>
                         <img src={bell} alt="notification-bell"></img>
@@ -126,7 +137,7 @@ class Header extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return { teamsConfig: state.teamsConfig, selectedTeam: state.selectedTeam, selectedTeamColor: state.selectedTeamColor };
+    return { teams: state.teams, selectedTeam: state.selectedTeam, selectedTeamColor: state.selectedTeamColor };
 }
 
-export default connect(mapStateToProps, { getTeamsConfig, getTeamsConfig2, getSelectedTeam })(Header);
+export default connect(mapStateToProps, { getTeams, getSelectedTeam })(Header);

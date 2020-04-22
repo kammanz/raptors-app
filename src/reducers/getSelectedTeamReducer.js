@@ -1,4 +1,4 @@
-export default (state={}, action) => {
+export default (state = null, action) => {
     if(action.type === 'GET_SELECTED_TEAM') {
         return action.payload;
     }
