@@ -1,15 +1,34 @@
 import dataNbaNet from '../apis/dataNbaNet';
 
-// TO DO: get team action 
+export const getTeams = () => async dispatch => {
+    const allTeamsResponse = await dataNbaNet.get("/prod/2019/teams_config.json");
+
+    const nbaTeamsArray = Object.values(allTeamsResponse.data.teams.config).filter((team)=> team.ttsName);
+
+    dispatch({ type: 'GET_TEAMS', payload: nbaTeamsArray });
+    
+    const raptorsTeam = nbaTeamsArray.find(team => team.teamId === "1610612761"); 
+
+    dispatch({ type: 'GET_SELECTED_TEAM', payload: raptorsTeam });
+
+    dispatch({ type: 'GET_TEAM_COLOR', payload: raptorsTeam.primaryColor });
+
+    const raptorsRosterResponse = await dataNbaNet.get(`/json/cms/noseason/team/raptors/roster.json`);
+
+    dispatch({ type: 'GET_PLAYERS', payload: raptorsRosterResponse.data.sports_content.roster.players.player });
+};
 
 export const getSelectedTeam = (team) => async dispatch => {
     dispatch({ type: 'GET_SELECTED_TEAM', payload: team });
 
+    const teamUrlName = team.ttsName.trim().split(" ").pop().toLowerCase();
+
     dispatch({ type: 'GET_TEAM_COLOR', payload: team.primaryColor });
 
-    const playersResponse = await dataNbaNet.get(`/json/cms/noseason/team/${team.urlName}/roster.json`);
+    const teamRosterResponse = await dataNbaNet.get(`/json/cms/noseason/team/${teamUrlName}/roster.json`);
+    // const teamRosterResponse = await dataNbaNet.get(`/json/cms/noseason/team/raptors/roster.json`);
 
-    dispatch({ type: 'GET_PLAYERS', payload: playersResponse.data.sports_content.roster.players.player });
+    dispatch({ type: 'GET_PLAYERS', payload: teamRosterResponse.data.sports_content.roster.players.player });
 };
 
 export const getPlayers = (teamName) => async dispatch => {
@@ -28,19 +47,7 @@ export const getSelectedPlayer = (player) => async dispatch => {
     dispatch({ type: 'GET_GAMES', payload: { ...gamesResponse.data.league.standard }});
 };
 
-export const getTeams = () => async dispatch => {
-    const allTeamsResponse = await dataNbaNet.get("/prod/2019/teams_config.json");
 
-    const nbaTeamsArray = Object.values(allTeamsResponse.data.teams.config).filter((team)=> team.ttsName);
-  
-    dispatch({ type: 'GET_TEAMS', payload: nbaTeamsArray });
-    
-    const raptorsTeam = nbaTeamsArray.find(team => team.teamId === "1610612761"); 
-
-    dispatch({ type: 'GET_SELECTED_TEAM', payload: raptorsTeam });
-
-    dispatch({ type: 'GET_TEAM_COLOR', payload: raptorsTeam.primaryColor });
-};
 
 export const getTeamRosters = () => async dispatch => {
     const allTeamsRosterResponse = await dataNbaNet.get('/prod/v1/2019/teams.json');

@@ -8,8 +8,6 @@ import bell from '../assets/icons/notification-bell.svg';
 import settingsIcon from '../assets/icons/settings-icon.svg';
 import kobe from '../assets/imgs/kobe.png';
 
-import varStyles from '../scss/variables.scss';
-
 import styles from './header.module.scss';
 
 class Header extends React.Component {
@@ -42,8 +40,6 @@ class Header extends React.Component {
     render() {
         const { selectedTeamTricode, selectedTeam } = this.state;
         const { teams, selectedTeamColor } = this.props;
-
-        console.log(varStyles.grey1b);
 
         // NOTE: I've used some in-line styling to access the 'selected team color' variable
 
@@ -82,7 +78,7 @@ class Header extends React.Component {
                             `inherit transparent transparent transparent`,
                             position: 'absolute',
                             left: '100%',
-                            zIndex: 1
+                            zIndex: 99,
                         }}
                         
                         className={styles.borderTriangle}
