@@ -1,0 +1,48 @@
+@import 'src/scss/variables.scss';
+
+.container,
+.quickStatContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+    flex: 1;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 13px;
+  margin-top: 14px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid $grey3;
+  color: $grey5;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.stat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  color: $grey4;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  text-align: center;
+}
+
+.quickStatContainer {
+    width: calc(25% - 5px);
+
+    .stat {
+        height: 40px;
+        color: $grey5;
+        font-size: 24px;
+        font-weight: bold;
+    }
+}
