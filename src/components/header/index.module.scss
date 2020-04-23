@@ -93,7 +93,7 @@
 }
 
 .selectContainer {
-  max-width: 270px;
+  width: 270px;
 }
 
 select {
@@ -126,8 +126,4 @@ option {
 
 .borderTriangle {
   border-color: $grey1 transparent transparent;
-  width: 0;
-  height: 0;
-  border-style: solid; 
-  border-width: '45px 20px 0 0'; 
 }

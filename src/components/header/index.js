@@ -71,12 +71,10 @@ class Header extends React.Component {
                         </div>
                     </button>
                     <div style={{ 
-                            width: 0, 
-                            height: 0, 
                             borderStyle: 'solid', 
                             borderWidth: '45px 20px 0 0', 
                             borderColor: selectedTeamColor ? `${selectedTeamColor} transparent transparent transparent` :
-                            `inherit transparent transparent transparent`,
+                            `#f5f5f5 transparent transparent transparent`,
                             position: 'absolute',
                             left: '100%',
                             zIndex: 99,
