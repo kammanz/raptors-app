@@ -83,7 +83,9 @@ class Header extends React.Component {
                         className={styles.borderTriangle}
                     />
                 </div>
+
                 <NavMenu selectedTeamColor={selectedTeamColor} />
+                
                 <div className={styles.user}>
                     <button>
                         <img src={bell} alt="notification-bell"></img>
