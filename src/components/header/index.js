@@ -2,13 +2,13 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { getTeams, getSelectedTeam } from '../actions/actions.js';
+import { getTeams, getSelectedTeam } from '../../actions/actions.js';
 
-import bell from '../assets/icons/notification-bell.svg';
-import settingsIcon from '../assets/icons/settings-icon.svg';
-import kobe from '../assets/imgs/kobe.png';
+import bell from '../../assets/icons/notification-bell.svg';
+import settingsIcon from '../../assets/icons/settings-icon.svg';
+import kobe from '../../assets/imgs/kobe.png';
 
-import styles from './header.module.scss';
+import styles from './index.module.scss';
 
 class Header extends React.Component {
     constructor(props) {

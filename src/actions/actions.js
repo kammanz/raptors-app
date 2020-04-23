@@ -26,7 +26,6 @@ export const getSelectedTeam = (team) => async dispatch => {
     dispatch({ type: 'GET_TEAM_COLOR', payload: team.primaryColor });
 
     const teamRosterResponse = await dataNbaNet.get(`/json/cms/noseason/team/${teamUrlName}/roster.json`);
-    // const teamRosterResponse = await dataNbaNet.get(`/json/cms/noseason/team/raptors/roster.json`);
 
     dispatch({ type: 'GET_PLAYERS', payload: teamRosterResponse.data.sports_content.roster.players.player });
 };

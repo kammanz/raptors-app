@@ -19,7 +19,7 @@
       padding: 0 15px 0 10px;
       height: 100%;
       border: none;
-      background: none;
+      background: $grey1;
       color: $white;
       font-family: spurs;
       font-size: 22px;
@@ -152,7 +152,7 @@ select {
   text-transform: uppercase;
   cursor: pointer;
   appearance: none;
-  background: url('../assets/icons/dropdownWhite.svg');
+  background: url('../../assets/icons/dropdownWhite.svg');
   background-repeat: no-repeat;
   background-position-x: 97%;
   background-position-y: 50%;
@@ -168,5 +168,5 @@ option {
 
 
 .borderTriangle {
-  border-color: #ededed transparent transparent;
+  border-color: $grey1 transparent transparent;
 }
