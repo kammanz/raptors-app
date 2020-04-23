@@ -18,6 +18,8 @@ class Header extends React.Component {
         this.state = { 
             selectedTeamName: null, 
             selectedTeamTricode: null,
+
+            // NOTE: when the teams are mapped, the raptors are index 27, hence the default number
             selectedTeam: 27
         }  
     }
@@ -88,13 +90,13 @@ class Header extends React.Component {
                 
                 <div className={styles.user}>
                     <button>
-                        <img src={bell} alt="notification-bell"></img>
+                        <img src={bell} alt="notification bell"></img>
                     </button>
                     <button>
-                        <img src={settingsIcon} alt="settings-icon"></img>
+                        <img src={settingsIcon} alt="settings icon"></img>
                     </button>
                     <button>
-                        <img src={kobe} alt="user-pic" height="25" className={styles.userPic}></img>
+                        <img src={kobe} alt="user avatar" height="25" className={styles.userPic}></img>
                         <div>Kobe Bryant</div>
                         <i className={styles.dropDownUser}></i>
                     </button>
