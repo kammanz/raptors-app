@@ -57,6 +57,9 @@
       color: inherit;
       font-size: 14px;
       cursor: pointer;
+      button
+      
+      &:focus{ outline-color: transparent }
       
       .userPic {
         border: 2px solid $border-dark-grey;
@@ -90,14 +93,16 @@
 }
 
 .selectContainer {
-  width: 254px;
-  margin-left: 10px;
+  max-width: 270px;
 }
 
 select {
   position: relative;
+  display: inline-block;
   border: none;
   margin-left: 10px;
+  padding-right: 34px;
+  padding-left: 5px;
   color: $white;
   font-family: spurs;
   font-size: 22px;
@@ -109,15 +114,20 @@ select {
   background-repeat: no-repeat;
   background-position-x: 97%;
   background-position-y: 50%;
+
+  &:focus { outline-color: transparent }
 }
 
 option {
   color: $grey5;
   background-color: $white;
   font-size: 18px;
-  opacity: 0.6;
 }
 
 .borderTriangle {
   border-color: $grey1 transparent transparent;
+  width: 0;
+  height: 0;
+  border-style: solid; 
+  border-width: '45px 20px 0 0'; 
 }

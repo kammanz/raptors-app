@@ -105,7 +105,11 @@ class Header extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return { teams: state.teams, selectedTeam: state.selectedTeam, selectedTeamColor: state.selectedTeamColor };
+    return { 
+        teams: state.teams, 
+        selectedTeam: state.selectedTeam, 
+        selectedTeamColor: state.selectedTeamColor 
+    };
 }
 
 export default connect(mapStateToProps, { getTeams, getSelectedTeam })(Header);
