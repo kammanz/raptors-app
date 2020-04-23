@@ -1,8 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { getTeams, getSelectedTeam } from '../../actions/actions.js';
+
+import NavMenu from './navMenu';
 
 import bell from '../../assets/icons/notification-bell.svg';
 import settingsIcon from '../../assets/icons/settings-icon.svg';
@@ -84,36 +85,7 @@ class Header extends React.Component {
                         className={styles.borderTriangle}
                     />
                 </div>
-                <div className={styles.links}>
-                    <div className={styles.linkContainer}>
-                        <NavLink 
-                            to='/' 
-                            exact 
-                            activeClassName={styles.active} 
-                            activeStyle={{ color: `${selectedTeamColor}`, borderBottom: `4px solid ${selectedTeamColor}` }}
-                        >
-                            Players
-                        </NavLink>
-                    </div>
-                    <div className={styles.linkContainer}>
-                        <NavLink 
-                            to='/standings' 
-                            activeClassName={styles.active}
-                            activeStyle={{ color: `${selectedTeamColor}`, borderBottom: `4px solid ${selectedTeamColor}` }}
-                        >
-                            Standings
-                        </NavLink>
-                    </div>
-                    <div className={styles.linkContainer}>
-                        <NavLink 
-                            to='/games' 
-                            activeClassName={styles.active} 
-                            activeStyle={{ color: `${selectedTeamColor}`, borderBottom: `4px solid ${selectedTeamColor}` }}
-                        >
-                            Games
-                        </NavLink>
-                    </div>
-                </div>
+                <NavMenu selectedTeamColor={selectedTeamColor} />
                 <div className={styles.user}>
                     <button>
                         <img src={bell} alt="notification-bell"></img>
