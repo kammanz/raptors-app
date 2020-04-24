@@ -18,7 +18,6 @@ class Header extends React.Component {
         this.state = { 
             selectedTeamName: null, 
             selectedTeamTricode: null,
-
             // NOTE: when the teams are mapped, the raptors are index 27, hence the default number
             selectedTeam: 27
         }  

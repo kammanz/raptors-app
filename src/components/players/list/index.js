@@ -27,6 +27,8 @@ class List extends React.Component {
                         this.setState({ selectedId: player.person_id })
                         this.props.getSelectedPlayer(player);
                     }}
+                    
+                    // style={{if (isSelected) => backgroundColor: `${selectedTeamColor}`;}}
                     className={isSelected ? `${styles.playerCard} ${styles.selectedCard}` : styles.playerCard}
                 >
                     <div className={styles.imageContainer}>
