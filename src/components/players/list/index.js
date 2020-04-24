@@ -15,11 +15,10 @@ class List extends React.Component {
     }
 
     renderPlayers() {
-        const { players } = this.props;
+        const { players, selectedTeamColor } = this.props;
 
         return players.map((player, index) => {
             const isSelected = this.state.selectedId === player.person_id;
-            console.log(player.person_id, 'player person id');
 
             return (
                 <div
@@ -33,7 +32,7 @@ class List extends React.Component {
                     <div className={styles.imageContainer}>
                         <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${player.person_id}.png`} alt="Player Headshot"/>
                     </div>
-                    <div className={styles.imageLine}></div>
+                    <div style={{ borderBottom: `2px solid ${selectedTeamColor}`}} className={styles.imageLine} />
                     <div className={styles.detailsContainer}>
                         <div className={styles.number}>{player.jersey_number}</div>
                         <div className={styles.details}>
@@ -57,7 +56,7 @@ class List extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return { players: state.players };
+    return { players: state.players, selectedTeamColor: state.selectedTeamColor };
 }
 
 export default connect(mapStateToProps, { getSelectedPlayer })(List);
