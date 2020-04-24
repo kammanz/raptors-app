@@ -1,13 +1,14 @@
 import { combineReducers } from 'redux';
-import playersListReducer from './playersListReducer';
+import playersListReducer from './getPlayersReducer';
 import playerDetailsReducer from './playerDetailsReducer';
 import getGamesReducer from './getGamesReducer';
 import getSelectedTeamReducer from './getSelectedTeamReducer';
 import getTeamsReducer from './getTeamsReducer';
 import getTeamColorReducer from './getTeamColorReducer';
+import getPlayersReducer from './getPlayersReducer';
 
 export default combineReducers({
-    players: playersListReducer,
+    players: getPlayersReducer,
     player: playerDetailsReducer,
     // NOTE: I'll fix and rename the teams list reducer in a separate branch
     // teams: teamsListReducer,

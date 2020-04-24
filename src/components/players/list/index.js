@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getPlayers, getSelectedPlayer } from '../../../actions/actions.js';
+import { getSelectedPlayer } from '../../../actions/actions.js';
 
 import styles from './index.module.scss';
 
@@ -19,6 +19,7 @@ class List extends React.Component {
 
         return players.map((player, index) => {
             const isSelected = this.state.selectedId === player.person_id;
+            console.log(player.person_id, 'player person id');
 
             return (
                 <div
@@ -56,12 +57,7 @@ class List extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return { players: state.players, selectedTeam: state.selectedTeam };
+    return { players: state.players };
 }
 
-export default connect(mapStateToProps,
-        {
-            getPlayers,
-            getSelectedPlayer,
-        }
-)(List);
+export default connect(mapStateToProps, { getSelectedPlayer })(List);
