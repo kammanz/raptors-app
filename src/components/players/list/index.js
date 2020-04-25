@@ -11,7 +11,7 @@ class List extends React.Component {
 
         this.state = {
             selectedId: null,
-        }
+        };
     }
 
     componentDidMount() {
@@ -59,7 +59,7 @@ class List extends React.Component {
             <div className={styles.playersListContainer}>
                 {this.renderPlayers()}
             </div>
-        )
+        );
     }
 }
 
