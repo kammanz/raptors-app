@@ -9,9 +9,10 @@ export const selectPlayer = (player) => async dispatch => {
     dispatch({ type: 'PRELOAD_PLAYER', payload: player });
 
     const playerResponse = await dataNbaNet.get(`/prod/v1/2019/players/${player.person_id}_profile.json`);
-    dispatch({ type: 'UPDATE_PLAYER', payload: playerResponse.data.league.standard.stats.latest });
+    dispatch({ type: 'UPDATE_PLAYER', payload: { ...playerResponse.data.league.standard.stats.latest }});
     
     const gamesResponse = await dataNbaNet.get(`/data/10s/prod/v1/2019/players/${player.person_id}_gamelog.json`);
+    console.log(gamesResponse.data.league.standard, 'game response');
     dispatch({ type: 'GET_GAMES', payload: { ...gamesResponse.data.league.standard }});
 };
 

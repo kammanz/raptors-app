@@ -19,7 +19,11 @@ const Games = ({ teams, games }) => {
     stats,
     }) => {
 
+      console.log(stats, 'right here');
+
       const { points, assists, offReb, defReb, totReb } = stats;
+
+      console.log(points, 'points');
 
       const getGameResult = () => {
         const playersTeam = isHomeGame ? hTeam : vTeam;
@@ -46,7 +50,18 @@ const Games = ({ teams, games }) => {
         );
       }; 
 
-      const tableObj = { result: score, points, assists, "off reb": offReb, "def reb":defReb, "tot reb": totReb };
+      // const tableObj = { result: score, points, assists, "off reb": offReb, "def reb":defReb, "tot reb": totReb };
+
+      console.log(score, 'jojo');
+
+      const gameStatsArray = [
+        { title: 'result', value: score},
+        { title: 'points', value: points},
+        { title: 'assists', value: assists},
+        { title: 'off reb', value: offReb},
+        { title: 'def reb', value: defReb},
+        { title: 'tot reb', value: totReb},
+      ];  
 
       return (
         <div key={gameId}>
@@ -57,7 +72,7 @@ const Games = ({ teams, games }) => {
             <div className={styles.date}>{formattedDate(dateArray)}</div>
           </header>
           <Line />
-          <Table obj={tableObj} result={getGameResult()}/>
+          <Table array={gameStatsArray} result={getGameResult()}/>
         </div>
       );
   });

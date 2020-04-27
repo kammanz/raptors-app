@@ -12,7 +12,7 @@ const TableCell = ({ value }) => {
             <Line />
             <div>{value}</div>
         </div>
-    )
+    );
 }
 
 export default TableCell;
