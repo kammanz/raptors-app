@@ -21,6 +21,8 @@ const Details = ({ player, teams, games }) => {
         );
     }
 
+    console.log(player);
+
     const quickStats = {
         ppg: player.ppg, 
         reb: player.totReb, 
