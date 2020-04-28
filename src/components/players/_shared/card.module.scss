@@ -1,9 +1,7 @@
 @import 'src/scss/variables.scss';
 
     .card {
-      padding: 5px;
       min-width: 440px;
-      border-left: 1px solid $grey1;
       background-color: $white;
   
       .imageContainer {
