@@ -4,28 +4,29 @@ import Line from './line';
 
 import styles from './table.module.scss';
 
-const Table = ({ obj, result }) => {
-    const arr = Object.entries(obj);
+const Table = ({ array, result }) => {
 
-    const header = arr.map((item, i) => {
-        return <th key={i}>{item[0]}<Line /></th>;
+    // console.log(array, 'table.js');
+
+    const header = array.map((obj, index) => {
+        return <th key={index}>{obj.title}<Line /></th>;
     });
 
-    const data = arr.map((item, i) => {
-        if(result && i === 0) {
+    const data = array.map((obj, index) => {
+        if(result && index === 0) {
             return (
-                <td key={i}>
+                <td key={index}>
                     <span className={result === "W" ? 
                         styles.won : 
                         styles.lost}
                     >
                         {result}
-                    </span> {item[1]}
+                    </span> {obj.value}
                 </td>
             );
         }
 
-        return <td key={i}>{item[1]}</td>;
+        return <td key={index}>{obj.value}</td>;
     });
 
     return (
@@ -35,7 +36,7 @@ const Table = ({ obj, result }) => {
                 <tr>{data}</tr>
             </tbody>
         </table>
-    )
+    );
 }
 
 export default Table;

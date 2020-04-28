@@ -8,6 +8,7 @@ import styles from './index.module.scss';
 
 const Games = ({ teams, games }) => {
   const gamesArray = Object.values(games);
+  console.log(gamesArray, 'gamesarray');
   const teamsArray = Object.values(teams);
 
   const recentGames = gamesArray.map(({
@@ -46,7 +47,14 @@ const Games = ({ teams, games }) => {
         );
       }; 
 
-      const tableObj = { result: score, points, assists, "off reb": offReb, "def reb":defReb, "tot reb": totReb };
+      const tableArray = [ 
+        {title: 'result', value: score},
+        {title: 'points', value: points},
+        {title: 'assists', value: assists},
+        {title: 'off reb', value: offReb},
+        {title: 'def reb', value: defReb},
+        {title: 'tot reb', value: totReb}, 
+      ];
 
       return (
         <div key={gameId}>
@@ -57,7 +65,7 @@ const Games = ({ teams, games }) => {
             <div className={styles.date}>{formattedDate(dateArray)}</div>
           </header>
           <Line />
-          <Table obj={tableObj} result={getGameResult()}/>
+          <Table array={tableArray} result={getGameResult()}/>
         </div>
       );
   });

@@ -5,7 +5,7 @@ export default (state = null, action) => {
         case 'UPDATE_PLAYER':
             return { ...state, ...action.payload };
         case 'GET_GAMES':
-            return { ...state, ...action.payload };
+            return { ...state, recentGames: { ...action.payload } };
         default:
             return state;
     }
