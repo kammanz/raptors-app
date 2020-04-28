@@ -4,21 +4,14 @@ import Line from './line';
 
 import styles from './table.module.scss';
 
-const Table = ({ array, result }) => {
+const Table = ({ obj, result }) => {
+    const arr = Object.entries(obj);
 
-    // const values = arr.map(obj => {
-    //     return obj.value
-    // });
-
-    console.log(array, 'array');
-
-    // const arr = Object.entries(obj);
-
-    const headerArray = array.map((obj, i) => {
-        return <th key={i}>{obj.title}<Line /></th>;
+    const header = arr.map((item, i) => {
+        return <th key={i}>{item[0]}<Line /></th>;
     });
 
-    const dataArray = array.map((obj, i) => {
+    const data = arr.map((item, i) => {
         if(result && i === 0) {
             return (
                 <td key={i}>
@@ -27,19 +20,19 @@ const Table = ({ array, result }) => {
                         styles.lost}
                     >
                         {result}
-                    </span> {obj.value}
+                    </span> {item[1]}
                 </td>
             );
         }
 
-        return <td key={i}>{obj.value}</td>;
+        return <td key={i}>{item[1]}</td>;
     });
 
     return (
         <table cellSpacing="0" cellPadding="0" className={styles.table}>
             <tbody>
-                <tr>{headerArray}</tr>
-                <tr>{dataArray}</tr>
+                <tr>{header}</tr>
+                <tr>{data}</tr>
             </tbody>
         </table>
     )

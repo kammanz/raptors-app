@@ -7,23 +7,22 @@ import Table from '../../../_shared/table';
 import styles from './index.module.scss';
 
 const QuickStats = ({ quickStats }) => {
-    console.log(quickStats, 'quickStats');
+    const arr = Object.entries(quickStats);
 
-    const renderQuickStats = quickStats.map((stat, i) => {
-        console.log(stat, 'quick stats map for single stat obj');
+    const cell = arr.map((x, i) => {
         return (
             <div key={i} className={styles.container}>
-                <div className={styles.header}>{stat.title}</div>
-                <div className={styles.data}>{stat.value}</div>
+                <div className={styles.header}>{x[0]}</div>
+                <div className={styles.data}>{x[1]}</div>
             </div>
         );
     });
 
     return (
         <section className={styles.quickStats}>
-            {renderQuickStats}
+            {cell}
         </section>
-    );
+    )
 }
 
 export default QuickStats;
