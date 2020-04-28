@@ -11,17 +11,12 @@ import kobe from '../assets/imgs/kobe.png';
 import styles from './header.module.scss';
 
 class Header extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    // }
 
     componentDidMount() {
         this.props.getTeams();
     }
 
     render() {
-        // const { props } = this.props;
-        // console.log('props', this.props);
         return (
             <div className={styles.headerContainer}>
                 <div className={styles.team}>
@@ -66,5 +61,4 @@ const mapStateToProps = (state) => {
     return { teams: state.teams };
 }
 
-// we always export default the connect. the connect is one curried function and we only export one function
 export default connect(mapStateToProps, { getTeams })(Header);

@@ -4,18 +4,18 @@ import styles from './index.module.scss';
 
 const QuickStats = ({ quickStats }) => {
 
-    const cellArray = quickStats.map((stat, index) => {
+    const renderQuickStats = quickStats.map((quickStat, index) => {
         return (
             <div key={index} className={styles.container}>
-                <div className={styles.header}>{stat.title}</div>
-                <div className={styles.data}>{stat.object}</div>
+                <div className={styles.header}>{quickStat.title}</div>
+                <div className={styles.data}>{quickStat.value}</div>
             </div>
         );
     });
 
     return (
         <section className={styles.quickStats}>
-            {cellArray}
+            {renderQuickStats}
         </section>
     )
 }

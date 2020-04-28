@@ -6,8 +6,6 @@ import styles from './table.module.scss';
 
 const Table = ({ array, result }) => {
 
-    // console.log(array, 'table.js');
-
     const header = array.map((obj, index) => {
         return <th key={index}>{obj.title}<Line /></th>;
     });

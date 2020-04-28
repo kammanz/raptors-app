@@ -6,12 +6,11 @@ import Table from '../../../_shared/table';
 
 import styles from './index.module.scss';
 
-const Games = ({ teams, games }) => {
-  const gamesArray = Object.values(games);
-  console.log(gamesArray, 'gamesarray');
+const RecentGamesStats = ({ teams, recentGamesStats }) => {
+  const recentGamesArray = Object.values(recentGamesStats);
   const teamsArray = Object.values(teams);
 
-  const recentGames = gamesArray.map(({
+  const recentGames = recentGamesArray.map(({
     gameId,
     isHomeGame,
     hTeam,
@@ -78,4 +77,4 @@ const Games = ({ teams, games }) => {
   );
 }         
 
-export default Games;
+export default RecentGamesStats;

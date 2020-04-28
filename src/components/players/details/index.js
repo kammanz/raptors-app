@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import Placeholder from './card/placeholder.js';
 import Card from '../_shared/card';
 import QuickStats from './quickStats/';
-import Games from './games/index.js';
-import Stats from './stats';
+import RecentGamesStats from './recentGamesStats/index.js';
+import TotalStats from './totalStats';
 
 import styles from './index.module.scss';
 
@@ -18,13 +18,6 @@ const Details = ({ player, teams, games }) => {
         );
     }
 
-    // console.log(player);
-    // console.log(player.min);
-    // console.log(player.recentGames, 'rec games');
-
-    // const newbie = player.recentGames.map(game => game);
-    // console.log(newbie);
-
     const quickStats = [
         { title: 'ppg', value: player.ppg }, 
         { title: 'reb', value: player.totReb }, 
@@ -32,7 +25,7 @@ const Details = ({ player, teams, games }) => {
         { title: 'fg %', value: player.fgp }, 
     ];
 
-    const stats = [ 
+    const totalStats = [ 
        { title: 'gp', value: player.gamesPlayed }, 
        { title: 'min', value: player.min }, 
        { title: 'fg%', value: player.fgp }, 
@@ -47,34 +40,12 @@ const Details = ({ player, teams, games }) => {
        { title: 'pts', value: player.points },
     ];
 
-    // console.log(player.recentGames, 'here');
-
-    const recentGamesObject = player.recentGames;
-    // console.log(recentGamesObject, 'recentGamesObject');
-    // console.log(games, 'games');
-    // const recentGamesArray = Object.entries(recentGamesObject);
-    // console.log(recentGamesArray);
-    // const recentGamesArray = Object.values(recentGamesObject);
-    // console.log(recentGamesArray);
-
-    
-    // console.log(recentGamesArray, 'recent games array');
-
-    // const gameStats = [
-    //     { title: 'result', value: },
-    //     { title: 'points', value: },
-    //     { title: 'assists', value: },
-    //     { title: 'off reb', value: },
-    //     { title: 'def reb', value: },
-    //     { title: 'tot reb', value: },
-    // ];
-
     return (
         <div className={styles.container}>
             <Card player={player} />
             <QuickStats quickStats={quickStats} />
-            <Stats stats={stats} />
-            <Games teams={teams} games={games} />
+            <TotalStats totalStats={totalStats} />
+            <RecentGamesStats teams={teams} recentGamesStats={games} />
         </div>
     );
 }
