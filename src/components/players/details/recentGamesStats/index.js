@@ -56,7 +56,7 @@ const RecentGamesStats = ({ teams, recentGamesStats }) => {
       ];
 
       return (
-        <div key={gameId}>
+        <div key={gameId} className={styles.game}>
           <header>
             <div>{isHomeGame ? 'vs' :'@'}</div>
             <img src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${oppTeam.tricode}.svg`} height="42" alt="team logo" />
@@ -70,7 +70,7 @@ const RecentGamesStats = ({ teams, recentGamesStats }) => {
   });
 
   return (
-    <section className={styles.games}>
+    <section className={styles.recentGames}>
       <Title title="recent games"/>
       {recentGames}
     </section>

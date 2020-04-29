@@ -5,9 +5,9 @@ import styles from './index.module.scss';
 
 const TotalStats = ({ totalStats }) => {
     return (
-        <section class={styles.totalStats}>
+        <section className={styles.totalStats}>
             <Title title="stats"/>
-            <Table array={totalStats}/>
+            <Table array={totalStats} className={styles.totalStats}/>
         </section>
     );
 }

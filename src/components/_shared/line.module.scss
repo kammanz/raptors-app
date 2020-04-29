@@ -1,6 +1,6 @@
 @import 'src/scss/variables.scss';
+@import 'src/scss/mixins.scss';
 
 .line {
-    border-bottom: 2px solid $grey1b;
-    padding-top: 5px;
+    @include line;
 }
