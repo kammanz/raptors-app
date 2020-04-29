@@ -3,17 +3,7 @@
 
 .table {
     width: 100%;
-    // margin-top: 15px;
     font-family: Arial, Helvetica, sans-serif;
-
-    .totalStats {
-        margin-top: 13px;
-        // background-color: yellow;
-    }
-
-    .games {
-        background-color: aqua;
-    }
 
     tbody tr {
         text-align: center;
@@ -29,25 +19,33 @@
 
         td { 
             height: 15px;
-            padding-top: 2px;
             color: $grey4;
             font-size: 12px;
         }
-    }
-
-    
+    } 
 }
 
 span {
     padding-right: 35x;
 }
 
-.won{
+.won {
     color: $won;
 }
 
 .lost {
     color: $lost;
 }
+
+.totalStats {
+    padding-top: 6px;
+    background-color: yellowgreen;
+}
+
+.games {
+    padding-top: 2px;
+    background-color: aqua;
+}
+
 
 

@@ -13,7 +13,7 @@ const Table = ({ array, result, section }) => {
     const data = array.map((obj, index) => {
         if(result && index === 0) {
             return (
-                <td key={index}>
+                <td>
                     <span className={result === "W" ? 
                         styles.won : 
                         styles.lost}
@@ -28,10 +28,10 @@ const Table = ({ array, result, section }) => {
     });
 
     return (
-        <table cellSpacing="0" cellPadding="0" className={section === 'totalStats' ? `${styles.table} totalStats` : `${styles.table} games`}>
+        <table cellSpacing="0" cellPadding="0" className={styles.table}>
             <tbody>
                 <tr className={styles.underline}>{header}</tr>
-                <tr className={styles.totalStats}>{data}</tr>
+                <tr className={section === 'totalStats' ? `${styles.table} totalStats` : `${styles.table} games`}>{data}</tr>
             </tbody>
         </table>
     );
