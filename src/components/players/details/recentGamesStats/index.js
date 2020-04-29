@@ -64,14 +64,14 @@ const RecentGamesStats = ({ teams, recentGamesStats }) => {
             <div className={styles.date}>{formattedDate(dateArray)}</div>
           </header>
           <Line />
-          <Table array={tableArray} result={getGameResult()}/>
+          <Table array={tableArray} section="games" result={getGameResult()}/>
         </div>
       );
   });
 
   return (
     <section className={styles.recentGames}>
-      <Title title="recent games"/>
+      <Title title="recent games" section="games" />
       {recentGames}
     </section>
   );

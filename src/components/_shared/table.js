@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './table.module.scss';
 
-const Table = ({ array, result }) => {
+const Table = ({ array, result, section }) => {
 
     const header = array.map((obj, index) => {
         return (
@@ -28,7 +28,7 @@ const Table = ({ array, result }) => {
     });
 
     return (
-        <table cellSpacing="0" cellPadding="0" className={styles.table}>
+        <table cellSpacing="0" cellPadding="0" className={section === 'totalStats' ? `${styles.table} totalStats` : `${styles.table} games`}>
             <tbody>
                 <tr className={styles.underline}>{header}</tr>
                 <tr className={styles.totalStats}>{data}</tr>
