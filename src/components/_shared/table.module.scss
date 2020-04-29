@@ -1,35 +1,28 @@
 @import 'src/scss/variables.scss';
+@import 'src/scss/mixins.scss';
 
 .table {
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
-}
 
-tbody tr {
-    th {
-        border-bottom: 2px solid $grey1b;
-        padding: 6px 0 5px;
+    tbody tr {
+        text-align: center;
+
+        th {
+            @include line;
+            padding: 6px 0 5px;
+            color: $grey6;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        td { 
+            padding-top: 7px;
+            color: $grey4;
+            font-size: 12px;
+        }
     }
-
-    td { 
-        padding-top: 7px;
-    }
-}
-
-tr {
-    text-align: center;
-}
-
-th {
-    color: $grey6;
-    font-size: 11px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-td {
-    color: $grey4;
-    font-size: 12px;
 }
 
 span {
