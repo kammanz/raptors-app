@@ -4,14 +4,12 @@ import Title from '../../../_shared/title';
 import styles from './index.module.scss';
 
 const TotalStats = ({ totalStats }) => {
-
-    // console.log(stats, 'stats');
     return (
-        <section className={styles.stats}>
+        <section className={styles.totalStats}>
             <Title title="stats"/>
             <Table array={totalStats}/>
         </section>
-    )
+    );
 }
 
 export default TotalStats;

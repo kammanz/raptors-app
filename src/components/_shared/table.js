@@ -1,13 +1,15 @@
 import React from 'react';
 
-import Line from './line';
-
 import styles from './table.module.scss';
 
 const Table = ({ array, result }) => {
 
+    console.log(array);
+
     const header = array.map((obj, index) => {
-        return <th key={index}>{obj.title}<Line /></th>;
+        return (
+            <th key={index}>{obj.title}</th>
+        );
     });
 
     const data = array.map((obj, index) => {
@@ -30,8 +32,8 @@ const Table = ({ array, result }) => {
     return (
         <table cellSpacing="0" cellPadding="0" className={styles.table}>
             <tbody>
-                <tr>{header}</tr>
-                <tr>{data}</tr>
+                <tr className={styles.underline}>{header}</tr>
+                <tr className={styles.totalStats}>{data}</tr>
             </tbody>
         </table>
     );

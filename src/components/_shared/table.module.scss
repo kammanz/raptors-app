@@ -5,14 +5,23 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+tbody tr {
+    th {
+        border-bottom: 2px solid $grey1b;
+        padding: 6px 0 5px;
+    }
+
+    td { 
+        padding-top: 7px;
+    }
+}
+
 tr {
     text-align: center;
 }
 
 th {
-    height: 40px;
     color: $grey6;
-    font-family: arial;
     font-size: 11px;
     font-weight: bold;
     text-transform: uppercase;
@@ -20,7 +29,6 @@ th {
 
 td {
     color: $grey4;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
 }
 
