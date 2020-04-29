@@ -13,7 +13,7 @@ const Table = ({ array, result, section }) => {
     const data = array.map((obj, index) => {
         if(result && index === 0) {
             return (
-                <td>
+                <td key={index}>
                     <span className={result === "W" ? 
                         styles.won : 
                         styles.lost}
