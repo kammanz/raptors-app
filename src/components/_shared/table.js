@@ -19,7 +19,7 @@ const Table = ({ array, result, section }) => {
                         styles.lost}
                     >
                         {result}
-                    </span> {obj.value}
+                    </span>{obj.value}
                 </td>
             );
         }
@@ -30,7 +30,7 @@ const Table = ({ array, result, section }) => {
     return (
         <table cellSpacing="0" cellPadding="0" className={styles.table}>
             <tbody>
-                <tr className={styles.underline}>{header}</tr>
+                <tr>{header}</tr>
                 <tr className={section === 'totalStats' ? `${styles.table} totalStats` : `${styles.table} games`}>{data}</tr>
             </tbody>
         </table>

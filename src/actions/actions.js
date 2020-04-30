@@ -16,6 +16,6 @@ export const selectPlayer = (player) => async dispatch => {
 };
 
 export const getTeams = () => async dispatch => {
-    const response = await dataNbaNet.get("/prod/2019/teams_config.json");
+    const response = await dataNbaNet.get('/prod/2019/teams_config.json');
     dispatch({ type: 'GET_TEAMS', payload: { ...response.data.teams.config }});
 }
