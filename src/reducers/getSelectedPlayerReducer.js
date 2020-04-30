@@ -8,5 +8,5 @@ export default (state = null, action) => {
             return { ...state, recentGames: { ...action.payload } };
         default:
             return state;
-    }
-}
+    };
+};

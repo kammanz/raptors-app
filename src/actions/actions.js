@@ -5,7 +5,7 @@ export const getPlayers = () => async dispatch => {
     dispatch({ type: 'GET_PLAYERS', payload: response.data.sports_content.roster.players.player });
 };
 
-export const selectPlayer = (player) => async dispatch => {
+export const getSelectedPlayer = (player) => async dispatch => {
     dispatch({ type: 'PRELOAD_PLAYER', payload: player });
 
     const playerResponse = await dataNbaNet.get(`/prod/v1/2019/players/${player.person_id}_profile.json`);
@@ -18,4 +18,4 @@ export const selectPlayer = (player) => async dispatch => {
 export const getTeams = () => async dispatch => {
     const response = await dataNbaNet.get('/prod/2019/teams_config.json');
     dispatch({ type: 'GET_TEAMS', payload: { ...response.data.teams.config }});
-}
+};

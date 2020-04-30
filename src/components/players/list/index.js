@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getPlayers, selectPlayer } from '../../../actions/actions.js';
+import { getPlayers, getSelectedPlayer } from '../../../actions/actions.js';
 
 import styles from './index.module.scss';
 
@@ -12,20 +12,16 @@ class List extends React.Component {
         this.state = {
             selectedId: null,
         };
-    }
+    };
 
     componentDidMount() {
         this.props.getPlayers();
-        // this.props.getGameStats();
-    }
+    };
 
     renderPlayers() {
         const { players } = this.props;
 
-        // console.log('this.props', this.props);
-
         return players.map((player, index) => {
-            // console.log(player, 'player');
             const isSelected = this.state.selectedId === player.person_id;
 
             return (
@@ -33,14 +29,14 @@ class List extends React.Component {
                     key={index}
                     onClick={() => {
                         this.setState({ selectedId: player.person_id })
-                        this.props.selectPlayer(player);
+                        this.props.getSelectedPlayer(player);
                     }}
                     className={isSelected ? `${styles.playerCard} ${styles.selectedCard}` : styles.playerCard}
                 >
                     <div className={styles.imageContainer}>
                         <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${player.person_id}.png`} alt="Player Headshot"/>
                     </div>
-                    <div className={styles.imageLine}></div>
+                    <div className={styles.imageLine}/>
                     <div className={styles.detailsContainer}>
                         <div className={styles.number}>{player.jersey_number}</div>
                         <div className={styles.details}>
@@ -52,7 +48,7 @@ class List extends React.Component {
                 </div>
             );
         });
-    }
+    };
 
     render() {
         return (
@@ -60,16 +56,16 @@ class List extends React.Component {
                 {this.renderPlayers()}
             </div>
         );
-    }
-}
+    };
+};
 
 const mapStateToProps = (state) => {
     return { players: state.players };
-}
+};
 
 export default connect(mapStateToProps,
         {
             getPlayers,
-            selectPlayer,
+            getSelectedPlayer,
         }
 )(List);

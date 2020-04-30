@@ -35,14 +35,13 @@ const RecentGamesStats = ({ teams, recentGamesStats }) => {
         `${hTeam.score} - ${vTeam.score}` :
         `${vTeam.score} - ${hTeam.score}`;
 
-      const dateArray = new Date(gameDateUTC).toDateString().split(' ');
-
-      const formattedDate = (array) => {
-        const el = array[2];
+      const formatUTCDate = (gameDateUTC) => {
+        const parsedArray = new Date(gameDateUTC).toDateString().split(' ');
+        const el = parsedArray[2];
 
         return (el.charAt(0) === "0" ? 
-          `${array[0]}. ${array[1]} ${el.substring(1)}, ${array[3]}`:
-          `${array[0]}. ${array[1]} ${el}, ${array[3]}`
+          `${parsedArray[0]}. ${parsedArray[1]} ${el.substring(1)}, ${parsedArray[3]}`:
+          `${parsedArray[0]}. ${parsedArray[1]} ${el}, ${parsedArray[3]}`
         );
       }; 
 
@@ -59,9 +58,9 @@ const RecentGamesStats = ({ teams, recentGamesStats }) => {
         <div key={gameId} className={styles.game}>
           <header>
             <div>{isHomeGame ? 'vs' :'@'}</div>
-            <img src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${oppTeam.tricode}.svg`} height="42" alt="team logo" />
+            <img src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${oppTeam.tricode}.svg`} height="42" alt="team logo"/>
             <div>{oppTeam.ttsName}</div>
-            <div className={styles.date}>{formattedDate(dateArray)}</div>
+            <div className={styles.date}>{formatUTCDate(gameDateUTC)}</div>
           </header>
           <Line />
           <Table array={tableArray} section="games" result={getGameResult()}/>
@@ -75,6 +74,6 @@ const RecentGamesStats = ({ teams, recentGamesStats }) => {
       {recentGames}
     </section>
   );
-}         
+};         
 
 export default RecentGamesStats;

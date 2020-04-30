@@ -21,7 +21,7 @@ class Header extends React.Component {
             <div className={styles.headerContainer}>
                 <div className={styles.team}>
                     <button className={styles.logoContainer}>
-                        <img src={raptorsLogo} title="raptors logo" alt="raptors logo"></img>
+                        <img src={raptorsLogo} title="raptors logo" alt="raptors logo"/>
                         <span>Toronto Raptors </span>
                         <i className={styles.dropDownTeam}/>
                     </button>
@@ -41,15 +41,15 @@ class Header extends React.Component {
                 
                 <div className={styles.user}>
                     <button>
-                        <img src={bell} alt="notification-bell"></img>
+                        <img src={bell} alt="notification-bell"/>
                     </button>
                     <button>
-                        <img src={settingsIcon} alt="settings-icon"></img>
+                        <img src={settingsIcon} alt="settings-icon"/>
                     </button>
                     <button>
-                        <img src={kobe} alt="user-pic" height="25" className={styles.userPic}></img>
+                        <img src={kobe} alt="user-pic" height="25" className={styles.userPic}/>
                         <div>Kobe Bryant</div>
-                        <i className={styles.dropDownUser}></i>
+                        <i className={styles.dropDownUser}/>
                     </button>
                 </div>
             </div>
