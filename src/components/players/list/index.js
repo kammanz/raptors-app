@@ -12,7 +12,6 @@ class List extends React.Component {
 
         this.state = {
             selectedId: null,
-
         };
     };
 
@@ -38,7 +37,6 @@ class List extends React.Component {
                     <div className={styles.imageContainer}>
                         <img 
                             src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${player.person_id}.png`} 
-
                             onError={(e) => e.target.src = placeholderPic}
                             alt="Player Headshot"
                         />

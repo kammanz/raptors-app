@@ -1,6 +1,7 @@
 import React from 'react';
 
 import largePlaceholderPic from '../../../assets/imgs/no-player-placeholder-large.png';
+
 import styles from './card.module.scss';
 
 const Card = ({ player }) => {
