@@ -11,7 +11,6 @@ import kobe from '../assets/imgs/kobe.png';
 import styles from './header.module.scss';
 
 class Header extends React.Component {
-
     componentDidMount() {
         this.props.getTeams();
     }
@@ -21,9 +20,9 @@ class Header extends React.Component {
             <div className={styles.headerContainer}>
                 <div className={styles.team}>
                     <button className={styles.logoContainer}>
-                        <img src={raptorsLogo} title="raptors logo" alt="raptors logo"/>
+                        <img src={raptorsLogo} title="raptors logo" alt="raptors logo" />
                         <span>Toronto Raptors </span>
-                        <i className={styles.dropDownTeam}/>
+                        <i className={styles.dropDownTeam} />
                     </button>
                 </div>
     
@@ -41,15 +40,15 @@ class Header extends React.Component {
                 
                 <div className={styles.user}>
                     <button>
-                        <img src={bell} alt="notification-bell"/>
+                        <img src={bell} alt="notification-bell" />
                     </button>
                     <button>
-                        <img src={settingsIcon} alt="settings-icon"/>
+                        <img src={settingsIcon} alt="settings-icon" />
                     </button>
                     <button>
-                        <img src={kobe} alt="user-pic" height="25" className={styles.userPic}/>
+                        <img src={kobe} alt="user-pic" className={styles.userPic} />
                         <div>Kobe Bryant</div>
-                        <i className={styles.dropDownUser}/>
+                        <i className={styles.dropDownUser} />
                     </button>
                 </div>
             </div>
