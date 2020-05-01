@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { getPlayers, getSelectedPlayer } from '../../../actions/actions.js';
 
-import placeholderPic from '../../../assets/imgs/no-player-placeholder.png';
+import placeholderImg from '../../../assets/imgs/placeholder.png';
 import styles from './index.module.scss';
 
 class List extends React.Component {
@@ -35,9 +35,9 @@ class List extends React.Component {
                     className={isSelected ? `${styles.playerCard} ${styles.selectedCard}` : styles.playerCard}
                 >
                     <div className={styles.imageContainer}>
-                        <img 
-                            src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${player.person_id}.png`} 
-                            onError={(e) => e.target.src = placeholderPic}
+                        <img
+                            src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${player.person_id}.png`}
+                            onError={(e) => e.target.src = placeholderImg}
                             alt="Player Headshot"
                         />
                     </div>
