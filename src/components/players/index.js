@@ -11,7 +11,7 @@ const PlayersPage = () => {
             <List />
             <Details />
         </div>
-    )
-}
+    );
+};
 
 export default PlayersPage;
