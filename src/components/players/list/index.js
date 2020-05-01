@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import classnames from 'classnames';
+
 import { getPlayers, getSelectedPlayer } from '../../../actions/actions.js';
 
 import styles from './index.module.scss';
@@ -31,7 +33,7 @@ class List extends React.Component {
                         this.setState({ selectedId: player.person_id })
                         this.props.getSelectedPlayer(player);
                     }}
-                    className={isSelected ? `${styles.playerCard} ${styles.selectedCard}` : styles.playerCard}
+                    className={classnames(styles.playerCard, isSelected ? styles.selectedCard : null)}
                 >
                     <div className={styles.imageContainer}>
                         <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${player.person_id}.png`} alt="Player Headshot"/>
