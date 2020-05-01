@@ -17,7 +17,6 @@ const RecentGamesStats = ({ teams, recentGamesStats }) => {
     gameDateUTC,
     stats,
     }) => {
-
       const { points, assists, offReb, defReb, totReb } = stats;
 
       const getGameResult = () => {
@@ -57,12 +56,12 @@ const RecentGamesStats = ({ teams, recentGamesStats }) => {
         <div key={gameId} className={styles.game}>
           <header>
             <div>{isHomeGame ? 'vs' :'@'}</div>
-            <img src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${oppTeam.tricode}.svg`} height="42" alt="team logo"/>
+            <img src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${oppTeam.tricode}.svg`} alt="team logo" />
             <div>{oppTeam.ttsName}</div>
             <div className={styles.date}>{formatUTCDate(gameDateUTC)}</div>
           </header>
           <div className={styles.line} />
-          <Table array={tableArray} section="games" result={getGameResult()}/>
+          <Table array={tableArray} section="games" result={getGameResult()} />
         </div>
       );
   });

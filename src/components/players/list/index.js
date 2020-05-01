@@ -36,9 +36,9 @@ class List extends React.Component {
                     className={classnames(styles.playerCard, isSelected ? styles.selectedCard : null)}
                 >
                     <div className={styles.imageContainer}>
-                        <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${player.person_id}.png`} alt="Player Headshot"/>
+                        <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${player.person_id}.png`} alt="Player Headshot" />
                     </div>
-                    <div className={styles.imageLine}/>
+                    <div className={styles.imageLine} />
                     <div className={styles.detailsContainer}>
                         <div className={styles.number}>{player.jersey_number}</div>
                         <div className={styles.details}>
