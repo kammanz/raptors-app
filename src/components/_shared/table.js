@@ -1,5 +1,7 @@
 import React from 'react';
 
+import classnames from 'classnames';
+
 import styles from './table.module.scss';
 
 const Table = ({ array, result, section }) => {
@@ -31,9 +33,8 @@ const Table = ({ array, result, section }) => {
         <table cellSpacing="0" cellPadding="0" className={styles.table}>
             <tbody>
                 <tr>{header}</tr>
-                <tr className={section === 'totalStats' ? 
-                    `${styles.table} ${styles.totalStats}` : 
-                    `${styles.table} ${styles.games}`}
+                <tr className={classnames(styles.table, section === 'totalStats' ? 
+                    styles.totalStats : styles.games)}
                 >
                     {data}
                 </tr>
