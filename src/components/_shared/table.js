@@ -31,7 +31,12 @@ const Table = ({ array, result, section }) => {
         <table cellSpacing="0" cellPadding="0" className={styles.table}>
             <tbody>
                 <tr>{header}</tr>
-                <tr className={section === 'totalStats' ? `${styles.table} totalStats` : `${styles.table} games`}>{data}</tr>
+                <tr className={section === 'totalStats' ? 
+                    `${styles.table} ${styles.totalStats}` : 
+                    `${styles.table} ${styles.games}`}
+                >
+                    {data}
+                </tr>
             </tbody>
         </table>
     );
