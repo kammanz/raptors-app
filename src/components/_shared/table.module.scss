@@ -9,8 +9,8 @@
         text-align: center;
 
         th {
-            @include line;
             padding: 4px 0;
+            border-bottom: 1px solid $grey1b;
             color: $grey6;
             font-size: 11px;
             font-weight: bold;

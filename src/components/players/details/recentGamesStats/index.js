@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Line from '../../../_shared/line';
 import Title from '../../../_shared/title';
 import Table from '../../../_shared/table';
 
@@ -62,7 +61,7 @@ const RecentGamesStats = ({ teams, recentGamesStats }) => {
             <div>{oppTeam.ttsName}</div>
             <div className={styles.date}>{formatUTCDate(gameDateUTC)}</div>
           </header>
-          <Line />
+          <div className={styles.line} />
           <Table array={tableArray} section="games" result={getGameResult()}/>
         </div>
       );
