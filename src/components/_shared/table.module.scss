@@ -9,8 +9,8 @@
         text-align: center;
 
         th {
-            @include line;
             padding: 4px 0;
+            border-bottom: 1px solid $grey1b;
             color: $grey6;
             font-size: 11px;
             font-weight: bold;
@@ -20,7 +20,7 @@
         td { 
             height: 15px;
             color: $grey4;
-            font-size: 12px;
+            font-size: 12px; 
         }
     } 
 }
@@ -37,14 +37,12 @@ span {
     color: $lost;
 }
 
-
-// NOTE: trying out conditional rendering, want dynamic margin-top 
-.totalStats {
+.totalStats td {
     padding-top: 6px;
-    background-color: yellowgreen;
 }
 
-.games {
+.games td {
     padding-top: 2px;
-    background-color: aqua;
 }
+
+

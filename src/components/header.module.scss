@@ -114,9 +114,10 @@
       cursor: pointer;
       
       .userPic {
+        height: 25px;
+        margin-right: 10px;
         border: 2px solid $border-dark-grey;
         border-radius: 25px;
-        margin-right: 10px;
       }
     }
   } 

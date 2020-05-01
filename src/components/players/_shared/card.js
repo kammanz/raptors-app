@@ -5,7 +5,6 @@ import placeholderImg from '../../../assets/imgs/placeholder.png';
 import styles from './card.module.scss';
 
 const Card = ({ player }) => {
-
     const {
         person_id,
         first_name,
@@ -25,7 +24,7 @@ const Card = ({ player }) => {
                     onError={(e) => e.target.src = placeholderImg}
                 />
             </div>
-            <div className={styles.imageLine}/>
+            <div className={styles.imageLine} />
             <div className={styles.detailsContainer}>
                 <div className={styles.nameContainer}>
                     <div className={styles.name}>{first_name} {last_name}</div>

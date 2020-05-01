@@ -27,6 +27,7 @@ header {
 
     img {
         display: inline-block;
+        height: 42px;
         padding: 3px;
     }
 }
@@ -54,4 +55,8 @@ header {
 section {
     display: flex;
     flex-direction: column;
+}
+
+.line {
+    border-bottom: 1px solid $grey1b;
 }
