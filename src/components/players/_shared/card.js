@@ -1,5 +1,7 @@
 import React from 'react';
 
+import placeholderImg from '../../../assets/imgs/placeholder.png';
+
 import styles from './card.module.scss';
 
 const Card = ({ player }) => {
@@ -7,17 +9,20 @@ const Card = ({ player }) => {
         person_id,
         first_name,
         last_name,
-        jersey_number,   
-        position_full,   
-        height_ft,      
-        height_in,       
+        jersey_number,
+        position_full,
+        height_ft,
+        height_in,
         weight_lbs,
     } = player;
 
     return (
         <div className={styles.card}>
             <div className={styles.imageContainer}>
-                <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${person_id}.png`} alt="Player Headshot" />
+                <img
+                    src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${person_id}.png`} alt="Player Headshot"
+                    onError={(e) => e.target.src = placeholderImg}
+                />
             </div>
             <div className={styles.imageLine} />
             <div className={styles.detailsContainer}>
