@@ -4,6 +4,7 @@ export const getTeams = () => async dispatch => {
     const allTeamsResponse = await dataNbaNet.get("/prod/2019/teams_config.json");
     const nbaTeamsArray = Object.values(allTeamsResponse.data.teams.config).filter(team => team.ttsName);
     dispatch({ type: 'GET_TEAMS', payload: nbaTeamsArray });
+    console.log(nbaTeamsArray);
     
     const raptorsTeam = nbaTeamsArray.find(team => team.teamId === "1610612761"); 
     dispatch({ type: 'GET_SELECTED_TEAM', payload: raptorsTeam });
@@ -16,10 +17,15 @@ export const getTeams = () => async dispatch => {
 export const getSelectedTeam = team => async dispatch => {
     dispatch({ type: 'GET_SELECTED_TEAM', payload: team });
 
-    const teamUrlName = team.ttsName.trim().split(" ").pop().toLowerCase();
     dispatch({ type: 'GET_TEAM_COLOR', payload: team.primaryColor });
 
-    const teamRosterResponse = await dataNbaNet.get(`/json/cms/noseason/team/${teamUrlName}/roster.json`);
+    const teamUrlName = () => {
+        if (team.ttsName === "Philadelphia 76ers") {
+            return 'sixers';
+        }
+        return team.ttsName.trim().split(" ").pop().toLowerCase();
+    };
+    const teamRosterResponse = await dataNbaNet.get(`/json/cms/noseason/team/${teamUrlName()}/roster.json`);
     dispatch({ type: 'GET_PLAYERS', payload: teamRosterResponse.data.sports_content.roster.players.player });
 };
 
