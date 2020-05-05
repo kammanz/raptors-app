@@ -28,22 +28,22 @@ class Header extends React.Component {
 
     onSelectChange = (e) => {
         const { teams, getSelectedTeam } = this.props;
+        const selectedTeam = teams[e.target.value];
 
         this.setState({ 
-            selectedTeamName: teams[e.target.value].ttsName, 
-            selectedTeamTricode: teams[e.target.value].tricode,
+            selectedTeamName: selectedTeam.ttsName, 
+            selectedTeamTricode: selectedTeam.tricode,
             selectedTeam: e.target.value, 
         });
 
-        getSelectedTeam(teams[e.target.value]);
+        getSelectedTeam(selectedTeam);
     }
 
     render() {
         const { selectedTeamTricode, selectedTeam } = this.state;
         const { teams, selectedTeamColor } = this.props;
 
-        // NOTE: I've used some in-line styling to access the 'selected team color' variable
-
+        // Uses in-line styling to access the 'selected team color' variable when necessary
         return (
             <div className={styles.headerContainer}>
                 <div className={styles.team} style={{backgroundColor: `${selectedTeamColor}`}}>
@@ -71,13 +71,8 @@ class Header extends React.Component {
                         </div>
                     </button>
                     <div style={{ 
-                            borderStyle: 'solid', 
-                            borderWidth: '45px 20px 0 0', 
                             borderColor: selectedTeamColor ? `${selectedTeamColor} transparent transparent transparent` :
                             `#f5f5f5 transparent transparent transparent`,
-                            position: 'absolute',
-                            left: '100%',
-                            zIndex: 99,
                         }}
                         
                         className={styles.borderTriangle}

@@ -113,7 +113,7 @@ select {
   appearance: none;
   background: url('../../assets/icons/dropdownWhite.svg');
   background-repeat: no-repeat;
-  background-position-x: 97%;
+  background-position-x: 100%;
   background-position-y: 50%;
 
   &:focus { 
@@ -128,5 +128,10 @@ option {
 }
 
 .borderTriangle {
+  position: absolute;
+  left: 100%;
+  z-index: 99;
+  border-width: 45px 20px 0 0;
+  border-style: solid;
   border-color: $grey1 transparent transparent;
 }
