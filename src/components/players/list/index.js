@@ -21,7 +21,7 @@ class List extends React.Component {
     };
 
     renderPlayers() {
-        const { players } = this.props;
+        const { players, selectedTeam } = this.props;
 
         return players.map((player, index) => {
             const isSelected = this.state.selectedId === player.person_id;
@@ -36,7 +36,7 @@ class List extends React.Component {
                     className={classnames(styles.playerCard, isSelected ? styles.selectedCard : null)}
                 >
                     <div className={styles.imageContainer}>
-                        <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${player.person_id}.png`} alt="Player Headshot" />
+                        <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/${selectedTeam.teamId}/2019/260x190/${player.person_id}.png`} alt="Player Headshot" />
                     </div>
                     <div className={styles.imageLine} />
                     <div className={styles.detailsContainer}>
@@ -53,6 +53,7 @@ class List extends React.Component {
     };
 
     render() {
+        console.log(this.props);
         return (
             <div className={styles.playersListContainer}>
                 {this.renderPlayers()}
