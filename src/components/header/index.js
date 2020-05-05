@@ -18,7 +18,7 @@ class Header extends React.Component {
         this.state = { 
             selectedTeamName: null, 
             selectedTeamTricode: null,
-            selectedTeam: 27 // default raptors at index 27  
+            selectedTeam: 1610612761 // default team id is toronto raptors  
         }  
     }
 
@@ -28,7 +28,7 @@ class Header extends React.Component {
 
     onSelectChange = (e) => {
         const { teams, getSelectedTeam } = this.props;
-        const selectedTeam = teams[e.target.value];
+        const selectedTeam =  teams.filter(team => team.teamId === e.target.value).pop();
 
         this.setState({ 
             selectedTeamName: selectedTeam.ttsName, 
@@ -64,8 +64,8 @@ class Header extends React.Component {
                                 onChange={this.onSelectChange} 
                                 style={{ backgroundColor: `${selectedTeamColor}`}}
                             >
-                                {teams.map((team, i) => {
-                                    return <option key={i} value={i}>{team.ttsName}</option>;
+                                {teams.map((team) => {
+                                    return <option key={team.teamId} value={team.teamId}>{team.ttsName}</option>;
                                 })}
                             </select>
                         </div>
