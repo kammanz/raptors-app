@@ -115,10 +115,7 @@ select {
   background-repeat: no-repeat;
   background-position-x: 100%;
   background-position-y: 50%;
-
-  &:focus { 
-    outline-color: transparent;
-  }
+  outline: none;
 }
 
 option {
