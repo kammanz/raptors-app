@@ -16,9 +16,8 @@ class Header extends React.Component {
         super(props);
 
         this.state = { 
-            selectedTeamName: null, 
-            selectedTeamTricode: null,
-            selectedTeam: 1610612761 // default team id is toronto raptors  
+            selectedTeamTricode: 'TOR', // default team tricode toronto raptors
+            selectedTeam: 1610612761 // default team id toronto raptors  
         }  
     }
 
@@ -50,10 +49,7 @@ class Header extends React.Component {
                     <button className={styles.logoContainer}>
                         <div className={styles.imgContainer}>
                            <img 
-                                src={selectedTeamTricode ? 
-                                    `https://cdn.nba.net/assets/logos/teams/secondary/web/${selectedTeamTricode}.svg` :
-                                    `https://cdn.nba.net/assets/logos/teams/secondary/web/TOR.svg`
-                                } 
+                                src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${selectedTeamTricode}.svg`} 
                                 title="team logo" 
                                 alt="team logo"
                             /> 
