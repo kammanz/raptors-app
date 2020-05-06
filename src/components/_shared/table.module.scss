@@ -1,9 +1,9 @@
 @import 'src/scss/variables.scss';
-@import 'src/scss/mixins.scss';
 
 .table {
     width: 100%;
-    font-family: Arial, Helvetica, sans-serif;
+    border-spacing: 0px;
+    font-family: arial;
 
     tbody tr {
         text-align: center;
@@ -19,6 +19,7 @@
 
         td { 
             height: 15px;
+            padding: 0;
             color: $grey4;
             font-size: 12px; 
         }

@@ -12,7 +12,7 @@ import './app.scss';
 const App = () => {
   return (
     <div className="App">
-      <BrowserRouter basename={process.env.PUBLIC_URL} >
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Header />
         <Filters />
         <div id="container">

@@ -5,6 +5,7 @@ import classnames from 'classnames';
 
 import { getPlayers, getSelectedPlayer } from '../../../actions/actions.js';
 
+import placeholderImg from '../../../assets/imgs/placeholder.png';
 import styles from './index.module.scss';
 
 class List extends React.Component {
@@ -36,7 +37,15 @@ class List extends React.Component {
                     className={classnames(styles.playerCard, isSelected ? styles.selectedCard : null)}
                 >
                     <div className={styles.imageContainer}>
-                        <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/${selectedTeam.teamId}/2019/260x190/${player.person_id}.png`} alt="Player Headshot" />
+                        <img 
+                            src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/${selectedTeam.teamId}/2019/260x190/${player.person_id}.png`} 
+                            alt="Player Headshot" 
+                            onError={(e) => e.target.src = placeholderImg}
+                        />
+                        {/* <img
+                            src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${player.person_id}.png`}
+                            
+                        /> */}
                     </div>
                     <div className={styles.imageLine} />
                     <div className={styles.detailsContainer}>
