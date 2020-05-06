@@ -6,25 +6,20 @@ import styles from './table.module.scss';
 
 const Table = ({ array, result, section }) => {
     return (
-        <table cellSpacing="0" cellPadding="0" className={styles.table}>
+        <table className={styles.table}>
             <tbody>
                 <tr>
                     {array.map(({title}) => {
                         return <th key={title}>{title}</th>;
                     })}
                 </tr>
-                <tr className={classnames(styles.table, section === 'totalStats' ? 
-                    styles.totalStats : styles.games)}
-                >
+                <tr className={classnames(styles.table, section === 'totalStats' ? styles.totalStats : styles.games)}>
                     {array.map(({ title, value }) => {
                         return (
                             <td key={title}>
                                 {title === "result" ? 
                                     <>
-                                        <span className={result === "W" ? 
-                                            styles.won : 
-                                            styles.lost} 
-                                        >
+                                        <span className={result === "W" ? styles.won : styles.lost}>
                                             {result}
                                         </span> 
                                         {value}
