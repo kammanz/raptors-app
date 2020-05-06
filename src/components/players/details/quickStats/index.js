@@ -15,6 +15,6 @@ const QuickStats = ({ quickStats }) => {
             })}
         </section>
     );
-}
+};
 
 export default QuickStats;

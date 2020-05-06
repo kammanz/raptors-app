@@ -13,7 +13,7 @@ import styles from './header.module.scss';
 class Header extends React.Component {
     componentDidMount() {
         this.props.getTeams();
-    }
+    };
 
     render() {
         return (
@@ -21,7 +21,7 @@ class Header extends React.Component {
                 <div className={styles.team}>
                     <button className={styles.logoContainer}>
                         <img src={raptorsLogo} title="raptors logo" alt="raptors logo" />
-                        <span>Toronto Raptors </span>
+                        <span>Toronto Raptors</span>
                         <i className={styles.dropDownTeam} />
                     </button>
                 </div>
@@ -53,11 +53,11 @@ class Header extends React.Component {
                 </div>
             </div>
         );
-    }
-}
+    };
+};
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return { teams: state.teams };
-}
+};
 
 export default connect(mapStateToProps, { getTeams })(Header);
