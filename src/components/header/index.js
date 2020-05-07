@@ -16,16 +16,16 @@ class Header extends React.Component {
         super(props);
 
         this.state = { 
-            selectedTeamTricode: 'TOR', // default team tricode toronto raptors
-            selectedTeam: 1610612761 // default team id toronto raptors  
-        }  
-    }
+            selectedTeamTricode: 'TOR', // toronto raptors default tricode
+            selectedTeam: 1610612761 // toronto raptors default team id  
+        };  
+    };
 
     componentDidMount() {
         this.props.getTeams();
-    }
+    };
 
-    onSelectChange = (e) => {
+    onSelectChange = e => {
         const { teams, getSelectedTeam } = this.props;
         const selectedTeam =  teams.filter(team => team.teamId === e.target.value).pop();
 
@@ -36,15 +36,15 @@ class Header extends React.Component {
         });
 
         getSelectedTeam(selectedTeam);
-    }
+    };
 
     render() {
         const { selectedTeamTricode, selectedTeam } = this.state;
         const { teams, selectedTeamColor } = this.props;
 
-        // Uses in-line styling to access the 'selected team color' variable when necessary
+        // Used in-line styling to access the 'selected team color' variable when necessary
         return (
-            <div className={styles.headerContainer}>
+            <div className={styles.container}>
                 <div className={styles.team} style={{backgroundColor: `${selectedTeamColor}`}}>
                     <button className={styles.logoContainer}>
                         <div className={styles.imgContainer}>
@@ -92,8 +92,8 @@ class Header extends React.Component {
                 </div>
             </div>
         );
-    }
-}
+    };
+};
 
 const mapStateToProps = (state) => {
     return { 
@@ -101,6 +101,6 @@ const mapStateToProps = (state) => {
         selectedTeam: state.selectedTeam, 
         selectedTeamColor: state.selectedTeamColor 
     };
-}
+};
 
 export default connect(mapStateToProps, { getTeams, getSelectedTeam })(Header);

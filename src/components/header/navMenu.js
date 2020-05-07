@@ -5,7 +5,7 @@ import styles from './navMenu.module.scss';
 
 const NavMenu = ({ selectedTeamColor }) => {
     return (
-        <div className={styles.links}>
+        <div className={styles.container}>
             <div className={styles.linkContainer}>
                 <NavLink 
                     to='/' 
@@ -33,6 +33,6 @@ const NavMenu = ({ selectedTeamColor }) => {
             </div>
         </div>
     );
-}
+};
 
 export default NavMenu;
