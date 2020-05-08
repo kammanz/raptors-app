@@ -1,0 +1,62 @@
+@import 'src/scss/variables.scss';
+
+.recentGames {
+    display: flex;
+    flex-direction: column;
+}
+
+.game {
+    margin-bottom: 25px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    height: 42px;
+    font-family: arial;
+    font-size: 14px;
+    color: $grey5;
+
+    &:first-child {
+        padding-left: 7px;
+    }
+
+    div {
+        padding: 3px;
+    }
+
+    img {
+        display: inline-block;
+        height: 42px;
+        padding: 3px;
+    }
+}
+
+.date {
+    display: flex;
+    margin-left: auto;
+    color: $grey4;
+    font-size: 11px;
+    text-align: right;
+}
+
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.resultsContainer {
+    display: flex;
+    flex: 1;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+}
+
+.line {
+    border-bottom: 1px solid $grey1b;
+}

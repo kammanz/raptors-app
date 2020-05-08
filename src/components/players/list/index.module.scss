@@ -27,16 +27,17 @@
 
   .imageContainer {
     display: flex;
+    justify-content: center;
     padding-top: 10px;
-    background-image: url('../../assets/imgs/player-backdrop.png');
+    background-image: url('../../../assets/imgs/player-backdrop.png');
     background-size: cover;
 
     img {
-      width: 100%;
+      display: flex;
     }
   }
 
-  .imageBorderBottom {
+  .imageLine {
     width: 100%;
     margin-top: 4px;
     border-bottom: 2px solid $background-color-purple;

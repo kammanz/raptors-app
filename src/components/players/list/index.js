@@ -1,22 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getPlayers, selectPlayer } from '../../actions/actions.js';
+import classnames from 'classnames';
 
-import styles from './playersList.module.scss';
+import { getPlayers, getSelectedPlayer } from '../../../actions/actions.js';
 
-class PlayersList extends React.Component {
+import placeholderImg from '../../../assets/imgs/placeholder.png';
+import styles from './index.module.scss';
+
+class List extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
             selectedId: null,
         };
-    }
+    };
 
     componentDidMount() {
         this.props.getPlayers();
-    }
+    };
 
     renderPlayers() {
         const { players } = this.props;
@@ -29,14 +32,18 @@ class PlayersList extends React.Component {
                     key={index}
                     onClick={() => {
                         this.setState({ selectedId: player.person_id })
-                        this.props.selectPlayer(player);
+                        this.props.getSelectedPlayer(player);
                     }}
-                    className={isSelected ? `${styles.playerCard} ${styles.selectedCard}` : styles.playerCard}
+                    className={classnames(styles.playerCard, isSelected ? styles.selectedCard : null)}
                 >
                     <div className={styles.imageContainer}>
-                        <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${player.person_id}.png`} alt="Player Headshot"/>
+                        <img
+                            src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${player.person_id}.png`}
+                            onError={(e) => e.target.src = placeholderImg}
+                            alt="Player Headshot"
+                        />
                     </div>
-                    <div className={styles.imageBorderBottom}></div>
+                    <div className={styles.imageLine} />
                     <div className={styles.detailsContainer}>
                         <div className={styles.number}>{player.jersey_number}</div>
                         <div className={styles.details}>
@@ -48,7 +55,7 @@ class PlayersList extends React.Component {
                 </div>
             );
         });
-    }
+    };
 
     render() {
         return (
@@ -56,16 +63,16 @@ class PlayersList extends React.Component {
                 {this.renderPlayers()}
             </div>
         );
-    }
-}
+    };
+};
 
 const mapStateToProps = (state) => {
     return { players: state.players };
-}
+};
 
 export default connect(mapStateToProps,
         {
             getPlayers,
-            selectPlayer,
+            getSelectedPlayer,
         }
-)(PlayersList);
+)(List);
