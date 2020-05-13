@@ -1,8 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getSelectedPlayer } from '../../../actions/actions.js';
+import classnames from 'classnames';
 
+import { getPlayers, getSelectedPlayer } from '../../../actions/actions.js';
+
+import placeholderImg from '../../../assets/imgs/placeholder.png';
 import styles from './index.module.scss';
 
 class List extends React.Component {
@@ -12,10 +15,14 @@ class List extends React.Component {
         this.state = {
             selectedId: null,
         };
-    }
+    };
+
+    componentDidMount() {
+        this.props.getPlayers();
+    };
 
     renderPlayers() {
-        const { players, selectedTeamColor } = this.props;
+        const { players, selectedTeam, selectedTeamColor } = this.props;
 
         return players.map((player, index) => {
             const isSelected = this.state.selectedId === player.person_id;
@@ -27,12 +34,14 @@ class List extends React.Component {
                         this.setState({ selectedId: player.person_id })
                         this.props.getSelectedPlayer(player);
                     }}
-                    
-                    // style={{if (isSelected) => backgroundColor: `${selectedTeamColor}`;}}
-                    className={isSelected ? `${styles.playerCard} ${styles.selectedCard}` : styles.playerCard}
+                    className={classnames(styles.playerCard, isSelected ? styles.selectedCard : null)}
                 >
                     <div className={styles.imageContainer}>
-                        <img src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${player.person_id}.png`} alt="Player Headshot"/>
+                        <img 
+                            src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/${selectedTeam.teamId}/2019/260x190/${player.person_id}.png`} 
+                            alt="Player Headshot" 
+                            onError={(e) => e.target.src = placeholderImg}
+                        />
                     </div>
                     <div style={{ borderBottom: `2px solid ${selectedTeamColor}`}} className={styles.imageLine} />
                     <div className={styles.detailsContainer}>
@@ -46,19 +55,25 @@ class List extends React.Component {
                 </div>
             );
         });
-    }
+    };
 
     render() {
+        console.log(this.props);
         return (
             <div className={styles.playersListContainer}>
                 {this.renderPlayers()}
             </div>
         );
-    }
-}
+    };
+};
 
 const mapStateToProps = (state) => {
     return { players: state.players, selectedTeamColor: state.selectedTeamColor };
 }
 
-export default connect(mapStateToProps, { getSelectedPlayer })(List);
+export default connect(mapStateToProps,
+        {
+            getPlayers,
+            getSelectedPlayer,
+        }
+)(List);

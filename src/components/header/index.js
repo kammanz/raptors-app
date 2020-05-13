@@ -16,45 +16,40 @@ class Header extends React.Component {
         super(props);
 
         this.state = { 
-            selectedTeamName: null, 
-            selectedTeamTricode: null,
-            // NOTE: when the teams are mapped, the raptors are index 27, hence the default number
-            selectedTeam: 27
-        }  
-    }
+            selectedTeamTricode: 'TOR', // toronto raptors default tricode
+            selectedTeam: 1610612761 // toronto raptors default team id  
+        };  
+    };
 
     componentDidMount() {
         this.props.getTeams();
-    }
+    };
 
-    onSelectChange = (e) => {
+    onSelectChange = e => {
         const { teams, getSelectedTeam } = this.props;
+        const selectedTeam =  teams.filter(team => team.teamId === e.target.value).pop();
 
         this.setState({ 
-            selectedTeamName: teams[e.target.value].ttsName, 
-            selectedTeamTricode: teams[e.target.value].tricode,
+            selectedTeamName: selectedTeam.ttsName, 
+            selectedTeamTricode: selectedTeam.tricode,
             selectedTeam: e.target.value, 
         });
 
-        getSelectedTeam(teams[e.target.value]);
-    }
+        getSelectedTeam(selectedTeam);
+    };
 
     render() {
         const { selectedTeamTricode, selectedTeam } = this.state;
         const { teams, selectedTeamColor } = this.props;
 
-        // NOTE: I've used some in-line styling to access the 'selected team color' variable
-
+        // Used in-line styling to access the 'selected team color' variable when necessary
         return (
-            <div className={styles.headerContainer}>
+            <div className={styles.container}>
                 <div className={styles.team} style={{backgroundColor: `${selectedTeamColor}`}}>
                     <button className={styles.logoContainer}>
                         <div className={styles.imgContainer}>
                            <img 
-                                src={selectedTeamTricode ? 
-                                    `https://cdn.nba.net/assets/logos/teams/secondary/web/${selectedTeamTricode}.svg` :
-                                    `https://cdn.nba.net/assets/logos/teams/secondary/web/TOR.svg`
-                                } 
+                                src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${selectedTeamTricode}.svg`} 
                                 title="team logo" 
                                 alt="team logo"
                             /> 
@@ -65,20 +60,15 @@ class Header extends React.Component {
                                 onChange={this.onSelectChange} 
                                 style={{ backgroundColor: `${selectedTeamColor}`}}
                             >
-                                {teams.map((team, i) => {
-                                    return <option key={i} value={i}>{team.ttsName}</option>;
+                                {teams.map((team) => {
+                                    return <option key={team.teamId} value={team.teamId}>{team.ttsName}</option>;
                                 })}
                             </select>
                         </div>
                     </button>
                     <div style={{ 
-                            borderStyle: 'solid', 
-                            borderWidth: '45px 20px 0 0', 
                             borderColor: selectedTeamColor ? `${selectedTeamColor} transparent transparent transparent` :
                             `#f5f5f5 transparent transparent transparent`,
-                            position: 'absolute',
-                            left: '100%',
-                            zIndex: 99,
                         }}
                         
                         className={styles.borderTriangle}
@@ -102,8 +92,8 @@ class Header extends React.Component {
                 </div>
             </div>
         );
-    }
-}
+    };
+};
 
 const mapStateToProps = (state) => {
     return { 
@@ -111,6 +101,6 @@ const mapStateToProps = (state) => {
         selectedTeam: state.selectedTeam, 
         selectedTeamColor: state.selectedTeamColor 
     };
-}
+};
 
 export default connect(mapStateToProps, { getTeams, getSelectedTeam })(Header);

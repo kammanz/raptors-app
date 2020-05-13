@@ -27,12 +27,13 @@
 
   .imageContainer {
     display: flex;
+    justify-content: center;
     padding-top: 10px;
     background-image: url('../../../assets/imgs/player-backdrop.png');
     background-size: cover;
 
     img {
-      width: 100%;
+      display: flex;
     }
   }
 

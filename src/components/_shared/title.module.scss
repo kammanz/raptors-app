@@ -1,14 +1,12 @@
 @import 'src/scss/variables.scss';
 @import 'src/scss/mixins.scss';
 
-.title {
+.totalStats {
     @include title;
+    margin-bottom: 8px ;
 }
 
-.stats {
-    margin-bottom: 13px;
-}
-
-.recentGames {
+.gameStats {
+    @include title;
     margin-bottom: 15px;
 }
