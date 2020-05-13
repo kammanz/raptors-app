@@ -1,67 +1,61 @@
 @import 'src/scss/variables.scss';
 
-    .card {
-      padding: 5px;
-      min-width: 440px;
-      border-left: 1px solid $grey1;
-      background-color: $white;
-  
-      .imageContainer {
-        display: flex;
-        height: 292px;
-        justify-content: center;
-        align-items: flex-end;
-        background-image: url('../../../assets/imgs/player-backdrop-large.png');
-  
-        img {
-          height: calc(100% - 10px);
-        }
+.card {
+  min-width: 440px;
+  background-color: $white;
+  font-family: arial;
+
+  .imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 292px;
+    background-image: url('../../../assets/imgs/placeholder.png');
+
+    img {
+      height: calc(100% - 10px);
+    }
+  }
+
+  .imageLine {
+    width: 100%;
+    margin-top: 5px;
+    border-bottom: 3px solid $background-color-purple;
+  }
+
+  .detailsContainer {
+    margin: 20px 5px;
+
+    .nameContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .name {
+        font-size: 28px;
+        color: $grey5;
+        font-weight: bold;
       }
-  
-      .imageLine {
-        width: 100%;
-        margin-top: 5px;
-        border-bottom: 3px solid $background-color-purple;
-      }
-  
-      .detailsContainer {
-        margin: 20px 5px;
-  
-        .nameContainer {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-  
-          .name {
-            font-size: 28px;
-            color: $grey5;
-            font-weight: bold;
-            font-family: arial;
-          }
-  
-          .jerseyNumber {
-            flex: 1;
-            text-align: end;
-            padding-right: 5px;
-            color: $background-color-purple;
-            font-size: 40px;
-            font-weight: bold;
-            font-family: arial;
-            vertical-align: sub;
-          }
-        }
-  
-        .position {
-          color: $grey4;
-          font-size: 18px;
-          font-family: arial;
-        }
-  
-        .details {
-          margin-top: 5px;
-          color: $grey2;
-          font-family: arial;
-          font-size: 14px;
-        }
+
+      .jerseyNumber {
+        flex: 1;
+        padding-right: 5px;
+        color: $background-color-purple;
+        font-size: 40px;
+        font-weight: bold;
+        text-align: end;
       }
     }
+
+    .position {
+      color: $grey4;
+      font-size: 18px;
+    }
+
+    .details {
+      margin-top: 5px;
+      color: $grey2;
+      font-size: 14px;
+    }
+  }
+}

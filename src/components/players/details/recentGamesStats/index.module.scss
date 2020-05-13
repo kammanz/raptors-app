@@ -1,6 +1,6 @@
 @import 'src/scss/variables.scss';
 
-.games {
+.recentGames {
     display: flex;
     flex-direction: column;
 }
@@ -12,7 +12,7 @@
 header {
     display: flex;
     align-items: center;
-    height: 40px;
+    height: 42px;
     font-family: arial;
     font-size: 14px;
     color: $grey5;
@@ -27,6 +27,7 @@ header {
 
     img {
         display: inline-block;
+        height: 42px;
         padding: 3px;
     }
 }
@@ -34,9 +35,9 @@ header {
 .date {
     display: flex;
     margin-left: auto;
-    text-align: right;
-    font-size: 11px;
     color: $grey4;
+    font-size: 11px;
+    text-align: right;
 }
 
 .titleContainer {
@@ -49,9 +50,13 @@ header {
 .resultsContainer {
     display: flex;
     flex: 1;
-    background-color: lightyellow;
 }
 
 section {
     display: flex;
+    flex-direction: column;
+}
+
+.line {
+    border-bottom: 1px solid $grey1b;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import Header from './header';
+import Header from './header/index.js';
 import Filters from './players/filters';
 import StandingsPage from './standings';
 import GamesPage from './games';
@@ -12,9 +12,9 @@ import './app.scss';
 const App = () => {
   return (
     <div className="App">
-      <BrowserRouter basename={process.env.PUBLIC_URL} >
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Header />
-        <Filters/>
+        <Filters />
         <div id="container">
             <Route path="/" exact component={PlayersPage} />
             <Route path="/standings" component={StandingsPage} />

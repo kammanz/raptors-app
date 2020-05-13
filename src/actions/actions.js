@@ -46,7 +46,6 @@ export const getSelectedPlayer = player => async dispatch => {
     dispatch({ type: 'GET_GAMES', payload: { ...gamesResponse.data.league.standard }});
 };
 
-
 export const getTeamRosters = () => async dispatch => {
     const allTeamsRosterResponse = await dataNbaNet.get("/prod/v1/2019/teams.json");
     const allTeamsRosterArray = Object.values(allTeamsRosterResponse.data.league.standard);

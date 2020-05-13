@@ -27,12 +27,5 @@ npm start
 
 ### License
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-This project is licensed under the MIT License - see the LICENSE.md file for details
-=======
-This project is licensed under the MIT License - see the LICENSE.md file for details
->>>>>>> RAP-36__Player-details-stats-section
-=======
 This project is licensed under the MIT License - see the [LICENSE.md](https://www.mit.edu/~amini/LICENSE.md) file for details
->>>>>>> master
+
