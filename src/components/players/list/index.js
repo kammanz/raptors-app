@@ -30,7 +30,6 @@ class List extends React.Component {
                         this.setState({ selectedId: player.person_id })
                         this.props.getSelectedPlayer(player);
                     }}
-                    
                     className={classnames(styles.playerCard, isSelected ? styles.selectedCard : null)}
                 >
                     <div className={styles.imageContainer}>

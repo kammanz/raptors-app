@@ -4,7 +4,7 @@ import placeholderImg from '../../../assets/imgs/placeholder.png';
 
 import styles from './card.module.scss';
 
-const Card = ({ player }) => {
+const Card = ({ player, playerTeam }) => {
     const {
         person_id,
         first_name,
@@ -20,7 +20,7 @@ const Card = ({ player }) => {
         <div className={styles.card}>
             <div className={styles.imageContainer}>
                 <img
-                    src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612761/2019/260x190/${person_id}.png`} alt="player headshot"
+                    src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/${playerTeam}/2019/260x190/${person_id}.png`} alt="player headshot"
                     onError={e => e.target.src = placeholderImg}
                 />
             </div>
