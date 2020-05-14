@@ -23,8 +23,6 @@ class List extends React.Component {
 
     renderPlayers() {
         const { players, selectedTeam, selectedTeamColor } = this.props;
-        console.log(this.props);
-        console.log(selectedTeam, 'here');
 
         return players.map((player, index) => {
             const isSelected = this.state.selectedId === player.person_id;
@@ -60,7 +58,6 @@ class List extends React.Component {
     };
 
     render() {
-        console.log(this.props);
         return (
             <div className={styles.playersListContainer}>
                 {this.renderPlayers()}
@@ -71,7 +68,7 @@ class List extends React.Component {
 
 const mapStateToProps = (state) => {
     return { players: state.players, selectedTeam: state.selectedTeam, selectedTeamColor: state.selectedTeamColor };
-}
+};
 
 export default connect(mapStateToProps,
         {

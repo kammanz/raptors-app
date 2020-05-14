@@ -4,7 +4,6 @@ export const getTeams = () => async dispatch => {
     const allTeamsResponse = await dataNbaNet.get('/prod/2019/teams_config.json');
     const nbaTeamsArray = Object.values(allTeamsResponse.data.teams.config).filter(team => team.ttsName);
     dispatch({ type: 'GET_TEAMS', payload: nbaTeamsArray });
-    console.log(nbaTeamsArray);
     
     const raptorsTeam = nbaTeamsArray.find(team => team.teamId === '1610612761'); 
     dispatch({ type: 'GET_SELECTED_TEAM', payload: raptorsTeam });
