@@ -15,7 +15,6 @@ export const getTeams = () => async dispatch => {
 
 export const getSelectedTeam = team => async dispatch => {
     dispatch({ type: 'GET_SELECTED_TEAM', payload: team });
-
     dispatch({ type: 'GET_TEAM_COLOR', payload: team.primaryColor });
 
     const teamUrlName = () => {
