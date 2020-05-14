@@ -27,11 +27,6 @@ export const getSelectedTeam = team => async dispatch => {
     dispatch({ type: 'GET_PLAYERS', payload: teamRosterResponse.data.sports_content.roster.players.player });
 };
 
-export const getPlayers = teamName => async dispatch => {
-    const response = await dataNbaNet.get(`/json/cms/noseason/team/${teamName}/roster.json`);
-    dispatch({ type: 'GET_PLAYERS', payload: response.data.sports_content.roster.players.player });
-};
-
 export const getSelectedPlayer = player => async dispatch => {
     dispatch({ type: 'PRELOAD_PLAYER', payload: player });
 
