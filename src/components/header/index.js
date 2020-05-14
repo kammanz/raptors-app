@@ -46,7 +46,7 @@ class Header extends React.Component {
         return (
             <div className={styles.container}>
                 <div className={styles.team} style={{backgroundColor: `${selectedTeamColor}`}}>
-                    <button className={styles.logoContainer}>
+                    <div className={styles.logoContainer}>
                         <div className={styles.imgContainer}>
                            <img 
                                 src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${selectedTeamTricode}.svg`} 
@@ -65,12 +65,9 @@ class Header extends React.Component {
                                 })}
                             </select>
                         </div>
-                    </button>
-                    <div style={{ 
-                            borderColor: selectedTeamColor ? `${selectedTeamColor} transparent transparent transparent` :
-                            `#f5f5f5 transparent transparent transparent`,
-                        }}
-                        
+                    </div>
+                    <div 
+                        style={{ borderColor: `${selectedTeamColor || '#f5f5f5'} transparent transparent transparent` }}
                         className={styles.borderTriangle}
                     />
                 </div>
