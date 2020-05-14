@@ -14,6 +14,13 @@ class List extends React.Component {
 
         this.state = {
             selectedId: null,
+            selectedTeam: this.props.selectedTeam,
+        };
+    };
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.selectedTeam !== this.props.selectedTeam) {
+            this.setState({ selectedId: null });
         };
     };
 
