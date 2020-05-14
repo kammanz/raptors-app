@@ -17,13 +17,8 @@ export const getSelectedTeam = team => async dispatch => {
     dispatch({ type: 'GET_SELECTED_TEAM', payload: team });
     dispatch({ type: 'GET_TEAM_COLOR', payload: team.primaryColor });
 
-    const teamUrlName = () => {
-        if (team.ttsName === 'Philadelphia 76ers') {
-            return 'sixers';
-        }
-        return team.ttsName.trim().split(' ').pop().toLowerCase();
-    };
-    const teamRosterResponse = await dataNbaNet.get(`/json/cms/noseason/team/${teamUrlName()}/roster.json`);
+    const teamUrlName = (team.teamId === "1610612755" ? 'sixers' : team.ttsName.trim().split(' ').pop().toLowerCase());
+    const teamRosterResponse = await dataNbaNet.get(`/json/cms/noseason/team/${teamUrlName}/roster.json`);
     dispatch({ type: 'GET_PLAYERS', payload: teamRosterResponse.data.sports_content.roster.players.player });
 };
 
