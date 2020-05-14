@@ -34,6 +34,7 @@ class List extends React.Component {
                         this.setState({ selectedId: player.person_id })
                         this.props.getSelectedPlayer(player);
                     }}
+                    
                     className={classnames(styles.playerCard, isSelected ? styles.selectedCard : null)}
                 >
                     <div className={styles.imageContainer}>
@@ -44,7 +45,7 @@ class List extends React.Component {
                         />
                     </div>
                     <div style={{ borderBottom: `2px solid ${selectedTeamColor}`}} className={styles.imageLine} />
-                    <div className={styles.detailsContainer}>
+                    <div /*style={{ backgroundColor: `${selectedTeamColor}`}} */className={styles.detailsContainer}>
                         <div className={styles.number}>{player.jersey_number}</div>
                         <div className={styles.details}>
                             <div className={styles.name}>{player.first_name} {player.last_name}</div>
