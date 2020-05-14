@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import Header from './header/index.js';
+import Header from './header/index';
 import Filters from './players/filters';
 import StandingsPage from './standings';
 import GamesPage from './games';

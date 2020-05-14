@@ -1,11 +1,10 @@
 import { combineReducers } from 'redux';
-
+import getPlayersReducer from './getPlayersReducer';
+import getSelectedPlayerReducer from './getSelectedPlayerReducer';
 import getGamesReducer from './getGamesReducer';
 import getSelectedTeamReducer from './getSelectedTeamReducer';
 import getTeamsReducer from './getTeamsReducer';
 import getTeamColorReducer from './getTeamColorReducer';
-import getPlayersReducer from './getPlayersReducer.js';
-import getSelectedPlayerReducer from './getSelectedPlayerReducer.js';
 
 export default combineReducers({
     players: getPlayersReducer,
