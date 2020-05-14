@@ -71,7 +71,7 @@ class List extends React.Component {
 };
 
 const mapStateToProps = (state) => {
-    return { player: state.player, players: state.players, selectedTeam: state.selectedTeam, selectedTeamColor: state.selectedTeamColor };
+    return { players: state.players, selectedTeam: state.selectedTeam };
 };
 
 export default connect(mapStateToProps, { getSelectedPlayer })(List);
