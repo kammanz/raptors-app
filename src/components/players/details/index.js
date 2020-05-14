@@ -18,11 +18,6 @@ const Details = ({ player, teams, selectedTeam, games }) => {
         );
     };
 
-    // console.log(player);
-    // console.log(teams);
-    // console.log(selectedTeam);
-
-
     const { 
         assists,
         blocks,

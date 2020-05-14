@@ -10,7 +10,10 @@ export const getTeams = () => async dispatch => {
     dispatch({ type: 'GET_TEAM_COLOR', payload: raptorsTeam.primaryColor });
 
     const raptorsRosterResponse = await dataNbaNet.get('/json/cms/noseason/team/raptors/roster.json');
-    dispatch({ type: 'GET_PLAYERS', payload: raptorsRosterResponse.data.sports_content.roster.players.player });
+    const raptorsRoster = raptorsRosterResponse.data.sports_content.roster.players.player.map((player) => {
+        return { ...player, teamColor: raptorsTeam.primaryColor };
+    });
+    dispatch({ type: 'GET_PLAYERS', payload: raptorsRoster });
 };
 
 export const getSelectedTeam = team => async dispatch => {
@@ -19,7 +22,10 @@ export const getSelectedTeam = team => async dispatch => {
 
     const teamUrlName = (team.teamId === "1610612755" ? 'sixers' : team.ttsName.trim().split(' ').pop().toLowerCase());
     const teamRosterResponse = await dataNbaNet.get(`/json/cms/noseason/team/${teamUrlName}/roster.json`);
-    dispatch({ type: 'GET_PLAYERS', payload: teamRosterResponse.data.sports_content.roster.players.player });
+    const teamRoster = teamRosterResponse.data.sports_content.roster.players.player.map((player) => {
+        return { ...player, teamColor: team.primaryColor };
+    });
+    dispatch({ type: 'GET_PLAYERS', payload: teamRoster });
 };
 
 export const getSelectedPlayer = player => async dispatch => {
