@@ -45,9 +45,9 @@ class List extends React.Component {
                         />
                     </div>
                     <div style={{ borderBottom: `2px solid ${selectedTeamColor}`}} className={styles.imageLine} />
-                    <div /*style={{ backgroundColor: `${selectedTeamColor}`}} */className={styles.detailsContainer}>
-                        <div className={styles.number}>{player.jersey_number}</div>
-                        <div className={styles.details}>
+                    <div style={isSelected ? { backgroundColor: `${selectedTeamColor}`}: null} className={styles.detailsContainer}>
+                        <div style={isSelected ? { backgroundColor: `${selectedTeamColor}`}: null} className={styles.number}>{player.jersey_number}</div>
+                        <div style={isSelected ? { backgroundColor: `${selectedTeamColor}`}: null}className={styles.details}>
                             <div className={styles.name}>{player.first_name} {player.last_name}</div>
                             <div className={styles.position}>{player.position_full}</div>
                             <div className={styles.size}>{player.height_ft}-{player.height_in}, {player.weight_lbs} lbs</div>
