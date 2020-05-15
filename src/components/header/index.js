@@ -27,7 +27,7 @@ class Header extends React.Component {
 
     onSelectChange = e => {
         const { teams, getSelectedTeam } = this.props;
-        const selectedTeam =  teams.filter(team => team.teamId === e.target.value).pop();
+        const selectedTeam = teams.filter(team => team.teamId === e.target.value).pop();
 
         this.setState({ 
             selectedTeamName: selectedTeam.ttsName, 
