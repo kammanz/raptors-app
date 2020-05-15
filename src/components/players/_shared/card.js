@@ -17,8 +17,6 @@ const Card = ({ player, playerTeam }) => {
         teamColor,
     } = player;
 
-    console.log(teamColor);
-
     return (
         <div className={styles.card}>
             <div className={styles.imageContainer}>

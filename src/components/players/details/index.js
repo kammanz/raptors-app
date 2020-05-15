@@ -36,8 +36,6 @@ const Details = ({ player, teams, selectedTeam, games }) => {
         teamColor,
     } = player;
 
-    console.log(teamColor, 'here');
-
     const quickStats = [
         { title: 'ppg', value: ppg }, 
         { title: 'reb', value: totReb }, 
