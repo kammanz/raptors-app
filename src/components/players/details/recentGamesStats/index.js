@@ -5,7 +5,7 @@ import Table from '../../../_shared/table';
 
 import styles from './index.module.scss';
 
-const RecentGamesStats = ({ teams, recentGamesStats }) => {
+const RecentGamesStats = ({ teams, teamColor, recentGamesStats }) => {
   const recentGamesArray = Object.values(recentGamesStats);
   const teamsArray = Object.values(teams);
 
@@ -61,14 +61,14 @@ const RecentGamesStats = ({ teams, recentGamesStats }) => {
             <div className={styles.date}>{formatUTCDate(gameDateUTC)}</div>
           </header>
           <div className={styles.line} />
-          <Table array={tableArray} section="games" result={getGameResult()} />
+          <Table array={tableArray} teamColor={teamColor} section="games" result={getGameResult()} />
         </div>
       );
   });
 
   return (
     <section className={styles.recentGames}>
-      <Title title="recent games" section="games" />
+      <Title title="recent games" teamColor={teamColor} section="games" />
       {recentGames}
     </section>
   );
