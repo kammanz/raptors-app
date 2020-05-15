@@ -47,10 +47,10 @@ class List extends React.Component {
                             onError={(e) => e.target.src = placeholderImg}
                         />
                     </div>
-                    <div style={{ borderBottom: `2px solid ${teamColor}`}} className={styles.imageLine} />
-                    <div style={isSelected ? { backgroundColor: `${teamColor}`}: null} className={styles.detailsContainer}>
-                        <div style={isSelected ? { backgroundColor: `${teamColor}`}: null} className={styles.number}>{player.jersey_number}</div>
-                        <div style={isSelected ? { backgroundColor: `${teamColor}`}: null} className={styles.details}>
+                    <div style={{borderColor: teamColor}} className={styles.imageLine} />
+                    <div style={{backgroundColor: isSelected && teamColor}} className={styles.detailsContainer}>
+                        <div className={styles.number}>{player.jersey_number}</div>
+                        <div className={styles.details}>
                             <div className={styles.name}>{player.first_name} {player.last_name}</div>
                             <div className={styles.position}>{player.position_full}</div>
                             <div className={styles.size}>{player.height_ft}-{player.height_in}, {player.weight_lbs} lbs</div>
