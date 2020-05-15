@@ -60,7 +60,7 @@ const Details = ({ player, teams, selectedTeam, games }) => {
 
     return (
         <div className={styles.container}>
-            <Card player={player} playerTeam={selectedTeam.teamId} />
+            <Card player={player} playerTeamId={selectedTeam.teamId} />
             <QuickStats teamColor={teamColor} quickStats={quickStats} />
             <TotalStats teamColor={teamColor} totalStats={totalStats} />
             <RecentGamesStats teams={teams} teamColor={teamColor} recentGamesStats={games} />
