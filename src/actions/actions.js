@@ -1,26 +1,27 @@
 import dataNbaNet from '../apis/dataNbaNet';
+import { SIXERS_TEAM, DEFAULT_TEAM } from '../enums/enums';
 
 export const getTeams = () => async dispatch => {
     const allTeamsResponse = await dataNbaNet.get('/prod/2019/teams_config.json');
     const nbaTeamsArray = Object.values(allTeamsResponse.data.teams.config).filter(team => team.ttsName);
     dispatch({ type: 'GET_TEAMS', payload: nbaTeamsArray });
     
-    const raptorsTeam = nbaTeamsArray.find(team => team.teamId === '1610612761'); 
-    dispatch({ type: 'GET_SELECTED_TEAM', payload: raptorsTeam });
-    dispatch({ type: 'GET_TEAM_COLOR', payload: raptorsTeam.primaryColor });
+    const defaultTeam = nbaTeamsArray.find(team => team.teamId == DEFAULT_TEAM.TEAM_ID); 
+    dispatch({ type: 'GET_SELECTED_TEAM', payload: defaultTeam });
+    dispatch({ type: 'GET_TEAM_COLOR', payload: defaultTeam.primaryColor });
 
-    const raptorsRosterResponse = await dataNbaNet.get('/json/cms/noseason/team/raptors/roster.json');
-    const raptorsRoster = raptorsRosterResponse.data.sports_content.roster.players.player.map((player) => {
-        return { ...player, teamColor: raptorsTeam.primaryColor };
+    const defaultRosterResponse = await dataNbaNet.get(`/json/cms/noseason/team/${DEFAULT_TEAM.URL_NAME}/roster.json`);
+    const defaultRoster = defaultRosterResponse.data.sports_content.roster.players.player.map((player) => {
+        return { ...player, teamColor: defaultTeam.primaryColor };
     });
-    dispatch({ type: 'GET_PLAYERS', payload: raptorsRoster });
+    dispatch({ type: 'GET_PLAYERS', payload: defaultRoster });
 };
 
 export const getSelectedTeam = team => async dispatch => {
     dispatch({ type: 'GET_SELECTED_TEAM', payload: team });
     dispatch({ type: 'GET_TEAM_COLOR', payload: team.primaryColor });
 
-    const teamUrlName = (team.teamId === '1610612755' ? 'sixers' : team.ttsName.trim().split(' ').pop().toLowerCase());
+    const teamUrlName = (team.teamId == SIXERS_TEAM.TEAM_ID ? SIXERS_TEAM.URL_NAME : team.ttsName.trim().split(' ').pop().toLowerCase());
     const teamRosterResponse = await dataNbaNet.get(`/json/cms/noseason/team/${teamUrlName}/roster.json`);
     const teamRoster = teamRosterResponse.data.sports_content.roster.players.player.map((player) => {
         return { ...player, teamColor: team.primaryColor };
@@ -44,6 +45,6 @@ export const getTeamRosters = () => async dispatch => {
     const nbaTeamsRosterArray = allTeamsRosterArray.filter(teamRoster => teamRoster.isNBAFranchise);
     dispatch({ type: 'GET_TEAM_ROSTERS', payload: nbaTeamsRosterArray });
 
-    const raptorsRosterResponse = await dataNbaNet.get('/json/cms/noseason/team/raptors/roster.json');
-    dispatch({ type: 'GET_PLAYERS', payload: raptorsRosterResponse.data.sports_content.roster.players.player });
+    const defaultRosterResponse = await dataNbaNet.get(`/json/cms/noseason/team/${DEFAULT_TEAM.URL_NAME}/roster.json`);
+    dispatch({ type: 'GET_PLAYERS', payload: defaultRosterResponse.data.sports_content.roster.players.player });
 }; 
