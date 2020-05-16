@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { getTeams, getSelectedTeam } from '../../actions/actions.js';
-import { COLOR, DEFAULT_TEAM } from '../../enums/enums';
+import { TEAMS, COLORS } from '../../enums/';
 
 import NavMenu from './navMenu';
 
@@ -17,8 +17,8 @@ class Header extends React.Component {
         super(props);
 
         this.state = {
-            selectedTeamTricode: DEFAULT_TEAM.TRI_CODE,
-            selectedTeam: DEFAULT_TEAM.TEAM_ID,
+            selectedTeamTricode: TEAMS.TOR.TRI_CODE,
+            selectedTeam: TEAMS.TOR.ID,
         };
     };
 
@@ -69,7 +69,7 @@ class Header extends React.Component {
                         </div>
                     </div>
                     <div
-                        style={{ borderColor: `${selectedTeamColor || COLOR.GREY} transparent transparent transparent` }}
+                        style={{ borderColor: `${selectedTeamColor || COLORS.GREY} transparent transparent transparent` }}
                         className={styles.borderTriangle}
                     />
                 </div>
