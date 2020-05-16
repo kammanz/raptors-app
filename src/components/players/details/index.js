@@ -9,7 +9,7 @@ import TotalStats from './totalStats';
 
 import styles from './index.module.scss';
 
-const Details = ({ player, teams, games }) => {
+const Details = ({ player, teams, selectedTeam, games }) => {
     if (!player) {
         return (
             <div className={styles.container}>
@@ -33,6 +33,7 @@ const Details = ({ player, teams, games }) => {
         steals,
         tpp,
         turnovers,
+        teamColor,
     } = player;
 
     const quickStats = [
@@ -59,17 +60,18 @@ const Details = ({ player, teams, games }) => {
 
     return (
         <div className={styles.container}>
-            <Card player={player} />
-            <QuickStats quickStats={quickStats} />
-            <TotalStats totalStats={totalStats} />
-            <RecentGamesStats teams={teams} recentGamesStats={games} />
+            <Card player={player} playerTeamId={selectedTeam.teamId} />
+            <QuickStats teamColor={teamColor} quickStats={quickStats} />
+            <TotalStats teamColor={teamColor} totalStats={totalStats} />
+            <RecentGamesStats teams={teams} teamColor={teamColor} recentGamesStats={games} />
         </div>
     );
 };
 
 const mapStateToProps = state => ({ 
     player: state.player, 
-    teams: state.teams, 
+    teams: state.teams,
+    selectedTeam: state.selectedTeam, 
     games: state.games, 
 });
 

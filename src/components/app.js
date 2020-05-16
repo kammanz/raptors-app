@@ -11,18 +11,18 @@ import './app.scss';
 
 const App = () => {
   return (
-    <div className="App">
+    <div className='App'>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Header />
         <Filters />
-        <div id="container">
-            <Route path="/" exact component={PlayersPage} />
-            <Route path="/standings" component={StandingsPage} />
-            <Route path="/games" component={GamesPage} />
+        <div id='container'>
+            <Route path='/' exact component={PlayersPage} />
+            <Route path='/standings' component={StandingsPage} />
+            <Route path='/games' component={GamesPage} />
         </div>
       </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
