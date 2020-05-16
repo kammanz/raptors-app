@@ -37,7 +37,7 @@ const RecentGamesStats = ({ teams, teamColor, recentGamesStats }) => {
         const parsedArray = new Date(gameDateUTC).toDateString().split(' ');
         const el = parsedArray[2];
 
-        return (el.charAt(0) === "0" ? 
+        return (el.charAt(0) === '0' ? 
           `${parsedArray[0]}. ${parsedArray[1]} ${el.substring(1)}, ${parsedArray[3]}`:
           `${parsedArray[0]}. ${parsedArray[1]} ${el}, ${parsedArray[3]}`
         );
@@ -56,19 +56,19 @@ const RecentGamesStats = ({ teams, teamColor, recentGamesStats }) => {
         <div key={gameId} className={styles.game}>
           <header>
             <div>{isHomeGame ? 'vs' :'@'}</div>
-            <img src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${oppTeam.tricode}.svg`} alt="team logo" />
+            <img src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${oppTeam.tricode}.svg`} alt='team logo' />
             <div>{oppTeam.ttsName}</div>
-            <div className={styles.date}>{formatUTCDate(gameDateUTC)}</div>
+            <div style={{ color : teamColor }} className={styles.date}>{formatUTCDate(gameDateUTC)}</div>
           </header>
           <div className={styles.line} />
-          <Table array={tableArray} teamColor={teamColor} section="games" result={getGameResult()} />
+          <Table array={tableArray} teamColor={teamColor} section='games' result={getGameResult()} />
         </div>
       );
   });
 
   return (
     <section className={styles.recentGames}>
-      <Title title="recent games" teamColor={teamColor} section="games" />
+      <Title title='recent games' teamColor={teamColor} section='games' />
       {recentGames}
     </section>
   );
