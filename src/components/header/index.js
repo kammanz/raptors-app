@@ -18,7 +18,7 @@ class Header extends React.Component {
 
         this.state = {
             selectedTeamTricode: TEAMS.TOR.TRI_CODE,
-            selectedTeam: TEAMS.TOR.ID,
+            selectedTeamId: TEAMS.TOR.ID,
         };
     };
 
@@ -40,7 +40,7 @@ class Header extends React.Component {
     };
 
     render() {
-        const { selectedTeamTricode, selectedTeam } = this.state;
+        const { selectedTeamTricode, selectedTeamId } = this.state;
         const { teams, selectedTeamColor } = this.props;
 
 
@@ -58,7 +58,7 @@ class Header extends React.Component {
                         </div>
                         <div className={styles.selectContainer}>
                             <select
-                                value={selectedTeam}
+                                value={selectedTeamId}
                                 onChange={this.onSelectChange}
                                 style={{ backgroundColor: `${selectedTeamColor}`}}
                             >
