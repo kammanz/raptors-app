@@ -43,7 +43,7 @@ class List extends React.Component {
                     <div className={styles.imageContainer}>
                         <img 
                             src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/${selectedTeam.teamId}/2019/260x190/${player.person_id}.png`} 
-                            alt="player headshot" 
+                            alt='player headshot' 
                             onError={(e) => e.target.src = placeholderImg}
                         />
                     </div>

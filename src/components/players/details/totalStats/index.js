@@ -5,11 +5,11 @@ import Title from '../../../_shared/title';
 
 import styles from './index.module.scss';
 
-const TotalStats = ({ totalStats }) => {
+const TotalStats = ({ totalStats, teamColor }) => {
     return (
         <section className={styles.totalStats}>
-            <Title title="stats" totalStats />
-            <Table array={totalStats} section="totalStats" />
+            <Title title='stats' totalStats teamColor={teamColor} />
+            <Table array={totalStats} section='totalStats' />
         </section>
     );
 };

@@ -33,6 +33,7 @@ const Details = ({ player, teams, selectedTeam, games }) => {
         steals,
         tpp,
         turnovers,
+        teamColor,
     } = player;
 
     const quickStats = [
@@ -60,9 +61,9 @@ const Details = ({ player, teams, selectedTeam, games }) => {
     return (
         <div className={styles.container}>
             <Card player={player} playerTeamId={selectedTeam.teamId} />
-            <QuickStats quickStats={quickStats} />
-            <TotalStats totalStats={totalStats} />
-            <RecentGamesStats teams={teams} recentGamesStats={games} />
+            <QuickStats teamColor={teamColor} quickStats={quickStats} />
+            <TotalStats teamColor={teamColor} totalStats={totalStats} />
+            <RecentGamesStats teams={teams} teamColor={teamColor} recentGamesStats={games} />
         </div>
     );
 };

@@ -28,10 +28,9 @@ class Header extends React.Component {
 
     onSelectChange = e => {
         const { teams, getSelectedTeam } = this.props;
-        const selectedTeam =  teams.filter(team => team.teamId === e.target.value).pop();
+        const selectedTeam = teams.find(team => team.teamId === e.target.value);
 
         this.setState({
-            selectedTeamName: selectedTeam.ttsName,
             selectedTeamTricode: selectedTeam.tricode,
             selectedTeamId: e.target.value,
         });
@@ -52,8 +51,8 @@ class Header extends React.Component {
                         <div className={styles.imgContainer}>
                            <img
                                 src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${selectedTeamTricode}.svg`}
-                                title="team logo"
-                                alt="team logo"
+                                title='team logo'
+                                alt='team logo'
                             />
                         </div>
                         <div className={styles.selectContainer}>
@@ -78,13 +77,13 @@ class Header extends React.Component {
 
                 <div className={styles.user}>
                     <button>
-                        <img src={bell} alt="notification bell"></img>
+                        <img src={bell} alt='notification bell'></img>
                     </button>
                     <button>
-                        <img src={settingsIcon} alt="settings icon"></img>
+                        <img src={settingsIcon} alt='settings icon'></img>
                     </button>
                     <button>
-                        <img src={kobe} alt="user avatar" height="25" className={styles.userPic}></img>
+                        <img src={kobe} alt='user avatar' height='25' className={styles.userPic}></img>
                         <div>Kobe Bryant</div>
                         <i className={styles.dropDownUser}></i>
                     </button>
