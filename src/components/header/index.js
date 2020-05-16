@@ -33,7 +33,7 @@ class Header extends React.Component {
         this.setState({
             selectedTeamName: selectedTeam.ttsName,
             selectedTeamTricode: selectedTeam.tricode,
-            selectedTeam: e.target.value,
+            selectedTeamId: e.target.value,
         });
 
         getSelectedTeam(selectedTeam);
