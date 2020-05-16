@@ -12,12 +12,11 @@ class List extends React.Component {
     constructor(props) {
         super(props);
 
-        this.containerRef = React.createRef();
+        this.containerRef = createRef();
 
         this.state = {
             selectedId: null,
             selectedTeam: this.props.selectedTeam,
-            scrollPosition: 0,
         };
     };
 
