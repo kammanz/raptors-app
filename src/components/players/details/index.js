@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 import Placeholder from './placeholder/placeholder.js';
 import Card from '../_shared/card';
-import QuickStats from './quickStats/';
-import RecentGamesStats from './recentGamesStats/index.js';
+import QuickStats from './quickStats';
+import RecentGamesStats from './recentGamesStats';
 import TotalStats from './totalStats';
 
 import styles from './index.module.scss';
@@ -18,7 +18,7 @@ const Details = ({ player, teams, selectedTeam, games }) => {
         );
     };
 
-    const { 
+    const {
         assists,
         blocks,
         fgp,
@@ -26,9 +26,9 @@ const Details = ({ player, teams, selectedTeam, games }) => {
         gamesPlayed,
         min,
         pFouls,
-        ppg, 
+        ppg,
         points,
-        totReb, 
+        totReb,
         rpg,
         steals,
         tpp,
@@ -37,16 +37,16 @@ const Details = ({ player, teams, selectedTeam, games }) => {
     } = player;
 
     const quickStats = [
-        { title: 'ppg', value: ppg }, 
-        { title: 'reb', value: totReb }, 
-        { title: 'ast', value: assists }, 
-        { title: 'fg %', value: fgp }, 
+        { title: 'ppg', value: ppg },
+        { title: 'reb', value: totReb },
+        { title: 'ast', value: assists },
+        { title: 'fg %', value: fgp },
     ];
 
-    const totalStats = [ 
-       { title: 'gp', value: gamesPlayed }, 
-       { title: 'min', value: min }, 
-       { title: 'fg%', value: fgp }, 
+    const totalStats = [
+       { title: 'gp', value: gamesPlayed },
+       { title: 'min', value: min },
+       { title: 'fg%', value: fgp },
        { title: '3p%', value: tpp },
        { title: 'ft%', value: ftp },
        { title: 'rpg', value: rpg },
@@ -68,11 +68,11 @@ const Details = ({ player, teams, selectedTeam, games }) => {
     );
 };
 
-const mapStateToProps = state => ({ 
-    player: state.player, 
+const mapStateToProps = state => ({
+    player: state.player,
     teams: state.teams,
-    selectedTeam: state.selectedTeam, 
-    games: state.games, 
+    selectedTeam: state.selectedTeam,
+    games: state.games,
 });
 
 export default connect(mapStateToProps)(Details);
