@@ -1,8 +1,8 @@
 import React from 'react';
 
-import placeholderImg from '../../../assets/imgs/placeholder.png';
+import placeholderImg from '../../../../assets/imgs/placeholder.png';
 
-import styles from './card.module.scss';
+import styles from './index.module.scss';
 
 const Card = ({ player, playerTeamId }) => {
     const {
