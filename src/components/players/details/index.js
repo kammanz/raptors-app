@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { connect } from 'react-redux';
 
 import Placeholder from './placeholder/placeholder.js';
-import Card from '../_shared/card';
+import Card from './card';
 import QuickStats from './quickStats';
 import RecentGamesStats from './recentGamesStats';
 import TotalStats from './totalStats';
