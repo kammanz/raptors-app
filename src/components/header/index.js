@@ -42,8 +42,6 @@ class Header extends React.Component {
         const { selectedTeamTricode, selectedTeamId } = this.state;
         const { teams, selectedTeamColor } = this.props;
 
-
-        // Used in-line styling to access the 'selected team color' variable when necessary
         return (
             <div className={styles.container}>
                 <div className={styles.team} style={{backgroundColor: `${selectedTeamColor}`}}>
