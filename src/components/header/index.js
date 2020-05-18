@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { getTeams, getSelectedTeam } from '../../actions/actions.js';
-import { TEAMS, COLORS } from '../../enums/';
+import { TEAMS, COLORS } from '../../enums';
 
 import NavMenu from './navMenu';
 
