@@ -24,7 +24,7 @@ const Details = ({ player, teams, selectedTeam, games }) => {
         ref.current.scrollTo(0,0);
     };
 
-    const { 
+    const {
         assists,
         blocks,
         fgp,
