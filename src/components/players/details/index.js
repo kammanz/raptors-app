@@ -25,9 +25,9 @@ const Details = ({ player, teams, selectedTeam, games }) => {
         );
     };
 
-    if (player && reference.current) {
-        return reference.current.scrollTo(0,0);
-    } 
+    // if (player && reference.current) {
+    //     return reference.current.scrollTo(0,0);
+    // } 
     
     // console.log(reference);
 
