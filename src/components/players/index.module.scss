@@ -1,6 +1,11 @@
 @import 'src/scss/variables.scss';
 
-.playersContainer {
+.container {
     display: flex;
-    box-shadow: -1px 0px 1px $grey3;
+    flex-direction: column;
+}
+
+.gallery {
+    display: flex;
+    border-top: 1px solid $grey1;
 }

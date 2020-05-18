@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Placeholder from './placeholder/placeholder.js';
-import Card from '../_shared/card';
-import QuickStats from './quickStats/';
-import RecentGamesStats from './recentGamesStats/index.js';
+import Card from './card';
+import QuickStats from './quickStats';
+import RecentGamesStats from './recentGamesStats';
 import TotalStats from './totalStats';
 
 import styles from './index.module.scss';
 
-const Details = ({ player, teams, games }) => {
+const Details = ({ player, teams, selectedTeam, games }) => {
     if (!player) {
         return (
             <div className={styles.container}>
@@ -18,7 +18,7 @@ const Details = ({ player, teams, games }) => {
         );
     };
 
-    const { 
+    const {
         assists,
         blocks,
         fgp,
@@ -26,26 +26,27 @@ const Details = ({ player, teams, games }) => {
         gamesPlayed,
         min,
         pFouls,
-        ppg, 
+        ppg,
         points,
-        totReb, 
+        totReb,
         rpg,
         steals,
         tpp,
         turnovers,
+        teamColor,
     } = player;
 
     const quickStats = [
-        { title: 'ppg', value: ppg }, 
-        { title: 'reb', value: totReb }, 
-        { title: 'ast', value: assists }, 
-        { title: 'fg %', value: fgp }, 
+        { title: 'ppg', value: ppg },
+        { title: 'reb', value: totReb },
+        { title: 'ast', value: assists },
+        { title: 'fg %', value: fgp },
     ];
 
-    const totalStats = [ 
-       { title: 'gp', value: gamesPlayed }, 
-       { title: 'min', value: min }, 
-       { title: 'fg%', value: fgp }, 
+    const totalStats = [
+       { title: 'gp', value: gamesPlayed },
+       { title: 'min', value: min },
+       { title: 'fg%', value: fgp },
        { title: '3p%', value: tpp },
        { title: 'ft%', value: ftp },
        { title: 'rpg', value: rpg },
@@ -59,18 +60,19 @@ const Details = ({ player, teams, games }) => {
 
     return (
         <div className={styles.container}>
-            <Card player={player} />
-            <QuickStats quickStats={quickStats} />
-            <TotalStats totalStats={totalStats} />
-            <RecentGamesStats teams={teams} recentGamesStats={games} />
+            <Card player={player} playerTeamId={selectedTeam.teamId} />
+            <QuickStats teamColor={teamColor} quickStats={quickStats} />
+            <TotalStats teamColor={teamColor} totalStats={totalStats} />
+            <RecentGamesStats teams={teams} teamColor={teamColor} recentGamesStats={games} />
         </div>
     );
 };
 
-const mapStateToProps = state => ({ 
-    player: state.player, 
-    teams: state.teams, 
-    games: state.games, 
+const mapStateToProps = state => ({
+    player: state.player,
+    teams: state.teams,
+    selectedTeam: state.selectedTeam,
+    games: state.games,
 });
 
 export default connect(mapStateToProps)(Details);

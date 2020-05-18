@@ -34,13 +34,14 @@
 
     img {
       display: flex;
+      width: 100%;
     }
   }
 
   .imageLine {
     width: 100%;
     margin-top: 4px;
-    border-bottom: 2px solid $background-color-purple;
+    border-bottom: 2px solid transparent;
   }
 
   .detailsContainer {
@@ -88,16 +89,11 @@
 
   &.selectedCard {
     .detailsContainer {
-      background-color: $background-color-purple;
-
       .number {
-        background-color: $background-color-purple;
         color: $white;
       }
 
       .details {
-        background-color: $background-color-purple;
-
         .name {
           color: $white;
         }
