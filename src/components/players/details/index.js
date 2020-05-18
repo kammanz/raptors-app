@@ -10,12 +10,7 @@ import TotalStats from './totalStats';
 import styles from './index.module.scss';
 
 const Details = ({ player, teams, selectedTeam, games }) => {
-
     const reference = useRef();
-    console.log(reference);
-    // const useTheRef = () => reference.current.scrollTo(0,0);
-    // reffy.current.scrollTo(0, 0);
-    // useTheRef();
 
     if (!player) {
         return (
@@ -25,11 +20,9 @@ const Details = ({ player, teams, selectedTeam, games }) => {
         );
     };
 
-    // if (player && reference.current) {
-    //     return reference.current.scrollTo(0,0);
-    // } 
-    
-    // console.log(reference);
+    if (reference.current) {
+        reference.current.scrollTo(0,0);
+    };
 
     const { 
         assists,
