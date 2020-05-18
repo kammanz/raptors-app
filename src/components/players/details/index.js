@@ -10,7 +10,7 @@ import TotalStats from './totalStats';
 import styles from './index.module.scss';
 
 const Details = ({ player, teams, selectedTeam, games }) => {
-    const reference = useRef();
+    const ref = useRef();
 
     if (!player) {
         return (
@@ -20,8 +20,8 @@ const Details = ({ player, teams, selectedTeam, games }) => {
         );
     };
 
-    if (reference.current) {
-        reference.current.scrollTo(0,0);
+    if (ref.current) {
+        ref.current.scrollTo(0,0);
     };
 
     const { 
@@ -65,7 +65,7 @@ const Details = ({ player, teams, selectedTeam, games }) => {
     ];
 
     return (
-        <div ref={reference} className={styles.container}>
+        <div ref={ref} className={styles.container}>
             <Card player={player} playerTeamId={selectedTeam.teamId} />
             <QuickStats teamColor={teamColor} quickStats={quickStats} />
             <TotalStats teamColor={teamColor} totalStats={totalStats} />

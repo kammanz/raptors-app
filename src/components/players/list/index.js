@@ -12,7 +12,7 @@ class List extends React.Component {
     constructor(props) {
         super(props);
 
-        this.containerRef = createRef();
+        this.ref = createRef();
 
         this.state = {
             selectedId: null,
@@ -20,14 +20,10 @@ class List extends React.Component {
         };
     };
 
-    handleChange(e) {
-        console.log(e.target);
-    }
-
     componentDidUpdate(prevProps) {
         if (prevProps.selectedTeam !== this.props.selectedTeam) {
             this.setState({ selectedId: null });
-            this.containerRef.current.scrollTo(0, 0);
+            this.ref.current.scrollTo(0, 0);
         };
     };
 
@@ -70,7 +66,7 @@ class List extends React.Component {
 
     render() {
         return (
-            <div ref={this.containerRef} className={styles.playersListContainer}>
+            <div ref={this.ref} className={styles.playersListContainer}>
                 {this.renderPlayers()}
             </div>
         );
