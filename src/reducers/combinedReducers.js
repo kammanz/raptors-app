@@ -6,7 +6,9 @@ import getSelectedTeamReducer from './getSelectedTeamReducer';
 import getTeamsReducer from './getTeamsReducer';
 import getTeamColorReducer from './getTeamColorReducer';
 import setLoadingStateReducer from './setLoadingStateReducer';
+import unsetLoadingStateReducer from './unsetLoadingStateReducer';
 
+console.log(setLoadingStateReducer, 'jojo');
 
 export default combineReducers({
     players: getPlayersReducer,
@@ -16,4 +18,5 @@ export default combineReducers({
     games: getGamesReducer,
     teams: getTeamsReducer,
     loadingState: setLoadingStateReducer,
+    unsetLoadingState: unsetLoadingStateReducer,
 });

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getTeams, getSelectedTeam, /*setLoadingState*/ } from '../../actions/actions.js';
+import { getTeams, getSelectedTeam, setLoadingState } from '../../actions/actions.js';
 import { TEAMS, COLORS } from '../../enums';
 
 import NavMenu from './navMenu';
@@ -23,8 +23,12 @@ class Header extends React.Component {
     };
 
     componentDidMount() {
-        // this.props.setLoadingState();
         this.props.getTeams();
+    };
+
+    componentDidUpdate() {
+        // console.log('this fired');
+        // this.props.unsetLoadingState();
     };
 
     onSelectChange = e => {
@@ -37,12 +41,13 @@ class Header extends React.Component {
         });
 
         getSelectedTeam(selectedTeam);
-        // setLoadingState();
     };
 
     render() {
         const { selectedTeamTricode, selectedTeamId } = this.state;
         const { teams, selectedTeamColor } = this.props;
+        // console.log(this.props);
+        this.props.setLoadingState();
 
         return (
             <div className={styles.container}>
@@ -98,8 +103,7 @@ const mapStateToProps = (state) => {
         teams: state.teams,
         selectedTeam: state.selectedTeam,
         selectedTeamColor: state.selectedTeamColor,
-        loadingState: state.loadingState,
     };
 };
 
-export default connect(mapStateToProps, { getTeams, getSelectedTeam, /*setLoadingState*/ })(Header);
+export default connect(mapStateToProps, { getTeams, getSelectedTeam, setLoadingState })(Header);

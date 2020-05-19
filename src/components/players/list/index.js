@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import classnames from 'classnames';
 
-import { getSelectedPlayer } from '../../../actions/actions.js';
+import { getSelectedPlayer, setLoadingState, unsetLoadingState } from '../../../actions/actions.js';
 
 import placeholderImg from '../../../assets/imgs/placeholder.png';
 import styles from './index.module.scss';
@@ -21,6 +21,10 @@ class List extends React.Component {
     };
 
     componentDidUpdate(prevProps) {
+        if(prevProps.players !== this.props.players) {
+            this.props.unsetLoadingState();
+        };
+
         if (prevProps.selectedTeam !== this.props.selectedTeam) {
             this.setState({ selectedId: null });
             this.ref.current.scrollTo(0, 0);
@@ -65,6 +69,7 @@ class List extends React.Component {
     };
 
     render() {
+        console.log(this.props.loadingState, 'boob');
         return (
             <div ref={this.ref} className={styles.playersListContainer}>
                 {this.renderPlayers()}
@@ -74,7 +79,7 @@ class List extends React.Component {
 };
 
 const mapStateToProps = (state) => {
-    return { players: state.players, selectedTeam: state.selectedTeam };
+    return { players: state.players, selectedTeam: state.selectedTeam, loadingState: state.loadingState };
 };
 
-export default connect(mapStateToProps, { getSelectedPlayer })(List);
+export default connect(mapStateToProps, { getSelectedPlayer, setLoadingState, unsetLoadingState })(List);
