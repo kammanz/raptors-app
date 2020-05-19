@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { connect } from 'react-redux';
 
 import Placeholder from './placeholder/placeholder.js';
@@ -10,12 +10,18 @@ import TotalStats from './totalStats';
 import styles from './index.module.scss';
 
 const Details = ({ player, teams, selectedTeam, games }) => {
+    const ref = useRef();
+
     if (!player) {
         return (
             <div className={styles.container}>
                 <Placeholder />
             </div>
         );
+    };
+
+    if (ref.current) {
+        ref.current.scrollTo(0,0);
     };
 
     const {
@@ -59,7 +65,7 @@ const Details = ({ player, teams, selectedTeam, games }) => {
     ];
 
     return (
-        <div className={styles.container}>
+        <div ref={ref} className={styles.container}>
             <Card player={player} playerTeamId={selectedTeam.teamId} />
             <QuickStats teamColor={teamColor} quickStats={quickStats} />
             <TotalStats teamColor={teamColor} totalStats={totalStats} />

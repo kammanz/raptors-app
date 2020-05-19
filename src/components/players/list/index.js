@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import { connect } from 'react-redux';
 
 import classnames from 'classnames';
@@ -12,6 +12,8 @@ class List extends React.Component {
     constructor(props) {
         super(props);
 
+        this.ref = createRef();
+
         this.state = {
             selectedId: null,
             selectedTeam: this.props.selectedTeam,
@@ -21,6 +23,7 @@ class List extends React.Component {
     componentDidUpdate(prevProps) {
         if (prevProps.selectedTeam !== this.props.selectedTeam) {
             this.setState({ selectedId: null });
+            this.ref.current.scrollTo(0, 0);
         };
     };
 
@@ -63,7 +66,7 @@ class List extends React.Component {
 
     render() {
         return (
-            <div className={styles.playersListContainer}>
+            <div ref={this.ref} className={styles.playersListContainer}>
                 {this.renderPlayers()}
             </div>
         );

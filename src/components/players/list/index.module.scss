@@ -5,6 +5,8 @@
   flex: 2;
   flex-wrap: wrap;
   justify-content: space-between;
+  height: calc(100vh - 90px);
+  overflow-y: auto;
   background-color: $white;
 }
 
