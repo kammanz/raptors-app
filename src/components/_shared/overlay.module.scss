@@ -1,0 +1,29 @@
+@import 'src/scss/variables.scss';
+
+.overlayWhite {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $overlayWhite;
+    z-index: 99;
+    cursor: pointer;
+}
+
+.overlayDark {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $overlayDark;
+    z-index: 99;
+    cursor: pointer;
+}

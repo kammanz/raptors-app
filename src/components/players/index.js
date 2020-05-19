@@ -3,6 +3,7 @@ import React from 'react';
 import List from './list';
 import Details from './details';
 import Filters from './filters';
+import Overlay from '../_shared/overlay';
 
 import styles from './index.module.scss';
 
@@ -14,6 +15,7 @@ const PlayersPage = () => {
                 <List />
                 <Details />  
             </div>
+            <Overlay />
         </div>
     );
 };

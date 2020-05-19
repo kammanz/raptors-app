@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getTeams, getSelectedTeam } from '../../actions/actions.js';
+import { getTeams, getSelectedTeam, /*setLoadingState*/ } from '../../actions/actions.js';
 import { TEAMS, COLORS } from '../../enums';
 
 import NavMenu from './navMenu';
@@ -23,11 +23,12 @@ class Header extends React.Component {
     };
 
     componentDidMount() {
+        // this.props.setLoadingState();
         this.props.getTeams();
     };
 
     onSelectChange = e => {
-        const { teams, getSelectedTeam } = this.props;
+        const { teams, getSelectedTeam, } = this.props;
         const selectedTeam = teams.find(team => team.teamId === e.target.value);
 
         this.setState({
@@ -36,6 +37,7 @@ class Header extends React.Component {
         });
 
         getSelectedTeam(selectedTeam);
+        // setLoadingState();
     };
 
     render() {
@@ -95,8 +97,9 @@ const mapStateToProps = (state) => {
     return {
         teams: state.teams,
         selectedTeam: state.selectedTeam,
-        selectedTeamColor: state.selectedTeamColor
+        selectedTeamColor: state.selectedTeamColor,
+        loadingState: state.loadingState,
     };
 };
 
-export default connect(mapStateToProps, { getTeams, getSelectedTeam })(Header);
+export default connect(mapStateToProps, { getTeams, getSelectedTeam, /*setLoadingState*/ })(Header);

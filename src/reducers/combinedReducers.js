@@ -5,6 +5,8 @@ import getGamesReducer from './getGamesReducer';
 import getSelectedTeamReducer from './getSelectedTeamReducer';
 import getTeamsReducer from './getTeamsReducer';
 import getTeamColorReducer from './getTeamColorReducer';
+import setLoadingStateReducer from './setLoadingStateReducer';
+
 
 export default combineReducers({
     players: getPlayersReducer,
@@ -13,4 +15,5 @@ export default combineReducers({
     selectedTeamColor: getTeamColorReducer,
     games: getGamesReducer,
     teams: getTeamsReducer,
+    loadingState: setLoadingStateReducer,
 });
