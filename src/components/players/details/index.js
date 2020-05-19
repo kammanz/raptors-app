@@ -9,10 +9,10 @@ import TotalStats from './totalStats';
 
 import styles from './index.module.scss';
 
-const Details = ({ player, teams, selectedTeam, games, isLoading }) => {
+const Details = ({ player, teams, selectedTeam, games }) => {
     const ref = useRef();
 
-    if (!player) {
+    if (!player.details) {
         return (
             <div className={styles.container}>
                 <Placeholder />
@@ -25,6 +25,8 @@ const Details = ({ player, teams, selectedTeam, games, isLoading }) => {
     };
 
     const {
+      isLoading,
+      details: {
         assists,
         blocks,
         fgp,
@@ -40,6 +42,7 @@ const Details = ({ player, teams, selectedTeam, games, isLoading }) => {
         tpp,
         turnovers,
         teamColor,
+      }
     } = player;
 
     const quickStats = [
@@ -64,15 +67,13 @@ const Details = ({ player, teams, selectedTeam, games, isLoading }) => {
        { title: 'pts', value: points },
     ];
 
-    console.log(isLoading);
 
     return (
         <div ref={ref} className={styles.container}>
-            {isLoading && <div className={styles.overlay}>It is Loading...</div>}
-            <Card player={player} playerTeamId={selectedTeam.teamId} />
-            <QuickStats teamColor={teamColor} quickStats={quickStats} />
-            <TotalStats teamColor={teamColor} totalStats={totalStats} />
-            <RecentGamesStats teams={teams} teamColor={teamColor} recentGamesStats={games} />
+            <Card player={player.details} playerTeamId={selectedTeam.teamId} />
+            <QuickStats teamColor={teamColor} quickStats={quickStats} isLoading={isLoading} />
+            <TotalStats teamColor={teamColor} totalStats={totalStats} isLoading={isLoading} />
+            <RecentGamesStats teams={teams} teamColor={teamColor} recentGamesStats={games} isLoading={isLoading} />
         </div>
     );
 };
@@ -82,7 +83,6 @@ const mapStateToProps = state => ({
     teams: state.teams,
     selectedTeam: state.selectedTeam,
     games: state.games,
-    isLoading: state.isLoading,
 });
 
 export default connect(mapStateToProps)(Details);

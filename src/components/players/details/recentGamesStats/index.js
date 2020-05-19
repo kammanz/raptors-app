@@ -1,11 +1,12 @@
 import React from 'react';
+import ClipLoader from "react-spinners/ClipLoader";
 
 import Title from '../../../_shared/title';
 import Table from '../../../_shared/table';
 
 import styles from './index.module.scss';
 
-const RecentGamesStats = ({ teams, teamColor, recentGamesStats }) => {
+const RecentGamesStats = ({ teams, teamColor, recentGamesStats, isLoading }) => {
   const recentGamesArray = Object.values(recentGamesStats);
   const teamsArray = Object.values(teams);
 
@@ -37,19 +38,19 @@ const RecentGamesStats = ({ teams, teamColor, recentGamesStats }) => {
         const parsedArray = new Date(gameDateUTC).toDateString().split(' ');
         const el = parsedArray[2];
 
-        return (el.charAt(0) === '0' ? 
+        return (el.charAt(0) === '0' ?
           `${parsedArray[0]}. ${parsedArray[1]} ${el.substring(1)}, ${parsedArray[3]}`:
           `${parsedArray[0]}. ${parsedArray[1]} ${el}, ${parsedArray[3]}`
         );
-      }; 
+      };
 
-      const tableArray = [ 
+      const tableArray = [
         {title: 'result', value: score},
         {title: 'points', value: points},
         {title: 'assists', value: assists},
         {title: 'off reb', value: offReb},
         {title: 'def reb', value: defReb},
-        {title: 'tot reb', value: totReb}, 
+        {title: 'tot reb', value: totReb},
       ];
 
       return (
@@ -69,9 +70,16 @@ const RecentGamesStats = ({ teams, teamColor, recentGamesStats }) => {
   return (
     <section className={styles.recentGames}>
       <Title title='recent games' teamColor={teamColor} section='games' />
-      {recentGames}
+      {isLoading ?
+        <ClipLoader
+          size={20}
+          color={teamColor}
+          loading={isLoading}
+        /> :
+        recentGames
+      }
     </section>
   );
-};         
+};
 
 export default RecentGamesStats;

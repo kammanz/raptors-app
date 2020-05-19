@@ -2,12 +2,14 @@ import dataNbaNet from '../apis/dataNbaNet';
 import { TEAMS } from '../enums';
 
 export const getTeams = () => async dispatch => {
+
     const allTeamsResponse = await dataNbaNet.get('/prod/2019/teams_config.json');
     const nbaTeams = Object.values(allTeamsResponse.data.teams.config).filter(team => team.ttsName);
     dispatch({ type: 'GET_TEAMS', payload: nbaTeams });
 
     const defaultTeam = nbaTeams.find(team => team.teamId === TEAMS.TOR.ID);
     dispatch(getSelectedTeam(defaultTeam));
+
 };
 
 export const getSelectedTeam = team => async dispatch => {
@@ -24,8 +26,8 @@ export const getSelectedTeam = team => async dispatch => {
 };
 
 export const getSelectedPlayer = player => async dispatch => {
-    console.log(player);
-    dispatch({ type: 'SET_IS_LOADING', payload: true });
+
+    dispatch({ type: 'SET_PLAYER_DETAILS_IS_LOADING', payload: true });
     dispatch({ type: 'PRELOAD_PLAYER', payload: player });
 
     const playerResponse = await dataNbaNet.get(`/prod/v1/2019/players/${player.person_id}_profile.json`);
@@ -33,5 +35,5 @@ export const getSelectedPlayer = player => async dispatch => {
 
     const gamesResponse = await dataNbaNet.get(`/data/10s/prod/v1/2019/players/${player.person_id}_gamelog.json`);
     dispatch({ type: 'GET_GAMES', payload: { ...gamesResponse.data.league.standard }});
-    dispatch({ type: 'SET_IS_LOADING', payload: false });
+    dispatch({ type: 'SET_PLAYER_DETAILS_IS_LOADING', payload: false });
 };
