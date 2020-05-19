@@ -9,7 +9,7 @@ import TotalStats from './totalStats';
 
 import styles from './index.module.scss';
 
-const Details = ({ player, teams, selectedTeam, games }) => {
+const Details = ({ player, teams, selectedTeam, games, isLoading }) => {
     const ref = useRef();
 
     if (!player) {
@@ -64,8 +64,11 @@ const Details = ({ player, teams, selectedTeam, games }) => {
        { title: 'pts', value: points },
     ];
 
+    console.log(isLoading);
+
     return (
         <div ref={ref} className={styles.container}>
+            {isLoading && <div className={styles.overlay}>It is Loading...</div>}
             <Card player={player} playerTeamId={selectedTeam.teamId} />
             <QuickStats teamColor={teamColor} quickStats={quickStats} />
             <TotalStats teamColor={teamColor} totalStats={totalStats} />
@@ -79,6 +82,7 @@ const mapStateToProps = state => ({
     teams: state.teams,
     selectedTeam: state.selectedTeam,
     games: state.games,
+    isLoading: state.isLoading,
 });
 
 export default connect(mapStateToProps)(Details);

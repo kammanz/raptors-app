@@ -1,6 +1,7 @@
 @import 'src/scss/variables.scss';
 
 .container {
+  position: relative;
   min-width: 440px;
   min-height: calc(100vh - 100px);
   height: calc(100vh - 90px);
@@ -9,4 +10,15 @@
   overflow: auto;
   background-color: $white;
   font-family: arial;
+}
+
+.overlay {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: $white;
+  opacity: 0.9;
 }
