@@ -14,15 +14,6 @@ export const getTeams = () => async dispatch => {
     // dispatch({ type: 'SET_LOADING', payload: "true" });
 };
 
-// export const setLoadingState = () => {
-//     dispatch({ type: 'SET_LOADING', payload: true });
-//     // dispatch({ type: 'LOADED', payload: false });
-// };
-
-// export const getLoadedState = () => {
-//     dispa
-// }
-
 export const getSelectedTeam = team => async dispatch => {
     // dispatch(setLoadingState());
     dispatch({ type: 'SET_LOADING', payload: true });
