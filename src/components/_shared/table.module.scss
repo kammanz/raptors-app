@@ -1,6 +1,7 @@
 @import 'src/scss/variables.scss';
 
 .table {
+    position: relative;
     width: 100%;
     border-spacing: 0px;
     font-family: arial;
@@ -17,12 +18,12 @@
             text-transform: uppercase;
         }
 
-        td { 
+        td {
             height: 15px;
             color: $grey4;
-            font-size: 12px; 
+            font-size: 12px;
         }
-    } 
+    }
 }
 
 span {
@@ -44,5 +45,3 @@ span {
 .games td {
     padding-top: 2px;
 }
-
-

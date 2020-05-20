@@ -17,11 +17,11 @@ const Table = ({ array, result, section }) => {
                     {array.map(({ title, value }) => {
                         return (
                             <td key={title}>
-                                {title === 'result' ? 
+                                {title === 'result' ?
                                     <>
                                         <span className={result === 'W' ? styles.won : styles.lost}>
                                             {result}
-                                        </span> 
+                                        </span>
                                         {value}
                                     </> :
                                     value
