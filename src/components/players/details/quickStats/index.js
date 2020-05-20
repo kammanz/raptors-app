@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Spinner from '../../../_shared/spinner';
+import Spinner from 'components/_shared/spinner';
 
 import styles from './index.module.scss';
 

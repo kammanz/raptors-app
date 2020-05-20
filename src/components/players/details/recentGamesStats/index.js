@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Spinner from '../../../_shared/spinner';
-import Title from '../../../_shared/title';
-import Table from '../../../_shared/table';
+import Spinner from 'components/_shared/spinner';
+import Title from 'components/_shared/title';
+import Table from 'components/_shared/table';
 
 import styles from './index.module.scss';
 
