@@ -16,7 +16,6 @@ const Details = ({
     },
     teams,
     selectedTeam,
-    games
   }) => {
     const ref = useRef();
 
@@ -48,6 +47,7 @@ const Details = ({
       tpp,
       turnovers,
       teamColor,
+      recentGames,
     } = details;
 
     const quickStats = [
@@ -72,13 +72,12 @@ const Details = ({
        { title: 'pts', value: points },
     ];
 
-
     return (
         <div ref={ref} className={styles.container}>
             <Card player={details} playerTeamId={selectedTeam.teamId} />
             <QuickStats teamColor={teamColor} quickStats={quickStats} isLoading={isLoading} />
             <TotalStats teamColor={teamColor} totalStats={totalStats} isLoading={isLoading} />
-            <RecentGamesStats teams={teams} teamColor={teamColor} recentGamesStats={games} isLoading={isLoading} />
+            <RecentGamesStats teams={teams} teamColor={teamColor} recentGamesStats={recentGames} isLoading={isLoading} />
         </div>
     );
 };
@@ -87,7 +86,6 @@ const mapStateToProps = state => ({
     player: state.player,
     teams: state.teams,
     selectedTeam: state.selectedTeam,
-    games: state.games,
 });
 
 export default connect(mapStateToProps)(Details);

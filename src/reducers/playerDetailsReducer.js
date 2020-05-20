@@ -1,16 +1,27 @@
-export default (state = { details: {}, isLoading: false }, action) => {
+export default (
+  state = {
+    details: {
+      recentGames: {},
+    },
+    isLoading: false
+  },
+  action,
+) => {
     switch (action.type) {
         case 'SET_PLAYER_DETAILS_IS_LOADING':
             return {
               ...state,
               isLoading: action.payload,
             };
-        case 'PRELOAD_PLAYER':
+        case 'PRELOAD_PLAYER_DETAILS':
             return {
               ...state,
-              details: { ...action.payload },
+              details: {
+                recentGames: {},
+                ...action.payload
+              },
             };
-        case 'UPDATE_PLAYER':
+        case 'UPDATE_PLAYER_DETAILS':
             return {
               ...state,
               details: {
@@ -18,7 +29,7 @@ export default (state = { details: {}, isLoading: false }, action) => {
                 ...action.payload
               },
             };
-        case 'GET_GAMES':
+        case 'SET_RECENT_GAMES':
             return {
               ...state,
               details: {
