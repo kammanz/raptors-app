@@ -27,12 +27,22 @@ const Card = ({ player, playerTeamId }) => {
             </div>
             <div style={{ borderColor: teamColor }} className={styles.imageLine} />
             <div className={styles.detailsContainer}>
-                <div className={styles.nameContainer}>
+                <div className={styles.details}>
+                  <div className={styles.thumbContainer}>
+                      <img
+                          src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/${playerTeamId}/2019/260x190/${person_id}.png`} alt='player headshot'
+                          onError={e => e.target.src = placeholderImg}
+                      />
+                  </div>
+                  <div className={styles.info}>
                     <div className={styles.name}>{first_name} {last_name}</div>
+                    <div className={styles.position}>{position_full}</div>
+                    <div className={styles.details}>{height_ft}-{height_in}, {weight_lbs} lbs</div>
+                  </div>
+                </div>
+                <div className={styles.jerseryContainer}>
                     <div style={{ color: teamColor }} className={styles.jerseyNumber}>{jersey_number}</div>
                 </div>
-                <div className={styles.position}>{position_full}</div>
-                <div className={styles.details}>{height_ft}-{height_in}, {weight_lbs} lbs</div>
             </div>
         </div>
     );

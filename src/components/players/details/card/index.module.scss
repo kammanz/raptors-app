@@ -24,10 +24,11 @@
   }
 
   .detailsContainer {
-    margin: 20px 5px;
+    margin: 20px 0;
 
     .nameContainer {
       display: flex;
+      flex-direction: row;
       justify-content: center;
       align-items: center;
 
@@ -53,9 +54,50 @@
     }
 
     .details {
-      margin-top: 5px;
       color: $grey2;
       font-size: 14px;
     }
   }
+}
+
+.thumbContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 80px;
+  width: 105px;
+  background-image: url('../../../../assets/imgs/player-backdrop.png');
+  background-size: cover;
+
+  img {
+    width: 100%;
+  }
+}
+
+.details {
+  display: flex;
+}
+
+.info {
+  margin-left: 10px;
+}
+
+.name {
+  font-size: 28px;
+  color: $grey5;
+  font-weight: bold;
+}
+
+.jerseyNumber {
+  flex: 1;
+  padding-right: 5px;
+  color: $background-color-purple;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: end;
+}
+
+.detailsContainer {
+  display: flex;
+  justify-content: space-between;
 }
