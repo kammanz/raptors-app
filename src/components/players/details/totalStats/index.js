@@ -2,7 +2,7 @@ import React from 'react';
 
 import Spinner from 'components/_shared/spinner';
 import Table from 'components/_shared/table';
-import Title from 'components/_shared/title';
+import Title from 'components/_shared/title'
 
 import styles from './index.module.scss';
 

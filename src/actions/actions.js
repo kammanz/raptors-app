@@ -11,6 +11,7 @@ export const getTeams = () => async dispatch => {
 };
 
 export const getSelectedTeam = team => async dispatch => {
+
     dispatch({ type: 'GET_SELECTED_TEAM', payload: team });
     dispatch({ type: 'GET_TEAM_COLOR', payload: team.primaryColor });
     dispatch({ type: 'PRELOAD_PLAYER_DETAILS', payload: null });
