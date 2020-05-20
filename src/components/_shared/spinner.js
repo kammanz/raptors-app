@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { COLORS } from 'enums';
 
 const Spinner = ({
-  isLoading,
+  isLoading = false,
   containerHeight = 48,
   ...props
 }) => (
