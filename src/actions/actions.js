@@ -35,5 +35,5 @@ export const getSelectedPlayer = player => async dispatch => {
 
     const gamesResponse = await dataNbaNet.get(`/data/10s/prod/v1/2019/players/${player.person_id}_gamelog.json`);
     dispatch({ type: 'GET_GAMES', payload: { ...gamesResponse.data.league.standard }});
-    dispatch({ type: 'SET_PLAYER_DETAILS_IS_LOADING', payload: false });
+    // dispatch({ type: 'SET_PLAYER_DETAILS_IS_LOADING', payload: false });
 };

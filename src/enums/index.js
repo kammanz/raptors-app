@@ -4,7 +4,8 @@
  * @enum {string}
  */
 export const COLORS = Object.freeze({
-    GREY: '#F5F5F5',
+    LIGHT_GREY: '#F5F5F5',
+    GREY: '#D8D8D8',
 });
 
 /**

@@ -12,7 +12,7 @@ const QuickStats = ({ quickStats, teamColor, isLoading }) => {
                   <div key={title} className={styles.container}>
                       <div style={{ backgroundColor: teamColor }} className={styles.header}>{title}</div>
                       {isLoading ?
-                        <Spinner isLoading={isLoading} height={20} /> :
+                        <Spinner isLoading={isLoading} /> :
                         <div className={styles.data}>{value}</div>
                       }
                   </div>

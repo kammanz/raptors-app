@@ -20,8 +20,6 @@ const Details = ({
   }) => {
     const ref = useRef();
 
-    console.log(details);
-    
     if (!details.person_id) {
         return (
             <div className={styles.container}>
