@@ -1,7 +1,6 @@
 import React from 'react';
-import ScaleLoader from "react-spinners/ScaleLoader";
-import { css } from '@emotion/core';
 
+import Spinner from '../../../_shared/spinner';
 import Title from '../../../_shared/title';
 import Table from '../../../_shared/table';
 
@@ -68,25 +67,11 @@ const RecentGamesStats = ({ teams, teamColor, recentGamesStats, isLoading }) => 
       );
   });
 
-  const override = css`
-    display: flex;
-    align-items: center;
-    height: 43px;
-  `;
-
   return (
     <section className={styles.recentGames}>
       <Title title='recent games' teamColor={teamColor} section='games' />
       {isLoading ?
-        <ScaleLoader
-          css={override}
-          height={8}
-          width={3}
-          radius={2}
-          margin={2}
-          color={'lightgrey'}
-          loading={isLoading}
-        /> :
+        <Spinner isLoading={isLoading} /> :
         recentGames
       }
     </section>

@@ -8,7 +8,7 @@ export default (state = { details: {}, isLoading: false }, action) => {
         case 'PRELOAD_PLAYER':
             return {
               ...state,
-              details: action.payload,
+              details: { ...action.payload },
             };
         case 'UPDATE_PLAYER':
             return {

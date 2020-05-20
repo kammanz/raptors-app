@@ -9,10 +9,20 @@ import TotalStats from './totalStats';
 
 import styles from './index.module.scss';
 
-const Details = ({ player, teams, selectedTeam, games }) => {
+const Details = ({
+    player: {
+      details,
+      isLoading,
+    },
+    teams,
+    selectedTeam,
+    games
+  }) => {
     const ref = useRef();
 
-    if (!player.details) {
+    console.log(details);
+    
+    if (!details.person_id) {
         return (
             <div className={styles.container}>
                 <Placeholder />
@@ -25,25 +35,22 @@ const Details = ({ player, teams, selectedTeam, games }) => {
     };
 
     const {
-      isLoading,
-      details: {
-        assists,
-        blocks,
-        fgp,
-        ftp,
-        gamesPlayed,
-        min,
-        pFouls,
-        ppg,
-        points,
-        totReb,
-        rpg,
-        steals,
-        tpp,
-        turnovers,
-        teamColor,
-      }
-    } = player;
+      assists,
+      blocks,
+      fgp,
+      ftp,
+      gamesPlayed,
+      min,
+      pFouls,
+      ppg,
+      points,
+      totReb,
+      rpg,
+      steals,
+      tpp,
+      turnovers,
+      teamColor,
+    } = details;
 
     const quickStats = [
         { title: 'ppg', value: ppg },
@@ -70,7 +77,7 @@ const Details = ({ player, teams, selectedTeam, games }) => {
 
     return (
         <div ref={ref} className={styles.container}>
-            <Card player={player.details} playerTeamId={selectedTeam.teamId} />
+            <Card player={details} playerTeamId={selectedTeam.teamId} />
             <QuickStats teamColor={teamColor} quickStats={quickStats} isLoading={isLoading} />
             <TotalStats teamColor={teamColor} totalStats={totalStats} isLoading={isLoading} />
             <RecentGamesStats teams={teams} teamColor={teamColor} recentGamesStats={games} isLoading={isLoading} />
