@@ -5,8 +5,6 @@ import Spinner from 'components/_shared/spinner';
 import styles from './index.module.scss';
 
 const QuickStats = ({ quickStats, teamColor, isLoading }) => {
-  console.log(isLoading);
-
   return (
       <section className={styles.quickStats}>
           {quickStats.map(({title, value}) => {
