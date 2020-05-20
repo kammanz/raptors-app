@@ -16,7 +16,7 @@ const Spinner = ({
       align-items: center;
       height: ${containerHeight}px;
     `}
-    height={10}
+    height={8}
     width={2}
     radius={2}
     margin={2}
