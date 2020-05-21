@@ -13,7 +13,7 @@ export const getTeams = () => async dispatch => {
 export const getSelectedTeam = team => async dispatch => {
     dispatch({ type: 'GET_SELECTED_TEAM', payload: team });
     dispatch({ type: 'GET_TEAM_COLOR', payload: team.primaryColor });
-    dispatch({ type: 'PRELOAD_PLAYER', payload: null });
+    dispatch({ type: 'PRELOAD_PLAYER_DETAILS', payload: null });
 
     const teamUrlName = (team.teamId === TEAMS.PHI.ID ? TEAMS.PHI.NAME : team.ttsName.split(' ').splice(-1)[0].toLowerCase());
     const teamRosterResponse = await dataNbaNet.get(`/json/cms/noseason/team/${teamUrlName}/roster.json`);
@@ -24,11 +24,13 @@ export const getSelectedTeam = team => async dispatch => {
 };
 
 export const getSelectedPlayer = player => async dispatch => {
-    dispatch({ type: 'PRELOAD_PLAYER', payload: player });
+    dispatch({ type: 'SET_PLAYER_DETAILS_IS_LOADING', payload: true });
+    dispatch({ type: 'PRELOAD_PLAYER_DETAILS', payload: player });
 
     const playerResponse = await dataNbaNet.get(`/prod/v1/2019/players/${player.person_id}_profile.json`);
-    dispatch({ type: 'UPDATE_PLAYER', payload: playerResponse.data.league.standard.stats.latest });
-
     const gamesResponse = await dataNbaNet.get(`/data/10s/prod/v1/2019/players/${player.person_id}_gamelog.json`);
-    dispatch({ type: 'GET_GAMES', payload: { ...gamesResponse.data.league.standard }});
+
+    dispatch({ type: 'UPDATE_PLAYER_DETAILS', payload: playerResponse.data.league.standard.stats.latest });
+    dispatch({ type: 'SET_RECENT_GAMES', payload: { ...gamesResponse.data.league.standard }});
+    dispatch({ type: 'SET_PLAYER_DETAILS_IS_LOADING', payload: false });
 };

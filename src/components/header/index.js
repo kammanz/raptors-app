@@ -66,7 +66,7 @@ class Header extends React.Component {
                         </div>
                     </div>
                     <div
-                        style={{ borderColor: `${selectedTeamColor || COLORS.GREY} transparent transparent transparent` }}
+                        style={{ borderColor: `${selectedTeamColor || COLORS.LIGHT_GREY} transparent transparent transparent` }}
                         className={styles.borderTriangle}
                     />
                 </div>

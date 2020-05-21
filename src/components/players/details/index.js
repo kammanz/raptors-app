@@ -9,10 +9,17 @@ import TotalStats from './totalStats';
 
 import styles from './index.module.scss';
 
-const Details = ({ player, teams, selectedTeam, games }) => {
+const Details = ({
+    player: {
+      details,
+      isLoading,
+    },
+    teams,
+    selectedTeam,
+  }) => {
     const ref = useRef();
 
-    if (!player) {
+    if (!details.person_id) {
         return (
             <div className={styles.container}>
                 <Placeholder />
@@ -25,22 +32,23 @@ const Details = ({ player, teams, selectedTeam, games }) => {
     };
 
     const {
-        assists,
-        blocks,
-        fgp,
-        ftp,
-        gamesPlayed,
-        min,
-        pFouls,
-        ppg,
-        points,
-        totReb,
-        rpg,
-        steals,
-        tpp,
-        turnovers,
-        teamColor,
-    } = player;
+      assists,
+      blocks,
+      fgp,
+      ftp,
+      gamesPlayed,
+      min,
+      pFouls,
+      ppg,
+      points,
+      totReb,
+      rpg,
+      steals,
+      tpp,
+      turnovers,
+      teamColor,
+      recentGames,
+    } = details;
 
     const quickStats = [
         { title: 'ppg', value: ppg },
@@ -66,10 +74,10 @@ const Details = ({ player, teams, selectedTeam, games }) => {
 
     return (
         <div ref={ref} className={styles.container}>
-            <Card player={player} playerTeamId={selectedTeam.teamId} />
-            <QuickStats teamColor={teamColor} quickStats={quickStats} />
-            <TotalStats teamColor={teamColor} totalStats={totalStats} />
-            <RecentGamesStats teams={teams} teamColor={teamColor} recentGamesStats={games} />
+            <Card player={details} playerTeamId={selectedTeam.teamId} />
+            <QuickStats teamColor={teamColor} quickStats={quickStats} isLoading={isLoading} />
+            <TotalStats teamColor={teamColor} totalStats={totalStats} isLoading={isLoading} />
+            <RecentGamesStats teams={teams} teamColor={teamColor} recentGamesStats={recentGames} isLoading={isLoading} />
         </div>
     );
 };
@@ -78,7 +86,6 @@ const mapStateToProps = state => ({
     player: state.player,
     teams: state.teams,
     selectedTeam: state.selectedTeam,
-    games: state.games,
 });
 
 export default connect(mapStateToProps)(Details);
