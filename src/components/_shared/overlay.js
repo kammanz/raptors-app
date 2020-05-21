@@ -3,19 +3,17 @@ import { connect } from 'react-redux';
 
 import styles from './overlay.module.scss';
 
-const Overlay = ({loadingState, unsetLoadingState}) => {
-    console.log(loadingState, 'set');
-    console.log(unsetLoadingState, 'unset');
+const Overlay = ({ loadingState }) => {
 
-    if(unsetLoadingState) {
-        return <div className={styles.overlayDark} />;
+    if(loadingState) {
+        return <div className={styles.overlayWhite} />;
     }
 
-        return <div className={styles.overlayWhite} />;
+        return <div />;
 };
 
 const mapStateToProps = state => {
-    return { loadingState: state.loadingState, unsetLoadingState: state.unsetLoadingState };
+    return { loadingState: state.loadingState };
 };
 
 export default connect(mapStateToProps)(Overlay);

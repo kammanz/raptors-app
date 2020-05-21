@@ -22,7 +22,6 @@ class List extends React.Component {
 
     componentDidUpdate(prevProps) {
         if(prevProps.players !== this.props.players) {
-            // this.props.unsetLoadingState();
         };
 
         if (prevProps.selectedTeam !== this.props.selectedTeam) {
