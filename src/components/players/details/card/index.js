@@ -4,7 +4,7 @@ import placeholderImg from '../../../../assets/imgs/placeholder.png';
 
 import styles from './index.module.scss';
 
-const Card = ({ player, playerTeamId }) => {
+const Card = ({ player, playerTeamId, isSticky }) => {
     const {
         person_id,
         first_name,
@@ -28,12 +28,14 @@ const Card = ({ player, playerTeamId }) => {
             <div style={{ borderColor: teamColor }} className={styles.imageLine} />
             <div className={styles.detailsContainer}>
                 <div className={styles.details}>
-                  <div className={styles.thumbContainer}>
-                      <img
-                          src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/${playerTeamId}/2019/260x190/${person_id}.png`} alt='player headshot'
-                          onError={e => e.target.src = placeholderImg}
-                      />
-                  </div>
+                  {isSticky &&
+                    <div className={styles.thumbContainer}>
+                        <img
+                            src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/${playerTeamId}/2019/260x190/${person_id}.png`} alt='player headshot'
+                            onError={e => e.target.src = placeholderImg}
+                        />
+                    </div>
+                  }
                   <div className={styles.info}>
                     <div className={styles.name}>{first_name} {last_name}</div>
                     <div className={styles.position}>{position_full}</div>

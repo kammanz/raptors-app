@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import Placeholder from './placeholder/placeholder.js';
@@ -18,6 +18,17 @@ const Details = ({
     selectedTeam,
   }) => {
     const ref = useRef();
+    const [isSticky, setIsSticky] = useState(false);
+
+    useEffect(() => {
+      if (ref.current) {
+        ref.current.scrollTo(0,0);
+      }
+    }, [details]);
+
+    const onScroll = e => {
+      setIsSticky(e.target.scrollTop >= 297);
+    };
 
     if (!details.person_id) {
         return (
@@ -25,10 +36,6 @@ const Details = ({
                 <Placeholder />
             </div>
         );
-    };
-
-    if (ref.current) {
-        ref.current.scrollTo(0,0);
     };
 
     const {
@@ -73,8 +80,8 @@ const Details = ({
     ];
 
     return (
-        <div ref={ref} className={styles.container}>
-            <Card player={details} playerTeamId={selectedTeam.teamId} />
+        <div onScroll={onScroll} ref={ref} className={styles.container}>
+            <Card player={details} playerTeamId={selectedTeam.teamId} isSticky={isSticky} />
             <QuickStats teamColor={teamColor} quickStats={quickStats} isLoading={isLoading} />
             <TotalStats teamColor={teamColor} totalStats={totalStats} isLoading={isLoading} />
             <RecentGamesStats teams={teams} teamColor={teamColor} recentGamesStats={recentGames} isLoading={isLoading} />
