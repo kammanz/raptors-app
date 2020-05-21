@@ -12,7 +12,7 @@ import styles from './index.module.scss';
 
 const PlayersPage = ({ setLoadingState }) => {
     // const setToLoading = loadingState === true;
-    setLoadingState();
+    // setLoadingState();
 
     // console.log(setLoadingState);
     return (

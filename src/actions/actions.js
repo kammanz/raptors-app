@@ -14,7 +14,7 @@ export const getSelectedTeam = team => async dispatch => {
     // dispatch({ type: 'SET_LOADING_STATE', payload: true });
     dispatch({ type: 'GET_SELECTED_TEAM', payload: team });
     dispatch({ type: 'GET_TEAM_COLOR', payload: team.primaryColor });
-    dispatch({ type: 'PRELOAD_PLAYER', payload: null });
+    dispatch({ type: 'PRELOAD_PLAYER_DETAILS', payload: null });
 
     const teamUrlName = (team.teamId === TEAMS.PHI.ID ? TEAMS.PHI.NAME : team.ttsName.split(' ').splice(-1)[0].toLowerCase());
     const teamRosterResponse = await dataNbaNet.get(`/json/cms/noseason/team/${teamUrlName}/roster.json`);
@@ -25,22 +25,24 @@ export const getSelectedTeam = team => async dispatch => {
     // dispatch({ type: 'SET_LOADING', payload: false });
 };
 
-export const setLoadingState = () => async dispatch => {
-    dispatch({ type: 'SET_LOADING_STATE', payload: true });
-    // dispatch({ type: 'UNSET_LOADING STATE', payload: false});
-};
+// export const setLoadingState = () => async dispatch => {
+//     dispatch({ type: 'SET_LOADING_STATE', payload: true });
+//     // dispatch({ type: 'UNSET_LOADING STATE', payload: false});
+// };
 
-export const unsetLoadingState = () => async dispatch => {
-    // console.log('this worked');
-    dispatch({ type: 'UNSET_LOADING_STATE', payload: true });
-};
+// export const unsetLoadingState = () => async dispatch => {
+//     // console.log('this worked');
+//     dispatch({ type: 'UNSET_LOADING_STATE', payload: true });
+// };
 
 export const getSelectedPlayer = player => async dispatch => {
-    dispatch({ type: 'PRELOAD_PLAYER', payload: player });
+    dispatch({ type: 'SET_PLAYER_DETAILS_IS_LOADING', payload: true });
+    dispatch({ type: 'PRELOAD_PLAYER_DETAILS', payload: player });
 
     const playerResponse = await dataNbaNet.get(`/prod/v1/2019/players/${player.person_id}_profile.json`);
-    dispatch({ type: 'UPDATE_PLAYER', payload: playerResponse.data.league.standard.stats.latest });
-
     const gamesResponse = await dataNbaNet.get(`/data/10s/prod/v1/2019/players/${player.person_id}_gamelog.json`);
-    dispatch({ type: 'GET_GAMES', payload: { ...gamesResponse.data.league.standard }});
+
+    dispatch({ type: 'UPDATE_PLAYER_DETAILS', payload: playerResponse.data.league.standard.stats.latest });
+    dispatch({ type: 'SET_RECENT_GAMES', payload: { ...gamesResponse.data.league.standard }});
+    dispatch({ type: 'SET_PLAYER_DETAILS_IS_LOADING', payload: false });
 };

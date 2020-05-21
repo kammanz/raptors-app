@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import classnames from 'classnames';
 
-import { getSelectedPlayer, setLoadingState, unsetLoadingState } from '../../../actions/actions.js';
+import { getSelectedPlayer } from '../../../actions/actions.js';
 
 import placeholderImg from '../../../assets/imgs/placeholder.png';
 import styles from './index.module.scss';
@@ -22,7 +22,7 @@ class List extends React.Component {
 
     componentDidUpdate(prevProps) {
         if(prevProps.players !== this.props.players) {
-            this.props.unsetLoadingState();
+            // this.props.unsetLoadingState();
         };
 
         if (prevProps.selectedTeam !== this.props.selectedTeam) {
@@ -48,9 +48,9 @@ class List extends React.Component {
                     className={classnames(styles.playerCard, isSelected ? styles.selectedCard : null)}
                 >
                     <div className={styles.imageContainer}>
-                        <img 
-                            src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/${selectedTeam.teamId}/2019/260x190/${player.person_id}.png`} 
-                            alt='player headshot' 
+                        <img
+                            src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/${selectedTeam.teamId}/2019/260x190/${player.person_id}.png`}
+                            alt='player headshot'
                             onError={(e) => e.target.src = placeholderImg}
                         />
                     </div>
@@ -69,7 +69,6 @@ class List extends React.Component {
     };
 
     render() {
-        console.log(this.props.loadingState, 'boob');
         return (
             <div ref={this.ref} className={styles.playersListContainer}>
                 {this.renderPlayers()}
@@ -82,4 +81,4 @@ const mapStateToProps = (state) => {
     return { players: state.players, selectedTeam: state.selectedTeam, loadingState: state.loadingState };
 };
 
-export default connect(mapStateToProps, { getSelectedPlayer, setLoadingState, unsetLoadingState })(List);
+export default connect(mapStateToProps, { getSelectedPlayer })(List);
