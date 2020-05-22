@@ -32,14 +32,12 @@ const Card = ({ player, playerTeamId, isSticky }) => {
             <div style={{ borderColor: teamColor }} className={styles.imageLine} />
             <div className={styles.detailsContainer}>
                 <div className={styles.details}>
-                  {/*{isSticky &&
-                    <div className={styles.thumbContainer}>
-                        <img
-                            src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/${playerTeamId}/2019/260x190/${person_id}.png`} alt='player headshot'
-                            onError={e => e.target.src = placeholderImg}
-                        />
-                    </div>
-                  }*/}
+                  <div className={classnames(styles.thumb, isSticky && styles.animate)}>
+                      <img
+                          src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/${playerTeamId}/2019/260x190/${person_id}.png`} alt='player headshot'
+                          onError={e => e.target.src = placeholderImg}
+                      />
+                  </div>
                   <div className={styles.info}>
                     <div className={styles.name}>{first_name} {last_name}</div>
                     <div className={styles.position}>{position_full}</div>

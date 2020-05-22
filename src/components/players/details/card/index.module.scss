@@ -64,18 +64,24 @@
   }
 }
 
-.thumbContainer {
+.thumb {
   display: flex;
   justify-content: center;
   align-items: flex-end;
   height: 69px;
   width: 88px;
+  margin-left: -95px;
   background-image: url('../../../../assets/imgs/player-backdrop.png');
   background-size: cover;
+  transition: all 0.3s ease-out;
 
   img {
     width: 100%;
   }
+}
+
+.animate {
+  margin-left: 0;
 }
 
 .details {
