@@ -2,6 +2,7 @@
 
 .card {
   min-width: 440px;
+  padding-top: 5px;
   background-color: $white;
   font-family: arial;
 
@@ -18,13 +19,16 @@
     }
   }
 
+  .test {
+    position: sticky;
+    top: 0;
+  }
   .imageLine {
-    margin-top: 5px;
     border-bottom: 3px solid transparent;
   }
 
   .detailsContainer {
-    margin: 20px 0 25px;
+    padding: 20px 0 25px;
 
     .nameContainer {
       display: flex;
@@ -100,4 +104,13 @@
 .detailsContainer {
   display: flex;
   justify-content: space-between;
+}
+
+.detailsWrapper {
+  position: sticky;
+  top: 0;
+}
+
+.borderBottom {
+  border-bottom: 1px solid $grey1b;
 }
