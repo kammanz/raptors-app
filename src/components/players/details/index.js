@@ -21,10 +21,11 @@ const Details = ({
     const [isSticky, setIsSticky] = useState(false);
 
     useEffect(() => {
+      console.log(details, selectedTeam);
       if (ref.current) {
         ref.current.scrollTo(0,0);
       }
-    }, [details]);
+    }, [details, selectedTeam]);
 
     const onScroll = e => {
       setIsSticky(e.target.scrollTop >= 297);

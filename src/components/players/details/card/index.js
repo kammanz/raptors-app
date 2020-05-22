@@ -32,7 +32,7 @@ const Card = ({ player, playerTeamId, isSticky }) => {
             <div style={{ borderColor: teamColor }} className={styles.imageLine} />
             <div className={styles.detailsContainer}>
                 <div className={styles.details}>
-                  <div className={classnames(styles.thumb, isSticky && styles.animate)}>
+                  <div className={classnames(styles.thumbContainer, isSticky && styles.animate)}>
                       <img
                           src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/${playerTeamId}/2019/260x190/${person_id}.png`} alt='player headshot'
                           onError={e => e.target.src = placeholderImg}
