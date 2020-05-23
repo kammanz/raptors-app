@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 
 import placeholderImg from 'assets/imgs/placeholder.png';
-import { getPlayerPhoto } from 'utils/stringUtils';
+import { getPlayerPhotoUrl } from 'utils/stringUtils';
 
 import styles from './index.module.scss';
 
@@ -26,7 +26,7 @@ const Card = ({
     <div className={styles.card}>
       <div className={styles.imageContainer}>
         <img
-          src={getPlayerPhoto(playerTeamId, person_id)}
+          src={getPlayerPhotoUrl(playerTeamId, person_id)}
           alt='player headshot'
           onError={e => e.target.src = placeholderImg}
         />
@@ -38,7 +38,7 @@ const Card = ({
         <div className={styles.infoContainer}>
           <div className={classnames(styles.thumb, isAnimated && styles.transition, isSticky && styles.animate)}>
             <img
-              src={getPlayerPhoto(playerTeamId, person_id)}
+              src={getPlayerPhotoUrl(playerTeamId, person_id)}
               alt='player headshot'
               onError={e => e.target.src = placeholderImg}
             />

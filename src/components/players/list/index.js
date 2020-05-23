@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import placeholderImg from 'assets/imgs/placeholder.png';
 import { getSelectedPlayer } from 'actions/actions.js';
-import { getPlayerPhoto } from 'utils/stringUtils';
+import { getPlayerPhotoUrl } from 'utils/stringUtils';
 
 import styles from './index.module.scss';
 
@@ -45,7 +45,7 @@ class List extends React.Component {
                 >
                     <div className={styles.imageContainer}>
                         <img
-                            src={getPlayerPhoto(selectedTeam.teamId, player.person_id)}
+                            src={getPlayerPhotoUrl(selectedTeam.teamId, player.person_id)}
                             alt='player headshot'
                             onError={(e) => e.target.src = placeholderImg}
                         />
