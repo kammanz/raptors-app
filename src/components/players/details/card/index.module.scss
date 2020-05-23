@@ -5,67 +5,45 @@
   padding-top: 5px;
   background-color: $white;
   font-family: arial;
+}
 
-  .imageContainer {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    height: 292px;
-    background-image: url('../../../../assets/imgs/player-backdrop.png');
-    background-size: cover;
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 292px;
+  background-image: url('../../../../assets/imgs/player-backdrop.png');
+  background-size: cover;
 
-    img {
-      height: calc(100% - 10px);
-    }
-  }
-
-  .test {
-    position: sticky;
-    top: 0;
-  }
-  .imageLine {
-    border-bottom: 3px solid transparent;
-  }
-
-  .detailsContainer {
-    padding: 20px 0 25px;
-
-    .nameContainer {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-
-      .name {
-        font-size: 22px;
-        color: $grey5;
-        font-weight: bold;
-      }
-
-      .jerseyNumber {
-        flex: 1;
-        padding-right: 5px;
-        color: $background-color-purple;
-        font-size: 36px;
-        font-weight: bold;
-        text-align: end;
-      }
-    }
-
-    .position {
-      margin-top: 1px;
-      color: $grey4;
-      font-size: 16px;
-    }
-
-    .details {
-      color: $grey2;
-      font-size: 14px;
-    }
+  img {
+    height: calc(100% - 10px);
   }
 }
 
-.thumbContainer {
+.cardWrapper {
+  position: sticky;
+  top: 0;
+}
+
+.borderBottom {
+  border-bottom: 1px solid $grey1b;
+}
+
+.imageLine {
+  border-bottom: 3px solid transparent;
+}
+
+.detailsContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0 25px;
+}
+
+.infoContainer {
+  display: flex;
+}
+
+.thumb {
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -88,10 +66,6 @@
   margin-left: 0;
 }
 
-.details {
-  display: flex;
-}
-
 .info {
   display: flex;
   flex-direction: column;
@@ -99,31 +73,28 @@
   margin-left: 10px;
 }
 
-.name {
+.playerName {
   font-size: 22px;
   color: $grey5;
   font-weight: bold;
 }
 
-.jerseyNumber {
+.playerPosition {
+  margin-top: 1px;
+  color: $grey4;
+  font-size: 16px;
+}
+
+.playerDetails {
+  color: $grey2;
+  font-size: 14px;
+}
+
+.playerNumber {
   flex: 1;
   padding-right: 5px;
   color: $background-color-purple;
   font-size: 36px;
   font-weight: bold;
   text-align: end;
-}
-
-.detailsContainer {
-  display: flex;
-  justify-content: space-between;
-}
-
-.detailsWrapper {
-  position: sticky;
-  top: 0;
-}
-
-.borderBottom {
-  border-bottom: 1px solid $grey1b;
 }
