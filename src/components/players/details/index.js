@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import Placeholder from './placeholder/placeholder.js';
+import Placeholder from './placeholder';
 import Card from './card';
 import QuickStats from './quickStats';
 import RecentGamesStats from './recentGamesStats';
@@ -19,15 +19,18 @@ const Details = ({
   }) => {
     const ref = useRef();
     const [isSticky, setIsSticky] = useState(false);
+    const [isAnimated, setIsAnimated] = useState(false);
 
     useEffect(() => {
-      console.log(details, selectedTeam);
       if (ref.current) {
+        setIsAnimated(false);
+        setIsSticky(false);
         ref.current.scrollTo(0,0);
       }
-    }, [details, selectedTeam]);
+    }, [details, selectedTeam.teamId]);
 
     const onScroll = e => {
+      setIsAnimated(true);
       setIsSticky(e.target.scrollTop >= 297);
     };
 
@@ -82,7 +85,7 @@ const Details = ({
 
     return (
         <div onScroll={onScroll} ref={ref} className={styles.container}>
-            <Card player={details} playerTeamId={selectedTeam.teamId} isSticky={isSticky} />
+            <Card player={details} playerTeamId={selectedTeam.teamId} isSticky={isSticky} isAnimated={isAnimated} />
             <QuickStats teamColor={teamColor} quickStats={quickStats} isLoading={isLoading} />
             <TotalStats teamColor={teamColor} totalStats={totalStats} isLoading={isLoading} />
             <RecentGamesStats teams={teams} teamColor={teamColor} recentGamesStats={recentGames} isLoading={isLoading} />

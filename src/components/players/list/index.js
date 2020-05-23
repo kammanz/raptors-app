@@ -1,11 +1,11 @@
 import React, { createRef } from 'react';
 import { connect } from 'react-redux';
-
 import classnames from 'classnames';
 
-import { getSelectedPlayer } from '../../../actions/actions.js';
+import placeholderImg from 'assets/imgs/placeholder.png';
+import { getSelectedPlayer } from 'actions/actions.js';
+import { getPlayerPhoto } from 'utils/stringUtils';
 
-import placeholderImg from '../../../assets/imgs/placeholder.png';
 import styles from './index.module.scss';
 
 class List extends React.Component {
@@ -45,7 +45,7 @@ class List extends React.Component {
                 >
                     <div className={styles.imageContainer}>
                         <img
-                            src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/${selectedTeam.teamId}/2019/260x190/${player.person_id}.png`}
+                            src={getPlayerPhoto(selectedTeam.teamId, player.person_id)}
                             alt='player headshot'
                             onError={(e) => e.target.src = placeholderImg}
                         />

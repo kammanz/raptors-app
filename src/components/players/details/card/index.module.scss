@@ -74,11 +74,14 @@
   margin-left: -95px;
   background-image: url('../../../../assets/imgs/player-backdrop.png');
   background-size: cover;
-  transition: all .295s ease-out;
 
   img {
     width: 100%;
   }
+}
+
+.transition {
+  transition: all .295s ease-out;
 }
 
 .animate {

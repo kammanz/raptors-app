@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './placeholder.module.scss';
+import styles from './index.module.scss';
 
 const Placeholder = () => {
     return (
