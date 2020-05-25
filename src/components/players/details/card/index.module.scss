@@ -2,60 +2,98 @@
 
 .card {
   min-width: 440px;
+  padding-top: 5px;
   background-color: $white;
   font-family: arial;
+}
 
-  .imageContainer {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    height: 292px;
-    background-image: url('../../../../assets/imgs/player-backdrop.png');
-    background-size: cover;
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 292px;
+  background-image: url('../../../../assets/imgs/player-backdrop.png');
+  background-size: cover;
 
-    img {
-      height: calc(100% - 10px);
-    }
+  img {
+    height: calc(100% - 10px);
   }
+}
 
-  .imageLine {
-    margin-top: 5px;
-    border-bottom: 3px solid transparent;
+.cardWrapper {
+  position: sticky;
+  top: 0;
+}
+
+.borderBottom {
+  border-bottom: 1px solid $grey1b;
+}
+
+.imageLine {
+  border-bottom: 3px solid transparent;
+}
+
+.detailsContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0 25px;
+}
+
+.infoContainer {
+  display: flex;
+}
+
+.thumb {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 69px;
+  width: 88px;
+  margin-left: -95px;
+  background-image: url('../../../../assets/imgs/player-backdrop.png');
+  background-size: cover;
+
+  img {
+    width: 100%;
   }
+}
 
-  .detailsContainer {
-    margin: 20px 5px;
+.transition {
+  transition: all .295s ease-out;
+}
 
-    .nameContainer {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+.animate {
+  margin-left: 0;
+}
 
-      .name {
-        font-size: 28px;
-        color: $grey5;
-        font-weight: bold;
-      }
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 10px;
+}
 
-      .jerseyNumber {
-        flex: 1;
-        padding-right: 5px;
-        color: $background-color-purple;
-        font-size: 40px;
-        font-weight: bold;
-        text-align: end;
-      }
-    }
+.playerName {
+  font-size: 22px;
+  color: $grey5;
+  font-weight: bold;
+}
 
-    .position {
-      color: $grey4;
-      font-size: 18px;
-    }
+.playerPosition {
+  margin-top: 1px;
+  color: $grey4;
+  font-size: 16px;
+}
 
-    .details {
-      margin-top: 5px;
-      color: $grey2;
-      font-size: 14px;
-    }
-  }
+.playerDetails {
+  color: $grey2;
+  font-size: 14px;
+}
+
+.playerNumber {
+  flex: 1;
+  padding-right: 5px;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: end;
 }
