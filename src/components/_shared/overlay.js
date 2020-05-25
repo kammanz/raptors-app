@@ -5,7 +5,7 @@ import styles from './overlay.module.scss';
 
 const Overlay = ({ loadingState }) => {
 
-    if(loadingState) {
+    if(!loadingState) {
         return <div className={styles.overlayWhite} />;
     }
 
