@@ -93,7 +93,7 @@ class Header extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        teams: state.teams,
+        teams: state.teams.teams ,
         selectedTeam: state.selectedTeam,
         selectedTeamColor: state.selectedTeamColor,
     };

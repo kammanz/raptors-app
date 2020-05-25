@@ -7,7 +7,7 @@
   justify-content: flex-start;
   height: calc(100vh - 90px);
   overflow-y: auto;
-  background-color: $white;
+  background-color: $white;  
 }
 
 .playerCard {
@@ -36,7 +36,6 @@
 
     img {
       display: flex;
-      width: 100%;
     }
   }
 

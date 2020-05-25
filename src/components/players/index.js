@@ -6,9 +6,14 @@ import Details from './details';
 import Filters from './filters';
 import Overlay from '../_shared/overlay';
 
+import setImagesHaveLoaded from 'actions/actions';
+
 import styles from './index.module.scss';
 
-const PlayersPage = () => {
+const PlayersPage = ({ imagesHaveLoaded }) => {
+    console.log('imagesHaveLoaded', imagesHaveLoaded);
+    // setImagesHaveLoaded();
+
     return (
         <div className={styles.container}>
             <Filters />
@@ -16,13 +21,13 @@ const PlayersPage = () => {
                 <List />
                 <Details />  
             </div>
-            <Overlay />
+            <Overlay isLoading={imagesHaveLoaded}/>
         </div>
     );
 };
 
 const mapStateToProps = state => {
-    return { loadingState: state.loadingState };
+    return { imagesHaveLoaded: state.imagesHaveLoaded };
 };
 
 export default connect(mapStateToProps)(PlayersPage);

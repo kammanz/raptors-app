@@ -2,16 +2,18 @@ import dataNbaNet from '../apis/dataNbaNet';
 import { TEAMS } from '../enums';
 
 export const getTeams = () => async dispatch => {
+    dispatch({ type: 'SET_LIST_IS_LOADING', payload: true });
     const allTeamsResponse = await dataNbaNet.get('/prod/2019/teams_config.json');
     const nbaTeams = Object.values(allTeamsResponse.data.teams.config).filter(team => team.ttsName);
     dispatch({ type: 'GET_TEAMS', payload: nbaTeams });
 
     const defaultTeam = nbaTeams.find(team => team.teamId === TEAMS.TOR.ID);
     dispatch(getSelectedTeam(defaultTeam));
+    // dispatch({ type: 'SET_LIST_IS_LOADING', payload: false });
 };
 
 export const getSelectedTeam = team => async dispatch => {
-    // dispatch({ type: 'SET_LOADING_STATE', payload: true });
+    dispatch({ type: 'SET_LIST_IS_LOADING', payload: true });
     dispatch({ type: 'GET_SELECTED_TEAM', payload: team });
     dispatch({ type: 'GET_TEAM_COLOR', payload: team.primaryColor });
     dispatch({ type: 'PRELOAD_PLAYER_DETAILS', payload: null });
@@ -22,18 +24,8 @@ export const getSelectedTeam = team => async dispatch => {
         return { ...player, teamColor: team.primaryColor };
     });
     dispatch({ type: 'GET_PLAYERS', payload: teamRoster });
-    // dispatch({ type: 'SET_LOADING', payload: false });
+    dispatch({ type: 'SET_LIST_IS_LOADING', payload: false });
 };
-
-// export const setLoadingState = () => async dispatch => {
-//     dispatch({ type: 'SET_LOADING_STATE', payload: true });
-//     // dispatch({ type: 'UNSET_LOADING STATE', payload: false});
-// };
-
-// export const unsetLoadingState = () => async dispatch => {
-//     // console.log('this worked');
-//     dispatch({ type: 'UNSET_LOADING_STATE', payload: true });
-// };
 
 export const getSelectedPlayer = player => async dispatch => {
     dispatch({ type: 'SET_PLAYER_DETAILS_IS_LOADING', payload: true });
@@ -46,3 +38,7 @@ export const getSelectedPlayer = player => async dispatch => {
     dispatch({ type: 'SET_RECENT_GAMES', payload: { ...gamesResponse.data.league.standard }});
     dispatch({ type: 'SET_PLAYER_DETAILS_IS_LOADING', payload: false });
 };
+
+export const setImagesHaveLoaded = () => async dispatch => {
+    dispatch({ type: 'SET_IMAGES_HAVE_LOADED', payload: true });
+}; 

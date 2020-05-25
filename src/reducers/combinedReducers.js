@@ -4,6 +4,8 @@ import getSelectedTeamReducer from './getSelectedTeamReducer';
 import getTeamsReducer from './getTeamsReducer';
 import getTeamColorReducer from './getTeamColorReducer';
 import playerDetailsReducer from './playerDetailsReducer';
+import imagesHaveLoadedReducer from './imagesHaveLoadedReducer';
+
 
 export default combineReducers({
     players: getPlayersReducer,
@@ -11,4 +13,5 @@ export default combineReducers({
     selectedTeam: getSelectedTeamReducer,
     selectedTeamColor: getTeamColorReducer,
     teams: getTeamsReducer,
+    imagesHaveLoaded: imagesHaveLoadedReducer,
 });

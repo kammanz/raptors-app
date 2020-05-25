@@ -3,45 +3,69 @@ import { connect } from 'react-redux';
 import classnames from 'classnames';
 
 import placeholderImg from 'assets/imgs/placeholder.png';
-import { getSelectedPlayer } from 'actions/actions.js';
+import { getSelectedPlayer, setImagesHaveLoaded } from 'actions/actions.js';
 import { formatPlayerPhotoUrl } from 'utils/stringUtils';
 
 import styles from './index.module.scss';
 
+function imagesLoaded(parentNode) {
+    const imgElements = parentNode.querySelectorAll("img");
+    for (const img of imgElements) {
+        if (!img.complete) {
+        return false;
+        };
+    };
+    return true;
+};
+
 class List extends React.Component {
     constructor(props) {
         super(props);
+        console.log('props', props);
 
         this.ref = createRef();
+        this.lastIndexItem = createRef();
+        this.galleryElement = createRef();
 
         this.state = {
             selectedId: null,
             selectedTeam: this.props.selectedTeam,
+            loading: true,
         };
     };
 
-    componentDidUpdate(prevProps) {
-        if(prevProps.players !== this.props.players) {
-        };
-
+    componentDidUpdate(prevProps, prevState) {
         if (prevProps.selectedTeam !== this.props.selectedTeam) {
             this.setState({ selectedId: null });
-            this.ref.current.scrollTo(0, 0);
         };
+
+        if(this.state.loading === false) {
+            // console.log('player images loaded');
+            this.props.setImagesHaveLoaded();
+        };
+    };
+
+    handleOnload = () => {
+        this.setState({ loading: !imagesLoaded(this.galleryElement) });
     };
 
     renderPlayers() {
         const { players, selectedTeam } = this.props;
+        // if(this.state.loading === false) {
+        //     console.log('player images loaded');
+        // }
+
+        // what happens after loading equals false. 
 
         return players.map((player, index) => {
             const isSelected = this.state.selectedId === player.person_id;
             const { teamColor } = player;
-
+           
             return (
                 <div
                     key={index}
                     onClick={() => {
-                        this.setState({ selectedId: player.person_id })
+                        this.setState({ selectedId: player.person_id });
                         this.props.getSelectedPlayer(player);
                     }}
                     className={classnames(styles.playerCard, isSelected ? styles.selectedCard : null)}
@@ -51,6 +75,7 @@ class List extends React.Component {
                             src={formatPlayerPhotoUrl(selectedTeam.teamId, player.person_id)}
                             alt='player headshot'
                             onError={(e) => e.target.src = placeholderImg}
+                            onLoad={this.handleOnload}
                         />
                     </div>
                     <div style={{borderColor: teamColor}} className={styles.imageLine} />
@@ -69,8 +94,8 @@ class List extends React.Component {
 
     render() {
         return (
-            <div ref={this.ref} className={styles.playersListContainer}>
-                {this.renderPlayers()}
+            <div ref={this.ref} ref={element => this.galleryElement = element} className={styles.playersListContainer}>
+                    {this.renderPlayers()}
             </div>
         );
     };
@@ -80,4 +105,4 @@ const mapStateToProps = (state) => {
     return { players: state.players, selectedTeam: state.selectedTeam, loadingState: state.loadingState };
 };
 
-export default connect(mapStateToProps, { getSelectedPlayer })(List);
+export default connect(mapStateToProps, { getSelectedPlayer, setImagesHaveLoaded })(List);

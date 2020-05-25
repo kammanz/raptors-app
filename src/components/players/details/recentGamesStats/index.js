@@ -8,7 +8,7 @@ import styles from './index.module.scss';
 
 const RecentGamesStats = ({ teams, teamColor, recentGamesStats, isLoading }) => {
   const recentGamesArray = Object.values(recentGamesStats);
-  const teamsArray = Object.values(teams);
+  const teamsArray = Object.values(teams.teams);
 
   const recentGames = recentGamesArray.map(({
     gameId,
