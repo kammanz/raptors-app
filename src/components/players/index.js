@@ -6,11 +6,13 @@ import Details from './details';
 import Filters from './filters';
 import Overlay from '../_shared/overlay';
 
-import setImagesHaveLoaded from 'actions/actions';
+// import setImagesHaveLoaded from 'actions/actions';
 
 import styles from './index.module.scss';
 
 const PlayersPage = ({ imagesHaveLoaded }) => {
+
+    // console.log('here, imgs have loaded, want to see false (first)', imagesHaveLoaded);
     console.log('imagesHaveLoaded', imagesHaveLoaded);
     // setImagesHaveLoaded();
 
@@ -21,7 +23,7 @@ const PlayersPage = ({ imagesHaveLoaded }) => {
                 <List />
                 <Details />  
             </div>
-            <Overlay isLoading={imagesHaveLoaded}/>
+            {imagesHaveLoaded === false ? <Overlay imagesHaveLoaded={imagesHaveLoaded}/> : <div/>}
         </div>
     );
 };

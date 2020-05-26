@@ -13,6 +13,7 @@ export const getTeams = () => async dispatch => {
 };
 
 export const getSelectedTeam = team => async dispatch => {
+    dispatch({ type: 'SET_IMAGES_HAVE_LOADED', payload: false });
     dispatch({ type: 'SET_LIST_IS_LOADING', payload: true });
     dispatch({ type: 'GET_SELECTED_TEAM', payload: team });
     dispatch({ type: 'GET_TEAM_COLOR', payload: team.primaryColor });

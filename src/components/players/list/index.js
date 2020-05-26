@@ -21,7 +21,7 @@ function imagesLoaded(parentNode) {
 class List extends React.Component {
     constructor(props) {
         super(props);
-        console.log('props', props);
+        // console.log('props', props);
 
         this.ref = createRef();
         this.lastIndexItem = createRef();
@@ -35,6 +35,7 @@ class List extends React.Component {
     };
 
     componentDidUpdate(prevProps, prevState) {
+        // console.log('comp did update');
         if (prevProps.selectedTeam !== this.props.selectedTeam) {
             this.setState({ selectedId: null });
         };

@@ -1,18 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import styles from './overlay.module.scss';
 
-const Overlay = ({ isLoading }) => {
-    if(!isLoading) {
-        return <div className={styles.overlayWhite} />;
-    }
-    return <div />;
-};
-
-const mapStateToProps = state => {
-    return { teams: state.teams };
+const Overlay = ({ imagesHaveLoaded }) => {
+    console.log('want to see false then true', imagesHaveLoaded);
+    return <div className={styles.overlayDark} />;
 };
 
 Overlay.propTypes = {
@@ -23,4 +16,4 @@ Overlay.defaultProps = {
     isLoading: true,
 }
 
-export default connect(mapStateToProps)(Overlay);
+export default Overlay;
