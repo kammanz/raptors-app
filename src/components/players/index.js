@@ -23,7 +23,7 @@ const PlayersPage = ({ imagesHaveLoaded }) => {
                 <List />
                 <Details />  
             </div>
-            {imagesHaveLoaded === false ? <Overlay imagesHaveLoaded={imagesHaveLoaded}/> : <div/>}
+            {imagesHaveLoaded === false ? <Overlay /*imagesHaveLoaded={imagesHaveLoaded}*//> : <div/>}
         </div>
     );
 };

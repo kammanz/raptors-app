@@ -2,7 +2,7 @@ import dataNbaNet from '../apis/dataNbaNet';
 import { TEAMS } from '../enums';
 
 export const getTeams = () => async dispatch => {
-    dispatch({ type: 'SET_LIST_IS_LOADING', payload: true });
+    // dispatch({ type: 'SET_LIST_IS_LOADING', payload: true });
     const allTeamsResponse = await dataNbaNet.get('/prod/2019/teams_config.json');
     const nbaTeams = Object.values(allTeamsResponse.data.teams.config).filter(team => team.ttsName);
     dispatch({ type: 'GET_TEAMS', payload: nbaTeams });
@@ -14,7 +14,7 @@ export const getTeams = () => async dispatch => {
 
 export const getSelectedTeam = team => async dispatch => {
     dispatch({ type: 'SET_IMAGES_HAVE_LOADED', payload: false });
-    dispatch({ type: 'SET_LIST_IS_LOADING', payload: true });
+    // dispatch({ type: 'SET_LIST_IS_LOADING', payload: true });
     dispatch({ type: 'GET_SELECTED_TEAM', payload: team });
     dispatch({ type: 'GET_TEAM_COLOR', payload: team.primaryColor });
     dispatch({ type: 'PRELOAD_PLAYER_DETAILS', payload: null });
@@ -26,6 +26,8 @@ export const getSelectedTeam = team => async dispatch => {
     });
     dispatch({ type: 'GET_PLAYERS', payload: teamRoster });
     dispatch({ type: 'SET_LIST_IS_LOADING', payload: false });
+    dispatch({ type: 'SET_IMAGES_HAVE_LOADED', payload: true });
+
 };
 
 export const getSelectedPlayer = player => async dispatch => {
