@@ -1,6 +1,7 @@
 @import 'src/scss/variables.scss';
 
 .playersListContainer {
+  position: relative;
   display: flex;
   flex: 2;
   flex-wrap: wrap;

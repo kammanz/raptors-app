@@ -7,66 +7,40 @@ import { getSelectedPlayer, setImagesHaveLoaded } from 'actions/actions.js';
 import { formatPlayerPhotoUrl } from 'utils/stringUtils';
 
 import styles from './index.module.scss';
-
-function imagesLoaded(parentNode) {
-    const imgElements = parentNode.querySelectorAll("img");
-    for (const img of imgElements) {
-        if (!img.complete) {
-        return false;
-        };
-    };
-    return true;
-};
+import Overlay from 'components/_shared/overlay';
 
 class List extends React.Component {
     constructor(props) {
         super(props);
-        // console.log('props', props);
-
-        this.ref = createRef();
-        this.lastIndexItem = createRef();
-        this.galleryElement = createRef();
 
         this.state = {
-            selectedId: null,
+            selectedPlayerId: null,
             selectedTeam: this.props.selectedTeam,
             loading: true,
         };
+
     };
 
     componentDidUpdate(prevProps, prevState) {
-        // console.log('comp did update');
-        if (prevProps.selectedTeam !== this.props.selectedTeam) {
-            this.setState({ selectedId: null });
-        };
+        (prevProps.selectedTeam !== this.props.selectedTeam && this.setState({ selectedPlayerId: null, loading: false }));
 
-        if(this.state.loading === false) {
-            // console.log('player images loaded');
-            this.props.setImagesHaveLoaded();
-        };
-    };
-
-    handleOnload = () => {
-        this.setState({ loading: !imagesLoaded(this.galleryElement) });
+        (prevState.loading === false && prevProps.selectedTeam !== this.props.selectedTeam && this.setState({ loading: true }));
+        
+        (prevState.loading === true && prevProps.selectedTeam === this.props.selectedTeam && this.setState({ loading: false }));
     };
 
     renderPlayers() {
         const { players, selectedTeam } = this.props;
-        // if(this.state.loading === false) {
-        //     console.log('player images loaded');
-        // }
-
-        // what happens after loading equals false. 
 
         return players.map((player, index) => {
-            const isSelected = this.state.selectedId === player.person_id;
+            const isSelected = this.state.selectedPlayerId === player.person_id;
             const { teamColor } = player;
            
             return (
                 <div
                     key={index}
                     onClick={() => {
-                        this.setState({ selectedId: player.person_id });
+                        this.setState({ selectedPlayerId: player.person_id });
                         this.props.getSelectedPlayer(player);
                     }}
                     className={classnames(styles.playerCard, isSelected ? styles.selectedCard : null)}
@@ -76,7 +50,6 @@ class List extends React.Component {
                             src={formatPlayerPhotoUrl(selectedTeam.teamId, player.person_id)}
                             alt='player headshot'
                             onError={(e) => e.target.src = placeholderImg}
-                            onLoad={this.handleOnload}
                         />
                     </div>
                     <div style={{borderColor: teamColor}} className={styles.imageLine} />
@@ -94,9 +67,12 @@ class List extends React.Component {
     };
 
     render() {
+        const { selectedTeam, loading } = this.state;
+
         return (
             <div ref={this.ref} ref={element => this.galleryElement = element} className={styles.playersListContainer}>
                     {this.renderPlayers()}
+                    {loading ? <Overlay isLoading={loading}/>: <div/>}
             </div>
         );
     };

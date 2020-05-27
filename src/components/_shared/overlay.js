@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 import styles from './overlay.module.scss';
 
-const Overlay = ({ imagesHaveLoaded }) => {
-    return <div className={styles.overlayDark} />;
+const Overlay = ({isLoading}) => {
+    return <div className={styles.overlayWhite} />;
 };
 
 Overlay.propTypes = {

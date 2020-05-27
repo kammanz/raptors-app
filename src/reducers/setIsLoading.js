@@ -1,7 +1,6 @@
 export default (state = false, action) => {
-    // console.log('this fired');
     switch (action.type) {
-        case 'SET_IMAGES_HAVE_LOADED':
+        case 'DATA_HAS_LOADED':
             return action.payload;
         default:
             return state;
