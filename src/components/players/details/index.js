@@ -12,7 +12,7 @@ import styles from './index.module.scss';
 const Details = ({
     player: {
       details,
-      isLoading, // give the obj an is loading property. what is the equiv in players list?  
+      isLoading,
     },
     teams,
     selectedTeam,
@@ -34,7 +34,7 @@ const Details = ({
       setIsSticky(e.target.scrollTop >= 297);
     };
 
-    if (!details.person_id) { // check to see if there is a player. in list, check to see if there is a team.
+    if (!details.person_id) {
         return (
             <div className={styles.container}>
                 <Placeholder />

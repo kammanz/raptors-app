@@ -5,9 +5,11 @@ import classnames from 'classnames';
 import placeholderImg from 'assets/imgs/placeholder.png';
 import { getSelectedPlayer, setImagesHaveLoaded } from 'actions/actions.js';
 import { formatPlayerPhotoUrl } from 'utils/stringUtils';
+import Overlay from 'components/_shared/overlay';
+import Spinner from 'components/_shared/spinner';
 
 import styles from './index.module.scss';
-import Overlay from 'components/_shared/overlay';
+
 
 class List extends React.Component {
     constructor(props) {
@@ -18,7 +20,6 @@ class List extends React.Component {
             selectedTeam: this.props.selectedTeam,
             loading: true,
         };
-
     };
 
     componentDidUpdate(prevProps, prevState) {
@@ -67,12 +68,23 @@ class List extends React.Component {
     };
 
     render() {
-        const { selectedTeam, loading } = this.state;
-
+        const { loading } = this.state;
+        // make it absolute
         return (
             <div ref={this.ref} ref={element => this.galleryElement = element} className={styles.playersListContainer}>
                     {this.renderPlayers()}
-                    {loading ? <Overlay isLoading={loading}/>: <div/>}
+                    {/* {loading ? <Overlay isLoading={loading}/> : <div/>}
+                    {loading ? <Spinner position={'absolute'} containerHeight={30} isLoading={loading}/> : <div/>} */}
+                    <Overlay isLoading={loading} />
+                    <Spinner 
+                        position={'absolute'}
+                        top={45} 
+                        // bottom={50}
+                        // right={45}
+                        left={45}
+                        containerHeight={30} 
+                        isLoading={!loading} 
+                    />
             </div>
         );
     };
