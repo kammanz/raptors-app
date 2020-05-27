@@ -31,7 +31,6 @@ class List extends React.Component {
 
     renderPlayers() {
         const { players, selectedTeam } = this.props;
-        // console.log(selectedTeam, 'selectedTeam');
 
         return players.map((player, index) => {
             const isSelected = this.state.selectedPlayerId === player.person_id;
