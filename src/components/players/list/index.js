@@ -69,36 +69,21 @@ class List extends React.Component {
 
     render() {
         const { isLoading } = this.state;
-        // make it absolute
+
         return (
             <div ref={this.ref} ref={element => this.galleryElement = element} className={styles.playersListContainer}>
                     {this.renderPlayers()}
                     {isLoading ? <Overlay isLoading={isLoading}/> : <div/>}
-                    {/* {isLoading ? <Spinner position={'absolute'} containerHeight={30} isLoading={isLoading}/> : <div/>} */}
-                    {/* <Overlay isLoading={isLoading} /> */}
-                    {/* <Spinner 
-
-                        position={'absolute'}
-                        top={48} 
-                        // bottom={50}
-                        // right={45}
-                        left={48}
-                        height={50}
-                        // containerHeight={50} 
-                        isLoading={!isLoading} 
-                    /> */}
-                     {isLoading ? <Spinner 
-
-                        position={'absolute'}
-                        top={48} 
-                        // bottom={50}
-                        // right={45}
-                        left={48}
-                        height={40}
-                        // containerHeight={50} 
-                        isLoading={isLoading} 
-                    />:
-                    <div/>}
+                    {isLoading ? 
+                        <Spinner 
+                            position={'absolute'}
+                            top={48} 
+                            left={48}
+                            height={40}
+                            isLoading={isLoading} 
+                        />:
+                        <div/>
+                    }
             </div>
         );
     };

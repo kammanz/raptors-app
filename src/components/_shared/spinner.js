@@ -7,13 +7,11 @@ import { COLORS } from 'enums';
 
 const Spinner = ({ 
   isLoading, 
-  containerHeight, 
-  height,
   position, 
   top, 
-  bottom, 
-  right, 
   left, 
+  containerHeight, 
+  height,
   ...props }) => (
 
   <ScaleLoader
@@ -26,15 +24,10 @@ const Spinner = ({
       height: ${containerHeight}px;
       z-index: 199;
     `}
-    // position={position}
     height={height}
     width={2}
     radius={2}
     margin={2}
-    // top={0}
-    // left={0}
-    // right={0}
-    // bottom={0}
     color={COLORS.GREY}
     loading={isLoading}
     {...props}
@@ -54,14 +47,9 @@ Spinner.propTypes = {
 
 Spinner.defaultProps = {
   isLoading: false,
-  // containerHeight: 48,
+  position: 'relative',
   containerHeight: 48,
   height: 12,
-  // top: null,
-  // bottom: null,
-  // left: null,
-  // right: null,
-  position: 'relative',
 };
 
 export default Spinner;
