@@ -27,13 +27,14 @@ class Header extends React.Component {
         this.props.getTeams();
     };
 
-    onSelectChange = e => {
+    onSelectChange = (e) => {
+        console.log('e', e);
         const { teams, getSelectedTeam } = this.props;
-        const selectedTeam = teams.find(team => team.teamId === e.target.value);
+        const selectedTeam = teams.find(team => team.teamId === e.teamId);
 
         this.setState({
-            selectedTeamTricode: selectedTeam.tricode,
-            selectedTeamId: e.target.value,
+            selectedTeamTricode: e.tricode,
+            selectedTeamId: e.teamId,
         });
 
         getSelectedTeam(selectedTeam);
@@ -55,7 +56,7 @@ class Header extends React.Component {
                             />
                         </div>
                         <div className={styles.selectContainer}>
-                            <select
+                            {/* <select
                                 value={selectedTeamId}
                                 onChange={this.onSelectChange}
                                 style={{ backgroundColor: `${selectedTeamColor}`}}
@@ -63,7 +64,16 @@ class Header extends React.Component {
                                 {teams.map((team) => {
                                     return <option key={team.teamId} value={team.teamId}>{team.ttsName}</option>;
                                 })}
-                            </select>
+                            </select> */}
+                            <Select 
+                                options={teams}
+                                getOptionLabel={team =>
+                                    `${team.ttsName}`
+                                  }
+                                  onChange={e => this.onSelectChange(e)}
+                                //   getOptionValue={option => option}
+                                // value={teams.ttsName}
+                            />
                         </div>
                     </div>
                     <div
