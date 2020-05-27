@@ -5,11 +5,6 @@ export default (
     }, 
     action) => {
     switch (action.type) {
-        case 'SET_LIST_IS_LOADING':
-            return {
-                ...state,
-                isLoading: action.payload,
-            };
         case 'GET_TEAMS':
             return {
                 ...state, 

@@ -40,9 +40,7 @@ Spinner.propTypes = {
   height: PropTypes.number,
   position: PropTypes.string,
   top: PropTypes.number,
-  bottom: PropTypes.number,
   left: PropTypes.number,
-  right: PropTypes.number,
 };
 
 Spinner.defaultProps = {

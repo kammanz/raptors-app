@@ -1,9 +1,9 @@
-import React, { createRef } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 
 import placeholderImg from 'assets/imgs/placeholder.png';
-import { getSelectedPlayer, setImagesHaveLoaded } from 'actions/actions.js';
+import { getSelectedPlayer } from 'actions/actions.js';
 import { formatPlayerPhotoUrl } from 'utils/stringUtils';
 import Overlay from 'components/_shared/overlay';
 import Spinner from 'components/_shared/spinner';
@@ -71,26 +71,26 @@ class List extends React.Component {
         const { isLoading } = this.state;
 
         return (
-            <div ref={this.ref} ref={element => this.galleryElement = element} className={styles.playersListContainer}>
-                    {this.renderPlayers()}
-                    {isLoading ? <Overlay isLoading={isLoading}/> : <div/>}
-                    {isLoading ? 
-                        <Spinner 
-                            position={'absolute'}
-                            top={48} 
-                            left={48}
-                            height={40}
-                            isLoading={isLoading} 
-                        />:
-                        <div/>
-                    }
+            <div className={styles.playersListContainer}>
+                {this.renderPlayers()}
+                {isLoading ? <Overlay isLoading={isLoading}/> : <div/>}
+                {isLoading ? 
+                    <Spinner 
+                        position={'absolute'}
+                        top={48} 
+                        left={48}
+                        height={40}
+                        isLoading={isLoading} 
+                    />:
+                    <div/>
+                }
             </div>
         );
     };
 };
 
 const mapStateToProps = (state) => {
-    return { players: state.players, selectedTeam: state.selectedTeam, loadingState: state.loadingState };
+    return { players: state.players, selectedTeam: state.selectedTeam };
 };
 
-export default connect(mapStateToProps, { getSelectedPlayer, setImagesHaveLoaded })(List);
+export default connect(mapStateToProps, { getSelectedPlayer })(List);
