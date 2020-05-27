@@ -18,7 +18,6 @@ class List extends React.Component {
         this.state = {
             selectedPlayerId: null,
             selectedTeam: this.props.selectedTeam,
-            isLoading: true,
         };
     };
 
@@ -32,6 +31,7 @@ class List extends React.Component {
 
     renderPlayers() {
         const { players, selectedTeam } = this.props;
+        // console.log(selectedTeam, 'selectedTeam');
 
         return players.map((player, index) => {
             const isSelected = this.state.selectedPlayerId === player.person_id;
@@ -48,7 +48,7 @@ class List extends React.Component {
                 >
                     <div className={styles.imageContainer}>
                         <img
-                            src={formatPlayerPhotoUrl(selectedTeam.teamId, player.person_id)}
+                            src={formatPlayerPhotoUrl(selectedTeam.team.teamId, player.person_id)}
                             alt='player headshot'
                             onError={(e) => e.target.src = placeholderImg}
                         />
@@ -68,7 +68,8 @@ class List extends React.Component {
     };
 
     render() {
-        const { isLoading } = this.state;
+        const { isLoading } = this.props.selectedTeam;
+        console.log(this.props, 'this.props');
 
         return (
             <div className={styles.playersListContainer}>
@@ -90,7 +91,7 @@ class List extends React.Component {
 };
 
 const mapStateToProps = (state) => {
-    return { players: state.players, selectedTeam: state.selectedTeam };
+    return { players: state.players, selectedTeam: state.selectedTeam, teams: state.teams };
 };
 
 export default connect(mapStateToProps, { getSelectedPlayer })(List);
