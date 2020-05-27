@@ -14,7 +14,7 @@ export default (
         case 'GET_SELECTED_TEAM':
             return {
                 ...state,
-                team: {...action.payload},
+                team: { ...action.payload },
             }
         default:
             return state;

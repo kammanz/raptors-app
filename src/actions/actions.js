@@ -2,7 +2,6 @@ import dataNbaNet from '../apis/dataNbaNet';
 import { TEAMS } from '../enums';
 
 export const getTeams = () => async dispatch => {
-    dispatch({ type: 'SET_PLAYER_LIST_IS_LOADING', payload: true});
     const allTeamsResponse = await dataNbaNet.get('/prod/2019/teams_config.json');
     const nbaTeams = Object.values(allTeamsResponse.data.teams.config).filter(team => team.ttsName);
     dispatch({ type: 'GET_TEAMS', payload: nbaTeams });

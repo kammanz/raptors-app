@@ -19,8 +19,8 @@ class List extends React.Component {
         };
     };
 
-    componentDidUpdate(prevProps, prevState) {
-        (prevProps.selectedTeam !== this.props.selectedTeam && this.setState({ selectedPlayerId: null, isLoading: false }));
+    componentDidUpdate(prevProps) {
+        (prevProps.selectedTeam !== this.props.selectedTeam && this.setState({ selectedPlayerId: null }));
     };
 
     renderPlayers() {
@@ -37,7 +37,7 @@ class List extends React.Component {
                         this.setState({ selectedPlayerId: player.person_id });
                         this.props.getSelectedPlayer(player);
                     }}
-                    className={classnames(styles.playerCard, isSelected ? styles.selectedCard : null)}
+                    className={classnames(styles.playerCard, isSelected && styles.selectedCard)}
                 >
                     <div className={styles.imageContainer}>
                         <img
