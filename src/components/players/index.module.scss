@@ -1,10 +1,6 @@
 @import 'src/scss/variables.scss';
 
-.container {
-    position: relative;
-}
-
-.gallery {
+.galleryContainer {
     display: flex;
     border-top: 1px solid $grey1;
 }

@@ -1,15 +1,7 @@
-export default (
-    state = {
-        isLoading: true,
-        teams: [],
-    }, 
-    action) => {
+export default (state = [], action) => {
     switch (action.type) {
         case 'GET_TEAMS':
-            return {
-                ...state, 
-                teams: action.payload,
-            }
+            return action.payload;
         default:
             return state;
     };

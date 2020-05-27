@@ -1,6 +1,6 @@
 @import 'src/scss/variables.scss';
 
-.playersListContainer {
+.container {
   position: relative;
   display: flex;
   flex: 2;
@@ -31,12 +31,14 @@
   .imageContainer {
     display: flex;
     justify-content: center;
+    height: 200px;
     padding-top: 10px;
     background-image: url('../../../assets/imgs/player-backdrop.png');
     background-size: cover;
-
+    
     img {
       display: flex;
+      width: 100%;
     }
   }
 

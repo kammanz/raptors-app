@@ -2,14 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 
+import Overlay from 'components/_shared/overlay';
 import placeholderImg from 'assets/imgs/placeholder.png';
 import { getSelectedPlayer } from 'actions/actions.js';
 import { formatPlayerPhotoUrl } from 'utils/stringUtils';
-import Overlay from 'components/_shared/overlay';
-import Spinner from 'components/_shared/spinner';
 
 import styles from './index.module.scss';
-
 
 class List extends React.Component {
     constructor(props) {
@@ -18,16 +16,11 @@ class List extends React.Component {
         this.state = {
             selectedPlayerId: null,
             selectedTeam: this.props.selectedTeam,
-            isLoading: true,
         };
     };
 
-    componentDidUpdate(prevProps, prevState) {
-        (prevProps.selectedTeam !== this.props.selectedTeam && this.setState({ selectedPlayerId: null, isLoading: false }));
-
-        (prevState.isLoading === false && prevProps.selectedTeam !== this.props.selectedTeam && this.setState({ isLoading: true }));
-        
-        (prevState.isLoading === true && prevProps.selectedTeam === this.props.selectedTeam && this.setState({ isLoading: false }));
+    componentDidUpdate(prevProps) {
+        (prevProps.selectedTeam !== this.props.selectedTeam && this.setState({ selectedPlayerId: null }));
     };
 
     renderPlayers() {
@@ -44,11 +37,11 @@ class List extends React.Component {
                         this.setState({ selectedPlayerId: player.person_id });
                         this.props.getSelectedPlayer(player);
                     }}
-                    className={classnames(styles.playerCard, isSelected ? styles.selectedCard : null)}
+                    className={classnames(styles.playerCard, isSelected && styles.selectedCard)}
                 >
                     <div className={styles.imageContainer}>
                         <img
-                            src={formatPlayerPhotoUrl(selectedTeam.teamId, player.person_id)}
+                            src={formatPlayerPhotoUrl(selectedTeam.team.teamId, player.person_id)}
                             alt='player headshot'
                             onError={(e) => e.target.src = placeholderImg}
                         />
@@ -68,22 +61,12 @@ class List extends React.Component {
     };
 
     render() {
-        const { isLoading } = this.state;
+        const { isLoading } = this.props.selectedTeam;
 
         return (
-            <div className={styles.playersListContainer}>
+            <div className={styles.container}>
                 {this.renderPlayers()}
-                {isLoading ? <Overlay isLoading={isLoading}/> : <div/>}
-                {isLoading ? 
-                    <Spinner 
-                        position={'absolute'}
-                        top={48} 
-                        left={48}
-                        height={40}
-                        isLoading={isLoading} 
-                    />:
-                    <div/>
-                }
+                {isLoading && <Overlay isLoading={isLoading} />}
             </div>
         );
     };

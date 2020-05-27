@@ -11,6 +11,7 @@ export const getTeams = () => async dispatch => {
 };
 
 export const getSelectedTeam = team => async dispatch => {
+    dispatch({ type: 'SET_PLAYER_LIST_IS_LOADING', payload: true});
     dispatch({ type: 'GET_SELECTED_TEAM', payload: team });
     dispatch({ type: 'GET_TEAM_COLOR', payload: team.primaryColor });
     dispatch({ type: 'PRELOAD_PLAYER_DETAILS', payload: null });
@@ -21,6 +22,7 @@ export const getSelectedTeam = team => async dispatch => {
         return { ...player, teamColor: team.primaryColor };
     });
     dispatch({ type: 'GET_PLAYERS', payload: teamRoster });
+    dispatch({ type: 'SET_PLAYER_LIST_IS_LOADING', payload: false});
 };
 
 export const getSelectedPlayer = player => async dispatch => {
@@ -33,7 +35,3 @@ export const getSelectedPlayer = player => async dispatch => {
     dispatch({ type: 'SET_RECENT_GAMES', payload: { ...gamesResponse.data.league.standard }});
     dispatch({ type: 'SET_PLAYER_DETAILS_IS_LOADING', payload: false });
 };
-
-export const setImagesHaveLoaded = () => async dispatch => {
-    dispatch({ type: 'SET_IMAGES_HAVE_LOADED', payload: true });
-}; 
