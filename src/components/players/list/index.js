@@ -6,10 +6,8 @@ import placeholderImg from 'assets/imgs/placeholder.png';
 import { getSelectedPlayer } from 'actions/actions.js';
 import { formatPlayerPhotoUrl } from 'utils/stringUtils';
 import Overlay from 'components/_shared/overlay';
-import Spinner from 'components/_shared/spinner';
 
 import styles from './index.module.scss';
-
 
 class List extends React.Component {
     constructor(props) {
@@ -23,10 +21,6 @@ class List extends React.Component {
 
     componentDidUpdate(prevProps, prevState) {
         (prevProps.selectedTeam !== this.props.selectedTeam && this.setState({ selectedPlayerId: null, isLoading: false }));
-
-        (prevState.isLoading === false && prevProps.selectedTeam !== this.props.selectedTeam && this.setState({ isLoading: true }));
-        
-        (prevState.isLoading === true && prevProps.selectedTeam === this.props.selectedTeam && this.setState({ isLoading: false }));
     };
 
     renderPlayers() {
@@ -68,29 +62,18 @@ class List extends React.Component {
 
     render() {
         const { isLoading } = this.props.selectedTeam;
-        console.log(this.props, 'this.props');
 
         return (
-            <div className={styles.playersListContainer}>
+            <div className={styles.container}>
                 {this.renderPlayers()}
-                {isLoading ? <Overlay isLoading={isLoading}/> : <div/>}
-                {isLoading ? 
-                    <Spinner 
-                        position={'absolute'}
-                        top={48} 
-                        left={48}
-                        height={40}
-                        isLoading={isLoading} 
-                    />:
-                    <div/>
-                }
+                {isLoading && <Overlay isLoading={isLoading} />}
             </div>
         );
     };
 };
 
 const mapStateToProps = (state) => {
-    return { players: state.players, selectedTeam: state.selectedTeam, teams: state.teams };
+    return { players: state.players, selectedTeam: state.selectedTeam };
 };
 
 export default connect(mapStateToProps, { getSelectedPlayer })(List);
