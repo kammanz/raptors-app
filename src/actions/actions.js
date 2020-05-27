@@ -36,7 +36,3 @@ export const getSelectedPlayer = player => async dispatch => {
     dispatch({ type: 'SET_RECENT_GAMES', payload: { ...gamesResponse.data.league.standard }});
     dispatch({ type: 'SET_PLAYER_DETAILS_IS_LOADING', payload: false });
 };
-
-export const setImagesHaveLoaded = () => async dispatch => {
-    dispatch({ type: 'SET_IMAGES_HAVE_LOADED', payload: true });
-}; 

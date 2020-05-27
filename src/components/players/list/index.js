@@ -2,10 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 
+import Overlay from 'components/_shared/overlay';
 import placeholderImg from 'assets/imgs/placeholder.png';
 import { getSelectedPlayer } from 'actions/actions.js';
 import { formatPlayerPhotoUrl } from 'utils/stringUtils';
-import Overlay from 'components/_shared/overlay';
 
 import styles from './index.module.scss';
 
