@@ -18,16 +18,16 @@ class List extends React.Component {
         this.state = {
             selectedPlayerId: null,
             selectedTeam: this.props.selectedTeam,
-            loading: true,
+            isLoading: true,
         };
     };
 
     componentDidUpdate(prevProps, prevState) {
-        (prevProps.selectedTeam !== this.props.selectedTeam && this.setState({ selectedPlayerId: null, loading: false }));
+        (prevProps.selectedTeam !== this.props.selectedTeam && this.setState({ selectedPlayerId: null, isLoading: false }));
 
-        (prevState.loading === false && prevProps.selectedTeam !== this.props.selectedTeam && this.setState({ loading: true }));
+        (prevState.isLoading === false && prevProps.selectedTeam !== this.props.selectedTeam && this.setState({ isLoading: true }));
         
-        (prevState.loading === true && prevProps.selectedTeam === this.props.selectedTeam && this.setState({ loading: false }));
+        (prevState.isLoading === true && prevProps.selectedTeam === this.props.selectedTeam && this.setState({ isLoading: false }));
     };
 
     renderPlayers() {
@@ -68,23 +68,37 @@ class List extends React.Component {
     };
 
     render() {
-        const { loading } = this.state;
+        const { isLoading } = this.state;
         // make it absolute
         return (
             <div ref={this.ref} ref={element => this.galleryElement = element} className={styles.playersListContainer}>
                     {this.renderPlayers()}
-                    {/* {loading ? <Overlay isLoading={loading}/> : <div/>}
-                    {loading ? <Spinner position={'absolute'} containerHeight={30} isLoading={loading}/> : <div/>} */}
-                    <Overlay isLoading={loading} />
-                    <Spinner 
+                    {isLoading ? <Overlay isLoading={isLoading}/> : <div/>}
+                    {/* {isLoading ? <Spinner position={'absolute'} containerHeight={30} isLoading={isLoading}/> : <div/>} */}
+                    {/* <Overlay isLoading={isLoading} /> */}
+                    {/* <Spinner 
+
                         position={'absolute'}
-                        top={45} 
+                        top={48} 
                         // bottom={50}
                         // right={45}
-                        left={45}
-                        containerHeight={30} 
-                        isLoading={!loading} 
-                    />
+                        left={48}
+                        height={50}
+                        // containerHeight={50} 
+                        isLoading={!isLoading} 
+                    /> */}
+                     {isLoading ? <Spinner 
+
+                        position={'absolute'}
+                        top={48} 
+                        // bottom={50}
+                        // right={45}
+                        left={48}
+                        height={40}
+                        // containerHeight={50} 
+                        isLoading={isLoading} 
+                    />:
+                    <div/>}
             </div>
         );
     };
