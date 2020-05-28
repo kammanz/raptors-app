@@ -45,6 +45,25 @@ class Header extends React.Component {
         const { teams, selectedTeamColor } = this.props;
         const DropdownIndicator = () => <img src={dropdownWhite} />;
 
+        const CustomOption = ( props ) => {
+            console.log(props.data);
+            const { innerRef, innerProps} = this.props;
+
+            // in here, i need to make the selected team tricode dynamic. need to access that var. 
+
+            // console.log(innerProps);
+            return (
+                <div ref={innerRef} {...innerProps}>
+                    <img
+                        src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${props.data.tricode}.svg`}
+                        title='team logo'
+                        alt='team logo'
+                    />
+                    <div>{props.data.ttsName}</div>
+                </div>
+            );
+        };
+
         return (
             <div className={styles.container}>
                 <div className={styles.teamContainer} style={{backgroundColor: `${selectedTeamColor}`}}>
@@ -60,12 +79,13 @@ class Header extends React.Component {
                     <div className={styles.selectContainer}>
                         <Select 
                             options={teams}
+                            getOptionValue={option => option.ttsName}
                             getOptionLabel={team =>
                                 `${team.ttsName}`
                             }
                             onChange={e => this.onSelectChange(e)}
                             styles={selectMenuStyles()}
-                            components={{ DropdownIndicator }}
+                            components={{ DropdownIndicator, Option: CustomOption }}
                             value={teams.find(team => team.teamId === selectedTeamId)}
                             isSearchable={false}
                         />
