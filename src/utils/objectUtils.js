@@ -9,34 +9,14 @@
 export const selectMenuStyles = (selectedTeamColor) => {
     return (
         {
-            control: () => ({
-                display: 'flex',
-                height: '100%',
-            }),
             container: (provided) => ({
                 ...provided,
                 backgroundColor: `${selectedTeamColor}`,
                 height: '100%',
             }),
-            indicatorsContainer: (provided) => ({
-                ...provided,
+            control: () => ({
                 display: 'flex',
-                justifyContent: 'center',
-                width: '30px',
-                paddingRight: '22px',
-            }),  
-            indicatorSeparator: (provided) => ({
-                ...provided,
-                display: 'none',
-            }),
-            indicatorContainer: () => ({
-                alignSelf: 'center',
-            }),
-            option: (provided, state) => ({
-                ...provided,
-                borderBottom: '1px dotted pink',
-                color: state.isSelected ? 'red' : 'blue',
-                padding: 20,
+                height: '100%',
             }),
             valueContainer: (provided) => ({
                 ...provided,
@@ -51,10 +31,27 @@ export const selectMenuStyles = (selectedTeamColor) => {
                 color: 'white',
                 margin: '0',
             }),
+            indicatorsContainer: (provided) => ({
+                ...provided,
+                display: 'flex',
+                justifyContent: 'center',
+                width: '30px',
+                paddingRight: '22px',
+            }),  
+            indicatorSeparator: (provided) => ({
+                ...provided,
+                display: 'none',
+            }),
             placeholder: (provided) => ({
                 ...provided,
                 color: 'white',
-            })
+            }),
+            option: (provided, state) => ({
+                ...provided,
+                borderBottom: '1px dotted pink',
+                color: state.isSelected ? 'red' : 'blue',
+                padding: 20,
+            }),
         }
     );
 };

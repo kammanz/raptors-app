@@ -78,7 +78,7 @@ class Header extends React.Component {
 
                 <NavMenu selectedTeamColor={selectedTeamColor} />
 
-                <div className={styles.user}>
+                <div className={styles.userContainer}>
                     <button>
                         <img src={bell} alt='notification bell'></img>
                     </button>
