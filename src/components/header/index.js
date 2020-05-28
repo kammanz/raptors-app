@@ -4,6 +4,7 @@ import Select, { components } from 'react-select';
 
 import { getTeams, getSelectedTeam } from '../../actions/actions.js';
 import { TEAMS, COLORS } from '../../enums';
+import { selectMenuStyles } from 'utils/objectUtils';
 
 import NavMenu from './navMenu';
 
@@ -42,62 +43,6 @@ class Header extends React.Component {
     render() {
         const { selectedTeamTricode, selectedTeamId } = this.state;
         const { teams, selectedTeamColor } = this.props;
-
-        const customStyles = {
-            control: () => ({
-                // none of react-select's styles are passed to <Control />
-                display: 'flex',
-                height: '100%',
-              }),
-            container: (provided, state) => ({
-                ...provided,
-                backgroundColor: `${selectedTeamColor}`,
-                // marginLeft: '5px',
-                height: '100%',
-              }),
-            indicatorsContainer: (provided, state) => ({
-                ...provided,
-                display: 'flex',
-                justifyContent: 'center',
-                width: '30px',
-                paddingRight: '22px',
-            }),  
-            indicatorSeparator: (provided, state) => ({
-                ...provided,
-                display: 'none',
-            }),
-            indicatorContainer: () => ({
-                alignSelf: 'center',
-            }),
-            option: (provided, state) => ({
-              ...provided,
-              borderBottom: '1px dotted pink',
-              color: state.isSelected ? 'red' : 'blue',
-              padding: 20,
-            }),
-            valueContainer: (provided) => ({
-                ...provided,
-                color: 'white',
-                fontFamily: 'spurs',
-                fontSize: '22px',
-                padding: '0',
-                margin: '0',
-            }),
-            singleValue: (provided, state) => ({
-                ...provided,
-                color: 'white',
-                margin: '0',
-            //   const opacity = state.isDisabled ? 0.5 : 1;
-            //   const transition = 'opacity 300ms';
-          
-            //   return { ...provided, opacity, transition };
-            }),
-            placeholder: (provided) => ({
-                ...provided,
-                color: 'white',
-            })
-        };
-
         const DropdownIndicator = () => <img src={dropdownWhite} />;
 
         return (
@@ -119,7 +64,7 @@ class Header extends React.Component {
                                 `${team.ttsName}`
                             }
                             onChange={e => this.onSelectChange(e)}
-                            styles={customStyles}
+                            styles={selectMenuStyles()}
                             components={{ DropdownIndicator }}
                             value={teams.find(team => team.teamId === selectedTeamId)}
                             isSearchable={false}
