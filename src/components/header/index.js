@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Select from 'react-select';
+import Select, { components } from 'react-select';
 
 import { getTeams, getSelectedTeam } from '../../actions/actions.js';
 import { TEAMS, COLORS } from '../../enums';
@@ -8,6 +8,7 @@ import { TEAMS, COLORS } from '../../enums';
 import NavMenu from './navMenu';
 
 import bell from '../../assets/icons/notification-bell.svg';
+import dropdownWhite from '../../assets/icons/dropdownWhite.svg';
 import settingsIcon from '../../assets/icons/settings-icon.svg';
 import kobe from '../../assets/imgs/kobe.png';
 
@@ -28,25 +29,77 @@ class Header extends React.Component {
     };
 
     onSelectChange = (e) => {
-        console.log('e', e);
-        const { teams, getSelectedTeam } = this.props;
-        const selectedTeam = teams.find(team => team.teamId === e.teamId);
+        const { getSelectedTeam } = this.props;
 
         this.setState({
             selectedTeamTricode: e.tricode,
             selectedTeamId: e.teamId,
         });
 
-        getSelectedTeam(selectedTeam);
+        getSelectedTeam(e);
     };
 
     render() {
         const { selectedTeamTricode, selectedTeamId } = this.state;
         const { teams, selectedTeamColor } = this.props;
 
+        const customStyles = {
+            control: () => ({
+                // none of react-select's styles are passed to <Control />
+                display: 'flex',
+                height: '100%',
+              }),
+            container: (provided, state) => ({
+                ...provided,
+                backgroundColor: `${selectedTeamColor}`,
+                marginLeft: '5px',
+                height: '100%',
+              }),
+            indicatorsContainer: (provided, state) => ({
+                ...provided,
+                display: 'flex',
+                justifyContent: 'center',
+                width: '30px',
+                paddingRight: '22px',
+            }),  
+            indicatorSeparator: (provided, state) => ({
+                ...provided,
+                display: 'none',
+            }),
+            indicatorContainer: () => ({
+                alignSelf: 'center',
+            }),
+            option: (provided, state) => ({
+              ...provided,
+              borderBottom: '1px dotted pink',
+              color: state.isSelected ? 'red' : 'blue',
+              padding: 20,
+            }),
+            valueContainer: (provided) => ({
+                ...provided,
+                color: 'white',
+                fontFamily: 'spurs',
+                fontSize: '22px',
+            }),
+            singleValue: (provided, state) => ({
+                ...provided,
+                color: 'white',
+            //   const opacity = state.isDisabled ? 0.5 : 1;
+            //   const transition = 'opacity 300ms';
+          
+            //   return { ...provided, opacity, transition };
+            }),
+            placeholder: (provided) => ({
+                ...provided,
+                color: 'white',
+            })
+        };
+
+        const DropdownIndicator = () => <img src={dropdownWhite} />;
+
         return (
             <div className={styles.container}>
-                <div className={styles.team} style={{backgroundColor: `${selectedTeamColor}`}}>
+                <div className={styles.teamContainer} style={{backgroundColor: `${selectedTeamColor}`}}>
                     <div className={styles.logoContainer}>
                         <div className={styles.imgContainer}>
                            <img
@@ -55,26 +108,18 @@ class Header extends React.Component {
                                 alt='team logo'
                             />
                         </div>
-                        <div className={styles.selectContainer}>
-                            {/* <select
-                                value={selectedTeamId}
-                                onChange={this.onSelectChange}
-                                style={{ backgroundColor: `${selectedTeamColor}`}}
-                            >
-                                {teams.map((team) => {
-                                    return <option key={team.teamId} value={team.teamId}>{team.ttsName}</option>;
-                                })}
-                            </select> */}
-                            <Select 
-                                options={teams}
-                                getOptionLabel={team =>
-                                    `${team.ttsName}`
-                                  }
-                                  onChange={e => this.onSelectChange(e)}
-                                //   getOptionValue={option => option}
-                                // value={teams.ttsName}
-                            />
-                        </div>
+                    </div>    
+                    <div className={styles.selectContainer}>
+                        <Select 
+                            options={teams}
+                            getOptionLabel={team =>
+                                `${team.ttsName}`
+                            }
+                            onChange={e => this.onSelectChange(e)}
+                            styles={customStyles}
+                            components={{ DropdownIndicator }}
+                            value={teams.find(team => team.teamId === selectedTeamId)}
+                        />
                     </div>
                     <div
                         style={{ borderColor: `${selectedTeamColor || COLORS.LIGHT_GREY} transparent transparent transparent` }}

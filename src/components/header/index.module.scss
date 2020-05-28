@@ -9,7 +9,7 @@
   font-family: Abadi;
   list-style: none;
   
-  .team {
+  .teamContainer {
     position: relative;
     display: flex;
 
@@ -27,10 +27,19 @@
       text-transform: uppercase;
       cursor: pointer;
 
-      img {
-        height: 35px;
-      }
+      .imgContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        border-radius: 50%;
+        background-color: $white;
 
+        img {
+          height: 35px;
+        }
+      }
+      
       span {
         margin: 2px 13px 0 8px;
       }
@@ -85,14 +94,7 @@
   }
 } 
 
-.imgContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 35px;
-  border-radius: 50%;
-  background-color: $white;
-}
+
 
 .selectContainer {
   width: 270px;
