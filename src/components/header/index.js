@@ -47,7 +47,7 @@ class Header extends React.Component {
 
         const CustomOption = ( props ) => {
             console.log(props.data);
-            const { innerRef, innerProps} = this.props;
+            const { innerRef, innerProps} = props;
 
             // in here, i need to make the selected team tricode dynamic. need to access that var. 
 
