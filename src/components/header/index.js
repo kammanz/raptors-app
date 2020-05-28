@@ -52,7 +52,7 @@ class Header extends React.Component {
             container: (provided, state) => ({
                 ...provided,
                 backgroundColor: `${selectedTeamColor}`,
-                marginLeft: '5px',
+                // marginLeft: '5px',
                 height: '100%',
               }),
             indicatorsContainer: (provided, state) => ({
@@ -80,10 +80,13 @@ class Header extends React.Component {
                 color: 'white',
                 fontFamily: 'spurs',
                 fontSize: '22px',
+                padding: '0',
+                margin: '0',
             }),
             singleValue: (provided, state) => ({
                 ...provided,
                 color: 'white',
+                margin: '0',
             //   const opacity = state.isDisabled ? 0.5 : 1;
             //   const transition = 'opacity 300ms';
           
@@ -119,6 +122,7 @@ class Header extends React.Component {
                             styles={customStyles}
                             components={{ DropdownIndicator }}
                             value={teams.find(team => team.teamId === selectedTeamId)}
+                            isSearchable={false}
                         />
                     </div>
                     <div
