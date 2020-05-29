@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Select, { components } from 'react-select';
+import classnames from 'classnames';
 
 import { getTeams, getSelectedTeam } from '../../actions/actions.js';
 import { TEAMS, COLORS } from '../../enums';
@@ -46,20 +47,21 @@ class Header extends React.Component {
         const DropdownIndicator = () => <img src={dropdownWhite} />;
 
         const CustomOption = ( props ) => {
-            console.log(props.data);
-            const { innerRef, innerProps} = props;
+            const { data, innerRef, innerProps } = props;
+            console.log(props.data.primaryColor);
 
-            // in here, i need to make the selected team tricode dynamic. need to access that var. 
-
-            // console.log(innerProps);
             return (
-                <div ref={innerRef} {...innerProps}>
-                    <img
-                        src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${props.data.tricode}.svg`}
-                        title='team logo'
-                        alt='team logo'
-                    />
-                    <div>{props.data.ttsName}</div>
+                <div ref={innerRef} {...innerProps} style={{ backgroundColor: `${props.data.primaryColor}`}} className={styles.optionContainer}>
+                    <div className={styles.optionImgContainer}>
+                         <img
+                            src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${data.tricode}.svg`}
+                            title='team logo'
+                            alt='team logo'
+                            className={styles.optionImage}
+                        />
+                    </div>
+                   
+                    <div className={styles.optionTitle}>{data.ttsName}</div>
                 </div>
             );
         };
@@ -69,17 +71,17 @@ class Header extends React.Component {
                 <div className={styles.teamContainer} style={{backgroundColor: `${selectedTeamColor}`}}>
                     <div className={styles.logoContainer}>
                         <div className={styles.imgContainer}>
-                           <img
+                           {/* <img
                                 src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${selectedTeamTricode}.svg`}
                                 title='team logo'
                                 alt='team logo'
-                            />
+                            /> */}
                         </div>
                     </div>    
                     <div className={styles.selectContainer}>
                         <Select 
                             options={teams}
-                            getOptionValue={option => option.ttsName}
+                            // getOptionValue={option => option.ttsName}
                             getOptionLabel={team =>
                                 `${team.ttsName}`
                             }

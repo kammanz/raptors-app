@@ -46,10 +46,12 @@ export const selectMenuStyles = (selectedTeamColor) => {
                 ...provided,
                 color: 'white',
             }),
-            option: (provided, state) => ({
+            option: (provided) => ({
                 ...provided,
+                display: 'flex',
+                backgroundColor: 'pink',
                 borderBottom: '1px dotted pink',
-                color: state.isSelected ? 'red' : 'blue',
+                // color: state.isSelected ? 'red' : 'blue',
                 padding: 20,
             }),
         }

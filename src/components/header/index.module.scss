@@ -94,3 +94,34 @@
   border-style: solid;
   border-color: $grey1 transparent transparent;
 }
+
+.optionContainer {
+  display: flex;
+  align-items: center;
+  color: white;
+  height: 45px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.optionImgContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  margin-left: 10px;
+  border-radius: 50%;
+  background-color: $white;
+}
+
+.optionImage {
+  height: 35px;
+}
+
+.optionTitle {
+  color: 'white';
+  font-family: 'spurs';
+  font-size: 22px;
+  padding-left: 10px;
+  margin: '0';
+}
