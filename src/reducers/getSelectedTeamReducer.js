@@ -6,7 +6,7 @@ export default (
     action) => {
 
     switch (action.type) {
-        case 'SET_PLAYER_LIST_IS_LOADING':
+        case 'SET_PLAYERS_LIST_IS_LOADING':
             return {
                 ...state,
                 isLoading: action.payload,

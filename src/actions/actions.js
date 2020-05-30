@@ -11,7 +11,7 @@ export const getTeams = () => async dispatch => {
 };
 
 export const getSelectedTeam = team => async dispatch => {
-    dispatch({ type: 'SET_PLAYER_LIST_IS_LOADING', payload: true});
+    dispatch({ type: 'SET_PLAYERS_LIST_IS_LOADING', payload: true });
     dispatch({ type: 'GET_SELECTED_TEAM', payload: team });
     dispatch({ type: 'GET_TEAM_COLOR', payload: team.primaryColor });
     dispatch({ type: 'PRELOAD_PLAYER_DETAILS', payload: null });
@@ -21,8 +21,9 @@ export const getSelectedTeam = team => async dispatch => {
     const teamRoster = teamRosterResponse.data.sports_content.roster.players.player.map((player) => {
         return { ...player, teamColor: team.primaryColor };
     });
+    
     dispatch({ type: 'GET_PLAYERS', payload: teamRoster });
-    dispatch({ type: 'SET_PLAYER_LIST_IS_LOADING', payload: false});
+    dispatch({ type: 'SET_PLAYERS_LIST_IS_LOADING', payload: false });
 };
 
 export const getSelectedPlayer = player => async dispatch => {

@@ -9,7 +9,7 @@ const Spinner = ({
     isLoading, 
     containerHeight, 
     height,
-    ...props 
+    ...props
   }) => (
 
   <ScaleLoader
