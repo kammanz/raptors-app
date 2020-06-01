@@ -10,6 +10,10 @@
     width: 100%;
     height: 100%;
     background-color: rgba( $white, 0.3);
-    // visibility: hidden;
+    visibility: none;
     cursor: pointer;
+}
+
+.isVisible {
+    visibility: visible;
 }

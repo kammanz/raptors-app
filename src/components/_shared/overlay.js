@@ -5,7 +5,7 @@ import styles from './overlay.module.scss';
 
 const Overlay = ({ children, isLoading }) => {
     return (
-        <div style={isLoading ? { visibility: 'visible' } : { visibility: 'hidden' }} className={styles.container}>
+        <div className={styles.container, isLoading && styles.isVisible}>
             {children}
         </div>
     );

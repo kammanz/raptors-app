@@ -22,18 +22,9 @@ class List extends React.Component {
     };
 
     componentDidUpdate(prevProps) {
-        // console.log(this.props.selectedTeam.isLoading);
-
-        // if (this.props.selectedTeam.isLoading) {
-        //     // this.ref.current.scrollTo(0,0);
-        //     this.ref.current.style.overflow = 'hidden';
-        // } else {
-        //     this.ref.current.style.overflow = 'auto';
-        // }
-
         if (prevProps.selectedTeam !== this.props.selectedTeam) { 
             this.setState({ selectedPlayerId: null });
-            // this.ref.current.scrollTo(0,0);
+            this.ref.current.scrollTo(0,0);
         };
     };
 
@@ -42,16 +33,13 @@ class List extends React.Component {
             players, 
             selectedTeam: {
                 isLoading,
-                team: { teamId }
-            } 
+                team: { teamId },
+            }, 
         } = this.props;
 
-        // const { isLoading, team } = selectedTeam; 
-        // const { teamId } = team;
-        // console.log('isLoading renderPlayers', isLoading);
+        const emptyPlayers = new Array(20).fill({});
 
-        return players.map((player, index) => {
-            // console.log('isLoading renderPlayers map function', isLoading);
+        return (isLoading ? emptyPlayers : players).map((player, index) => {
             const { 
                 teamColor, 
                 person_id,
@@ -77,9 +65,7 @@ class List extends React.Component {
                 >
                     <div className={styles.imageContainer}>
                         <img
-                            // src={placeholderImg}
-                            // src={isLoading ? placeholderImg : null}
-                            src={isLoading && !teamId ? placeholderImg : formatPlayerPhotoUrl(teamId, person_id)}
+                            src={isLoading ? placeholderImg : formatPlayerPhotoUrl(teamId, person_id)}
                             alt='player headshot'
                             onError={(e) => e.target.src = placeholderImg}
                         />
@@ -90,7 +76,7 @@ class List extends React.Component {
                         <div className={styles.details}>
                             <div className={styles.name}>{first_name} {last_name}</div>
                             <div className={styles.position}>{position_full}</div>
-                            <div className={styles.size}>{height_ft}-{height_in}, {weight_lbs} lbs</div>
+                            <div className={styles.size}>{height_ft}-{height_in}, {weight_lbs} {!isLoading && 'lbs'}</div>
                         </div>
                     </div>
                 </div>
@@ -100,14 +86,12 @@ class List extends React.Component {
 
     render() {
         const { isLoading } = this.props.selectedTeam;
-        console.log('render this.props.selectedTeam', this.props.selectedTeam);
-        console.log('isLoading render', isLoading);
 
         return (
             <div ref={this.ref} className={styles.container}>
                 <Overlay isLoading={isLoading}>
                     <Spinner height={19} width={4} radius={3} isLoading={isLoading} />
-                </Overlay> 
+                </Overlay>
                 {this.renderPlayers()}
             </div>
         );
