@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 import styles from './overlay.module.scss';
 
 const Overlay = ({ children, isLoading }) => {
     return (
-        <div className={styles.container, isLoading && styles.isVisible}>
+        <div className={classnames(styles.container, isLoading && styles.visible)}>
             {children}
         </div>
     );

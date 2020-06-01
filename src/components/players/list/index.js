@@ -38,8 +38,9 @@ class List extends React.Component {
         } = this.props;
 
         const emptyPlayers = new Array(20).fill({});
-
+        (isLoading && console.log('empty players fired', emptyPlayers));
         return (isLoading ? emptyPlayers : players).map((player, index) => {
+            
             const { 
                 teamColor, 
                 person_id,
@@ -86,12 +87,12 @@ class List extends React.Component {
 
     render() {
         const { isLoading } = this.props.selectedTeam;
-
+        console.log('isloading render', isLoading);
         return (
             <div ref={this.ref} className={styles.container}>
-                <Overlay isLoading={isLoading}>
-                    <Spinner height={19} width={4} radius={3} isLoading={isLoading} />
-                </Overlay>
+                <Overlay isLoading={isLoading} children={<Spinner height={19} width={4} radius={3} isLoading={isLoading} />} />
+                    {/* <Spinner height={19} width={4} radius={3} isLoading={isLoading} /> */}
+                {/* </Overlay> */}
                 {this.renderPlayers()}
             </div>
         );
