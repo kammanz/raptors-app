@@ -41,6 +41,7 @@ class Header extends React.Component {
     render() {
         const { selectedTeamTricode, selectedTeamId } = this.state;
         const { teams, selectedTeamColor } = this.props;
+        console.log('selected team', this.props.selectedTeam);
 
         return (
             <div className={styles.container}>
