@@ -14,12 +14,10 @@ const Overlay = ({ children, isLoading }) => {
 
 Overlay.propTypes = {
     children: PropTypes.node,
-    isLoading: PropTypes.bool,
 };
 
 Overlay.defaultProps = {
     children: null,
-    isLoading: true,
 };
 
 export default Overlay;

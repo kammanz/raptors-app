@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import Overlay from 'components/_shared/overlay';
 import Spinner from 'components/_shared/spinner';
 import placeholderImg from 'assets/imgs/placeholder.png';
-import { getSelectedPlayer } from 'actions/actions.js';
+import { getSelectedPlayer } from 'actions/actions';
 import { formatPlayerPhotoUrl } from 'utils/stringUtils';
 
 import styles from './index.module.scss';
@@ -24,7 +24,10 @@ class List extends React.Component {
     componentDidUpdate(prevProps) {
         if (prevProps.selectedTeam !== this.props.selectedTeam) { 
             this.setState({ selectedPlayerId: null });
-            this.ref.current.scrollTo(0,0);
+        };
+
+        if (!prevProps.selectedTeam.isLoading && this.props.selectedTeam.isLoading) {
+            this.ref.current.scrollTo(0, 0);
         };
     };
 
@@ -38,7 +41,7 @@ class List extends React.Component {
         } = this.props;
 
         const emptyPlayers = new Array(20).fill({});
-        (isLoading && console.log('empty players fired', emptyPlayers));
+        
         return (isLoading ? emptyPlayers : players).map((player, index) => {
             
             const { 
@@ -66,19 +69,24 @@ class List extends React.Component {
                 >
                     <div className={styles.imageContainer}>
                         <img
-                            src={isLoading ? placeholderImg : formatPlayerPhotoUrl(teamId, person_id)}
+                            src={person_id ? formatPlayerPhotoUrl(teamId, person_id): placeholderImg}
                             alt='player headshot'
                             onError={(e) => e.target.src = placeholderImg}
                         />
                     </div>
                     <div style={{borderColor: teamColor}} className={styles.imageLine} />
                     <div style={{backgroundColor: isSelected && teamColor}} className={styles.detailsContainer}>
-                        <div className={styles.number}>{jersey_number}</div>
-                        <div className={styles.details}>
-                            <div className={styles.name}>{first_name} {last_name}</div>
-                            <div className={styles.position}>{position_full}</div>
-                            <div className={styles.size}>{height_ft}-{height_in}, {weight_lbs} {!isLoading && 'lbs'}</div>
-                        </div>
+                        {Object.keys(player).length ? 
+                            <>
+                                <div className={styles.number}>{jersey_number}</div>
+                                <div className={styles.details}>
+                                    <div className={styles.name}>{first_name} {last_name}</div>
+                                    <div className={styles.position}>{position_full}</div>
+                                    <div className={styles.size}>{height_ft}-{height_in}, {weight_lbs} lbs</div>
+                                </div>
+                            </> :
+                            null
+                        }
                     </div>
                 </div>
             );
@@ -87,12 +95,12 @@ class List extends React.Component {
 
     render() {
         const { isLoading } = this.props.selectedTeam;
-        console.log('isloading render', isLoading);
+
         return (
-            <div ref={this.ref} className={styles.container}>
-                <Overlay isLoading={isLoading} children={<Spinner height={19} width={4} radius={3} isLoading={isLoading} />} />
-                    {/* <Spinner height={19} width={4} radius={3} isLoading={isLoading} /> */}
-                {/* </Overlay> */}
+            <div ref={this.ref} className={classnames(styles.container, isLoading && styles.noScroll)}>
+                <Overlay isLoading={isLoading}>
+                    <Spinner height={19} width={4} radius={3} isLoading={isLoading} />
+                </Overlay>
                 {this.renderPlayers()}
             </div>
         );
