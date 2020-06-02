@@ -13,6 +13,7 @@ export const selectMenuStyles = (selectedTeamColor) => {
                 ...provided,
                 backgroundColor: `${selectedTeamColor}`,
                 height: '100%',
+                // width: '350px',
             }),
             control: () => ({
                 display: 'flex',

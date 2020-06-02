@@ -90,15 +90,6 @@ class Header extends React.Component {
         return (
             <div className={styles.container}>
                 <div className={styles.teamContainer} style={{backgroundColor: `${selectedTeamColor}`}}>
-                    <div className={styles.logoContainer}>
-                        <div className={styles.imgContainer}>
-                           {/* <img
-                                src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${selectedTeamTricode}.svg`}
-                                title='team logo'
-                                alt='team logo'
-                            /> */}
-                        </div>
-                    </div>    
                     <div className={styles.selectContainer}>
                         <Select 
                             options={teams}
@@ -111,7 +102,6 @@ class Header extends React.Component {
                             components={{ DropdownIndicator, Option: CustomOption, SingleValue: CustomOption }}
                             value={teams.find(team => team.teamId === selectedTeamId)}
                             isSearchable={false}
-                            placeholder={null}
                         />
                     </div>
                     <div
