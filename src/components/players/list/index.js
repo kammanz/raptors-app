@@ -35,22 +35,19 @@ class List extends React.Component {
     };
 
     renderPlayers() {
-        const { 
-            players, 
+        const {
+            players,
             selectedTeam: {
-                isLoading,
                 team: { teamId },
-            }, 
+            },
         } = this.props;
 
-        const emptyPlayers = new Array(20).fill({});
-        
-        return (isLoading ? emptyPlayers : players).map((player, index) => {
-            const { 
-                teamColor, 
+        return players.map((player, index) => {
+            const {
+                teamColor,
                 person_id,
                 first_name,
-                last_name, 
+                last_name,
                 jersey_number,
                 position_full,
                 height_ft,
@@ -58,7 +55,7 @@ class List extends React.Component {
                 weight_lbs,
             } = player;
             const isSelected = this.state.selectedPlayerId === person_id;
-            
+
             return (
                 <div
                     key={index}
@@ -94,7 +91,8 @@ class List extends React.Component {
     };
 
     render() {
-        const { isLoading } = this.props.selectedTeam;
+        const { players } = this.props;
+        const isLoading = !players.some(player => Object.keys(player).length !== 0);
 
         return (
             <div ref={this.ref} className={classnames(styles.container, isLoading && styles.noScroll)}>
