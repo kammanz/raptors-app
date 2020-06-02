@@ -23,7 +23,7 @@ class List extends React.Component {
 
     componentDidUpdate(prevProps) {
       const { selectedTeam, selectedTeam: { isLoading } } = this.props;
-      const { selectedTeam: selectedTeamPrev, selectedTeamPrev: { Loading: isLoadingPrev } } = prevProps;
+      const { selectedTeam: selectedTeamPrev, selectedTeam: { isLoading: isLoadingPrev } } = prevProps;
 
       if (selectedTeamPrev !== selectedTeam) { 
         this.setState({ selectedPlayerId: null });
