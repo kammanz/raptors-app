@@ -66,6 +66,27 @@ class Header extends React.Component {
             );
         };
 
+        const CustomPlaceholder = ( props ) => {
+            const { data, innerRef, innerProps } = props.data;
+            console.log(props);
+            // console.log('props.data', props.data);
+
+            return (
+                <div ref={innerRef} {...innerProps} style={{ backgroundColor: `pink`}} className={styles.optionContainer}>
+                    <div className={styles.optionImgContainer}>
+                         <img
+                            src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${props.data.tricode}.svg`}
+                            title='team logo'
+                            alt='team logo'
+                            className={styles.optionImage}
+                        />
+                    </div>
+                   
+                    <div className={styles.optionTitle}>{props.data.ttsName}</div>
+                </div>
+            );
+        };
+
         return (
             <div className={styles.container}>
                 <div className={styles.teamContainer} style={{backgroundColor: `${selectedTeamColor}`}}>
@@ -81,15 +102,16 @@ class Header extends React.Component {
                     <div className={styles.selectContainer}>
                         <Select 
                             options={teams}
-                            // getOptionValue={option => option.ttsName}
-                            getOptionLabel={team =>
-                                `${team.ttsName}`
-                            }
+                            getOptionValue={option => option.ttsName}
+                            // getOptionLabel={team =>
+                            //     `${team.ttsName}`
+                            // }
                             onChange={e => this.onSelectChange(e)}
                             styles={selectMenuStyles()}
-                            components={{ DropdownIndicator, Option: CustomOption }}
+                            components={{ DropdownIndicator, Option: CustomOption, SingleValue: CustomOption }}
                             value={teams.find(team => team.teamId === selectedTeamId)}
                             isSearchable={false}
+                            placeholder={null}
                         />
                     </div>
                     <div
