@@ -27,7 +27,7 @@ const Details = ({
         setIsSticky(false);
         ref.current.scrollTo(0,0);
       }
-    }, [details, selectedTeam.teamId]);
+    }, [details]);
 
     const onScroll = e => {
       setIsAnimated(true);

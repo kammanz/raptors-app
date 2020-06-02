@@ -8,13 +8,13 @@ import styles from './index.module.scss';
 
 const PlayersPage = () => {
     return (
-        <div className={styles.container}>
+        <>
             <Filters />
-            <div className={styles.galleryContainer}>
+            <div className={styles.container}>
                 <List />
                 <Details />  
             </div>
-        </div>
+        </>
     );
 };
 

@@ -1,24 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import Spinner from 'components/_shared/spinner';
+import classnames from 'classnames';
 
 import styles from './overlay.module.scss';
 
-const Overlay = ({ isLoading }) => {
+const Overlay = ({ children, isLoading }) => {
     return (
-        <div className={styles.container}>
-            <Spinner height={40} isLoading={isLoading} />
+        <div className={classnames(styles.container, isLoading && styles.visible)}>
+            {children}
         </div>
     );
 };
 
 Overlay.propTypes = {
-    isLoading: PropTypes.bool,
+    children: PropTypes.node,
 };
 
 Overlay.defaultProps = {
-    isLoading: true,
-}
+    children: null,
+};
 
 export default Overlay;
