@@ -13,6 +13,7 @@ export const selectMenuStyles = (selectedTeamColor) => {
                 ...provided,
                 backgroundColor: `${selectedTeamColor}`,
                 height: '100%',
+                cursor: 'pointer',
             }),
             control: () => ({
                 display: 'flex',
@@ -20,12 +21,12 @@ export const selectMenuStyles = (selectedTeamColor) => {
             }),
             valueContainer: (provided) => ({
                 ...provided,
+                 width: '285px',
+                padding: '0',
+                margin: '0',
                 color: 'white',
                 fontFamily: 'spurs',
                 fontSize: '22px',
-                width: '285px',
-                padding: '0',
-                margin: '0',
             }),
             singleValue: (provided) => ({
                 ...provided,
@@ -47,13 +48,13 @@ export const selectMenuStyles = (selectedTeamColor) => {
                 ...provided,
                 color: 'white',
             }),
-            option: (provided) => ({
+            option: (provided, state) => ({
                 ...provided,
-                display: 'flex',
-                backgroundColor: 'pink',
-                borderBottom: '1px dotted pink',
+                display: state.isSelected ? 'none' : 'pink',
+                // backgroundColor: 'pink',
+                // borderBottom: '1px dotted pink',
                 // color: state.isSelected ? 'red' : 'blue',
-                padding: 20,
+                // padding: 20,
             }),
         }
     );

@@ -48,10 +48,10 @@ class Header extends React.Component {
 
         const CustomOption = ( props ) => {
             const { data, innerRef, innerProps } = props;
-            console.log(props.data.primaryColor);
+            let isSelected = selectedTeamId === props.data.teamId;
 
             return (
-                <div ref={innerRef} {...innerProps} style={{ backgroundColor: `${props.data.primaryColor}`}} className={styles.optionContainer}>
+                <div ref={innerRef} {...innerProps} style={{ backgroundColor: `${props.data.primaryColor}`}} className={classnames(styles.optionContainer, isSelected && styles.isSelected)}>
                     <div className={styles.optionImgContainer}>
                          <img
                             src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${data.tricode}.svg`}
@@ -60,31 +60,27 @@ class Header extends React.Component {
                             className={styles.optionImage}
                         />
                     </div>
-                   
                     <div className={styles.optionTitle}>{data.ttsName}</div>
                 </div>
             );
         };
 
-        const CustomPlaceholder = ( props ) => {
-            const { data, innerRef, innerProps } = props.data;
-            console.log(props);
-            // console.log('props.data', props.data);
+        const CustomValue = ( props ) => {
+          const { data, innerRef, innerProps } = props;
 
-            return (
-                <div ref={innerRef} {...innerProps} style={{ backgroundColor: `pink`}} className={styles.optionContainer}>
-                    <div className={styles.optionImgContainer}>
-                         <img
-                            src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${props.data.tricode}.svg`}
-                            title='team logo'
-                            alt='team logo'
-                            className={styles.optionImage}
-                        />
-                    </div>
-                   
-                    <div className={styles.optionTitle}>{props.data.ttsName}</div>
-                </div>
-            );
+          return (
+              <div ref={innerRef} {...innerProps} style={{ backgroundColor: `${props.data.primaryColor}`}} className={styles.optionContainer}>
+                  <div className={styles.optionImgContainer}>
+                       <img
+                          src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${data.tricode}.svg`}
+                          title='team logo'
+                          alt='team logo'
+                          className={styles.optionImage}
+                      />
+                  </div>
+                  <div className={styles.optionTitle}>{data.ttsName}</div>
+              </div>
+          );
         };
 
         return (
@@ -93,14 +89,13 @@ class Header extends React.Component {
                         <Select 
                             options={teams}
                             getOptionValue={option => option.ttsName}
-                            // getOptionLabel={team =>
-                            //     `${team.ttsName}`
-                            // }
                             onChange={e => this.onSelectChange(e)}
                             styles={selectMenuStyles()}
-                            components={{ DropdownIndicator, Option: CustomOption, SingleValue: CustomOption }}
+                            components={{ DropdownIndicator, Option: CustomOption, SingleValue: CustomValue }}
                             value={teams.find(team => team.teamId === selectedTeamId)}
                             isSearchable={false}
+                            placeholder={false}
+                            isOptionDisabled={(option) => option.disabled}
                         />
                     <div
                         style={{ borderColor: `${selectedTeamColor || COLORS.LIGHT_GREY} transparent transparent transparent` }}
