@@ -56,6 +56,22 @@ export const selectMenuStyles = (selectedTeamColor) => {
                 // color: state.isSelected ? 'red' : 'blue',
                 // padding: 20,
             }),
+            menu: (provided, state) => ({
+              ...provided,
+              margin: 0,
+              // backgroundColor: 'pink',
+              // borderBottom: '1px dotted pink',
+              // color: state.isSelected ? 'red' : 'blue',
+              // padding: 20,
+            }),
+            menuList: (provided, state) => ({
+              ...provided,
+              padding: 0,
+              // backgroundColor: 'pink',
+              // borderBottom: '1px dotted pink',
+              // color: state.isSelected ? 'red' : 'blue',
+              // padding: 20,
+            }),
         }
     );
 };
