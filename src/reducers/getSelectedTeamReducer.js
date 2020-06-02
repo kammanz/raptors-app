@@ -1,16 +1,6 @@
 export default (
-    state = {
-        isLoading: true,
-        team: {},
-    }, 
-    action) => {
-
+    state = { team: {} }, action) => {
     switch (action.type) {
-        case 'SET_PLAYERS_LIST_IS_LOADING':
-            return {
-                ...state,
-                isLoading: action.payload,
-            }
         case 'GET_SELECTED_TEAM':
             return {
                 ...state,
