@@ -90,7 +90,6 @@ class Header extends React.Component {
         return (
             <div className={styles.container}>
                 <div className={styles.teamContainer} style={{backgroundColor: `${selectedTeamColor}`}}>
-                    <div className={styles.selectContainer}>
                         <Select 
                             options={teams}
                             getOptionValue={option => option.ttsName}
@@ -103,7 +102,6 @@ class Header extends React.Component {
                             value={teams.find(team => team.teamId === selectedTeamId)}
                             isSearchable={false}
                         />
-                    </div>
                     <div
                         style={{ borderColor: `${selectedTeamColor || COLORS.LIGHT_GREY} transparent transparent transparent` }}
                         className={styles.borderTriangle}
