@@ -14,6 +14,7 @@ export const selectMenuStyles = (selectedTeamColor) => {
                 backgroundColor: `${selectedTeamColor}`,
                 height: '100%',
                 cursor: 'pointer',
+                width: '305px',
             }),
             control: () => ({
                 display: 'flex',
@@ -51,26 +52,14 @@ export const selectMenuStyles = (selectedTeamColor) => {
             option: (provided, state) => ({
                 ...provided,
                 display: state.isSelected ? 'none' : 'pink',
-                // backgroundColor: 'pink',
-                // borderBottom: '1px dotted pink',
-                // color: state.isSelected ? 'red' : 'blue',
-                // padding: 20,
             }),
-            menu: (provided, state) => ({
+            menu: (provided) => ({
               ...provided,
               margin: 0,
-              // backgroundColor: 'pink',
-              // borderBottom: '1px dotted pink',
-              // color: state.isSelected ? 'red' : 'blue',
-              // padding: 20,
             }),
-            menuList: (provided, state) => ({
+            menuList: (provided) => ({
               ...provided,
               padding: 0,
-              // backgroundColor: 'pink',
-              // borderBottom: '1px dotted pink',
-              // color: state.isSelected ? 'red' : 'blue',
-              // padding: 20,
             }),
         }
     );
