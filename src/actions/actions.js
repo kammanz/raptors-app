@@ -21,7 +21,6 @@ export const getSelectedTeam = team => async dispatch => {
     const teamRoster = teamRosterResponse.data.sports_content.roster.players.player.map((player) => {
         return { ...player, teamColor: team.primaryColor };
     });
-    
     dispatch({ type: 'GET_PLAYERS', payload: teamRoster });
     dispatch({ type: 'SET_PLAYERS_LIST_IS_LOADING', payload: false });
 };

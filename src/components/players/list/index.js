@@ -43,7 +43,6 @@ class List extends React.Component {
         const emptyPlayers = new Array(20).fill({});
         
         return (isLoading ? emptyPlayers : players).map((player, index) => {
-            
             const { 
                 teamColor, 
                 person_id,
@@ -69,7 +68,7 @@ class List extends React.Component {
                 >
                     <div className={styles.imageContainer}>
                         <img
-                            src={person_id ? formatPlayerPhotoUrl(teamId, person_id): placeholderImg}
+                            src={person_id ? formatPlayerPhotoUrl(teamId, person_id) : placeholderImg}
                             alt='player headshot'
                             onError={(e) => e.target.src = placeholderImg}
                         />
