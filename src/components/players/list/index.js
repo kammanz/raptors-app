@@ -12,23 +12,26 @@ import styles from './index.module.scss';
 
 class List extends React.Component {
     constructor(props) {
-        super(props);
+      super(props);
 
-        this.state = {
-            selectedPlayerId: null,
-        };
+      this.state = {
+        selectedPlayerId: null,
+      };
 
-        this.ref = createRef();
+      this.ref = createRef();
     };
 
     componentDidUpdate(prevProps) {
-        if (prevProps.selectedTeam !== this.props.selectedTeam) { 
-            this.setState({ selectedPlayerId: null });
-        };
+      const { selectedTeam, selectedTeam: { isLoading } } = this.props;
+      const { selectedTeam: selectedTeamPrev, selectedTeamPrev: { Loading: isLoadingPrev } } = prevProps;
 
-        if (!prevProps.selectedTeam.isLoading && this.props.selectedTeam.isLoading) {
-            this.ref.current.scrollTo(0, 0);
-        };
+      if (selectedTeamPrev !== selectedTeam) { 
+        this.setState({ selectedPlayerId: null });
+      };
+
+      if (!isLoadingPrev && isLoading) {
+        this.ref.current.scrollTo(0, 0);
+      };
     };
 
     renderPlayers() {
@@ -54,7 +57,6 @@ class List extends React.Component {
                 height_in,
                 weight_lbs,
             } = player;
-            
             const isSelected = this.state.selectedPlayerId === person_id;
             
             return (
@@ -75,7 +77,7 @@ class List extends React.Component {
                     </div>
                     <div style={{borderColor: teamColor}} className={styles.imageLine} />
                     <div style={{backgroundColor: isSelected && teamColor}} className={styles.detailsContainer}>
-                        {Object.keys(player).length ? 
+                        {!!Object.keys(player).length && 
                             <>
                                 <div className={styles.number}>{jersey_number}</div>
                                 <div className={styles.details}>
@@ -83,8 +85,7 @@ class List extends React.Component {
                                     <div className={styles.position}>{position_full}</div>
                                     <div className={styles.size}>{height_ft}-{height_in}, {weight_lbs} lbs</div>
                                 </div>
-                            </> :
-                            null
+                            </> 
                         }
                     </div>
                 </div>
