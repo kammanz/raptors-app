@@ -22,7 +22,7 @@ class List extends React.Component {
     };
 
     componentDidUpdate(prevProps) {
-        if (prevProps.selectedTeam !== this.props.selectedTeam) { 
+        if (prevProps.selectedTeam !== this.props.selectedTeam) {
             this.setState({ selectedPlayerId: null });
         };
 
@@ -32,31 +32,28 @@ class List extends React.Component {
     };
 
     renderPlayers() {
-        const { 
-            players, 
+        const {
+            players,
             selectedTeam: {
-                isLoading,
                 team: { teamId },
-            }, 
+            },
         } = this.props;
 
-        const emptyPlayers = new Array(20).fill({});
-        
-        return (isLoading ? emptyPlayers : players).map((player, index) => {
-            const { 
-                teamColor, 
+        return players.map((player, index) => {
+            const {
+                teamColor,
                 person_id,
                 first_name,
-                last_name, 
+                last_name,
                 jersey_number,
                 position_full,
                 height_ft,
                 height_in,
                 weight_lbs,
             } = player;
-            
+
             const isSelected = this.state.selectedPlayerId === person_id;
-            
+
             return (
                 <div
                     key={index}
@@ -75,7 +72,7 @@ class List extends React.Component {
                     </div>
                     <div style={{borderColor: teamColor}} className={styles.imageLine} />
                     <div style={{backgroundColor: isSelected && teamColor}} className={styles.detailsContainer}>
-                        {Object.keys(player).length ? 
+                        {Object.keys(player).length ?
                             <>
                                 <div className={styles.number}>{jersey_number}</div>
                                 <div className={styles.details}>
@@ -93,7 +90,8 @@ class List extends React.Component {
     };
 
     render() {
-        const { isLoading } = this.props.selectedTeam;
+        const { players } = this.props;
+        const isLoading = !players.some(player => Object.keys(player).length !== 0);
 
         return (
             <div ref={this.ref} className={classnames(styles.container, isLoading && styles.noScroll)}>

@@ -1,7 +1,11 @@
 import dataNbaNet from '../apis/dataNbaNet';
 import { TEAMS } from '../enums';
 
+const resetPlayers = new Array(20).fill({});
+
 export const getTeams = () => async dispatch => {
+    dispatch({ type: 'GET_PLAYERS', payload: resetPlayers });
+
     const allTeamsResponse = await dataNbaNet.get('/prod/2019/teams_config.json');
     const nbaTeams = Object.values(allTeamsResponse.data.teams.config).filter(team => team.ttsName);
     dispatch({ type: 'GET_TEAMS', payload: nbaTeams });
@@ -11,10 +15,14 @@ export const getTeams = () => async dispatch => {
 };
 
 export const getSelectedTeam = team => async dispatch => {
-    dispatch({ type: 'SET_PLAYERS_LIST_IS_LOADING', payload: true });
+    // reset players list and details
+    dispatch({ type: 'GET_PLAYERS', payload: resetPlayers });
+    dispatch({ type: 'PRELOAD_PLAYER_DETAILS', payload: null });
+
+    // set selected team
     dispatch({ type: 'GET_SELECTED_TEAM', payload: team });
     dispatch({ type: 'GET_TEAM_COLOR', payload: team.primaryColor });
-    dispatch({ type: 'PRELOAD_PLAYER_DETAILS', payload: null });
+
 
     const teamUrlName = (team.teamId === TEAMS.PHI.ID ? TEAMS.PHI.NAME : team.ttsName.split(' ').splice(-1)[0].toLowerCase());
     const teamRosterResponse = await dataNbaNet.get(`/json/cms/noseason/team/${teamUrlName}/roster.json`);
@@ -22,7 +30,6 @@ export const getSelectedTeam = team => async dispatch => {
         return { ...player, teamColor: team.primaryColor };
     });
     dispatch({ type: 'GET_PLAYERS', payload: teamRoster });
-    dispatch({ type: 'SET_PLAYERS_LIST_IS_LOADING', payload: false });
 };
 
 export const getSelectedPlayer = player => async dispatch => {
