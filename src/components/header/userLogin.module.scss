@@ -1,4 +1,4 @@
-@import 'src/scss/variables.scss';
+@import "src/scss/variables.scss";
 
 .userContainer {
   display: flex;
@@ -13,18 +13,18 @@
   button {
     display: flex;
     align-items: center;
-    padding: 0 15px;
     height: 100%;
+    padding: 0 15px;
     border: none;
     background: none;
     color: inherit;
     font-size: 14px;
     cursor: pointer;
-    
-    &:focus { 
+
+    &:focus {
       outline-color: transparent;
     }
-    
+
     .userPic {
       height: 25px;
       margin-right: 10px;
@@ -32,4 +32,4 @@
       border-radius: 25px;
     }
   }
-} 
+}

@@ -8,26 +8,4 @@
   box-shadow: -1px -3px 10px $grey2;
   font-family: Abadi;
   list-style: none;
-  
-  .dropDownTeam {
-    border-top: 6px solid $white;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-  }
-  
-  .dropDownUser{
-    border-top: 6px solid $text-dark-grey;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    margin: 15px;
-  }
-} 
-
-.borderTriangle {
-  position: absolute;
-  left: 100%;
-  z-index: 1;
-  border-width: 45px 16px 0 0;
-  border-style: solid;
-  border-color: $grey1 transparent transparent;
 }

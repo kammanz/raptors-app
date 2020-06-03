@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import Select from "react-select";
 import classnames from "classnames";
+
 import { getTeams, getSelectedTeam } from "actions/actions";
 import { COLORS } from "enums";
 import dropdownWhite from "assets/icons/dropdownWhite.svg";
@@ -30,7 +31,7 @@ const DropdownMenu = ({
 
     return (
       <div
-        style={{ backgroundColor: primaryColor }}
+        style={{ backgroundColor: primaryColor, borderTop: "none" }}
         className={styles.optionContainer}
         ref={innerRef}
         {...innerProps}

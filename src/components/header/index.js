@@ -5,8 +5,8 @@ import { getTeams, getSelectedTeam } from "actions/actions";
 
 import DropdownMenu from "./dropdownMenu";
 import UserLogin from "./userLogin";
-
 import NavMenu from "./navMenu";
+
 import styles from "./index.module.scss";
 
 class Header extends React.Component {
