@@ -1,4 +1,4 @@
-@import 'src/scss/variables.scss';
+@import "src/scss/variables.scss";
 
 .container {
   position: relative;
@@ -8,7 +8,7 @@
   box-shadow: -1px -3px 10px $grey2;
   font-family: Abadi;
   list-style: none;
-  
+
   .teamContainer {
     position: relative;
     display: flex;
@@ -60,11 +60,11 @@
       color: inherit;
       font-size: 14px;
       cursor: pointer;
-      
-      &:focus { 
+
+      &:focus {
         outline-color: transparent;
       }
-      
+
       .userPic {
         height: 25px;
         margin-right: 10px;
@@ -72,21 +72,21 @@
         border-radius: 25px;
       }
     }
-  } 
+  }
 
   .dropDownTeam {
     border-top: 6px solid $white;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
   }
-  
-  .dropDownUser{
+
+  .dropDownUser {
     border-top: 6px solid $text-dark-grey;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
     margin: 15px;
   }
-} 
+}
 
 .borderTriangle {
   position: absolute;
@@ -121,11 +121,11 @@
 }
 
 .optionTitle {
-  color: 'white';
-  font-family: 'spurs';
+  color: "white";
+  font-family: "spurs";
   font-size: 22px;
   padding-left: 10px;
-  margin: '0';
+  margin: "0";
 }
 
 .displayNone {

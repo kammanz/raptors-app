@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import Spinner from 'components/_shared/spinner';
+import Spinner from "components/_shared/spinner";
 
-import styles from './index.module.scss';
+import styles from "./index.module.scss";
 
 const QuickStats = ({ quickStats, teamColor, isLoading }) => {
   return (
@@ -10,11 +10,17 @@ const QuickStats = ({ quickStats, teamColor, isLoading }) => {
       {quickStats.map(({ title, value }) => {
         return (
           <div key={title} className={styles.container}>
-            <div style={{ backgroundColor: teamColor }} className={styles.header}>{title}</div>
-            {isLoading ?
-              <Spinner isLoading={isLoading} /> :
+            <div
+              style={{ backgroundColor: teamColor }}
+              className={styles.header}
+            >
+              {title}
+            </div>
+            {isLoading ? (
+              <Spinner isLoading={isLoading} />
+            ) : (
               <div className={styles.data}>{value}</div>
-            }
+            )}
           </div>
         );
       })}
