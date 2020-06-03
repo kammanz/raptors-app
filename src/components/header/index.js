@@ -23,11 +23,11 @@ class Header extends React.Component {
     this.props.getSelectedTeam(e);
   };
 
-  CustomValue = ( props ) => {
+  CustomValue = (props) => {
     const { data: { primaryColor, ttsName, tricode }, innerRef, innerProps } = props;
 
     return (
-      <div ref={innerRef} {...innerProps} style={{ backgroundColor: `${primaryColor}`}} className={styles.optionContainer}>
+      <div ref={innerRef} {...innerProps} style={{ backgroundColor: `${primaryColor}` }} className={styles.optionContainer}>
         <div className={styles.optionImgContainer}>
           <img
             src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${tricode}.svg`}
@@ -41,7 +41,7 @@ class Header extends React.Component {
     );
   };
 
-  CustomOption = ( props ) => {
+  CustomOption = (props) => {
     const { data: { primaryColor, ttsName, tricode, teamId }, innerRef, innerProps } = props;
     const { selectedTeam } = this.props;
     let isSelected = selectedTeam.teamId === teamId;
@@ -68,7 +68,7 @@ class Header extends React.Component {
     return (
       <div className={styles.container}>
         <div className={styles.teamContainer} style={{ backgroundColor: `${selectedTeamColor}` }}>
-          <Select 
+          <Select
             options={teams}
             onChange={e => this.onSelectChange(e)}
             styles={selectMenuStyles()}

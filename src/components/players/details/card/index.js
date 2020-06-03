@@ -6,6 +6,7 @@ import { formatPlayerPhotoUrl } from 'utils/stringUtils';
 
 import styles from './index.module.scss';
 
+
 const Card = ({
   player: {
     person_id,

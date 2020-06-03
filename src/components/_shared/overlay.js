@@ -5,19 +5,19 @@ import classnames from 'classnames';
 import styles from './overlay.module.scss';
 
 const Overlay = ({ children, isLoading }) => {
-    return (
-        <div className={classnames(styles.container, isLoading && styles.visible)}>
-            {children}
-        </div>
-    );
+  return (
+    <div className={classnames(styles.container, isLoading && styles.visible)}>
+      {children}
+    </div>
+  );
 };
 
 Overlay.propTypes = {
-    children: PropTypes.node,
+  children: PropTypes.node,
 };
 
 Overlay.defaultProps = {
-    children: null,
+  children: null,
 };
 
 export default Overlay;
