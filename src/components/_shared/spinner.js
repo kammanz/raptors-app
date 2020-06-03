@@ -5,14 +5,20 @@ import PropTypes from 'prop-types';
 
 import { COLORS } from 'enums';
 
-const Spinner = ({ isLoading, containerHeight, ...props }) => (
+const Spinner = ({ 
+    isLoading, 
+    containerHeight, 
+    height,
+    ...props
+  }) => (
+
   <ScaleLoader
     css={css`
       display: flex;
       align-items: center;
       height: ${containerHeight}px;
     `}
-    height={12}
+    height={height}
     width={2}
     radius={2}
     margin={2}
@@ -25,11 +31,13 @@ const Spinner = ({ isLoading, containerHeight, ...props }) => (
 Spinner.propTypes = {
   isLoading: PropTypes.bool,
   containerHeight: PropTypes.number,
+  height: PropTypes.number,
 };
 
 Spinner.defaultProps = {
   isLoading: false,
   containerHeight: 48,
+  height: 12,
 };
 
 export default Spinner;

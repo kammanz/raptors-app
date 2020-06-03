@@ -2,62 +2,85 @@ import React, { createRef } from 'react';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 
+import Overlay from 'components/_shared/overlay';
+import Spinner from 'components/_shared/spinner';
 import placeholderImg from 'assets/imgs/placeholder.png';
-import { getSelectedPlayer } from 'actions/actions.js';
+import { getSelectedPlayer } from 'actions/actions';
 import { formatPlayerPhotoUrl } from 'utils/stringUtils';
 
 import styles from './index.module.scss';
 
 class List extends React.Component {
     constructor(props) {
-        super(props);
+      super(props);
 
-        this.ref = createRef();
+      this.state = {
+        selectedPlayerId: null,
+      };
 
-        this.state = {
-            selectedId: null,
-            selectedTeam: this.props.selectedTeam,
-        };
+      this.ref = createRef();
     };
 
     componentDidUpdate(prevProps) {
-        if (prevProps.selectedTeam !== this.props.selectedTeam) {
-            this.setState({ selectedId: null });
-            this.ref.current.scrollTo(0, 0);
-        };
+      const { selectedTeam } = this.props;
+      const { selectedTeam: selectedTeamPrev } = prevProps;
+
+      if (selectedTeamPrev !== selectedTeam) { 
+        this.setState({ selectedPlayerId: null });
+        this.ref.current.scrollTo(0, 0);
+      };
     };
 
     renderPlayers() {
-        const { players, selectedTeam } = this.props;
+        const {
+            players,
+            selectedTeam: {
+                team: { teamId },
+            },
+        } = this.props;
 
         return players.map((player, index) => {
-            const isSelected = this.state.selectedId === player.person_id;
-            const { teamColor } = player;
+            const {
+                teamColor,
+                person_id,
+                first_name,
+                last_name,
+                jersey_number,
+                position_full,
+                height_ft,
+                height_in,
+                weight_lbs,
+            } = player;
+            const isSelected = this.state.selectedPlayerId === person_id;
 
             return (
                 <div
                     key={index}
                     onClick={() => {
-                        this.setState({ selectedId: player.person_id })
+                        this.setState({ selectedPlayerId: person_id });
                         this.props.getSelectedPlayer(player);
                     }}
-                    className={classnames(styles.playerCard, isSelected ? styles.selectedCard : null)}
+                    className={classnames(styles.playerCard, isSelected && styles.selectedCard)}
                 >
                     <div className={styles.imageContainer}>
                         <img
-                            src={formatPlayerPhotoUrl(selectedTeam.teamId, player.person_id)}
+                            src={person_id ? formatPlayerPhotoUrl(teamId, person_id) : placeholderImg}
                             alt='player headshot'
                             onError={(e) => e.target.src = placeholderImg}
                         />
                     </div>
                     <div style={{borderColor: teamColor}} className={styles.imageLine} />
                     <div style={{backgroundColor: isSelected && teamColor}} className={styles.detailsContainer}>
-                        <div className={styles.number}>{player.jersey_number}</div>
-                        <div className={styles.details}>
-                            <div className={styles.name}>{player.first_name} {player.last_name}</div>
-                            <div className={styles.position}>{player.position_full}</div>
-                            <div className={styles.size}>{player.height_ft}-{player.height_in}, {player.weight_lbs} lbs</div>
-                        </div>
+                        {!!Object.keys(player).length && 
+                            <>
+                                <div className={styles.number}>{jersey_number}</div>
+                                <div className={styles.details}>
+                                    <div className={styles.name}>{first_name} {last_name}</div>
+                                    <div className={styles.position}>{position_full}</div>
+                                    <div className={styles.size}>{height_ft}-{height_in}, {weight_lbs} lbs</div>
+                                </div>
+                            </> 
+                        }
                     </div>
                 </div>
             );
@@ -65,8 +88,14 @@ class List extends React.Component {
     };
 
     render() {
+        const { players } = this.props;
+        const isLoading = !players.some(player => Object.keys(player).length !== 0);
+
         return (
-            <div ref={this.ref} className={styles.playersListContainer}>
+            <div ref={this.ref} className={classnames(styles.container, isLoading && styles.noScroll)}>
+                <Overlay isLoading={isLoading}>
+                    <Spinner height={19} width={4} radius={3} isLoading={isLoading} />
+                </Overlay>
                 {this.renderPlayers()}
             </div>
         );

@@ -1,7 +1,11 @@
-export default (state = {}, action) => {
+export default (
+    state = { team: {} }, action) => {
     switch (action.type) {
         case 'GET_SELECTED_TEAM':
-            return action.payload;
+            return {
+                ...state,
+                team: { ...action.payload },
+            }
         default:
             return state;
     };

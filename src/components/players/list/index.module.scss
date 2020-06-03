@@ -1,6 +1,7 @@
 @import 'src/scss/variables.scss';
 
-.playersListContainer {
+.container {
+  position: relative;
   display: flex;
   flex: 2;
   flex-wrap: wrap;
@@ -33,7 +34,7 @@
     padding-top: 10px;
     background-image: url('../../../assets/imgs/player-backdrop.png');
     background-size: cover;
-
+    
     img {
       display: flex;
       width: 100%;
@@ -106,4 +107,8 @@
       }
     }
   }
+}
+
+.noScroll {
+  overflow: hidden;
 }

@@ -96,7 +96,7 @@ const Details = ({
 const mapStateToProps = state => ({
     player: state.player,
     teams: state.teams,
-    selectedTeam: state.selectedTeam,
+    selectedTeam: state.selectedTeam.team,
 });
 
 export default connect(mapStateToProps)(Details);

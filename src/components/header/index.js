@@ -95,7 +95,7 @@ const mapStateToProps = (state) => {
     return {
         teams: state.teams,
         selectedTeam: state.selectedTeam,
-        selectedTeamColor: state.selectedTeamColor
+        selectedTeamColor: state.selectedTeamColor,
     };
 };
 
