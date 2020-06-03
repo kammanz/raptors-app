@@ -14,9 +14,9 @@ const App = () => {
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Header />
         <div id='container'>
-            <Route path='/' exact component={PlayersPage} />
-            <Route path='/standings' component={StandingsPage} />
-            <Route path='/games' component={GamesPage} />
+          <Route path='/' exact component={PlayersPage} />
+          <Route path='/standings' component={StandingsPage} />
+          <Route path='/games' component={GamesPage} />
         </div>
       </BrowserRouter>
     </div>

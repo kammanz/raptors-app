@@ -1,33 +1,33 @@
-@import 'src/scss/variables.scss';
-@import 'src/components/_shared/title.module.scss';
+@import "src/scss/variables.scss";
+@import "src/components/_shared/title.module.scss";
 
 .quickStats {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-top: 10px;
-    margin-bottom: 21px;
-    font-family: arial;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 10px;
+  margin-bottom: 21px;
+  font-family: arial;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    width: calc(25% - 5px);
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: calc(25% - 5px);
+  justify-content: center;
+  align-items: center;
 }
 
 .header {
-    @include title;
+  @include title;
 }
 
 .data {
-    display: flex;
-    align-items: center;
-    height: 40px;
-    margin-top: 8px;
-    color: $grey5;
-    font-size: 24px;
-    font-weight: bold;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  margin-top: 8px;
+  color: $grey5;
+  font-size: 24px;
+  font-weight: bold;
 }
