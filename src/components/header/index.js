@@ -15,7 +15,6 @@ import selectMenuStyles from './selectMenuStyles';
 import styles from './index.module.scss';
 
 class Header extends React.Component {
-
   componentDidMount() {
     this.props.getTeams();
   };
@@ -24,16 +23,31 @@ class Header extends React.Component {
     this.props.getSelectedTeam(e);
   };
 
-  CustomOption = ( props ) => {
-    const { data: { primaryColor, ttsName, tricode, teamId, type }, innerRef, innerProps } = props;
-    let isSelected = this.props.selectedTeam.teamId === teamId;
-    // console.log(isSelected);
-    const isOption = (type === 'option');
-    // console.log(isOption);
-    console.log(props.options);
+  CustomValue = ( props ) => {
+    const { data: { primaryColor, ttsName, tricode }, innerRef, innerProps } = props;
 
     return (
-      <div ref={innerRef} {...innerProps} style={{ backgroundColor: `${primaryColor}`}} className={classnames(styles.optionContainer, isOption && isSelected && styles.displayNone)}>
+      <div ref={innerRef} {...innerProps} style={{ backgroundColor: `${primaryColor}`}} className={styles.optionContainer}>
+        <div className={styles.optionImgContainer}>
+          <img
+            src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${tricode}.svg`}
+            title='team logo'
+            alt='team logo'
+            className={styles.optionImage}
+          />
+        </div>
+        <div className={styles.optionTitle}>{ttsName}</div>
+      </div>
+    );
+  };
+
+  CustomOption = ( props ) => {
+    const { data: { primaryColor, ttsName, tricode, teamId }, innerRef, innerProps } = props;
+    const { selectedTeam } = this.props;
+    let isSelected = selectedTeam.teamId === teamId;
+
+    return (
+      <div ref={innerRef} {...innerProps} style={{ backgroundColor: `${primaryColor}`}} className={classnames(styles.optionContainer, isSelected && styles.displayNone)}>
         <div className={styles.optionImgContainer}>
           <img
             src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${tricode}.svg`}
@@ -49,7 +63,6 @@ class Header extends React.Component {
 
   render() {
     const { teams, selectedTeamColor, selectedTeam: { teamId: selectedTeamId } } = this.props;
-    console.log(selectedTeamId);
     const DropdownIndicator = () => <img src={dropdownWhite} alt="dropdown arrow" />;
 
     return (
@@ -59,11 +72,10 @@ class Header extends React.Component {
             options={teams}
             onChange={e => this.onSelectChange(e)}
             styles={selectMenuStyles()}
-            components={{ DropdownIndicator, Option: this.CustomOption, SingleValue: this.CustomOption }}
+            components={{ DropdownIndicator, Option: this.CustomOption, SingleValue: this.CustomValue }}
             value={teams.find(team => team.teamId === selectedTeamId)}
             isSearchable={false}
             placeholder={false}
-            // isOptionDisabled={(option) => option.disabled}
           />
           <div
             style={{ borderColor: `${selectedTeamColor || COLORS.LIGHT_GREY} transparent transparent transparent` }}
