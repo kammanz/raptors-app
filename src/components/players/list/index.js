@@ -22,14 +22,11 @@ class List extends React.Component {
     };
 
     componentDidUpdate(prevProps) {
-      const { selectedTeam, selectedTeam: { isLoading } } = this.props;
-      const { selectedTeam: selectedTeamPrev, selectedTeam: { isLoading: isLoadingPrev } } = prevProps;
+      const { selectedTeam } = this.props;
+      const { selectedTeam: selectedTeamPrev } = prevProps;
 
       if (selectedTeamPrev !== selectedTeam) { 
         this.setState({ selectedPlayerId: null });
-      };
-
-      if (!isLoadingPrev && isLoading) {
         this.ref.current.scrollTo(0, 0);
       };
     };
