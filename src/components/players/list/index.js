@@ -34,9 +34,7 @@ class List extends React.Component {
     renderPlayers() {
         const {
             players,
-            selectedTeam: {
-                team: { teamId },
-            },
+            selectedTeam: { teamId },
         } = this.props;
 
         return players.map((player, index) => {
@@ -90,6 +88,8 @@ class List extends React.Component {
     render() {
         const { players } = this.props;
         const isLoading = !players.some(player => Object.keys(player).length !== 0);
+
+        // console.log('right here', this.props.selectedTeam);
 
         return (
             <div ref={this.ref} className={classnames(styles.container, isLoading && styles.noScroll)}>
