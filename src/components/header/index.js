@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { getTeams, getSelectedTeam } from "actions/actions";
 import { COLORS } from "enums";
 import bell from "assets/icons/notification-bell.svg";
-import dropdownWhite from "assets/icons/dropdownWhite.svg";
 import settingsIcon from "assets/icons/settings-icon.svg";
 import kobe from "assets/imgs/kobe.png";
 
@@ -19,13 +18,8 @@ class Header extends React.Component {
 
   render() {
     const {
-      teams,
       selectedTeamColor,
-      selectedTeam: { teamId: selectedTeamId },
     } = this.props;
-    const dropdownIndicator = () => (
-      <img src={dropdownWhite} alt="dropdown arrow" />
-    );
 
     return (
       <div className={styles.container}>
@@ -33,7 +27,7 @@ class Header extends React.Component {
           className={styles.teamContainer}
           style={{ backgroundColor: selectedTeamColor }}
         >
-          <DropdownMenu teams={teams} selectedTeamId={selectedTeamId} />
+          <DropdownMenu />
           <div
             style={{
               borderColor: `${
