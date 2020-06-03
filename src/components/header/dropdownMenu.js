@@ -1,22 +1,25 @@
 import React from "react";
-import { connect } from "react-redux"; 
+import { connect } from "react-redux";
 import Select from "react-select";
 import classnames from "classnames";
 import { getTeams, getSelectedTeam } from "actions/actions";
-
+import { COLORS } from "enums";
 import dropdownWhite from "assets/icons/dropdownWhite.svg";
 
 import selectMenuStyles from "./selectMenuStyles";
 import styles from "./dropdownMenu.module.scss";
 
-const DropdownMenu = ({ teams, selectedTeam, getSelectedTeam }) => {
+const DropdownMenu = ({
+  teams,
+  selectedTeam,
+  selectedTeamColor,
+  getSelectedTeam,
+}) => {
   const { teamId: selectedTeamId } = selectedTeam;
 
   const dropdownIndicator = () => (
     <img src={dropdownWhite} alt="dropdown arrow" />
   );
-
-  console.log(dropdownIndicator);
 
   const customValue = (props) => {
     const {
@@ -27,10 +30,10 @@ const DropdownMenu = ({ teams, selectedTeam, getSelectedTeam }) => {
 
     return (
       <div
-        ref={innerRef}
-        {...innerProps}
         style={{ backgroundColor: primaryColor }}
         className={styles.optionContainer}
+        ref={innerRef}
+        {...innerProps}
       >
         <div className={styles.optionImgContainer}>
           <img
@@ -54,25 +57,27 @@ const DropdownMenu = ({ teams, selectedTeam, getSelectedTeam }) => {
     const isSelected = selectedTeamId === teamId;
 
     return (
-      <div
-        ref={innerRef}
-        {...innerProps}
-        style={{ backgroundColor: primaryColor }}
-        className={classnames(
-          styles.optionContainer,
-          isSelected && styles.displayNone
-        )}
-      >
-        <div className={styles.optionImgContainer}>
-          <img
-            src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${tricode}.svg`}
-            title="team logo"
-            alt="team logo"
-            className={styles.optionImage}
-          />
+      !isSelected && (
+        <div
+          style={{ backgroundColor: primaryColor }}
+          className={classnames(
+            styles.optionContainer,
+            isSelected && styles.displayNone
+          )}
+          ref={innerRef}
+          {...innerProps}
+        >
+          <div className={styles.optionImgContainer}>
+            <img
+              src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${tricode}.svg`}
+              title="team logo"
+              alt="team logo"
+              className={styles.optionImage}
+            />
+          </div>
+          <div className={styles.optionTitle}>{ttsName}</div>
         </div>
-        <div className={styles.optionTitle}>{ttsName}</div>
-      </div>
+      )
     );
   };
 
@@ -81,19 +86,32 @@ const DropdownMenu = ({ teams, selectedTeam, getSelectedTeam }) => {
   };
 
   return (
-    <Select
-      options={teams}
-      onChange={(e) => onSelectChange(e)}
-      styles={selectMenuStyles()}
-      components={{
-        DropdownIndicator: dropdownIndicator,
-        Option: customOption,
-        SingleValue: customValue,
-      }}
-      value={teams.find((team) => team.teamId === selectedTeamId)}
-      isSearchable={false}
-      placeholder={false}
-    />
+    <div
+      style={{ backgroundColor: selectedTeamColor }}
+      className={styles.teamContainer}
+    >
+      <Select
+        styles={selectMenuStyles()}
+        options={teams}
+        value={teams.find((team) => team.teamId === selectedTeamId)}
+        isSearchable={false}
+        placeholder={false}
+        components={{
+          DropdownIndicator: dropdownIndicator,
+          Option: customOption,
+          SingleValue: customValue,
+        }}
+        onChange={(e) => onSelectChange(e)}
+      />
+      <div
+        style={{
+          borderColor: `${
+            selectedTeamColor || COLORS.LIGHT_GREY
+          } transparent transparent transparent`,
+        }}
+        className={styles.borderTriangle}
+      />
+    </div>
   );
 };
 
@@ -105,4 +123,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { getTeams, getSelectedTeam })(DropdownMenu);
+export default connect(mapStateToProps, { getTeams, getSelectedTeam })(
+  DropdownMenu
+);
