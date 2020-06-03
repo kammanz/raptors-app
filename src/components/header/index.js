@@ -47,7 +47,7 @@ class Header extends React.Component {
     let isSelected = selectedTeam.teamId === teamId;
 
     return (
-      <div ref={innerRef} {...innerProps} style={{ backgroundColor: `${primaryColor}`}} className={classnames(styles.optionContainer, isSelected && styles.displayNone)}>
+      <div ref={innerRef} {...innerProps} style={{ backgroundColor: `${primaryColor}` }} className={classnames(styles.optionContainer, isSelected && styles.displayNone)}>
         <div className={styles.optionImgContainer}>
           <img
             src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${tricode}.svg`}
@@ -67,7 +67,7 @@ class Header extends React.Component {
 
     return (
       <div className={styles.container}>
-        <div className={styles.teamContainer} style={{backgroundColor: `${selectedTeamColor}`}}>
+        <div className={styles.teamContainer} style={{ backgroundColor: `${selectedTeamColor}` }}>
           <Select 
             options={teams}
             onChange={e => this.onSelectChange(e)}
@@ -87,15 +87,15 @@ class Header extends React.Component {
 
         <div className={styles.userContainer}>
           <button>
-            <img src={bell} alt='notification bell'></img>
+            <img src={bell} alt='notification bell' />
           </button>
           <button>
-            <img src={settingsIcon} alt='settings icon'></img>
+            <img src={settingsIcon} alt='settings icon' />
           </button>
           <button>
-            <img src={kobe} alt='user avatar' height='25' className={styles.userPic}></img>
+            <img src={kobe} alt='user avatar' height='25' className={styles.userPic} />
             <div>Kobe Bryant</div>
-            <i className={styles.dropDownUser}></i>
+            <i className={styles.dropDownUser} />
           </button>
         </div>
       </div>

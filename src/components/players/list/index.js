@@ -89,8 +89,6 @@ class List extends React.Component {
         const { players } = this.props;
         const isLoading = !players.some(player => Object.keys(player).length !== 0);
 
-        // console.log('right here', this.props.selectedTeam);
-
         return (
             <div ref={this.ref} className={classnames(styles.container, isLoading && styles.noScroll)}>
                 <Overlay isLoading={isLoading}>
