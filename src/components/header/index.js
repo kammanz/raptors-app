@@ -3,17 +3,15 @@ import { connect } from 'react-redux';
 import Select from 'react-select';
 import classnames from 'classnames';
 
-import { getTeams, getSelectedTeam } from '../../actions/actions.js';
-import { TEAMS, COLORS } from '../../enums';
-import selectMenuStyles from './selectMenuStyles';
+import { getTeams, getSelectedTeam } from 'actions/actions';
+import { TEAMS, COLORS } from 'enums';
+import bell from 'assets/icons/notification-bell.svg';
+import dropdownWhite from 'assets/icons/dropdownWhite.svg';
+import settingsIcon from 'assets/icons/settings-icon.svg';
+import kobe from 'assets/imgs/kobe.png';
 
 import NavMenu from './navMenu';
-
-import bell from '../../assets/icons/notification-bell.svg';
-import dropdownWhite from '../../assets/icons/dropdownWhite.svg';
-import settingsIcon from '../../assets/icons/settings-icon.svg';
-import kobe from '../../assets/imgs/kobe.png';
-
+import selectMenuStyles from './selectMenuStyles';
 import styles from './index.module.scss';
 
 class Header extends React.Component {
@@ -38,40 +36,22 @@ class Header extends React.Component {
     getSelectedTeam(e);
   };
 
-  CustomValue = ( props ) => {
-    const { data, innerRef, innerProps } = props;
-
-    return (
-      <div ref={innerRef} {...innerProps} style={{ backgroundColor: `${props.data.primaryColor}`}} className={styles.optionContainer}>
-        <div className={styles.optionImgContainer}>
-          <img
-            src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${data.tricode}.svg`}
-            title='team logo'
-            alt='team logo'
-            className={styles.optionImage}
-          />
-        </div>
-        <div className={styles.optionTitle}>{data.ttsName}</div>
-      </div>
-    );
-  };
-
   CustomOption = ( props ) => {
-    const { data, innerRef, innerProps } = props;
-    const { selectedTeamId } = this.state;
-    let isSelected = selectedTeamId === props.data.teamId;
+    const { data: { primaryColor, ttsName, tricode, teamId, type }, innerRef, innerProps } = props;
+    let isSelected = this.props.selectedTeam.team.teamId === teamId;
+    const isOption = (type === 'option');
 
     return (
-      <div ref={innerRef} {...innerProps} style={{ backgroundColor: `${props.data.primaryColor}`}} className={classnames(styles.optionContainer, isSelected && styles.isSelected)}>
+      <div ref={innerRef} {...innerProps} style={{ backgroundColor: `${primaryColor}`}} className={classnames(styles.optionContainer, isOption && isSelected && styles.isSelected)}>
         <div className={styles.optionImgContainer}>
           <img
-            src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${data.tricode}.svg`}
+            src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${tricode}.svg`}
             title='team logo'
             alt='team logo'
             className={styles.optionImage}
           />
         </div>
-        <div className={styles.optionTitle}>{data.ttsName}</div>
+        <div className={styles.optionTitle}>{ttsName}</div>
       </div>
     );
   };
@@ -86,10 +66,9 @@ class Header extends React.Component {
         <div className={styles.teamContainer} style={{backgroundColor: `${selectedTeamColor}`}}>
           <Select 
             options={teams}
-            getOptionValue={option => option.ttsName}
             onChange={e => this.onSelectChange(e)}
             styles={selectMenuStyles()}
-            components={{ DropdownIndicator, Option: this.CustomOption, SingleValue: this.CustomValue }}
+            components={{ DropdownIndicator, Option: this.CustomOption, SingleValue: this.CustomOption }}
             value={teams.find(team => team.teamId === selectedTeamId)}
             isSearchable={false}
             placeholder={false}
