@@ -6,7 +6,7 @@ const Title = ({ title, section, teamColor }) => {
   return (
     <div
       style={{ backgroundColor: teamColor }}
-      className={section === "games" ? styles.gameStats : styles.totalStats}
+      className={section === 'games' ? styles.gameStats : styles.totalStats}
     >
       {title}
     </div>

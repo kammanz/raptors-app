@@ -1,13 +1,13 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react';
+import { connect } from 'react-redux';
 
-import { getTeams, getSelectedTeam } from "actions/actions";
+import { getTeams, getSelectedTeam } from 'actions/actions';
 
-import DropdownMenu from "./dropdownMenu";
-import UserLogin from "./userLogin";
-import NavMenu from "./navMenu";
+import DropdownMenu from './dropdownMenu';
+import UserLogin from './userLogin';
+import NavMenu from './navMenu';
 
-import styles from "./index.module.scss";
+import styles from './index.module.scss';
 
 class Header extends React.Component {
   componentDidMount() {
@@ -15,9 +15,7 @@ class Header extends React.Component {
   }
 
   render() {
-    const {
-      selectedTeamColor,
-    } = this.props;
+    const { selectedTeamColor } = this.props;
 
     return (
       <div className={styles.container}>

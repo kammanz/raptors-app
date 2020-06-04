@@ -1,14 +1,14 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-import styles from "./navMenu.module.scss";
+import styles from './navMenu.module.scss';
 
 const NavMenu = ({ selectedTeamColor }) => {
   return (
     <div className={styles.container}>
       <div className={styles.linkContainer}>
         <NavLink
-          to="/"
+          to='/'
           exact
           activeStyle={{
             color: `${selectedTeamColor}`,
@@ -20,7 +20,7 @@ const NavMenu = ({ selectedTeamColor }) => {
       </div>
       <div className={styles.linkContainer}>
         <NavLink
-          to="/standings"
+          to='/standings'
           activeStyle={{
             color: `${selectedTeamColor}`,
             borderBottom: `4px solid ${selectedTeamColor}`,
@@ -31,7 +31,7 @@ const NavMenu = ({ selectedTeamColor }) => {
       </div>
       <div className={styles.linkContainer}>
         <NavLink
-          to="/games"
+          to='/games'
           activeStyle={{
             color: `${selectedTeamColor}`,
             borderBottom: `4px solid ${selectedTeamColor}`,
