@@ -6,6 +6,11 @@
   justify-content: center;
   align-items: center;
   padding-bottom: 25px;
+
+  .invalid {
+    color: $grey2;
+    padding: 10px;
+  }
 }
 
 .game {

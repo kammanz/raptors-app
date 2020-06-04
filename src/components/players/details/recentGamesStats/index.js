@@ -67,12 +67,14 @@ const RecentGamesStats = ({ teams, teamColor, recentGamesStats, isLoading }) => 
     );
   });
 
+  const games = !!recentGames.length ? recentGames : <div className={styles.invalid}>No games available</div>;
+
   return (
     <section className={styles.recentGames}>
       <Title title='recent games' teamColor={teamColor} section='games' />
       {isLoading ?
         <Spinner isLoading={isLoading} /> :
-        recentGames
+        games
       }
     </section>
   );

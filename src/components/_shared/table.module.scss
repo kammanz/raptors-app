@@ -19,7 +19,6 @@
 
     td {
       height: 15px;
-      color: $grey4;
       font-size: 12px;
     }
   }
@@ -43,4 +42,8 @@ span {
 
 .games td {
   padding-top: 2px;
+}
+
+.invalid {
+  color: $grey2;
 }

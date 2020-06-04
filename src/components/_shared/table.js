@@ -14,6 +14,8 @@ const Table = ({ array, result, section }) => {
         </tr>
         <tr className={classnames(styles.table, section === 'totalStats' ? styles.totalStats : styles.games)}>
           {array.map(({ title, value }) => {
+            const val = parseInt(value) === -1 ? <div className={styles.invalid}>-</div> : value;
+
             return (
               <td key={title}>
                 {title === 'result' ?
@@ -21,9 +23,9 @@ const Table = ({ array, result, section }) => {
                     <span className={result === 'W' ? styles.won : styles.lost}>
                       {result}
                     </span>
-                    {value}
+                    {val}
                   </> :
-                  value
+                  val 
                 }
               </td>
             );
