@@ -74,8 +74,8 @@ class List extends React.Component {
                                 <div className={styles.number}>{jersey_number}</div>
                                 <div className={styles.details}>
                                     <div className={styles.name}>{first_name} {last_name}</div>
-                                    <div className={styles.position}>{position_full}</div>
-                                    <div className={styles.size}>{height_ft}-{height_in}, {weight_lbs} lbs</div>
+                                    <div className={styles.position}>{position_full.replace('-', ' - ')}</div>
+                                    <div className={styles.size}>{height_ft}' {height_in}, {weight_lbs} lbs</div>
                                 </div>
                             </> 
                         }

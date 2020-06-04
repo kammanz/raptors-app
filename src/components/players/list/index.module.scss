@@ -34,7 +34,7 @@
     padding-top: 10px;
     background-image: url('../../../assets/imgs/player-backdrop.png');
     background-size: cover;
-    
+
     img {
       display: flex;
       width: 100%;
@@ -44,19 +44,24 @@
   .imageLine {
     width: 100%;
     margin-top: 4px;
-    border-bottom: 2px solid transparent;
+    border-bottom: 2px solid $background-color-grey;
   }
 
   .detailsContainer {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     height: 120px;
 
+    .number,
+    .details {
+      padding-top: 25px;
+    }
+
     .number {
-      flex: .5;
+      width: 60px;
       border-radius: 5px;
       color: $grey3;
-      font-size: 32px;
+      font-size: 28px;
       font-weight: bold;
       text-align: center;
     }
@@ -64,21 +69,17 @@
     .details {
       display: flex;
       flex-direction: column;
-      flex: 2;
-      padding: 5px 0 5px 12px;
       text-align: left;
 
-      & > * {
-        padding: 3px;
-      }
-
       .name {
+        padding: 2px 0 4px;
         color: $grey5;
         font-size: 14px;
         font-weight: bold;
       }
 
       .position {
+        padding-bottom: 4px;
         color: $grey4;
         font-size: 13px;
       }
@@ -101,7 +102,8 @@
           color: $white;
         }
 
-        .position, .size {
+        .position,
+        .size {
           color: $grey1b;
         }
       }
