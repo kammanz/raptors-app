@@ -3,9 +3,9 @@ export default (
     details: {
       recentGames: {},
     },
-    isLoading: false
+    isLoading: false,
   },
-  action,
+  action
 ) => {
   switch (action.type) {
     case 'SET_PLAYER_DETAILS_IS_LOADING':
@@ -18,7 +18,7 @@ export default (
         ...state,
         details: {
           recentGames: {},
-          ...action.payload
+          ...action.payload,
         },
       };
     case 'UPDATE_PLAYER_DETAILS':
@@ -26,7 +26,7 @@ export default (
         ...state,
         details: {
           ...state.details,
-          ...action.payload
+          ...action.payload,
         },
       };
     case 'SET_RECENT_GAMES':
@@ -39,5 +39,5 @@ export default (
       };
     default:
       return state;
-  };
+  }
 };

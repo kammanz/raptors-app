@@ -5,7 +5,9 @@ import styles from './index.module.scss';
 const Placeholder = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.placeholderImage}><span>Select player for details</span></div>
+      <div className={styles.placeholderImage}>
+        <span>Select player for details</span>
+      </div>
       <div className={styles.underline} />
       <div className={styles.box}>
         <div className={styles.barContainer}>
@@ -17,6 +19,6 @@ const Placeholder = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Placeholder;

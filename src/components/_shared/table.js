@@ -12,19 +12,25 @@ const Table = ({ array, result, section }) => {
             return <th key={title}>{title}</th>;
           })}
         </tr>
-        <tr className={classnames(styles.table, section === 'totalStats' ? styles.totalStats : styles.games)}>
+        <tr
+          className={classnames(
+            styles.table,
+            section === 'totalStats' ? styles.totalStats : styles.games
+          )}
+        >
           {array.map(({ title, value }) => {
             return (
               <td key={title}>
-                {title === 'result' ?
+                {title === 'result' ? (
                   <>
                     <span className={result === 'W' ? styles.won : styles.lost}>
                       {result}
                     </span>
                     {value}
-                  </> :
+                  </>
+                ) : (
                   value
-                }
+                )}
               </td>
             );
           })}

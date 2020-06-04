@@ -10,11 +10,17 @@ const QuickStats = ({ quickStats, teamColor, isLoading }) => {
       {quickStats.map(({ title, value }) => {
         return (
           <div key={title} className={styles.container}>
-            <div style={{ backgroundColor: teamColor }} className={styles.header}>{title}</div>
-            {isLoading ?
-              <Spinner isLoading={isLoading} /> :
+            <div
+              style={{ backgroundColor: teamColor }}
+              className={styles.header}
+            >
+              {title}
+            </div>
+            {isLoading ? (
+              <Spinner isLoading={isLoading} />
+            ) : (
               <div className={styles.data}>{value}</div>
-            }
+            )}
           </div>
         );
       })}
