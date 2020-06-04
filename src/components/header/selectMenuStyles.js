@@ -2,10 +2,10 @@ const selectMenuStyles = (selectedTeamColor) => {
   return {
     container: (provided) => ({
       ...provided,
-      backgroundColor: `${selectedTeamColor}`,
+      backgroundColor: selectedTeamColor,
       height: '100%',
       cursor: 'pointer',
-      width: '305px',
+      width: 320,
     }),
     control: () => ({
       display: 'flex',
@@ -13,24 +13,24 @@ const selectMenuStyles = (selectedTeamColor) => {
     }),
     valueContainer: (provided) => ({
       ...provided,
-      width: '285px',
-      padding: '0',
-      margin: '0',
+      width: 285,
+      padding: 0,
+      margin: 0,
       color: 'white',
       fontFamily: 'spurs',
-      fontSize: '22px',
+      fontSize: 22,
     }),
     singleValue: (provided) => ({
       ...provided,
       color: 'white',
-      margin: '0',
+      margin: 0,
     }),
     indicatorsContainer: (provided) => ({
       ...provided,
       display: 'flex',
       justifyContent: 'center',
-      width: '30px',
-      paddingRight: '22px',
+      width: 30,
+      paddingRight: 22,
     }),
     indicatorSeparator: (provided) => ({
       ...provided,
@@ -46,6 +46,7 @@ const selectMenuStyles = (selectedTeamColor) => {
     }),
     menuList: (provided) => ({
       ...provided,
+      maxHeight: 310,
       padding: 0,
     }),
   };
