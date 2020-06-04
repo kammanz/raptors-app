@@ -10,8 +10,8 @@ import reducers from './reducers/combinedReducers.js';
 const store = createStore(reducers, applyMiddleware(thunk));
 
 ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>, 
-    document.getElementById('root')
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
 );

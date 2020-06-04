@@ -7,15 +7,15 @@ import Filters from './filters';
 import styles from './index.module.scss';
 
 const PlayersPage = () => {
-    return (
-        <>
-            <Filters />
-            <div className={styles.container}>
-                <List />
-                <Details />  
-            </div>
-        </>
-    );
+  return (
+    <>
+      <Filters />
+      <div className={styles.container}>
+        <List />
+        <Details />
+      </div>
+    </>
+  );
 };
 
 export default PlayersPage;
