@@ -25,7 +25,7 @@ class List extends React.Component {
       const { selectedTeam } = this.props;
       const { selectedTeam: selectedTeamPrev } = prevProps;
 
-      if (selectedTeamPrev !== selectedTeam) { 
+      if (selectedTeamPrev !== selectedTeam) {
         this.setState({ selectedPlayerId: null });
         this.ref.current.scrollTo(0, 0);
       };
@@ -71,7 +71,7 @@ class List extends React.Component {
                     </div>
                     <div style={{borderColor: teamColor}} className={styles.imageLine} />
                     <div style={{backgroundColor: isSelected && teamColor}} className={styles.detailsContainer}>
-                        {!!Object.keys(player).length && 
+                        {!!Object.keys(player).length &&
                             <>
                                 <div className={styles.number}>{jersey_number}</div>
                                 <div className={styles.details}>
@@ -79,7 +79,7 @@ class List extends React.Component {
                                     <div className={styles.position}>{position_full}</div>
                                     <div className={styles.size}>{height_ft}-{height_in}, {weight_lbs} lbs</div>
                                 </div>
-                            </> 
+                            </>
                         }
                     </div>
                 </div>
