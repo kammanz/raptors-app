@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import Spinner from "components/_shared/spinner";
+import Spinner from 'components/_shared/spinner';
 
-import styles from "./index.module.scss";
+import styles from './index.module.scss';
 
 const QuickStats = ({ quickStats, teamColor, isLoading }) => {
   return (

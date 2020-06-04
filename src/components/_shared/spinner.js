@@ -1,9 +1,9 @@
-import React from "react";
-import ScaleLoader from "react-spinners/ScaleLoader";
-import { css } from "@emotion/core";
-import PropTypes from "prop-types";
+import React from 'react';
+import ScaleLoader from 'react-spinners/ScaleLoader';
+import { css } from '@emotion/core';
+import PropTypes from 'prop-types';
 
-import { COLORS } from "enums";
+import { COLORS } from 'enums';
 
 const Spinner = ({ isLoading, containerHeight, height, ...props }) => (
   <ScaleLoader

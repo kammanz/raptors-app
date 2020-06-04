@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import styles from "./title.module.scss";
+import styles from './title.module.scss';
 
 const Title = ({ title, section, teamColor }) => {
   return (

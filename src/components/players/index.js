@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import List from "./list";
-import Details from "./details";
-import Filters from "./filters";
+import List from './list';
+import Details from './details';
+import Filters from './filters';
 
-import styles from "./index.module.scss";
+import styles from './index.module.scss';
 
 const PlayersPage = () => {
   return (
