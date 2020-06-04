@@ -11,7 +11,7 @@ const NavMenu = ({ selectedTeamColor }) => {
           to='/'
           exact
           activeStyle={{
-            color: `${selectedTeamColor}`,
+            color: selectedTeamColor,
             borderBottom: `4px solid ${selectedTeamColor}`,
           }}
         >
@@ -33,7 +33,7 @@ const NavMenu = ({ selectedTeamColor }) => {
         <NavLink
           to='/games'
           activeStyle={{
-            color: `${selectedTeamColor}`,
+            color: selectedTeamColor,
             borderBottom: `4px solid ${selectedTeamColor}`,
           }}
         >
