@@ -8,35 +8,32 @@ const NavMenu = ({ selectedTeamColor }) => {
     <div className={styles.container}>
       <div className={styles.linkContainer}>
         <NavLink
-          to='/'
+          to="/"
           exact
           activeStyle={{
             color: `${selectedTeamColor}`,
             borderBottom: `4px solid ${selectedTeamColor}`,
-          }}
-        >
+          }}>
           Players
         </NavLink>
       </div>
       <div className={styles.linkContainer}>
         <NavLink
-          to='/standings'
+          to="/standings"
           activeStyle={{
             color: `${selectedTeamColor}`,
             borderBottom: `4px solid ${selectedTeamColor}`,
-          }}
-        >
+          }}>
           Standings
         </NavLink>
       </div>
       <div className={styles.linkContainer}>
         <NavLink
-          to='/games'
+          to="/games"
           activeStyle={{
             color: `${selectedTeamColor}`,
             borderBottom: `4px solid ${selectedTeamColor}`,
-          }}
-        >
+          }}>
           Games
         </NavLink>
       </div>

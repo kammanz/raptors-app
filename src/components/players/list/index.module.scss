@@ -6,6 +6,7 @@
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 8px;
   padding: 5px;
+  width: 100%;
   height: calc(100vh - 100px);
   overflow-y: auto;
   background-color: $white;

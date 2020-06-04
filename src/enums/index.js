@@ -23,5 +23,5 @@ export const TEAMS = Object.freeze({
     TRI_CODE: 'PHI',
     NAME: 'sixers',
     ID: '1610612755',
-  }
+  },
 });

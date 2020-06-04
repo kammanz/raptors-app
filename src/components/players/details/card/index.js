@@ -27,31 +27,19 @@ const Card = ({
       <div className={styles.imageContainer}>
         <img
           src={formatPlayerPhotoUrl(playerTeamId, person_id)}
-          alt='player headshot'
+          alt="player headshot"
           onError={(e) => (e.target.src = placeholderImg)}
         />
       </div>
     </div>
-    <div
-      className={classnames(
-        styles.card,
-        styles.cardWrapper,
-        isSticky && styles.borderBottom
-      )}
-    >
+    <div className={classnames(styles.card, styles.cardWrapper, isSticky && styles.borderBottom)}>
       <div style={{ borderColor: teamColor }} className={styles.imageLine} />
       <div className={styles.detailsContainer}>
         <div className={styles.infoContainer}>
-          <div
-            className={classnames(
-              styles.thumb,
-              isAnimated && styles.transition,
-              isSticky && styles.animate
-            )}
-          >
+          <div className={classnames(styles.thumb, isAnimated && styles.transition, isSticky && styles.animate)}>
             <img
               src={formatPlayerPhotoUrl(playerTeamId, person_id)}
-              alt='player headshot'
+              alt="player headshot"
               onError={(e) => (e.target.src = placeholderImg)}
             />
           </div>
