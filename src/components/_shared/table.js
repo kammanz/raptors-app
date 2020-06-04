@@ -18,15 +18,14 @@ const Table = ({ array, result, section }) => {
 
             return (
               <td key={title}>
-                {title === 'result' ?
+                {title === 'result' ? (
                   <>
-                    <span className={result === 'W' ? styles.won : styles.lost}>
-                      {result}
-                    </span>
+                    <span className={result === 'W' ? styles.won : styles.lost}>{result}</span>
                     {val}
-                  </> :
-                  val 
-                }
+                  </>
+                ) : (
+                  val
+                )}
               </td>
             );
           })}

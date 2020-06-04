@@ -10,7 +10,10 @@ const NavMenu = ({ selectedTeamColor }) => {
         <NavLink
           to='/'
           exact
-          activeStyle={{ color: `${selectedTeamColor}`, borderBottom: `4px solid ${selectedTeamColor}` }}
+          activeStyle={{
+            color: `${selectedTeamColor}`,
+            borderBottom: `4px solid ${selectedTeamColor}`,
+          }}
         >
           Players
         </NavLink>
@@ -18,7 +21,10 @@ const NavMenu = ({ selectedTeamColor }) => {
       <div className={styles.linkContainer}>
         <NavLink
           to='/standings'
-          activeStyle={{ color: `${selectedTeamColor}`, borderBottom: `4px solid ${selectedTeamColor}` }}
+          activeStyle={{
+            color: `${selectedTeamColor}`,
+            borderBottom: `4px solid ${selectedTeamColor}`,
+          }}
         >
           Standings
         </NavLink>
@@ -26,7 +32,10 @@ const NavMenu = ({ selectedTeamColor }) => {
       <div className={styles.linkContainer}>
         <NavLink
           to='/games'
-          activeStyle={{ color: `${selectedTeamColor}`, borderBottom: `4px solid ${selectedTeamColor}` }}
+          activeStyle={{
+            color: `${selectedTeamColor}`,
+            borderBottom: `4px solid ${selectedTeamColor}`,
+          }}
         >
           Games
         </NavLink>
