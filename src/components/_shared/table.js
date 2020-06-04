@@ -1,7 +1,7 @@
-import React from "react";
-import classnames from "classnames";
+import React from 'react';
+import classnames from 'classnames';
 
-import styles from "./table.module.scss";
+import styles from './table.module.scss';
 
 const Table = ({ array, result, section }) => {
   return (
@@ -15,15 +15,15 @@ const Table = ({ array, result, section }) => {
         <tr
           className={classnames(
             styles.table,
-            section === "totalStats" ? styles.totalStats : styles.games
+            section === 'totalStats' ? styles.totalStats : styles.games
           )}
         >
           {array.map(({ title, value }) => {
             return (
               <td key={title}>
-                {title === "result" ? (
+                {title === 'result' ? (
                   <>
-                    <span className={result === "W" ? styles.won : styles.lost}>
+                    <span className={result === 'W' ? styles.won : styles.lost}>
                       {result}
                     </span>
                     {value}

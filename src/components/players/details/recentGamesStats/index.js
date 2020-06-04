@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import Spinner from "components/_shared/spinner";
-import Title from "components/_shared/title";
-import Table from "components/_shared/table";
+import Spinner from 'components/_shared/spinner';
+import Title from 'components/_shared/title';
+import Table from 'components/_shared/table';
 
-import styles from "./index.module.scss";
+import styles from './index.module.scss';
 
 const RecentGamesStats = ({
   teams,
@@ -21,7 +21,7 @@ const RecentGamesStats = ({
 
       const getGameResult = () => {
         const playersTeam = isHomeGame ? hTeam : vTeam;
-        return playersTeam.isWinner ? "W" : "L";
+        return playersTeam.isWinner ? 'W' : 'L';
       };
 
       const oppTeam = teamsArray.find((team) => {
@@ -35,10 +35,10 @@ const RecentGamesStats = ({
           : `${vTeam.score} - ${hTeam.score}`;
 
       const formatUTCDate = (gameDateUTC) => {
-        const parsedArray = new Date(gameDateUTC).toDateString().split(" ");
+        const parsedArray = new Date(gameDateUTC).toDateString().split(' ');
         const el = parsedArray[2];
 
-        return el.charAt(0) === "0"
+        return el.charAt(0) === '0'
           ? `${parsedArray[0]}. ${parsedArray[1]} ${el.substring(1)}, ${
               parsedArray[3]
             }`
@@ -46,21 +46,21 @@ const RecentGamesStats = ({
       };
 
       const tableArray = [
-        { title: "result", value: score },
-        { title: "points", value: points },
-        { title: "assists", value: assists },
-        { title: "off reb", value: offReb },
-        { title: "def reb", value: defReb },
-        { title: "tot reb", value: totReb },
+        { title: 'result', value: score },
+        { title: 'points', value: points },
+        { title: 'assists', value: assists },
+        { title: 'off reb', value: offReb },
+        { title: 'def reb', value: defReb },
+        { title: 'tot reb', value: totReb },
       ];
 
       return (
         <div key={gameId} className={styles.game}>
           <header>
-            <div>{isHomeGame ? "vs" : "@"}</div>
+            <div>{isHomeGame ? 'vs' : '@'}</div>
             <img
               src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${oppTeam.tricode}.svg`}
-              alt="team logo"
+              alt='team logo'
             />
             <div>{oppTeam.ttsName}</div>
             <div style={{ color: teamColor }} className={styles.date}>
@@ -71,7 +71,7 @@ const RecentGamesStats = ({
           <Table
             array={tableArray}
             teamColor={teamColor}
-            section="games"
+            section='games'
             result={getGameResult()}
           />
         </div>
@@ -81,7 +81,7 @@ const RecentGamesStats = ({
 
   return (
     <section className={styles.recentGames}>
-      <Title title="recent games" teamColor={teamColor} section="games" />
+      <Title title='recent games' teamColor={teamColor} section='games' />
       {isLoading ? <Spinner isLoading={isLoading} /> : recentGames}
     </section>
   );

@@ -1,18 +1,18 @@
-import React from "react";
-import { connect } from "react-redux";
-import Select from "react-select";
-import classnames from "classnames";
+import React from 'react';
+import { connect } from 'react-redux';
+import Select from 'react-select';
+import classnames from 'classnames';
 
-import { getTeams, getSelectedTeam } from "actions/actions";
-import { COLORS } from "enums";
-import bell from "assets/icons/notification-bell.svg";
-import dropdownWhite from "assets/icons/dropdownWhite.svg";
-import settingsIcon from "assets/icons/settings-icon.svg";
-import kobe from "assets/imgs/kobe.png";
+import { getTeams, getSelectedTeam } from 'actions/actions';
+import { COLORS } from 'enums';
+import bell from 'assets/icons/notification-bell.svg';
+import dropdownWhite from 'assets/icons/dropdownWhite.svg';
+import settingsIcon from 'assets/icons/settings-icon.svg';
+import kobe from 'assets/imgs/kobe.png';
 
-import NavMenu from "./navMenu";
-import selectMenuStyles from "./selectMenuStyles";
-import styles from "./index.module.scss";
+import NavMenu from './navMenu';
+import selectMenuStyles from './selectMenuStyles';
+import styles from './index.module.scss';
 
 class Header extends React.Component {
   componentDidMount() {
@@ -40,8 +40,8 @@ class Header extends React.Component {
         <div className={styles.optionImgContainer}>
           <img
             src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${tricode}.svg`}
-            title="team logo"
-            alt="team logo"
+            title='team logo'
+            alt='team logo'
             className={styles.optionImage}
           />
         </div>
@@ -72,8 +72,8 @@ class Header extends React.Component {
         <div className={styles.optionImgContainer}>
           <img
             src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${tricode}.svg`}
-            title="team logo"
-            alt="team logo"
+            title='team logo'
+            alt='team logo'
             className={styles.optionImage}
           />
         </div>
@@ -89,7 +89,7 @@ class Header extends React.Component {
       selectedTeam: { teamId: selectedTeamId },
     } = this.props;
     const DropdownIndicator = () => (
-      <img src={dropdownWhite} alt="dropdown arrow" />
+      <img src={dropdownWhite} alt='dropdown arrow' />
     );
 
     return (
@@ -125,16 +125,16 @@ class Header extends React.Component {
 
         <div className={styles.userContainer}>
           <button>
-            <img src={bell} alt="notification bell" />
+            <img src={bell} alt='notification bell' />
           </button>
           <button>
-            <img src={settingsIcon} alt="settings icon" />
+            <img src={settingsIcon} alt='settings icon' />
           </button>
           <button>
             <img
               src={kobe}
-              alt="user avatar"
-              height="25"
+              alt='user avatar'
+              height='25'
               className={styles.userPic}
             />
             <div>Kobe Bryant</div>

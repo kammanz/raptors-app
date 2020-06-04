@@ -1,10 +1,10 @@
-import React from "react";
-import classnames from "classnames";
+import React from 'react';
+import classnames from 'classnames';
 
-import placeholderImg from "assets/imgs/placeholder.png";
-import { formatPlayerPhotoUrl } from "utils/stringUtils";
+import placeholderImg from 'assets/imgs/placeholder.png';
+import { formatPlayerPhotoUrl } from 'utils/stringUtils';
 
-import styles from "./index.module.scss";
+import styles from './index.module.scss';
 
 const Card = ({
   player: {
@@ -27,7 +27,7 @@ const Card = ({
       <div className={styles.imageContainer}>
         <img
           src={formatPlayerPhotoUrl(playerTeamId, person_id)}
-          alt="player headshot"
+          alt='player headshot'
           onError={(e) => (e.target.src = placeholderImg)}
         />
       </div>
@@ -51,7 +51,7 @@ const Card = ({
           >
             <img
               src={formatPlayerPhotoUrl(playerTeamId, person_id)}
-              alt="player headshot"
+              alt='player headshot'
               onError={(e) => (e.target.src = placeholderImg)}
             />
           </div>

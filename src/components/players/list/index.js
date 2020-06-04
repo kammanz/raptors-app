@@ -1,14 +1,14 @@
-import React, { createRef } from "react";
-import { connect } from "react-redux";
-import classnames from "classnames";
+import React, { createRef } from 'react';
+import { connect } from 'react-redux';
+import classnames from 'classnames';
 
-import Overlay from "components/_shared/overlay";
-import Spinner from "components/_shared/spinner";
-import placeholderImg from "assets/imgs/placeholder.png";
-import { getSelectedPlayer } from "actions/actions";
-import { formatPlayerPhotoUrl } from "utils/stringUtils";
+import Overlay from 'components/_shared/overlay';
+import Spinner from 'components/_shared/spinner';
+import placeholderImg from 'assets/imgs/placeholder.png';
+import { getSelectedPlayer } from 'actions/actions';
+import { formatPlayerPhotoUrl } from 'utils/stringUtils';
 
-import styles from "./index.module.scss";
+import styles from './index.module.scss';
 
 class List extends React.Component {
   constructor(props) {
@@ -70,7 +70,7 @@ class List extends React.Component {
                   ? formatPlayerPhotoUrl(teamId, person_id)
                   : placeholderImg
               }
-              alt="player headshot"
+              alt='player headshot'
               onError={(e) => (e.target.src = placeholderImg)}
             />
           </div>
