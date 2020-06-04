@@ -2,24 +2,27 @@
 
 .container {
   position: relative;
-  display: flex;
-  flex: 2;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  height: calc(100vh - 90px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 8px;
+  padding: 5px;
+  height: calc(100vh - 100px);
   overflow-y: auto;
   background-color: $white;
 }
 
 .playerCard {
-  width: calc(25% - 8px);
-  padding: 5px 4px;
+  width: 100%;
   background: $white;
   font-family: Arial;
   cursor: pointer;
 
   & > * {
     pointer-events: none;
+  }
+
+  &:last-child {
+    padding-bottom: 5px;
   }
 
   &:hover {
