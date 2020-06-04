@@ -1,14 +1,14 @@
-import React from "react";
-import { connect } from "react-redux";
-import Select from "react-select";
-import classnames from "classnames";
+import React from 'react';
+import { connect } from 'react-redux';
+import Select from 'react-select';
+import classnames from 'classnames';
 
-import { getTeams, getSelectedTeam } from "actions/actions";
-import { COLORS } from "enums";
-import dropdownWhite from "assets/icons/dropdownWhite.svg";
+import { getTeams, getSelectedTeam } from 'actions/actions';
+import { COLORS } from 'enums';
+import dropdownWhite from 'assets/icons/dropdownWhite.svg';
 
-import selectMenuStyles from "./selectMenuStyles";
-import styles from "./dropdownMenu.module.scss";
+import selectMenuStyles from './selectMenuStyles';
+import styles from './dropdownMenu.module.scss';
 
 const DropdownMenu = ({
   teams,
@@ -19,7 +19,7 @@ const DropdownMenu = ({
   const { teamId: selectedTeamId } = selectedTeam;
 
   const dropdownIndicator = () => (
-    <img src={dropdownWhite} alt="dropdown arrow" />
+    <img src={dropdownWhite} alt='dropdown arrow' />
   );
 
   const customValue = (props) => {
@@ -31,7 +31,7 @@ const DropdownMenu = ({
 
     return (
       <div
-        style={{ backgroundColor: primaryColor, borderTop: "none" }}
+        style={{ backgroundColor: primaryColor, borderTop: 'none' }}
         className={styles.optionContainer}
         ref={innerRef}
         {...innerProps}
@@ -39,8 +39,8 @@ const DropdownMenu = ({
         <div className={styles.optionImgContainer}>
           <img
             src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${tricode}.svg`}
-            title="team logo"
-            alt="team logo"
+            title='team logo'
+            alt='team logo'
             className={styles.optionImage}
           />
         </div>
@@ -71,8 +71,8 @@ const DropdownMenu = ({
           <div className={styles.optionImgContainer}>
             <img
               src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${tricode}.svg`}
-              title="team logo"
-              alt="team logo"
+              title='team logo'
+              alt='team logo'
               className={styles.optionImage}
             />
           </div>
@@ -80,10 +80,6 @@ const DropdownMenu = ({
         </div>
       )
     );
-  };
-
-  const onSelectChange = (e) => {
-    getSelectedTeam(e);
   };
 
   return (
@@ -102,7 +98,7 @@ const DropdownMenu = ({
           Option: customOption,
           SingleValue: customValue,
         }}
-        onChange={(e) => onSelectChange(e)}
+        onChange={(e) => getSelectedTeam(e)}
       />
       <div
         style={{
