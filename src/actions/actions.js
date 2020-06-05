@@ -1,5 +1,5 @@
-import dataNbaNet from '../apis/dataNbaNet';
-import { TEAMS } from '../enums';
+import dataNbaNet from 'apis/dataNbaNet';
+import { TEAMS } from 'enums';
 
 const resetPlayers = new Array(20).fill({});
 

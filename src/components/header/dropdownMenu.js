@@ -27,7 +27,8 @@ const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam 
         style={{ backgroundColor: primaryColor, borderTop: 'none' }}
         className={styles.optionContainer}
         ref={innerRef}
-        {...innerProps}>
+        {...innerProps}
+      >
         <div className={styles.optionImgContainer}>
           <img
             src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${tricode}.svg`}
@@ -55,7 +56,8 @@ const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam 
           style={{ backgroundColor: primaryColor }}
           className={classnames(styles.optionContainer, isSelected && styles.displayNone)}
           ref={innerRef}
-          {...innerProps}>
+          {...innerProps}
+        >
           <div className={styles.optionImgContainer}>
             <img
               src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${tricode}.svg`}

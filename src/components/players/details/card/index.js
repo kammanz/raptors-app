@@ -47,7 +47,7 @@ const Card = ({
             <div className={styles.playerName}>
               {first_name} {last_name}
             </div>
-            <div className={styles.playerPosition}>{position_full}</div>
+            <div className={styles.playerPosition}>{position_full.replace('-', ' - ')}}</div>
             <div className={styles.playerDetails}>
               {height_ft}' {height_in}, {weight_lbs} lbs
             </div>
