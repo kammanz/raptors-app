@@ -15,11 +15,7 @@ const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam 
 
   const teamsArray = Object.values(TEAMS);
 
-  const teamLogo = teamsArray.map((obj, i) => {
-    if (obj.TRI_CODE === selectedTeam.tricode) {
-      return <div key={obj.TRI_CODE}>{obj.LOGO}</div>;
-    }
-  });
+  console.log(teams.map((x) => x));
 
   const dropdownIndicator = () => <img src={dropdownWhite} alt="dropdown arrow" />;
 
@@ -30,16 +26,21 @@ const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam 
       innerProps,
     } = props;
 
-    return (
-      <div
-        style={{ backgroundColor: primaryColor, borderTop: 'none' }}
-        className={styles.optionContainer}
-        ref={innerRef}
-        {...innerProps}>
-        <div className={styles.optionImgContainer}>{teamLogo}</div>
-        <div className={styles.optionTitle}>{ttsName}</div>
-      </div>
-    );
+    return teamsArray.map((obj) => {
+      return (
+        obj.TRI_CODE === tricode && (
+          <div
+            key={tricode}
+            style={{ backgroundColor: primaryColor, borderTop: 'none' }}
+            className={styles.optionContainer}
+            ref={innerRef}
+            {...innerProps}>
+            <div className={styles.optionImgContainer}>{obj.LOGO}</div>
+            <div className={styles.optionTitle}>{ttsName}</div>
+          </div>
+        )
+      );
+    });
   };
 
   const customOption = (props) => {
@@ -51,23 +52,22 @@ const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam 
     const isSelected = selectedTeamId === teamId;
 
     return (
-      !isSelected && (
-        <div
-          style={{ backgroundColor: primaryColor }}
-          className={classnames(styles.optionContainer, isSelected && styles.displayNone)}
-          ref={innerRef}
-          {...innerProps}>
-          <div className={styles.optionImgContainer}>
-            <img
-              src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${tricode}.svg`}
-              title="team logo"
-              alt="team logo"
-              className={styles.optionImage}
-            />
-          </div>
-          <div className={styles.optionTitle}>{ttsName}</div>
-        </div>
-      )
+      !isSelected &&
+      teamsArray.map((obj) => {
+        return (
+          obj.TRI_CODE === tricode && (
+            <div
+              key={tricode}
+              style={{ backgroundColor: primaryColor }}
+              className={styles.optionContainer}
+              ref={innerRef}
+              {...innerProps}>
+              <div className={styles.optionImgContainer}>{obj.LOGO}</div>
+              <div className={styles.optionTitle}>{ttsName}</div>
+            </div>
+          )
+        );
+      })
     );
   };
 
