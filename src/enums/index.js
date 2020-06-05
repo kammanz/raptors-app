@@ -168,7 +168,7 @@ export const TEAMS = Object.freeze({
     LOGO: <NYK />,
   },
   OKC: {
-    TRI_CODE: 'OCK',
+    TRI_CODE: 'OKC',
     NAME: 'thunder',
     ID: '1610612760',
     LOGO: <OKC />,
@@ -193,7 +193,7 @@ export const TEAMS = Object.freeze({
   },
   POR: {
     TRI_CODE: 'POR',
-    NAME: 'nets',
+    NAME: 'trailblazers',
     ID: '1610612757',
     LOGO: <POR />,
   },
