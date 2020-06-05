@@ -4,11 +4,8 @@ import Select from 'react-select';
 import classnames from 'classnames';
 
 import { getTeams, getSelectedTeam } from 'actions/actions';
-import { COLORS } from 'enums';
+import { COLORS, TEAMS } from 'enums';
 import dropdownWhite from 'assets/icons/dropdownWhite.svg';
-
-import TOR from 'assets/logos/TOR';
-import BKN from 'assets/logos/BKN';
 
 import selectMenuStyles from './selectMenuStyles';
 import styles from './dropdownMenu.module.scss';
@@ -16,14 +13,11 @@ import styles from './dropdownMenu.module.scss';
 const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam }) => {
   const { teamId: selectedTeamId } = selectedTeam;
 
-  const arr = [
-    { tricode: 'TOR', path: <TOR /> },
-    { tricode: 'BKN', path: <BKN /> },
-  ];
+  const teamsArray = Object.values(TEAMS);
 
-  const teamLogo = arr.map((obj) => {
-    if (obj.tricode === selectedTeam.tricode) {
-      return obj.path;
+  const teamLogo = teamsArray.map((obj, i) => {
+    if (obj.TRI_CODE === selectedTeam.tricode) {
+      return <div key={obj.TRI_CODE}>{obj.LOGO}</div>;
     }
   });
 
