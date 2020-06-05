@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Select from 'react-select';
-import classnames from 'classnames';
 
 import { getTeams, getSelectedTeam } from 'actions/actions';
 import { COLORS, TEAMS } from 'enums';
@@ -14,8 +13,6 @@ const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam 
   const { teamId: selectedTeamId } = selectedTeam;
 
   const teamsArray = Object.values(TEAMS);
-
-  console.log(teams.map((x) => x));
 
   const dropdownIndicator = () => <img src={dropdownWhite} alt="dropdown arrow" />;
 

@@ -34,9 +34,12 @@ header {
     padding: 3px;
   }
 
-  img {
-    display: inline-block;
+  .imgy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 42px;
+    width: 42px;
     padding: 3px;
   }
 }

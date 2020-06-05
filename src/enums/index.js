@@ -44,7 +44,7 @@ export const COLORS = Object.freeze({
 /**
  * Enum for teams object.
  * @readonly
- * @enum {{ TRI_CODE: string, NAME: string, ID: string, LOGO: jsx, }}
+ * @enum {{ TRI_CODE: string, NAME: string, ID: string, LOGO: node, }}
  */
 export const TEAMS = Object.freeze({
   ATL: {
