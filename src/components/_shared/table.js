@@ -1,5 +1,4 @@
 import React from 'react';
-
 import classnames from 'classnames';
 
 import styles from './table.module.scss';
@@ -13,24 +12,19 @@ const Table = ({ array, result, section }) => {
             return <th key={title}>{title}</th>;
           })}
         </tr>
-        <tr
-          className={classnames(
-            styles.table,
-            section === 'totalStats' ? styles.totalStats : styles.games
-          )}
-        >
+        <tr className={classnames(styles.table, section === 'totalStats' ? styles.totalStats : styles.games)}>
           {array.map(({ title, value }) => {
+            const val = parseInt(value) === -1 ? <div className={styles.invalid}>-</div> : value;
+
             return (
               <td key={title}>
                 {title === 'result' ? (
                   <>
-                    <span className={result === 'W' ? styles.won : styles.lost}>
-                      {result}
-                    </span>
-                    {value}
+                    <span className={result === 'W' ? styles.won : styles.lost}>{result}</span>
+                    {val}
                   </>
                 ) : (
-                  value
+                  val
                 )}
               </td>
             );

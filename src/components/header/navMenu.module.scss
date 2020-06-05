@@ -10,7 +10,7 @@
   font-family: Avenir;
   font-size: 16px;
   text-transform: uppercase;
-  
+
   .linkContainer {
     display: inline-block;
     height: 100%;
@@ -19,12 +19,12 @@
 
   a {
     display: inline-block;
-    height: calc(100% - 19px);    
+    height: calc(100% - 19px);
     padding-top: 15px;
     color: $grey5;
     text-decoration: none;
 
-      &:hover {
+    &:hover {
       height: calc(100% - 19px);
       color: $grey-three;
     }

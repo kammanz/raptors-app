@@ -1,69 +1,69 @@
 @import 'src/scss/variables.scss';
 
 .container {
-    min-width: 400px;
-    padding-top: 5px;
+  min-width: 400px;
+  padding-top: 5px;
 }
 
 .placeholderImage {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 292px;
-    background-color: $grey1b;
-    color: $grey-three;
-    text-align: center;
-    font-family: arial;
-    font-size: 16px;
-    letter-spacing: 0.015em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 292px;
+  background-color: $grey1b;
+  color: $grey-three;
+  text-align: center;
+  font-family: arial;
+  font-size: 16px;
+  letter-spacing: 0.015em;
 }
 
 .underline {
-    height: 3px;
-    margin-top: 5px;
-    background-color: $grey1b;
+  height: 3px;
+  margin-top: 5px;
+  background-color: $grey1b;
 }
 
 .box {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
 .barContainer {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .barOne {
-    width: 202px;
-    height: 30px;
-    background-color: $grey1b;
+  width: 202px;
+  height: 30px;
+  background-color: $grey1b;
 }
 
 .barTwo {
-    width: 112px;
-    height: 18px;
-    margin-top: 5px;
-    background-color: $grey1b;
+  width: 112px;
+  height: 18px;
+  margin-top: 5px;
+  background-color: $grey1b;
 }
 
 .barThree {
-    width: 88px;
-    height: 12px;
-    margin-top: 5px;
-    background-color: $grey1b;
+  width: 88px;
+  height: 12px;
+  margin-top: 5px;
+  background-color: $grey1b;
 }
 
 .circleContainer {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
 }
 
 .circle {
-    height: 58px;
-    width: 58px;
-    border-radius: 50%;
-    background-color: $grey1b;
+  height: 58px;
+  width: 58px;
+  border-radius: 50%;
+  background-color: $grey1b;
 }

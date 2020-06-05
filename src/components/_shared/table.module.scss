@@ -4,24 +4,23 @@
   width: 100%;
   border-spacing: 0px;
   font-family: arial;
+}
 
-  tbody tr {
-    text-align: center;
+tr {
+  text-align: center;
 
-    th {
-      padding: 4px 0;
-      border-bottom: 1px solid $grey1b;
-      color: $grey6;
-      font-size: 11px;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
+  th {
+    padding: 4px 0;
+    border-bottom: 1px solid $grey1b;
+    color: $grey6;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
 
-    td {
-      height: 15px;
-      color: $grey4;
-      font-size: 12px;
-    }
+  td {
+    height: 15px;
+    font-size: 12px;
   }
 }
 
@@ -43,4 +42,8 @@ span {
 
 .games td {
   padding-top: 2px;
+}
+
+.invalid {
+  color: $grey2;
 }

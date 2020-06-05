@@ -5,13 +5,7 @@ import PropTypes from 'prop-types';
 
 import { COLORS } from 'enums';
 
-const Spinner = ({ 
-    isLoading, 
-    containerHeight, 
-    height,
-    ...props
-  }) => (
-
+const Spinner = ({ isLoading, containerHeight, height, ...props }) => (
   <ScaleLoader
     css={css`
       display: flex;

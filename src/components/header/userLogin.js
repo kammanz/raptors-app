@@ -10,18 +10,13 @@ const UserLogin = () => {
   return (
     <div className={styles.userContainer}>
       <button>
-        <img src={bell} alt='notification bell' />
+        <img src={bell} alt="notification bell" />
       </button>
       <button>
-        <img src={settingsIcon} alt='settings icon' />
+        <img src={settingsIcon} alt="settings icon" />
       </button>
       <button>
-        <img
-          src={kobe}
-          alt='user avatar'
-          height='25'
-          className={styles.userPic}
-        />
+        <img src={kobe} alt="user avatar" height="25" className={styles.userPic} />
         <div>Kobe Bryant</div>
         <i className={styles.dropDownUser} />
       </button>
