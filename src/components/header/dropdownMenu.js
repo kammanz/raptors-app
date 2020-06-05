@@ -23,16 +23,16 @@ const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam 
       innerProps,
     } = props;
 
-    return teamsArray.map((obj) => {
+    return teamsArray.map((team) => {
       return (
-        obj.TRI_CODE === tricode && (
+        team.TRI_CODE === tricode && (
           <div
             key={tricode}
             style={{ backgroundColor: primaryColor, borderTop: 'none' }}
             className={styles.optionContainer}
             ref={innerRef}
             {...innerProps}>
-            <div className={styles.optionImgContainer}>{obj.LOGO}</div>
+            <div className={styles.optionImgContainer}>{team.LOGO}</div>
             <div className={styles.optionTitle}>{ttsName}</div>
           </div>
         )
@@ -50,16 +50,16 @@ const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam 
 
     return (
       !isSelected &&
-      teamsArray.map((obj) => {
+      teamsArray.map((team) => {
         return (
-          obj.TRI_CODE === tricode && (
+          team.TRI_CODE === tricode && (
             <div
               key={tricode}
               style={{ backgroundColor: primaryColor }}
               className={styles.optionContainer}
               ref={innerRef}
               {...innerProps}>
-              <div className={styles.optionImgContainer}>{obj.LOGO}</div>
+              <div className={styles.optionImgContainer}>{team.LOGO}</div>
               <div className={styles.optionTitle}>{ttsName}</div>
             </div>
           )

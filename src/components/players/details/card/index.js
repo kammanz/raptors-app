@@ -27,7 +27,7 @@ const Card = ({
       <div className={styles.imageContainer}>
         <img
           src={formatPlayerPhotoUrl(playerTeamId, person_id)}
-          alt='player headshot'
+          alt="player headshot"
           onError={(e) => (e.target.src = placeholderImg)}
         />
       </div>
@@ -39,7 +39,7 @@ const Card = ({
           <div className={classnames(styles.thumb, isAnimated && styles.transition, isSticky && styles.animate)}>
             <img
               src={formatPlayerPhotoUrl(playerTeamId, person_id)}
-              alt='player headshot'
+              alt="player headshot"
               onError={(e) => (e.target.src = placeholderImg)}
             />
           </div>
