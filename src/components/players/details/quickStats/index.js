@@ -1,8 +1,5 @@
 import React from 'react';
-<<<<<<< HEAD
-=======
 import classnames from 'classnames';
->>>>>>> master
 
 import Spinner from 'components/_shared/spinner';
 

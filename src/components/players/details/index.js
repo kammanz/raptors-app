@@ -78,35 +78,10 @@ const Details = ({ player: { details, isLoading }, teams, selectedTeam }) => {
 
   return (
     <div onScroll={onScroll} ref={ref} className={styles.container}>
-<<<<<<< HEAD
-      <Card
-        player={details}
-        playerTeamId={selectedTeam.teamId}
-        isSticky={isSticky}
-        isAnimated={isAnimated}
-      />
-      <QuickStats
-        teamColor={teamColor}
-        quickStats={quickStats}
-        isLoading={isLoading}
-      />
-      <TotalStats
-        teamColor={teamColor}
-        totalStats={totalStats}
-        isLoading={isLoading}
-      />
-      <RecentGamesStats
-        teams={teams}
-        teamColor={teamColor}
-        recentGamesStats={recentGames}
-        isLoading={isLoading}
-      />
-=======
       <Card player={details} playerTeamId={selectedTeam.teamId} isSticky={isSticky} isAnimated={isAnimated} />
       <QuickStats teamColor={teamColor} quickStats={quickStats} isLoading={isLoading} />
       <TotalStats teamColor={teamColor} totalStats={totalStats} isLoading={isLoading} />
       <RecentGamesStats teams={teams} teamColor={teamColor} recentGamesStats={recentGames} isLoading={isLoading} />
->>>>>>> master
     </div>
   );
 };
