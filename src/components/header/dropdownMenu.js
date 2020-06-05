@@ -10,17 +10,10 @@ import dropdownWhite from 'assets/icons/dropdownWhite.svg';
 import selectMenuStyles from './selectMenuStyles';
 import styles from './dropdownMenu.module.scss';
 
-const DropdownMenu = ({
-  teams,
-  selectedTeam,
-  selectedTeamColor,
-  getSelectedTeam,
-}) => {
+const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam }) => {
   const { teamId: selectedTeamId } = selectedTeam;
 
-  const dropdownIndicator = () => (
-    <img src={dropdownWhite} alt='dropdown arrow' />
-  );
+  const dropdownIndicator = () => <img src={dropdownWhite} alt="dropdown arrow" />;
 
   const customValue = (props) => {
     const {
@@ -39,8 +32,8 @@ const DropdownMenu = ({
         <div className={styles.optionImgContainer}>
           <img
             src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${tricode}.svg`}
-            title='team logo'
-            alt='team logo'
+            title="team logo"
+            alt="team logo"
             className={styles.optionImage}
           />
         </div>
@@ -61,18 +54,15 @@ const DropdownMenu = ({
       !isSelected && (
         <div
           style={{ backgroundColor: primaryColor }}
-          className={classnames(
-            styles.optionContainer,
-            isSelected && styles.displayNone
-          )}
+          className={classnames(styles.optionContainer, isSelected && styles.displayNone)}
           ref={innerRef}
           {...innerProps}
         >
           <div className={styles.optionImgContainer}>
             <img
               src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${tricode}.svg`}
-              title='team logo'
-              alt='team logo'
+              title="team logo"
+              alt="team logo"
               className={styles.optionImage}
             />
           </div>
@@ -83,10 +73,7 @@ const DropdownMenu = ({
   };
 
   return (
-    <div
-      style={{ backgroundColor: selectedTeamColor }}
-      className={styles.teamContainer}
-    >
+    <div style={{ backgroundColor: selectedTeamColor }} className={styles.teamContainer}>
       <Select
         styles={selectMenuStyles()}
         options={teams}
@@ -102,9 +89,7 @@ const DropdownMenu = ({
       />
       <div
         style={{
-          borderColor: `${
-            selectedTeamColor || COLORS.LIGHT_GREY
-          } transparent transparent transparent`,
+          borderColor: `${selectedTeamColor || COLORS.LIGHT_GREY} transparent transparent transparent`,
         }}
         className={styles.borderTriangle}
       />
@@ -120,6 +105,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { getTeams, getSelectedTeam })(
-  DropdownMenu
-);
+export default connect(mapStateToProps, { getTeams, getSelectedTeam })(DropdownMenu);

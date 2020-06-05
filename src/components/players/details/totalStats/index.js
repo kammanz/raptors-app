@@ -13,12 +13,16 @@ const TotalStats = ({ totalStats, teamColor, isLoading }) => {
       {isLoading ? (
         <Spinner isLoading={isLoading} containerHeight={43} />
       ) : (
+<<<<<<< HEAD
         <Table
           array={totalStats}
           section='totalStats'
           teamColor={teamColor}
           isLoading={isLoading}
         />
+=======
+        <Table array={totalStats} section="totalStats" teamColor={teamColor} isLoading={isLoading} />
+>>>>>>> master
       )}
     </section>
   );
