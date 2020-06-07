@@ -31,7 +31,8 @@ const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam 
             style={{ backgroundColor: primaryColor, borderTop: 'none' }}
             className={styles.optionContainer}
             ref={innerRef}
-            {...innerProps}>
+            {...innerProps}
+          >
             <div className={styles.optionImgContainer}>{team.LOGO}</div>
             <div className={styles.optionTitle}>{ttsName}</div>
           </div>
@@ -58,7 +59,8 @@ const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam 
               style={{ backgroundColor: primaryColor }}
               className={styles.optionContainer}
               ref={innerRef}
-              {...innerProps}>
+              {...innerProps}
+            >
               <div className={styles.optionImgContainer}>{team.LOGO}</div>
               <div className={styles.optionTitle}>{ttsName}</div>
             </div>
