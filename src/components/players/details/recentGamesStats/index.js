@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TEAMS } from 'enums';
+import * as teamLogos from 'assets/logos';
 
 import Spinner from 'components/_shared/spinner';
 import Title from 'components/_shared/title';
@@ -11,7 +11,6 @@ import styles from './index.module.scss';
 const RecentGamesStats = ({ teams, teamColor, recentGamesStats, isLoading }) => {
   const recentGamesArray = Object.values(recentGamesStats);
   const teamsArray = Object.values(teams);
-  const teamsEnumArray = Object.values(TEAMS);
 
   const recentGames = recentGamesArray.map(({ gameId, isHomeGame, hTeam, vTeam, gameDateUTC, stats }) => {
     const { points, assists, offReb, defReb, totReb } = stats;
@@ -25,6 +24,8 @@ const RecentGamesStats = ({ teams, teamColor, recentGamesStats, isLoading }) => 
       const oppTeamId = isHomeGame ? vTeam.teamId : hTeam.teamId;
       return team.teamId === oppTeamId;
     });
+
+    const TeamLogo = teamLogos[oppTeam.tricode];
 
     const score =
       parseInt(hTeam.score) > parseInt(vTeam.score)
@@ -53,15 +54,9 @@ const RecentGamesStats = ({ teams, teamColor, recentGamesStats, isLoading }) => 
       <div key={gameId} className={styles.game}>
         <header>
           <div>{isHomeGame ? 'vs' : '@'}</div>
-          {teamsEnumArray.map((team) => {
-            return (
-              team.TRI_CODE === oppTeam.tricode && (
-                <div key={team.TRI_CODE} className={styles.imgy}>
-                  {team.LOGO}
-                </div>
-              )
-            );
-          })}
+          <div className={styles.imgy}>
+            <TeamLogo />
+          </div>
           <div>{oppTeam.ttsName}</div>
           <div style={{ color: teamColor }} className={styles.date}>
             {formatUTCDate(gameDateUTC)}
