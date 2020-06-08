@@ -1,6 +1,6 @@
 import React from 'react';
 
-function GSW() {
+const GSW = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -29,6 +29,6 @@ function GSW() {
       </g>
     </svg>
   );
-}
+};
 
 export default GSW;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function BOS() {
+const BOS = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -289,6 +289,6 @@ function BOS() {
       </g>
     </svg>
   );
-}
+};
 
 export default BOS;

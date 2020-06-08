@@ -1,6 +1,6 @@
 import React from 'react';
 
-function IND() {
+const IND = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -61,6 +61,6 @@ function IND() {
       </g>
     </svg>
   );
-}
+};
 
 export default IND;

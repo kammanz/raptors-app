@@ -1,6 +1,6 @@
 import React from 'react';
 
-function MIA() {
+const MIA = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 150 150">
       <g fill="none" fillRule="evenodd" stroke="none" strokeWidth="1">
@@ -57,6 +57,6 @@ function MIA() {
       </g>
     </svg>
   );
-}
+};
 
 export default MIA;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CHA() {
+const CHA = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -150,6 +150,6 @@ function CHA() {
       </g>
     </svg>
   );
-}
+};
 
 export default CHA;

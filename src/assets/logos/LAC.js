@@ -1,6 +1,6 @@
 import React from 'react';
 
-function LAC() {
+const LAC = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -34,6 +34,6 @@ function LAC() {
       </g>
     </svg>
   );
-}
+};
 
 export default LAC;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function HOU() {
+const HOU = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -31,6 +31,6 @@ function HOU() {
       </g>
     </svg>
   );
-}
+};
 
 export default HOU;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ATL() {
+const ATL = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -35,6 +35,6 @@ function ATL() {
       </g>
     </svg>
   );
-}
+};
 
 export default ATL;

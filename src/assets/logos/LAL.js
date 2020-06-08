@@ -1,6 +1,6 @@
 import React from 'react';
 
-function LAL() {
+const LAL = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -156,6 +156,6 @@ function LAL() {
       </g>
     </svg>
   );
-}
+};
 
 export default LAL;

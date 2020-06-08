@@ -1,6 +1,6 @@
 import React from 'react';
 
-function DAL() {
+const DAL = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -87,6 +87,6 @@ function DAL() {
       </g>
     </svg>
   );
-}
+};
 
 export default DAL;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function UTA() {
+const UTA = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -58,6 +58,6 @@ function UTA() {
       </g>
     </svg>
   );
-}
+};
 
 export default UTA;

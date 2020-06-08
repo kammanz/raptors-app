@@ -1,6 +1,6 @@
 import React from 'react';
 
-function DET() {
+const DET = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -74,6 +74,6 @@ function DET() {
       </g>
     </svg>
   );
-}
+};
 
 export default DET;

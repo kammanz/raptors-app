@@ -1,6 +1,6 @@
 import React from 'react';
 
-function OKC() {
+const OKC = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -63,6 +63,6 @@ function OKC() {
       </g>
     </svg>
   );
-}
+};
 
 export default OKC;

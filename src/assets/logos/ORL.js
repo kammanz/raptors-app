@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ORL() {
+const ORL = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -130,6 +130,6 @@ function ORL() {
       </g>
     </svg>
   );
-}
+};
 
 export default ORL;
