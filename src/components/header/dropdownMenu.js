@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import Select from 'react-select';
 
 import { getTeams, getSelectedTeam } from 'actions/actions';
-import { COLORS, TEAMS } from 'enums';
+import { COLORS /*TEAMS*/ } from 'enums';
+
+import * as teamLogo from 'assets/logos';
 import dropdownWhite from 'assets/icons/dropdownWhite.svg';
 
 import selectMenuStyles from './selectMenuStyles';
@@ -12,7 +14,7 @@ import styles from './dropdownMenu.module.scss';
 const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam }) => {
   const { teamId: selectedTeamId } = selectedTeam;
 
-  const teamsArray = Object.values(TEAMS);
+  // const teamsArray = Object.values(TEAMS);
 
   const dropdownIndicator = () => <img src={dropdownWhite} alt="dropdown arrow" />;
 
@@ -23,22 +25,20 @@ const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam 
       innerProps,
     } = props;
 
-    return teamsArray.map((team) => {
-      return (
-        team.TRI_CODE === tricode && (
-          <div
-            key={tricode}
-            style={{ backgroundColor: primaryColor, borderTop: 'none' }}
-            className={styles.optionContainer}
-            ref={innerRef}
-            {...innerProps}
-          >
-            <div className={styles.optionImgContainer}>{team.LOGO}</div>
-            <div className={styles.optionTitle}>{ttsName}</div>
-          </div>
-        )
-      );
-    });
+    const TeamLogoConverted = teamLogo[tricode];
+
+    return (
+      <div
+        style={{ backgroundColor: primaryColor, borderTop: 'none' }}
+        className={styles.optionContainer}
+        ref={innerRef}
+        {...innerProps}>
+        <div className={styles.optionImgContainer}>
+          <TeamLogoConverted />
+        </div>
+        <div className={styles.optionTitle}>{ttsName}</div>
+      </div>
+    );
   };
 
   const customOption = (props) => {
@@ -47,26 +47,24 @@ const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam 
       innerRef,
       innerProps,
     } = props;
+
+    const TeamLogoConverted = teamLogo[tricode];
+
     const isSelected = selectedTeamId === teamId;
 
     return (
-      !isSelected &&
-      teamsArray.map((team) => {
-        return (
-          team.TRI_CODE === tricode && (
-            <div
-              key={tricode}
-              style={{ backgroundColor: primaryColor }}
-              className={styles.optionContainer}
-              ref={innerRef}
-              {...innerProps}
-            >
-              <div className={styles.optionImgContainer}>{team.LOGO}</div>
-              <div className={styles.optionTitle}>{ttsName}</div>
-            </div>
-          )
-        );
-      })
+      !isSelected && (
+        <div
+          style={{ backgroundColor: primaryColor }}
+          className={styles.optionContainer}
+          ref={innerRef}
+          {...innerProps}>
+          <div className={styles.optionImgContainer}>
+            <TeamLogoConverted />
+          </div>
+          <div className={styles.optionTitle}>{ttsName}</div>
+        </div>
+      )
     );
   };
 
