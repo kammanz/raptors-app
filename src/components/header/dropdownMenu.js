@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Select from 'react-select';
 
 import { getTeams, getSelectedTeam } from 'actions/actions';
-import { COLORS /*TEAMS*/ } from 'enums';
+import { COLORS } from 'enums';
 
 import * as teamLogo from 'assets/logos';
 import dropdownWhite from 'assets/icons/dropdownWhite.svg';
@@ -13,8 +13,6 @@ import styles from './dropdownMenu.module.scss';
 
 const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam }) => {
   const { teamId: selectedTeamId } = selectedTeam;
-
-  // const teamsArray = Object.values(TEAMS);
 
   const dropdownIndicator = () => <img src={dropdownWhite} alt="dropdown arrow" />;
 
