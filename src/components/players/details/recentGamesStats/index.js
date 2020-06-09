@@ -1,6 +1,6 @@
 import React from 'react';
 
-import * as teamLogos from 'assets/logos';
+import * as TeamLogos from 'assets/logos';
 
 import Spinner from 'components/_shared/spinner';
 import Title from 'components/_shared/title';
@@ -25,7 +25,7 @@ const RecentGamesStats = ({ teams, teamColor, recentGamesStats, isLoading }) => 
       return team.teamId === oppTeamId;
     });
 
-    const OppTeamLogo = teamLogos[oppTeam.tricode];
+    const OppTeamLogo = TeamLogos[oppTeam.tricode];
 
     const score =
       parseInt(hTeam.score) > parseInt(vTeam.score)

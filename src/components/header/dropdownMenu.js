@@ -14,7 +14,7 @@ import styles from './dropdownMenu.module.scss';
 const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam }) => {
   const { teamId: selectedTeamId } = selectedTeam;
 
-  const chevron = () => <Chevron width={14} height={7} color={'white'} />;
+  const chevron = () => <Chevron color={'white'} />;
 
   const customValue = (props) => {
     const {
