@@ -1,7 +1,8 @@
 import React from 'react';
 
-import bell from 'assets/icons/notification-bell.svg';
-import settingsIcon from 'assets/icons/settings-icon.svg';
+import Bell from 'assets/icons/bell';
+import Gear from 'assets/icons/gear';
+import Chevron from 'assets/icons/chevron';
 import kobe from 'assets/imgs/kobe.png';
 
 import styles from './userLogin.module.scss';
@@ -10,15 +11,15 @@ const UserLogin = () => {
   return (
     <div className={styles.userContainer}>
       <button>
-        <img src={bell} alt="notification bell" />
+        <Bell />
       </button>
       <button>
-        <img src={settingsIcon} alt="settings icon" />
+        <Gear />
       </button>
       <button>
         <img src={kobe} alt="user avatar" height="25" className={styles.userPic} />
-        <div>Kobe Bryant</div>
-        <i className={styles.dropDownUser} />
+        <div className={styles.userName}>Kobe Bryant</div>
+        <Chevron width={14} height={7} color={'#959595'} /* color is $grey3 */ />
       </button>
     </div>
   );

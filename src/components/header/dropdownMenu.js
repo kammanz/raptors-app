@@ -6,7 +6,7 @@ import { getTeams, getSelectedTeam } from 'actions/actions';
 import { COLORS } from 'enums';
 
 import * as Logos from 'assets/logos';
-import dropdownWhite from 'assets/icons/dropdownWhite.svg';
+import Chevron from 'assets/icons/chevron';
 
 import selectMenuStyles from './selectMenuStyles';
 import styles from './dropdownMenu.module.scss';
@@ -14,7 +14,7 @@ import styles from './dropdownMenu.module.scss';
 const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam }) => {
   const { teamId: selectedTeamId } = selectedTeam;
 
-  const dropdownIndicator = () => <img src={dropdownWhite} alt="dropdown arrow" />;
+  const chevron = () => <Chevron width={14} height={7} color={'white'} />;
 
   const customValue = (props) => {
     const {
@@ -68,7 +68,7 @@ const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam 
         isSearchable={false}
         placeholder={false}
         components={{
-          DropdownIndicator: dropdownIndicator,
+          DropdownIndicator: chevron,
           Option: customOption,
           SingleValue: customValue,
         }}
