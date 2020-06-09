@@ -19,7 +19,6 @@ const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam 
   const customValue = (props) => {
     const {
       data: { primaryColor, ttsName, tricode },
-      innerRef,
       innerProps,
     } = props;
 
@@ -41,7 +40,6 @@ const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam 
   const customOption = (props) => {
     const {
       data: { primaryColor, ttsName, tricode, teamId },
-      innerRef,
       innerProps,
     } = props;
 
