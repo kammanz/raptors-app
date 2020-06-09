@@ -5,8 +5,8 @@ const ATL = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      width="150"
-      height="150"
+      width="100%"
+      height="100%"
       viewBox="0 0 150 150">
       <defs>
         <path id="path-1" d="M0 99.7548827L99.8810036 99.7548827 99.8810036 0.0996756178 0 0.0996756178z"></path>

@@ -5,8 +5,8 @@ const DAL = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      width="150"
-      height="150"
+      width="100%"
+      height="100%"
       viewBox="0 0 150 150">
       <defs>
         <path id="path-1" d="M0 0.0863090278L106 0.0863090278 106 105.804931 0 105.804931z"></path>
