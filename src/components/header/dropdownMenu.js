@@ -5,7 +5,7 @@ import Select from 'react-select';
 import { getTeams, getSelectedTeam } from 'actions/actions';
 import { COLORS } from 'enums';
 
-import * as teamLogos from 'assets/logos';
+import * as Logos from 'assets/logos';
 import dropdownWhite from 'assets/icons/dropdownWhite.svg';
 
 import selectMenuStyles from './selectMenuStyles';
@@ -23,13 +23,12 @@ const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam 
       innerProps,
     } = props;
 
-    const TeamLogo = teamLogos[tricode];
+    const TeamLogo = Logos[tricode];
 
     return (
       <div
         style={{ backgroundColor: primaryColor, borderTop: 'none' }}
         className={styles.optionContainer}
-        ref={innerRef}
         {...innerProps}>
         <div className={styles.optionImgContainer}>
           <TeamLogo />
@@ -46,17 +45,13 @@ const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam 
       innerProps,
     } = props;
 
-    const TeamLogo = teamLogos[tricode];
+    const TeamLogo = Logos[tricode];
 
     const isSelected = selectedTeamId === teamId;
 
     return (
       !isSelected && (
-        <div
-          style={{ backgroundColor: primaryColor }}
-          className={styles.optionContainer}
-          ref={innerRef}
-          {...innerProps}>
+        <div style={{ backgroundColor: primaryColor }} className={styles.optionContainer} {...innerProps}>
           <div className={styles.optionImgContainer}>
             <TeamLogo />
           </div>

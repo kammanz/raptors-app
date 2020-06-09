@@ -25,7 +25,7 @@ const RecentGamesStats = ({ teams, teamColor, recentGamesStats, isLoading }) => 
       return team.teamId === oppTeamId;
     });
 
-    const TeamLogo = teamLogos[oppTeam.tricode];
+    const OppTeamLogo = teamLogos[oppTeam.tricode];
 
     const score =
       parseInt(hTeam.score) > parseInt(vTeam.score)
@@ -54,8 +54,8 @@ const RecentGamesStats = ({ teams, teamColor, recentGamesStats, isLoading }) => 
       <div key={gameId} className={styles.game}>
         <header>
           <div>{isHomeGame ? 'vs' : '@'}</div>
-          <div className={styles.imgy}>
-            <TeamLogo />
+          <div className={styles.logo}>
+            <OppTeamLogo />
           </div>
           <div>{oppTeam.ttsName}</div>
           <div style={{ color: teamColor }} className={styles.date}>
