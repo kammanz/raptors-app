@@ -8,7 +8,6 @@ import RecentGamesStats from './recentGamesStats';
 import TotalStats from './totalStats';
 
 import styles from './index.module.scss';
-import { teamColors } from 'enums';
 
 const Details = ({ player: { details, isLoading }, teams, selectedTeam }) => {
   const ref = useRef();
@@ -36,8 +35,6 @@ const Details = ({ player: { details, isLoading }, teams, selectedTeam }) => {
     );
   }
 
-  // console.log(teamColor, 'teamColor');
-
   const {
     assists,
     blocks,
@@ -56,8 +53,6 @@ const Details = ({ player: { details, isLoading }, teams, selectedTeam }) => {
     teamColor,
     recentGames,
   } = details;
-
-  console.log(teamColor);
 
   const quickStats = [
     { title: 'ppg', value: ppg },
@@ -81,7 +76,6 @@ const Details = ({ player: { details, isLoading }, teams, selectedTeam }) => {
     { title: 'pts', value: points },
   ];
 
-  console.log(teamColor);
   return (
     <div onScroll={onScroll} ref={ref} className={styles.container}>
       <Card

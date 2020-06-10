@@ -8,20 +8,12 @@ export const getTeams = () => async (dispatch) => {
 
   const allTeamsResponse = await dataNbaNet.get('/prod/v1/2019/teams.json');
   const nbaTeams = Object.values(allTeamsResponse.data.league.standard).filter((team) => team.isNBAFranchise);
-
-  // const nbaTeamsWithColor = nbaTeams.forEach((team) =>
-  //   teamColors.find((teamColor) => team.tricode === teamColor.tricode && { ...team, teamColor: teamColor.color })
-  // );
-
   const teamsAndColor = nbaTeams.map((team) => {
     return {
       ...team,
       teamColor: teamColors.find((teamColor) => team.tricode === teamColor.tricode && teamColor.color),
     };
   });
-
-  // console.log(teamsAndColor, 'teamsAndColor');
-
   dispatch({ type: 'GET_TEAMS', payload: teamsAndColor });
 
   const defaultTeam = teamsAndColor.find((team) => team.teamId === TEAMS.TOR.ID);

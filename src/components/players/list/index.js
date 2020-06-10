@@ -9,7 +9,6 @@ import { getSelectedPlayer } from 'actions/actions';
 import { formatPlayerPhotoUrl } from 'utils/stringUtils';
 
 import styles from './index.module.scss';
-import { teamColors } from 'enums';
 
 class List extends React.Component {
   constructor(props) {
@@ -89,7 +88,6 @@ class List extends React.Component {
   }
 
   render() {
-    console.log(this.props.selectedTeam, 'here');
     const { players } = this.props;
     const isLoading = !players.some((player) => Object.keys(player).length !== 0);
 
