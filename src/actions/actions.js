@@ -6,18 +6,17 @@ const resetPlayers = new Array(20).fill({});
 export const getTeams = () => async (dispatch) => {
   dispatch({ type: 'GET_PLAYERS', payload: resetPlayers });
 
-  const allTeamsResponse = await dataNbaNet.get('/prod/v1/2019/teams.json');
-  const nbaTeams = Object.values(allTeamsResponse.data.league.standard).filter((team) => team.isNBAFranchise);
-  const teamsWithTeamColor = nbaTeams.map((team) => {
-    return {
+  const response = await dataNbaNet.get('/prod/v1/2019/teams.json');
+  const nbaTeams = Object.values(response.data.league.standard)
+    .filter((team) => team.isNBAFranchise)
+    .map((team) => ({
       ...team,
       teamColor: TEAM_COLORS[team.tricode],
-    };
-  });
+    }));
 
-  dispatch({ type: 'GET_TEAMS', payload: teamsWithTeamColor });
+  dispatch({ type: 'GET_TEAMS', payload: nbaTeams });
 
-  const defaultTeam = teamsWithTeamColor.find((team) => team.teamId === TEAMS.TOR.ID);
+  const defaultTeam = nbaTeams.find((team) => team.teamId === TEAMS.TOR.ID);
   dispatch(getSelectedTeam(defaultTeam));
 };
 
@@ -41,6 +40,6 @@ export const getSelectedPlayer = (player) => async (dispatch) => {
   const playerResponse = await dataNbaNet.get(`/prod/v1/2019/players/${player.person_id}_profile.json`);
   const gamesResponse = await dataNbaNet.get(`/data/10s/prod/v1/2019/players/${player.person_id}_gamelog.json`);
   dispatch({ type: 'UPDATE_PLAYER_DETAILS', payload: playerResponse.data.league.standard.stats.latest });
-  dispatch({ type: 'SET_RECENT_GAMES', payload: { ...gamesResponse.data.league.standard } });
+  dispatch({ type: 'SET_RECENT_GAMES', payload: gamesResponse.data.league.standard });
   dispatch({ type: 'SET_PLAYER_DETAILS_IS_LOADING', payload: false });
 };
