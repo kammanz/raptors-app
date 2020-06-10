@@ -1,16 +1,23 @@
 import dataNbaNet from 'apis/dataNbaNet';
-import { TEAMS } from 'enums';
+import { TEAMS, teamColors } from 'enums';
 
 const resetPlayers = new Array(20).fill({});
 
 export const getTeams = () => async (dispatch) => {
   dispatch({ type: 'GET_PLAYERS', payload: resetPlayers });
 
-  const allTeamsResponse = await dataNbaNet.get('/prod/2019/teams_config.json');
-  const nbaTeams = Object.values(allTeamsResponse.data.teams.config).filter((team) => team.ttsName);
-  dispatch({ type: 'GET_TEAMS', payload: nbaTeams });
+  const allTeamsResponse = await dataNbaNet.get('/prod/v1/2019/teams.json');
+  const nbaTeams = Object.values(allTeamsResponse.data.league.standard).filter((team) => team.isNBAFranchise);
 
-  const defaultTeam = nbaTeams.find((team) => team.teamId === TEAMS.TOR.ID);
+  const nbaTeamsWithColor = nbaTeams.forEach((team) =>
+    teamColors.find((teamColor) => team.tricode === teamColor.tricode && { ...team, teamColor: teamColor.color })
+  );
+
+  console.log(nbaTeamsWithColor, 'here');
+
+  dispatch({ type: 'GET_TEAMS', payload: nbaTeamsWithColor });
+
+  const defaultTeam = nbaTeamsWithColor.find((team) => team.teamId === TEAMS.TOR.ID);
   dispatch(getSelectedTeam(defaultTeam));
 };
 

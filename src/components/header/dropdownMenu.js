@@ -14,11 +14,13 @@ import styles from './dropdownMenu.module.scss';
 const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam }) => {
   const { teamId: selectedTeamId } = selectedTeam;
 
+  console.log('right here', teams);
+
   const chevron = () => <Chevron color={'white'} />;
 
   const customValue = (props) => {
     const {
-      data: { primaryColor, ttsName, tricode },
+      data: { primaryColor, fullName, tricode },
       innerProps,
     } = props;
 
@@ -32,14 +34,14 @@ const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam 
         <div className={styles.optionImgContainer}>
           <TeamLogo />
         </div>
-        <div className={styles.optionTitle}>{ttsName}</div>
+        <div className={styles.optionTitle}>{fullName}</div>
       </div>
     );
   };
 
   const customOption = (props) => {
     const {
-      data: { primaryColor, ttsName, tricode, teamId },
+      data: { primaryColor, fullName, tricode, teamId },
       innerProps,
     } = props;
 
@@ -53,7 +55,7 @@ const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam 
           <div className={styles.optionImgContainer}>
             <TeamLogo />
           </div>
-          <div className={styles.optionTitle}>{ttsName}</div>
+          <div className={styles.optionTitle}>{fullName}</div>
         </div>
       )
     );
