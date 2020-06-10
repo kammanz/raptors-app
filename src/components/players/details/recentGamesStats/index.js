@@ -1,6 +1,6 @@
 import React from 'react';
 
-import * as TeamLogos from 'assets/logos';
+import * as TeamLogos from 'assets/icons/logos';
 
 import Spinner from 'components/_shared/spinner';
 import Title from 'components/_shared/title';
