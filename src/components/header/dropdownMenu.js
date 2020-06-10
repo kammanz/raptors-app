@@ -5,7 +5,7 @@ import Select from 'react-select';
 import { getTeams, getSelectedTeam } from 'actions/actions';
 import { COLORS } from 'enums';
 
-import * as Logos from 'assets/logos';
+import * as Logos from 'assets/icons/logos';
 import Chevron from 'assets/icons/chevron';
 
 import selectMenuStyles from './selectMenuStyles';
@@ -30,7 +30,8 @@ const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam 
       <div
         style={{ backgroundColor: teamColor.color, borderTop: 'none' }}
         className={styles.optionContainer}
-        {...innerProps}>
+        {...innerProps}
+      >
         <div className={styles.optionImgContainer}>
           <TeamLogo />
         </div>
