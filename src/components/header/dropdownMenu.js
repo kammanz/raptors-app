@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Select from 'react-select';
-
-import { getTeams, getSelectedTeam } from 'actions/actions';
+import classnames from 'classnames';
 
 import * as Logos from 'assets/icons/logos';
 import Chevron from 'assets/icons/chevron';
+
+import { getTeams, getSelectedTeam } from 'actions/actions';
 
 import selectMenuStyles from './selectMenuStyles';
 import styles from './dropdownMenu.module.scss';
@@ -14,35 +15,17 @@ const DropdownMenu = ({ teams, selectedTeam, getSelectedTeam }) => {
   const { teamId: selectedTeamId, teamColor } = selectedTeam;
   const chevron = () => <Chevron color={'white'} />;
 
-  const customValue = (props) => {
-    const {
-      data: { teamColor, fullName, tricode },
-      innerProps,
-    } = props;
-
-    const TeamLogo = Logos[tricode];
-
-    return (
-      <div style={{ backgroundColor: teamColor, borderTop: 'none' }} className={styles.optionContainer} {...innerProps}>
-        <div className={styles.optionImgContainer}>
-          <TeamLogo />
-        </div>
-        <div className={styles.optionTitle}>{fullName}</div>
-      </div>
-    );
-  };
-
-  const customOption = (props) => {
-    const {
-      data: { teamColor, fullName, tricode, teamId },
-      innerProps,
-    } = props;
+  const renderItem = ({ data: { teamColor, fullName, tricode, teamId }, innerProps }, isSingleValue) => {
     const TeamLogo = Logos[tricode];
     const isSelected = selectedTeamId === teamId;
+    const isDisplayed = isSingleValue || (!isSingleValue && !isSelected);
 
     return (
-      !isSelected && (
-        <div style={{ backgroundColor: teamColor.color }} className={styles.optionContainer} {...innerProps}>
+      isDisplayed && (
+        <div
+          style={{ backgroundColor: teamColor }}
+          className={classnames(styles.optionContainer, isSingleValue && styles.hasNoBorder)}
+          {...innerProps}>
           <div className={styles.optionImgContainer}>
             <TeamLogo />
           </div>
@@ -62,8 +45,8 @@ const DropdownMenu = ({ teams, selectedTeam, getSelectedTeam }) => {
         placeholder={false}
         components={{
           DropdownIndicator: chevron,
-          Option: customOption,
-          SingleValue: customValue,
+          Option: (props) => renderItem(props, false),
+          SingleValue: (props) => renderItem(props, true),
         }}
         onChange={(e) => getSelectedTeam(e)}
       />

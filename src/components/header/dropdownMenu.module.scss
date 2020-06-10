@@ -45,3 +45,7 @@
   border-color: $grey1 transparent transparent;
   z-index: 1;
 }
+
+.hasNoBorder {
+  border-top: none;
+}

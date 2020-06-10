@@ -9,7 +9,7 @@ import TotalStats from './totalStats';
 
 import styles from './index.module.scss';
 
-const Details = ({ player: { details, isLoading }, teams, selectedTeam }) => {
+const Details = ({ player: { details, isLoading }, teams, selectedTeam: { teamId, teamColor } }) => {
   const ref = useRef();
   const [isSticky, setIsSticky] = useState(false);
   const [isAnimated, setIsAnimated] = useState(false);
@@ -50,7 +50,6 @@ const Details = ({ player: { details, isLoading }, teams, selectedTeam }) => {
     steals,
     tpp,
     turnovers,
-    teamColor,
     recentGames,
   } = details;
 
@@ -78,7 +77,7 @@ const Details = ({ player: { details, isLoading }, teams, selectedTeam }) => {
 
   return (
     <div onScroll={onScroll} ref={ref} className={styles.container}>
-      <Card player={details} playerTeamId={selectedTeam.teamId} isSticky={isSticky} isAnimated={isAnimated} />
+      <Card teamColor={teamColor} player={details} playerTeamId={teamId} isSticky={isSticky} isAnimated={isAnimated} />
       <QuickStats teamColor={teamColor} quickStats={quickStats} isLoading={isLoading} />
       <TotalStats teamColor={teamColor} totalStats={totalStats} isLoading={isLoading} />
       <RecentGamesStats teams={teams} teamColor={teamColor} recentGamesStats={recentGames} isLoading={isLoading} />

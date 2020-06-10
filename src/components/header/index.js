@@ -16,6 +16,7 @@ class Header extends React.Component {
 
   render() {
     const { teamColor } = this.props.selectedTeam;
+
     return (
       <div className={styles.container}>
         <DropdownMenu />

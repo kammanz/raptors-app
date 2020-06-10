@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import styles from './navMenu.module.scss';
-import { teamColors } from 'enums';
 
 const NavMenu = ({ teamColor }) => {
   const activeStyle = {
