@@ -9,6 +9,6 @@ export default combineReducers({
   players: getPlayersReducer,
   player: playerDetailsReducer,
   selectedTeam: getSelectedTeamReducer,
-  selectedTeamColor: getTeamColorReducer,
+  // selectedTeamColor: getTeamColorReducer,
   teams: getTeamsReducer,
 });

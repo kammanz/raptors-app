@@ -14,11 +14,6 @@ export const COLORS = Object.freeze({
  * @enum {{ TRI_CODE: string, NAME: string, ID: string }}
  */
 export const TEAMS = Object.freeze({
-  PHI: {
-    TRI_CODE: 'PHI',
-    NAME: 'sixers',
-    ID: '1610612755',
-  },
   TOR: {
     TRI_CODE: 'TOR',
     NAME: 'raptors',

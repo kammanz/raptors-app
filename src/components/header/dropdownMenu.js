@@ -12,8 +12,9 @@ import selectMenuStyles from './selectMenuStyles';
 import styles from './dropdownMenu.module.scss';
 
 const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam }) => {
-  const { teamId: selectedTeamId } = selectedTeam;
-
+  const { teamId: selectedTeamId, teamColor } = selectedTeam;
+  console.log(teamColor);
+  console.log(selectedTeam.teamColor);
   const chevron = () => <Chevron color={'white'} />;
 
   const customValue = (props) => {
@@ -58,7 +59,7 @@ const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam 
   };
 
   return (
-    <div style={{ backgroundColor: selectedTeamColor }} className={styles.teamContainer}>
+    <div style={{ backgroundColor: teamColor }} className={styles.teamContainer}>
       <Select
         styles={selectMenuStyles()}
         options={teams}
@@ -74,7 +75,7 @@ const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam 
       />
       <div
         style={{
-          borderColor: `${selectedTeamColor || COLORS.LIGHT_GREY} transparent transparent transparent`,
+          borderColor: `${teamColor} transparent transparent transparent`,
         }}
         className={styles.borderTriangle}
       />
