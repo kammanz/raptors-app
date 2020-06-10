@@ -9,15 +9,22 @@ export const getTeams = () => async (dispatch) => {
   const allTeamsResponse = await dataNbaNet.get('/prod/v1/2019/teams.json');
   const nbaTeams = Object.values(allTeamsResponse.data.league.standard).filter((team) => team.isNBAFranchise);
 
-  const nbaTeamsWithColor = nbaTeams.forEach((team) =>
-    teamColors.find((teamColor) => team.tricode === teamColor.tricode && { ...team, teamColor: teamColor.color })
-  );
+  // const nbaTeamsWithColor = nbaTeams.forEach((team) =>
+  //   teamColors.find((teamColor) => team.tricode === teamColor.tricode && { ...team, teamColor: teamColor.color })
+  // );
 
-  console.log(nbaTeamsWithColor, 'here');
+  const newArray = nbaTeams.map((team) => {
+    return {
+      ...team,
+      teamColor: teamColors.find((teamy) => team.tricode === teamy.tricode && teamy.color),
+    };
+  });
 
-  dispatch({ type: 'GET_TEAMS', payload: nbaTeamsWithColor });
+  console.log(newArray, 'newArray');
 
-  const defaultTeam = nbaTeamsWithColor.find((team) => team.teamId === TEAMS.TOR.ID);
+  dispatch({ type: 'GET_TEAMS', payload: newArray });
+
+  const defaultTeam = newArray.find((team) => team.teamId === TEAMS.TOR.ID);
   dispatch(getSelectedTeam(defaultTeam));
 };
 
@@ -28,11 +35,13 @@ export const getSelectedTeam = (team) => async (dispatch) => {
 
   // set selected team
   dispatch({ type: 'GET_SELECTED_TEAM', payload: team });
-  dispatch({ type: 'GET_TEAM_COLOR', payload: team.primaryColor });
+  dispatch({ type: 'GET_TEAM_COLOR', payload: team.teamColor.color });
 
-  const teamUrlName =
-    team.teamId === TEAMS.PHI.ID ? TEAMS.PHI.NAME : team.ttsName.split(' ').splice(-1)[0].toLowerCase();
-  const teamRosterResponse = await dataNbaNet.get(`/json/cms/noseason/team/${teamUrlName}/roster.json`);
+  console.log(team, 'here');
+
+  // const teamUrlName =
+  // team.teamId === TEAMS.PHI.ID ? TEAMS.PHI.NAME : team.ttsName.split(' ').splice(-1)[0].toLowerCase();
+  const teamRosterResponse = await dataNbaNet.get(`/json/cms/noseason/team/${team.urlName}/roster.json`);
   const teamRoster = teamRosterResponse.data.sports_content.roster.players.player.map((player) => {
     return { ...player, teamColor: team.primaryColor };
   });
