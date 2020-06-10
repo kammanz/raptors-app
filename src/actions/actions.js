@@ -1,13 +1,19 @@
 import dataNbaNet from 'apis/dataNbaNet';
-import { TEAMS } from 'enums';
+import { TEAMS, TEAM_COLORS } from 'enums';
 
 const resetPlayers = new Array(20).fill({});
 
 export const getTeams = () => async (dispatch) => {
   dispatch({ type: 'GET_PLAYERS', payload: resetPlayers });
 
-  const allTeamsResponse = await dataNbaNet.get('/prod/2019/teams_config.json');
-  const nbaTeams = Object.values(allTeamsResponse.data.teams.config).filter((team) => team.ttsName);
+  const response = await dataNbaNet.get('/prod/v1/2019/teams.json');
+  const nbaTeams = Object.values(response.data.league.standard)
+    .filter((team) => team.isNBAFranchise)
+    .map((team) => ({
+      ...team,
+      teamColor: TEAM_COLORS[team.tricode],
+    }));
+
   dispatch({ type: 'GET_TEAMS', payload: nbaTeams });
 
   const defaultTeam = nbaTeams.find((team) => team.teamId === TEAMS.TOR.ID);
@@ -21,14 +27,9 @@ export const getSelectedTeam = (team) => async (dispatch) => {
 
   // set selected team
   dispatch({ type: 'GET_SELECTED_TEAM', payload: team });
-  dispatch({ type: 'GET_TEAM_COLOR', payload: team.primaryColor });
 
-  const teamUrlName =
-    team.teamId === TEAMS.PHI.ID ? TEAMS.PHI.NAME : team.ttsName.split(' ').splice(-1)[0].toLowerCase();
-  const teamRosterResponse = await dataNbaNet.get(`/json/cms/noseason/team/${teamUrlName}/roster.json`);
-  const teamRoster = teamRosterResponse.data.sports_content.roster.players.player.map((player) => {
-    return { ...player, teamColor: team.primaryColor };
-  });
+  const teamRosterResponse = await dataNbaNet.get(`/json/cms/noseason/team/${team.urlName}/roster.json`);
+  const teamRoster = teamRosterResponse.data.sports_content.roster.players.player;
   dispatch({ type: 'GET_PLAYERS', payload: teamRoster });
 };
 
@@ -39,6 +40,6 @@ export const getSelectedPlayer = (player) => async (dispatch) => {
   const playerResponse = await dataNbaNet.get(`/prod/v1/2019/players/${player.person_id}_profile.json`);
   const gamesResponse = await dataNbaNet.get(`/data/10s/prod/v1/2019/players/${player.person_id}_gamelog.json`);
   dispatch({ type: 'UPDATE_PLAYER_DETAILS', payload: playerResponse.data.league.standard.stats.latest });
-  dispatch({ type: 'SET_RECENT_GAMES', payload: { ...gamesResponse.data.league.standard } });
+  dispatch({ type: 'SET_RECENT_GAMES', payload: gamesResponse.data.league.standard });
   dispatch({ type: 'SET_PLAYER_DETAILS_IS_LOADING', payload: false });
 };

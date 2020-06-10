@@ -34,12 +34,11 @@ class List extends React.Component {
   renderPlayers() {
     const {
       players,
-      selectedTeam: { teamId },
+      selectedTeam: { teamId, teamColor },
     } = this.props;
 
     return players.map((player, index) => {
       const {
-        teamColor,
         person_id,
         first_name,
         last_name,

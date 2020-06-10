@@ -7,20 +7,11 @@ import { formatPlayerPhotoUrl } from 'utils/stringUtils';
 import styles from './index.module.scss';
 
 const Card = ({
-  player: {
-    person_id,
-    first_name,
-    last_name,
-    jersey_number,
-    position_full,
-    height_ft,
-    height_in,
-    weight_lbs,
-    teamColor,
-  },
+  player: { person_id, first_name, last_name, jersey_number, position_full, height_ft, height_in, weight_lbs },
   playerTeamId,
   isSticky,
   isAnimated,
+  teamColor,
 }) => (
   <>
     <div className={styles.card}>

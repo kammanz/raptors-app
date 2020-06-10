@@ -15,12 +15,12 @@ class Header extends React.Component {
   }
 
   render() {
-    const { selectedTeamColor } = this.props;
+    const { teamColor } = this.props.selectedTeam;
 
     return (
       <div className={styles.container}>
         <DropdownMenu />
-        <NavMenu selectedTeamColor={selectedTeamColor} />
+        <NavMenu teamColor={teamColor} />
         <UserLogin />
       </div>
     );
@@ -29,7 +29,7 @@ class Header extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    selectedTeamColor: state.selectedTeamColor,
+    selectedTeam: state.selectedTeam,
   };
 };
 

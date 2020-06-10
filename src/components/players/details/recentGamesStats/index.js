@@ -57,7 +57,7 @@ const RecentGamesStats = ({ teams, teamColor, recentGamesStats, isLoading }) => 
           <div className={styles.logo}>
             <OppTeamLogo />
           </div>
-          <div>{oppTeam.ttsName}</div>
+          <div>{oppTeam.fullName}</div>
           <div style={{ color: teamColor }} className={styles.date}>
             {formatUTCDate(gameDateUTC)}
           </div>

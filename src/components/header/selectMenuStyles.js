@@ -1,8 +1,8 @@
-const selectMenuStyles = (selectedTeamColor) => {
+const selectMenuStyles = (teamColor) => {
   return {
     container: (provided) => ({
       ...provided,
-      backgroundColor: selectedTeamColor,
+      backgroundColor: teamColor,
       height: '100%',
       cursor: 'pointer',
       width: 320,
