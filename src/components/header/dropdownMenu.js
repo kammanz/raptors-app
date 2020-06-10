@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import Select from 'react-select';
 
 import { getTeams, getSelectedTeam } from 'actions/actions';
-import { COLORS } from 'enums';
 
 import * as Logos from 'assets/icons/logos';
 import Chevron from 'assets/icons/chevron';
@@ -11,10 +10,8 @@ import Chevron from 'assets/icons/chevron';
 import selectMenuStyles from './selectMenuStyles';
 import styles from './dropdownMenu.module.scss';
 
-const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam }) => {
+const DropdownMenu = ({ teams, selectedTeam, getSelectedTeam }) => {
   const { teamId: selectedTeamId, teamColor } = selectedTeam;
-  console.log(teamColor);
-  console.log(selectedTeam.teamColor);
   const chevron = () => <Chevron color={'white'} />;
 
   const customValue = (props) => {
@@ -26,10 +23,7 @@ const DropdownMenu = ({ teams, selectedTeam, selectedTeamColor, getSelectedTeam 
     const TeamLogo = Logos[tricode];
 
     return (
-      <div
-        style={{ backgroundColor: teamColor.color, borderTop: 'none' }}
-        className={styles.optionContainer}
-        {...innerProps}>
+      <div style={{ backgroundColor: teamColor, borderTop: 'none' }} className={styles.optionContainer} {...innerProps}>
         <div className={styles.optionImgContainer}>
           <TeamLogo />
         </div>
@@ -87,7 +81,6 @@ const mapStateToProps = (state) => {
   return {
     teams: state.teams,
     selectedTeam: state.selectedTeam,
-    selectedTeamColor: state.selectedTeamColor,
   };
 };
 
