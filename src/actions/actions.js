@@ -13,18 +13,18 @@ export const getTeams = () => async (dispatch) => {
   //   teamColors.find((teamColor) => team.tricode === teamColor.tricode && { ...team, teamColor: teamColor.color })
   // );
 
-  const newArray = nbaTeams.map((team) => {
+  const teamsAndColor = nbaTeams.map((team) => {
     return {
       ...team,
-      teamColor: teamColors.find((teamy) => team.tricode === teamy.tricode && teamy.color),
+      teamColor: teamColors.find((teamColor) => team.tricode === teamColor.tricode && teamColor.color),
     };
   });
 
-  console.log(newArray, 'newArray');
+  // console.log(teamsAndColor, 'teamsAndColor');
 
-  dispatch({ type: 'GET_TEAMS', payload: newArray });
+  dispatch({ type: 'GET_TEAMS', payload: teamsAndColor });
 
-  const defaultTeam = newArray.find((team) => team.teamId === TEAMS.TOR.ID);
+  const defaultTeam = teamsAndColor.find((team) => team.teamId === TEAMS.TOR.ID);
   dispatch(getSelectedTeam(defaultTeam));
 };
 
@@ -32,18 +32,13 @@ export const getSelectedTeam = (team) => async (dispatch) => {
   // reset players list and details
   dispatch({ type: 'GET_PLAYERS', payload: resetPlayers });
   dispatch({ type: 'PRELOAD_PLAYER_DETAILS', payload: null });
-
   // set selected team
   dispatch({ type: 'GET_SELECTED_TEAM', payload: team });
   dispatch({ type: 'GET_TEAM_COLOR', payload: team.teamColor.color });
 
-  console.log(team, 'here');
-
-  // const teamUrlName =
-  // team.teamId === TEAMS.PHI.ID ? TEAMS.PHI.NAME : team.ttsName.split(' ').splice(-1)[0].toLowerCase();
   const teamRosterResponse = await dataNbaNet.get(`/json/cms/noseason/team/${team.urlName}/roster.json`);
   const teamRoster = teamRosterResponse.data.sports_content.roster.players.player.map((player) => {
-    return { ...player, teamColor: team.primaryColor };
+    return { ...player, teamColor: team.teamColor.color };
   });
   dispatch({ type: 'GET_PLAYERS', payload: teamRoster });
 };

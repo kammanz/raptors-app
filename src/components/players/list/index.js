@@ -9,6 +9,7 @@ import { getSelectedPlayer } from 'actions/actions';
 import { formatPlayerPhotoUrl } from 'utils/stringUtils';
 
 import styles from './index.module.scss';
+import { teamColors } from 'enums';
 
 class List extends React.Component {
   constructor(props) {
@@ -32,12 +33,21 @@ class List extends React.Component {
   }
 
   renderPlayers() {
+    // console.log(this.props, 'this.props');
+    // console.log(this.props.selectedTeam, 'mm');
     const {
       players,
-      selectedTeam: { teamId },
+      selectedTeam: { teamId, teamColor },
     } = this.props;
 
+    // console.log(this.props.selectedTeam, 'selectedTeam');
+    // console.log(teamColor, 'teamColor');
+    // const { color } = teamColor;
+
+    // console.log(color, 'color');
+
     return players.map((player, index) => {
+      // console.log('player', player);
       const {
         teamColor,
         person_id,
@@ -50,6 +60,8 @@ class List extends React.Component {
         weight_lbs,
       } = player;
       const isSelected = this.state.selectedPlayerId === person_id;
+
+      // console.log(teamColor, 'ya');
 
       return (
         <div
@@ -66,8 +78,8 @@ class List extends React.Component {
               onError={(e) => (e.target.src = placeholderImg)}
             />
           </div>
-          <div style={{ borderColor: teamColor }} className={styles.imageLine} />
-          <div style={{ backgroundColor: isSelected && teamColor }} className={styles.detailsContainer}>
+          <div /*style={{ borderColor: teamColor.color }}*/ className={styles.imageLine} />
+          <div /*style={{ backgroundColor: isSelected && teamColor.color }}*/ className={styles.detailsContainer}>
             {!!Object.keys(player).length && (
               <>
                 <div className={styles.number}>{jersey_number}</div>
