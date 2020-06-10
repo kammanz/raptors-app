@@ -1,5 +1,7 @@
 import React from 'react';
 
+import * as TeamLogos from 'assets/icons/logos';
+
 import Spinner from 'components/_shared/spinner';
 import Title from 'components/_shared/title';
 import Table from 'components/_shared/table';
@@ -22,6 +24,8 @@ const RecentGamesStats = ({ teams, teamColor, recentGamesStats, isLoading }) => 
       const oppTeamId = isHomeGame ? vTeam.teamId : hTeam.teamId;
       return team.teamId === oppTeamId;
     });
+
+    const OppTeamLogo = TeamLogos[oppTeam.tricode];
 
     const score =
       parseInt(hTeam.score) > parseInt(vTeam.score)
@@ -50,7 +54,9 @@ const RecentGamesStats = ({ teams, teamColor, recentGamesStats, isLoading }) => 
       <div key={gameId} className={styles.game}>
         <header>
           <div>{isHomeGame ? 'vs' : '@'}</div>
-          <img src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${oppTeam.tricode}.svg`} alt="team logo" />
+          <div className={styles.logo}>
+            <OppTeamLogo />
+          </div>
           <div>{oppTeam.ttsName}</div>
           <div style={{ color: teamColor }} className={styles.date}>
             {formatUTCDate(gameDateUTC)}

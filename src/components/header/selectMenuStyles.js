@@ -29,7 +29,6 @@ const selectMenuStyles = (selectedTeamColor) => {
       ...provided,
       display: 'flex',
       justifyContent: 'center',
-      width: 30,
       paddingRight: 22,
     }),
     indicatorSeparator: (provided) => ({
