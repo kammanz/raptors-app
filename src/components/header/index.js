@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getTeams, getSelectedTeam } from 'actions/actions';
+import { getTeams } from 'actions/actions';
 
 import DropdownMenu from './dropdownMenu';
 import UserLogin from './userLogin';
@@ -15,12 +15,10 @@ class Header extends React.Component {
   }
 
   render() {
-    const { teamColor } = this.props.selectedTeam;
-
     return (
       <div className={styles.container}>
         <DropdownMenu />
-        <NavMenu teamColor={teamColor} />
+        <NavMenu selectedTeam={this.props.selectedTeam} />
         <UserLogin />
       </div>
     );
@@ -33,4 +31,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { getTeams, getSelectedTeam })(Header);
+export default connect(mapStateToProps, { getTeams })(Header);
