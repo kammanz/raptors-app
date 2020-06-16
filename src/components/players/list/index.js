@@ -57,7 +57,8 @@ class List extends React.Component {
             this.setState({ selectedPlayerId: person_id });
             this.props.getSelectedPlayer(player);
           }}
-          className={classnames(styles.playerCard, isSelected && styles.selectedCard)}>
+          className={classnames(styles.playerCard, isSelected && styles.selectedCard)}
+        >
           <div className={styles.imageContainer}>
             <img
               src={person_id ? formatPlayerPhotoUrl(teamId, person_id) : placeholderImg}
