@@ -6,28 +6,25 @@ import StandingsPage from './standings';
 import GamesPage from './games';
 import PlayersPage from './players';
 
-const Routes = ({ selectedTeam }) => {
-  console.log(selectedTeam.urlName);
-  return (
-    <Switch>
-      <Route exact path="/">
-        <Redirect to={`/${selectedTeam.urlName}/players`} />
-      </Route>
-      <Route exact path="/:id">
-        <Redirect to={`/${selectedTeam.urlName}/players`} />
-      </Route>
-      <Route path="/:id/players">
-        <PlayersPage />
-      </Route>
-      <Route path="/:id/standings">
-        <StandingsPage />
-      </Route>
-      <Route path="/:id/games">
-        <GamesPage />
-      </Route>
-    </Switch>
-  );
-};
+const Routes = ({ selectedTeam }) => (
+  <Switch>
+    <Route exact path="/">
+      <Redirect to={`/${selectedTeam.urlName}/players`} />
+    </Route>
+    <Route exact path="/:id">
+      <Redirect to={`/${selectedTeam.urlName}/players`} />
+    </Route>
+    <Route path="/:id/players">
+      <PlayersPage />
+    </Route>
+    <Route path="/:id/standings">
+      <StandingsPage />
+    </Route>
+    <Route path="/:id/games">
+      <GamesPage />
+    </Route>
+  </Switch>
+);
 
 const mapStateToProps = ({ selectedTeam }) => {
   return {
