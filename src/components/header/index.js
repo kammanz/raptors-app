@@ -15,10 +15,17 @@ class Header extends React.Component {
   }
 
   render() {
+    const {
+      selectedTeam,
+      player: {
+        details: { person_id },
+      },
+    } = this.props;
+
     return (
       <div className={styles.container}>
         <DropdownMenu />
-        <NavMenu selectedTeam={this.props.selectedTeam} />
+        <NavMenu selectedTeam={selectedTeam} playerId={person_id} />
         <UserLogin />
       </div>
     );
@@ -28,6 +35,7 @@ class Header extends React.Component {
 const mapStateToProps = (state) => {
   return {
     selectedTeam: state.selectedTeam,
+    player: state.player,
   };
 };
 
