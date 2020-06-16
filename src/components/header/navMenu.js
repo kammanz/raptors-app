@@ -12,7 +12,7 @@ const NavMenu = ({ selectedTeam: { teamColor, urlName } }) => {
   return (
     <div className={styles.container}>
       <div className={styles.linkContainer}>
-        <NavLink to={`/${urlName}/players`} exact activeStyle={activeStyle}>
+        <NavLink to={`/${urlName}/players`} activeStyle={activeStyle}>
           Players
         </NavLink>
       </div>

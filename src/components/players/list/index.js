@@ -1,4 +1,5 @@
 import React, { createRef } from 'react';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 
@@ -34,7 +35,8 @@ class List extends React.Component {
   renderPlayers() {
     const {
       players,
-      selectedTeam: { teamId, teamColor },
+      selectedTeam: { teamId, teamColor, urlName },
+      history,
     } = this.props;
 
     return players.map((player, index) => {
@@ -54,6 +56,7 @@ class List extends React.Component {
         <div
           key={index}
           onClick={() => {
+            history.push(`/${urlName}/players/${person_id}`);
             this.setState({ selectedPlayerId: person_id });
             this.props.getSelectedPlayer(player);
           }}
@@ -107,4 +110,4 @@ const mapStateToProps = (state) => {
   return { players: state.players, selectedTeam: state.selectedTeam };
 };
 
-export default connect(mapStateToProps, { getSelectedPlayer })(List);
+export default withRouter(connect(mapStateToProps, { getSelectedPlayer })(List));
