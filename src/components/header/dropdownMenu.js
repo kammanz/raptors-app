@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Select from 'react-select';
 import classnames from 'classnames';
 
@@ -11,7 +12,7 @@ import { getTeams, getSelectedTeam } from 'actions/actions';
 import selectMenuStyles from './selectMenuStyles';
 import styles from './dropdownMenu.module.scss';
 
-const DropdownMenu = ({ teams, selectedTeam, getSelectedTeam }) => {
+const DropdownMenu = ({ teams, selectedTeam, getSelectedTeam, history }) => {
   const { teamId: selectedTeamId, teamColor } = selectedTeam;
   const chevron = () => <Chevron color={'white'} />;
 
@@ -25,7 +26,8 @@ const DropdownMenu = ({ teams, selectedTeam, getSelectedTeam }) => {
         <div
           style={{ backgroundColor: teamColor }}
           className={classnames(styles.optionContainer, isSingleValue && styles.hasNoBorder)}
-          {...innerProps}>
+          {...innerProps}
+        >
           <div className={styles.optionImgContainer}>
             <TeamLogo />
           </div>
@@ -48,7 +50,10 @@ const DropdownMenu = ({ teams, selectedTeam, getSelectedTeam }) => {
           Option: (props) => renderItem(props, false),
           SingleValue: (props) => renderItem(props, true),
         }}
-        onChange={(e) => getSelectedTeam(e)}
+        onChange={(team) => {
+          history.push(`/${team.urlName}/players`);
+          getSelectedTeam(team);
+        }}
       />
       <div
         style={{
@@ -67,4 +72,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { getTeams, getSelectedTeam })(DropdownMenu);
+export default withRouter(connect(mapStateToProps, { getTeams, getSelectedTeam })(DropdownMenu));
