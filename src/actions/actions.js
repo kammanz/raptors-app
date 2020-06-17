@@ -3,12 +3,9 @@ import { TEAMS, TEAM_COLORS } from 'enums';
 
 const resetPlayers = new Array(20).fill({});
 
-export const getTeams = (history) => async (dispatch) => {
+export const getTeams = (pathname, history) => async (dispatch) => {
   dispatch({ type: 'GET_PLAYERS', payload: resetPlayers });
 
-  const {
-    location: { pathname },
-  } = history;
   const [defaultTeamName, , defaultPlayerId] = pathname.split('/').slice(1);
   const response = await dataNbaNet.get('/prod/v1/2019/teams.json');
   const nbaTeams = Object.values(response.data.league.standard)

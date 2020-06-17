@@ -1,6 +1,6 @@
 export default (
   state = {
-    urlName: 'raptors',
+    urlName: 'raptors', // TODO: set team based on user's geographical location
   },
   action
 ) => {

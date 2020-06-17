@@ -72,4 +72,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default withRouter(connect(mapStateToProps, { getSelectedTeam })(DropdownMenu));
+export default connect(mapStateToProps, { getSelectedTeam })(withRouter(DropdownMenu));

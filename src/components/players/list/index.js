@@ -110,4 +110,4 @@ const mapStateToProps = (state) => {
   return { players: state.players, selectedTeam: state.selectedTeam };
 };
 
-export default withRouter(connect(mapStateToProps, { getSelectedPlayer })(List));
+export default connect(mapStateToProps, { getSelectedPlayer })(withRouter(List));

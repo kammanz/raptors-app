@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Route, Switch } from 'react-router-dom';
 
-import StandingsPage from './standings';
-import GamesPage from './games';
-import PlayersPage from './players';
+import Games from './games';
+import Players from './players';
+import Standings from './standings';
 
 const Routes = ({ selectedTeam }) => (
   <Switch>
@@ -15,13 +15,13 @@ const Routes = ({ selectedTeam }) => (
       <Redirect to={`/${selectedTeam.urlName}/players`} />
     </Route>
     <Route path="/:id/players">
-      <PlayersPage />
+      <Players />
     </Route>
     <Route path="/:id/standings">
-      <StandingsPage />
+      <Standings />
     </Route>
     <Route path="/:id/games">
-      <GamesPage />
+      <Games />
     </Route>
   </Switch>
 );
