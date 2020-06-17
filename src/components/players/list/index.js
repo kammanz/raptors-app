@@ -1,4 +1,5 @@
 import React, { createRef } from 'react';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 
@@ -14,10 +15,6 @@ class List extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      selectedPlayerId: null,
-    };
-
     this.ref = createRef();
   }
 
@@ -26,7 +23,6 @@ class List extends React.Component {
     const { selectedTeam: selectedTeamPrev } = prevProps;
 
     if (selectedTeamPrev !== selectedTeam) {
-      this.setState({ selectedPlayerId: null });
       this.ref.current.scrollTo(0, 0);
     }
   }
@@ -34,7 +30,11 @@ class List extends React.Component {
   renderPlayers() {
     const {
       players,
-      selectedTeam: { teamId, teamColor },
+      player: {
+        details: { person_id: selectedPlayerId },
+      },
+      selectedTeam: { teamId, teamColor, urlName },
+      history,
     } = this.props;
 
     return players.map((player, index) => {
@@ -48,16 +48,17 @@ class List extends React.Component {
         height_in,
         weight_lbs,
       } = player;
-      const isSelected = this.state.selectedPlayerId === person_id;
+      const isSelected = person_id && selectedPlayerId === person_id;
 
       return (
         <div
           key={index}
           onClick={() => {
-            this.setState({ selectedPlayerId: person_id });
+            history.push(`/${urlName}/players/${person_id}`);
             this.props.getSelectedPlayer(player);
           }}
-          className={classnames(styles.playerCard, isSelected && styles.selectedCard)}>
+          className={classnames(styles.playerCard, isSelected && styles.selectedCard)}
+        >
           <div className={styles.imageContainer}>
             <img
               src={person_id ? formatPlayerPhotoUrl(teamId, person_id) : placeholderImg}
@@ -103,7 +104,7 @@ class List extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { players: state.players, selectedTeam: state.selectedTeam };
+  return { players: state.players, player: state.player, selectedTeam: state.selectedTeam };
 };
 
-export default connect(mapStateToProps, { getSelectedPlayer })(List);
+export default connect(mapStateToProps, { getSelectedPlayer })(withRouter(List));

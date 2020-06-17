@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import styles from './navMenu.module.scss';
 
-const NavMenu = ({ teamColor }) => {
+const NavMenu = ({ selectedTeam: { teamColor, urlName }, playerId }) => {
   const activeStyle = {
     color: teamColor,
     borderBottom: `4px solid ${teamColor}`,
@@ -12,17 +12,17 @@ const NavMenu = ({ teamColor }) => {
   return (
     <div className={styles.container}>
       <div className={styles.linkContainer}>
-        <NavLink to="/" exact activeStyle={activeStyle}>
+        <NavLink to={playerId ? `/${urlName}/players/${playerId}` : `/${urlName}/players`} activeStyle={activeStyle}>
           Players
         </NavLink>
       </div>
       <div className={styles.linkContainer}>
-        <NavLink to="/standings" activeStyle={activeStyle}>
+        <NavLink to={`/${urlName}/standings`} activeStyle={activeStyle}>
           Standings
         </NavLink>
       </div>
       <div className={styles.linkContainer}>
-        <NavLink to="/games" activeStyle={activeStyle}>
+        <NavLink to={`/${urlName}/games`} activeStyle={activeStyle}>
           Games
         </NavLink>
       </div>

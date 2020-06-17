@@ -3,9 +3,10 @@ import { TEAMS, TEAM_COLORS } from 'enums';
 
 const resetPlayers = new Array(20).fill({});
 
-export const getTeams = () => async (dispatch) => {
+export const getTeams = (pathname, history) => async (dispatch) => {
   dispatch({ type: 'GET_PLAYERS', payload: resetPlayers });
 
+  const [defaultTeamName, , defaultPlayerId] = pathname.split('/').slice(1);
   const response = await dataNbaNet.get('/prod/v1/2019/teams.json');
   const nbaTeams = Object.values(response.data.league.standard)
     .filter((team) => team.isNBAFranchise)
@@ -15,12 +16,14 @@ export const getTeams = () => async (dispatch) => {
     }));
 
   dispatch({ type: 'GET_TEAMS', payload: nbaTeams });
+  const defaultTeam =
+    nbaTeams.find((team) => team.urlName === defaultTeamName) ||
+    nbaTeams.find((team) => team.urlName === TEAMS.TOR.NAME);
 
-  const defaultTeam = nbaTeams.find((team) => team.teamId === TEAMS.TOR.ID);
-  dispatch(getSelectedTeam(defaultTeam));
+  dispatch(getSelectedTeam(defaultTeam, defaultPlayerId, history));
 };
 
-export const getSelectedTeam = (team) => async (dispatch) => {
+export const getSelectedTeam = (team, defaultPlayerId, history) => async (dispatch) => {
   // reset players list and details
   dispatch({ type: 'GET_PLAYERS', payload: resetPlayers });
   dispatch({ type: 'PRELOAD_PLAYER_DETAILS', payload: null });
@@ -31,6 +34,18 @@ export const getSelectedTeam = (team) => async (dispatch) => {
   const teamRosterResponse = await dataNbaNet.get(`/json/cms/noseason/team/${team.urlName}/roster.json`);
   const teamRoster = teamRosterResponse.data.sports_content.roster.players.player;
   dispatch({ type: 'GET_PLAYERS', payload: teamRoster });
+
+  // set defaultPlayer if optional defaultPlayerId exists
+  if (defaultPlayerId) {
+    const defaultPlayer = teamRoster.find((player) => player.person_id === defaultPlayerId);
+
+    if (defaultPlayer) {
+      dispatch(getSelectedPlayer(defaultPlayer));
+    } else {
+      //removes invalid defaultPlayerId
+      history.push('/');
+    }
+  }
 };
 
 export const getSelectedPlayer = (player) => async (dispatch) => {

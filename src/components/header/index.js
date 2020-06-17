@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
-import { getTeams, getSelectedTeam } from 'actions/actions';
+import { getTeams } from 'actions/actions';
 
 import DropdownMenu from './dropdownMenu';
 import UserLogin from './userLogin';
@@ -11,16 +12,27 @@ import styles from './index.module.scss';
 
 class Header extends React.Component {
   componentDidMount() {
-    this.props.getTeams();
+    const {
+      history,
+      location: { pathname },
+      getTeams,
+    } = this.props;
+
+    getTeams(pathname, history);
   }
 
   render() {
-    const { teamColor } = this.props.selectedTeam;
+    const {
+      selectedTeam,
+      player: {
+        details: { person_id },
+      },
+    } = this.props;
 
     return (
       <div className={styles.container}>
         <DropdownMenu />
-        <NavMenu teamColor={teamColor} />
+        <NavMenu selectedTeam={selectedTeam} playerId={person_id} />
         <UserLogin />
       </div>
     );
@@ -30,7 +42,8 @@ class Header extends React.Component {
 const mapStateToProps = (state) => {
   return {
     selectedTeam: state.selectedTeam,
+    player: state.player,
   };
 };
 
-export default connect(mapStateToProps, { getTeams, getSelectedTeam })(Header);
+export default connect(mapStateToProps, { getTeams })(withRouter(Header));
