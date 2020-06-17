@@ -43,7 +43,6 @@ export const getSelectedTeam = (team, defaultPlayerId, history) => async (dispat
       dispatch(getSelectedPlayer(defaultPlayer));
     } else {
       //removes invalid defaultPlayerId
-      console.log('here');
       history.push('/');
     }
   }
