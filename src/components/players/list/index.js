@@ -15,10 +15,6 @@ class List extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      selectedPlayerId: null,
-    };
-
     this.ref = createRef();
   }
 
@@ -27,7 +23,6 @@ class List extends React.Component {
     const { selectedTeam: selectedTeamPrev } = prevProps;
 
     if (selectedTeamPrev !== selectedTeam) {
-      this.setState({ selectedPlayerId: null });
       this.ref.current.scrollTo(0, 0);
     }
   }
@@ -35,6 +30,9 @@ class List extends React.Component {
   renderPlayers() {
     const {
       players,
+      player: {
+        details: { person_id: playerId },
+      },
       selectedTeam: { teamId, teamColor, urlName },
       history,
     } = this.props;
@@ -50,14 +48,13 @@ class List extends React.Component {
         height_in,
         weight_lbs,
       } = player;
-      const isSelected = this.state.selectedPlayerId === person_id;
+      const isSelected = person_id && playerId === person_id;
 
       return (
         <div
           key={index}
           onClick={() => {
             history.push(`/${urlName}/players/${person_id}`);
-            this.setState({ selectedPlayerId: person_id });
             this.props.getSelectedPlayer(player);
           }}
           className={classnames(styles.playerCard, isSelected && styles.selectedCard)}
@@ -107,7 +104,7 @@ class List extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { players: state.players, selectedTeam: state.selectedTeam };
+  return { players: state.players, player: state.player, selectedTeam: state.selectedTeam };
 };
 
 export default connect(mapStateToProps, { getSelectedPlayer })(withRouter(List));
