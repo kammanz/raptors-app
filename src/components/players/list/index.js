@@ -31,7 +31,7 @@ class List extends React.Component {
     const {
       players,
       player: {
-        details: { person_id: playerId },
+        details: { person_id: selectedPlayerId },
       },
       selectedTeam: { teamId, teamColor, urlName },
       history,
@@ -48,7 +48,7 @@ class List extends React.Component {
         height_in,
         weight_lbs,
       } = player;
-      const isSelected = person_id && playerId === person_id;
+      const isSelected = person_id && selectedPlayerId === person_id;
 
       return (
         <div
