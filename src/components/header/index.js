@@ -12,12 +12,9 @@ import styles from './index.module.scss';
 
 class Header extends React.Component {
   componentDidMount() {
-    const {
-      location: { pathname },
-      getTeams,
-    } = this.props;
+    const { history, getTeams } = this.props;
 
-    getTeams(pathname);
+    getTeams(history);
   }
 
   render() {

@@ -3,10 +3,13 @@ import { TEAMS, TEAM_COLORS } from 'enums';
 
 const resetPlayers = new Array(20).fill({});
 
-export const getTeams = (pathname) => async (dispatch) => {
+export const getTeams = (history) => async (dispatch) => {
   dispatch({ type: 'GET_PLAYERS', payload: resetPlayers });
 
-  const [defaultTeamName, defaultSection, defaultPlayerId] = pathname.split('/').slice(1);
+  const {
+    location: { pathname },
+  } = history;
+  const [defaultTeamName, , defaultPlayerId] = pathname.split('/').slice(1);
   const response = await dataNbaNet.get('/prod/v1/2019/teams.json');
   const nbaTeams = Object.values(response.data.league.standard)
     .filter((team) => team.isNBAFranchise)
@@ -20,10 +23,10 @@ export const getTeams = (pathname) => async (dispatch) => {
     nbaTeams.find((team) => team.urlName === defaultTeamName) ||
     nbaTeams.find((team) => team.urlName === TEAMS.TOR.NAME);
 
-  dispatch(getSelectedTeam(defaultTeam, defaultPlayerId));
+  dispatch(getSelectedTeam(defaultTeam, defaultPlayerId, history));
 };
 
-export const getSelectedTeam = (team, defaultPlayerId) => async (dispatch) => {
+export const getSelectedTeam = (team, defaultPlayerId, history) => async (dispatch) => {
   // reset players list and details
   dispatch({ type: 'GET_PLAYERS', payload: resetPlayers });
   dispatch({ type: 'PRELOAD_PLAYER_DETAILS', payload: null });
@@ -35,10 +38,17 @@ export const getSelectedTeam = (team, defaultPlayerId) => async (dispatch) => {
   const teamRoster = teamRosterResponse.data.sports_content.roster.players.player;
   dispatch({ type: 'GET_PLAYERS', payload: teamRoster });
 
+  // set defaultPlayer if optional defaultPlayerId exists
   if (defaultPlayerId) {
-    console.log('here');
     const defaultPlayer = teamRoster.find((player) => player.person_id === defaultPlayerId);
-    dispatch(getSelectedPlayer(defaultPlayer));
+
+    if (defaultPlayer) {
+      dispatch(getSelectedPlayer(defaultPlayer));
+    } else {
+      //removes invalid defaultPlayerId
+      console.log('here');
+      history.push('/');
+    }
   }
 };
 
