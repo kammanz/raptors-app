@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import { getTeams } from 'actions/actions';
 
@@ -11,7 +12,12 @@ import styles from './index.module.scss';
 
 class Header extends React.Component {
   componentDidMount() {
-    this.props.getTeams();
+    const {
+      location: { pathname },
+      getTeams,
+    } = this.props;
+
+    getTeams(pathname);
   }
 
   render() {
@@ -39,4 +45,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { getTeams })(Header);
+export default connect(mapStateToProps, { getTeams })(withRouter(Header));

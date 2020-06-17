@@ -7,7 +7,7 @@ import classnames from 'classnames';
 import * as Logos from 'assets/icons/logos';
 import Chevron from 'assets/icons/chevron';
 
-import { getTeams, getSelectedTeam } from 'actions/actions';
+import { getSelectedTeam } from 'actions/actions';
 
 import selectMenuStyles from './selectMenuStyles';
 import styles from './dropdownMenu.module.scss';
@@ -72,4 +72,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default withRouter(connect(mapStateToProps, { getTeams, getSelectedTeam })(DropdownMenu));
+export default withRouter(connect(mapStateToProps, { getSelectedTeam })(DropdownMenu));
