@@ -77,8 +77,6 @@ const Details = ({ player: { details, isLoading }, teams, selectedTeam: { teamId
     { title: 'pts', value: points },
   ];
 
-  console.log(isLoading);
-
   return (
     <div onScroll={onScroll} ref={ref} className={classnames(styles.container, isLoading && styles.scrollHidden)}>
       <Card teamColor={teamColor} player={details} playerTeamId={teamId} isSticky={isSticky} isAnimated={isAnimated} />
