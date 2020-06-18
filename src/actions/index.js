@@ -1,4 +1,4 @@
-import dataNbaNet from 'apis/dataNbaNet';
+import dataNbaNet from 'apis';
 import { TEAMS, TEAM_COLORS } from 'enums';
 
 const resetPlayers = new Array(20).fill({});

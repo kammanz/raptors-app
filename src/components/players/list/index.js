@@ -6,7 +6,7 @@ import classnames from 'classnames';
 import Overlay from 'components/_shared/overlay';
 import Spinner from 'components/_shared/spinner';
 import placeholderImg from 'assets/imgs/placeholder.png';
-import { getSelectedPlayer } from 'actions/actions';
+import { getSelectedPlayer } from 'actions';
 import { formatPlayerPhotoUrl } from 'utils/stringUtils';
 
 import styles from './index.module.scss';
@@ -57,8 +57,7 @@ class List extends React.Component {
             history.push(`/${urlName}/players/${person_id}`);
             this.props.getSelectedPlayer(player);
           }}
-          className={classnames(styles.playerCard, isSelected && styles.selectedCard)}
-        >
+          className={classnames(styles.playerCard, isSelected && styles.selectedCard)}>
           <div className={styles.imageContainer}>
             <img
               src={person_id ? formatPlayerPhotoUrl(teamId, person_id) : placeholderImg}
