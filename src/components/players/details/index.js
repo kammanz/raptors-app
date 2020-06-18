@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-
 import classnames from 'classnames';
 
 import Placeholder from './placeholder';
