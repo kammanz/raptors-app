@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import classnames from 'classnames';
 
 import Placeholder from './placeholder';
 import Card from './card';
@@ -76,7 +77,7 @@ const Details = ({ player: { details, isLoading }, teams, selectedTeam: { teamId
   ];
 
   return (
-    <div onScroll={onScroll} ref={ref} className={styles.container}>
+    <div onScroll={onScroll} ref={ref} className={classnames(styles.container, isLoading && styles.scrollHidden)}>
       <Card teamColor={teamColor} player={details} playerTeamId={teamId} isSticky={isSticky} isAnimated={isAnimated} />
       <QuickStats teamColor={teamColor} quickStats={quickStats} isLoading={isLoading} />
       <TotalStats teamColor={teamColor} totalStats={totalStats} isLoading={isLoading} />
