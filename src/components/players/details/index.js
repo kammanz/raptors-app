@@ -87,8 +87,8 @@ const Details = ({ player: { details, isLoading }, teams, selectedTeam: { teamId
 
 const mapStateToProps = (state) => ({
   player: state.player,
-  teams: state.selectedTeam.teams,
-  selectedTeam: state.selectedTeam.selectedTeam,
+  teams: state.teams.teams,
+  selectedTeam: state.teams.selectedTeam,
 });
 
 export default connect(mapStateToProps)(Details);
