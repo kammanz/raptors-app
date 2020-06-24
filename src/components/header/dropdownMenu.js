@@ -66,7 +66,7 @@ const DropdownMenu = ({ teams, selectedTeam, getSelectedTeam, history }) => {
 
 const mapStateToProps = (state) => {
   return {
-    teams: state.teams,
+    teams: state.selectedTeam.teams,
     selectedTeam: state.selectedTeam,
   };
 };
