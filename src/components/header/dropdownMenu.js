@@ -7,7 +7,7 @@ import classnames from 'classnames';
 import * as Logos from 'assets/icons/logos';
 import Chevron from 'assets/icons/chevron';
 
-import { getSelectedTeam } from 'actions/actions';
+import { getSelectedTeam } from 'actions';
 
 import selectMenuStyles from './selectMenuStyles';
 import styles from './dropdownMenu.module.scss';
@@ -26,8 +26,7 @@ const DropdownMenu = ({ teams, selectedTeam, getSelectedTeam, history }) => {
         <div
           style={{ backgroundColor: teamColor }}
           className={classnames(styles.optionContainer, isSingleValue && styles.hasNoBorder)}
-          {...innerProps}
-        >
+          {...innerProps}>
           <div className={styles.optionImgContainer}>
             <TeamLogo />
           </div>
@@ -65,10 +64,10 @@ const DropdownMenu = ({ teams, selectedTeam, getSelectedTeam, history }) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ teams: { teams, selectedTeam } }) => {
   return {
-    teams: state.teams,
-    selectedTeam: state.selectedTeam,
+    teams,
+    selectedTeam,
   };
 };
 

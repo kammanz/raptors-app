@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import { getTeams } from 'actions/actions';
+import { getTeams } from 'actions';
 
 import DropdownMenu from './dropdownMenu';
 import UserLogin from './userLogin';
@@ -39,10 +39,10 @@ class Header extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ teams: { selectedTeam }, player }) => {
   return {
-    selectedTeam: state.selectedTeam,
-    player: state.player,
+    selectedTeam,
+    player,
   };
 };
 
