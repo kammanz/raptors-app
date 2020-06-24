@@ -87,7 +87,7 @@ const Details = ({ player: { details, isLoading }, teams, selectedTeam: { teamId
 
 const mapStateToProps = (state) => ({
   player: state.player,
-  teams: state.teams,
+  teams: state.selectedTeam.teams,
   selectedTeam: state.selectedTeam,
 });
 
