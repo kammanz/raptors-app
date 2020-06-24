@@ -26,9 +26,9 @@ const Routes = ({ selectedTeam }) => (
   </Switch>
 );
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ teams: { selectedTeam } }) => {
   return {
-    selectedTeam: state.teams.selectedTeam,
+    selectedTeam,
   };
 };
 

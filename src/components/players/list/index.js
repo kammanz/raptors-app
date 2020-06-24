@@ -102,8 +102,8 @@ class List extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return { players: state.players, player: state.player, selectedTeam: state.teams.selectedTeam };
+const mapStateToProps = ({ player, players, teams: { selectedTeam } }) => {
+  return { player, players, selectedTeam };
 };
 
 export default connect(mapStateToProps, { getSelectedPlayer })(withRouter(List));

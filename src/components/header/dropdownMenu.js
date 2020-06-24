@@ -64,10 +64,10 @@ const DropdownMenu = ({ teams, selectedTeam, getSelectedTeam, history }) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ teams: { teams, selectedTeam } }) => {
   return {
-    teams: state.teams.teams,
-    selectedTeam: state.teams.selectedTeam,
+    teams,
+    selectedTeam,
   };
 };
 
