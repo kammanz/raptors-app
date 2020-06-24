@@ -7,9 +7,9 @@ export default (
   action
 ) => {
   switch (action.type) {
-    case 'GET_TEAMS':
+    case 'SET_TEAMS':
       return { ...state, teams: action.payload };
-    case 'GET_SELECTED_TEAM':
+    case 'SET_SELECTED_TEAM':
       return { ...state, selectedTeam: action.payload };
     default:
       return state;
