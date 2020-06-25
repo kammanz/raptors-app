@@ -1,11 +1,7 @@
 import dataNbaNet from 'apis';
 import { TEAMS, TEAM_COLORS } from 'enums';
 
-const resetPlayers = new Array(20).fill({});
-
 export const getTeams = (pathname, history) => async (dispatch) => {
-  dispatch({ type: 'SET_PLAYERS', payload: resetPlayers });
-
   const [defaultTeamName, , defaultPlayerId] = pathname.split('/').slice(1);
   const response = await dataNbaNet.get('/prod/v1/2019/teams.json');
   const nbaTeams = Object.values(response.data.league.standard)
@@ -25,7 +21,7 @@ export const getTeams = (pathname, history) => async (dispatch) => {
 
 export const getSelectedTeam = (team, defaultPlayerId, history) => async (dispatch) => {
   // reset players list and details
-  dispatch({ type: 'SET_PLAYERS', payload: resetPlayers });
+  dispatch({ type: 'RESET_PLAYERS' });
   dispatch({ type: 'PRELOAD_PLAYER_DETAILS', payload: null });
 
   // set selected team
