@@ -11,21 +11,24 @@ import { formatPlayerPhotoUrl } from 'utils/stringUtils';
 
 import styles from './index.module.scss';
 
-const List = ({ player, players, selectedTeam, history, getSelectedPlayer }) => {
-  const refHook = useRef();
-  const teamHook = useRef(selectedTeam);
+const List = ({
+  player: {
+    details: { person_id: selectedPlayerId },
+  },
+  players,
+  selectedTeam,
+  selectedTeam: { teamId, teamColor, urlName },
+  history,
+  getSelectedPlayer,
+}) => {
+  const domRef = useRef();
+  const selectedTeamRef = useRef(selectedTeam);
 
   useEffect(() => {
-    if (teamHook.current !== selectedTeam) {
-      refHook.current.scrollTo(0, 0);
+    if (selectedTeamRef.current !== selectedTeam) {
+      domRef.current.scrollTo(0, 0);
     }
   });
-
-  const {
-    details: { person_id: selectedPlayerId },
-  } = player;
-
-  const { teamId, teamColor, urlName } = selectedTeam;
 
   const renderPlayers = () =>
     players.map((player, index) => {
@@ -80,7 +83,7 @@ const List = ({ player, players, selectedTeam, history, getSelectedPlayer }) => 
   const isLoading = !players.some((player) => Object.keys(player).length !== 0);
 
   return (
-    <div ref={refHook} className={classnames(styles.container, isLoading && styles.noScroll)}>
+    <div ref={domRef} className={classnames(styles.container, isLoading && styles.noScroll)}>
       <Overlay isLoading={isLoading}>
         <Spinner height={19} width={4} radius={3} isLoading={isLoading} />
       </Overlay>
