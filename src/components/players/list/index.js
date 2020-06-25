@@ -1,4 +1,4 @@
-import React, { createRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
@@ -11,33 +11,24 @@ import { formatPlayerPhotoUrl } from 'utils/stringUtils';
 
 import styles from './index.module.scss';
 
-class List extends React.Component {
-  constructor(props) {
-    super(props);
+const List = ({ player, players, selectedTeam, history, getSelectedPlayer }) => {
+  const refHook = useRef();
+  const teamHook = useRef(selectedTeam);
 
-    this.ref = createRef();
-  }
-
-  componentDidUpdate(prevProps) {
-    const { selectedTeam } = this.props;
-    const { selectedTeam: selectedTeamPrev } = prevProps;
-
-    if (selectedTeamPrev !== selectedTeam) {
-      this.ref.current.scrollTo(0, 0);
+  useEffect(() => {
+    if (teamHook.current !== selectedTeam) {
+      refHook.current.scrollTo(0, 0);
     }
-  }
+  });
 
-  renderPlayers() {
-    const {
-      players,
-      player: {
-        details: { person_id: selectedPlayerId },
-      },
-      selectedTeam: { teamId, teamColor, urlName },
-      history,
-    } = this.props;
+  const {
+    details: { person_id: selectedPlayerId },
+  } = player;
 
-    return players.map((player, index) => {
+  const { teamId, teamColor, urlName } = selectedTeam;
+
+  const renderPlayers = () =>
+    players.map((player, index) => {
       const {
         person_id,
         first_name,
@@ -55,7 +46,7 @@ class List extends React.Component {
           key={index}
           onClick={() => {
             history.push(`/${urlName}/players/${person_id}`);
-            this.props.getSelectedPlayer(player);
+            getSelectedPlayer(player);
           }}
           className={classnames(styles.playerCard, isSelected && styles.selectedCard)}>
           <div className={styles.imageContainer}>
@@ -85,22 +76,18 @@ class List extends React.Component {
         </div>
       );
     });
-  }
 
-  render() {
-    const { players } = this.props;
-    const isLoading = !players.some((player) => Object.keys(player).length !== 0);
+  const isLoading = !players.some((player) => Object.keys(player).length !== 0);
 
-    return (
-      <div ref={this.ref} className={classnames(styles.container, isLoading && styles.noScroll)}>
-        <Overlay isLoading={isLoading}>
-          <Spinner height={19} width={4} radius={3} isLoading={isLoading} />
-        </Overlay>
-        {this.renderPlayers()}
-      </div>
-    );
-  }
-}
+  return (
+    <div ref={refHook} className={classnames(styles.container, isLoading && styles.noScroll)}>
+      <Overlay isLoading={isLoading}>
+        <Spinner height={19} width={4} radius={3} isLoading={isLoading} />
+      </Overlay>
+      {renderPlayers()}
+    </div>
+  );
+};
 
 const mapStateToProps = ({ player, players, teams: { selectedTeam } }) => {
   return { player, players, selectedTeam };

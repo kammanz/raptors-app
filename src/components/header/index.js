@@ -19,24 +19,9 @@ const Header = ({
     details: { person_id },
   },
 }) => {
-  console.log(history);
-  console.log('person_id', person_id);
   useEffect(() => {
-    // const {
-    //   history,
-    //   location: { pathname },
-    //   getTeams,
-    // } = this.props;
-
     getTeams(pathname, history);
   }, []);
-
-  // const {
-  //   selectedTeam,
-  //   player: {
-  //     details: { person_id },
-  //   },
-  // } = this.props;
 
   return (
     <div className={styles.container}>
