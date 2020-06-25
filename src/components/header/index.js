@@ -20,15 +20,16 @@ const Header = ({
   },
 }) => {
   console.log(history);
-  // useEffect(() => {
-  //   // const {
-  //   //   history,
-  //   //   location: { pathname },
-  //   //   getTeams,
-  //   // } = this.props;
+  console.log('person_id', person_id);
+  useEffect(() => {
+    // const {
+    //   history,
+    //   location: { pathname },
+    //   getTeams,
+    // } = this.props;
 
-  //   getTeams(pathname, history);
-  // });
+    getTeams(pathname, history);
+  }, []);
 
   // const {
   //   selectedTeam,
