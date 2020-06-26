@@ -9,8 +9,7 @@ import Table from 'components/_shared/table';
 
 import styles from './index.module.scss';
 
-const RecentGamesStats = ({ teams, teamColor, recentGamesStats, isLoading }) => {
-  const recentGamesArray = Object.values(recentGamesStats);
+const RecentGamesStats = ({ teams, teamColor, recentGamesArray, isLoading }) => {
   const teamsArray = Object.values(teams);
 
   const recentGames = recentGamesArray.map(({ gameId, isHomeGame, hTeam, vTeam, gameDateUTC, stats }) => {
@@ -81,7 +80,7 @@ const RecentGamesStats = ({ teams, teamColor, recentGamesStats, isLoading }) => 
 
 RecentGamesStats.propTypes = {
   isLoading: PropTypes.bool,
-  recentGamesStats: PropTypes.object,
+  recentGamesArray: PropTypes.array,
   teams: PropTypes.array,
   teamColor: PropTypes.string,
 };

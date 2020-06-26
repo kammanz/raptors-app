@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Route, Switch } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Games from './games';
 import Players from './players';
@@ -25,6 +26,10 @@ const Routes = ({ selectedTeam }) => (
     </Route>
   </Switch>
 );
+
+Routes.propTypes = {
+  selectedTeam: PropTypes.object,
+};
 
 const mapStateToProps = ({ teams: { selectedTeam } }) => {
   return {

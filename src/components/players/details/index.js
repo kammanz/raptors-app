@@ -77,8 +77,7 @@ const Details = ({ player: { details, isLoading }, teams, selectedTeam: { teamId
     { title: 'pts', value: points },
   ];
 
-  console.log('recentGames', recentGames);
-  // const recentGamesArray = Object.values(recentGamesStats);
+  const recentGamesArray = Object.values(recentGames);
 
   return (
     <div onScroll={onScroll} ref={ref} className={classnames(styles.container, isLoading && styles.scrollHidden)}>
@@ -91,7 +90,7 @@ const Details = ({ player: { details, isLoading }, teams, selectedTeam: { teamId
       />
       <QuickStats teamColor={teamColor} quickStats={quickStats} isLoading={isLoading} />
       <TotalStats teamColor={teamColor} totalStats={totalStats} isLoading={isLoading} />
-      <RecentGamesStats teams={teams} teamColor={teamColor} recentGamesStats={recentGames} isLoading={isLoading} />
+      <RecentGamesStats teams={teams} teamColor={teamColor} recentGamesArray={recentGamesArray} isLoading={isLoading} />
     </div>
   );
 };
@@ -104,7 +103,7 @@ Details.propTypes = {
   player: PropTypes.object,
   playerTeamId: PropTypes.number,
   quickStats: PropTypes.number,
-  recentGames: PropTypes.object,
+  recentGamesArray: PropTypes.array,
   result: PropTypes.string,
   section: PropTypes.string,
   teamColor: PropTypes.string,

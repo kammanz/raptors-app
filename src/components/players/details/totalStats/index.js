@@ -8,7 +8,6 @@ import Title from 'components/_shared/title';
 import styles from './index.module.scss';
 
 const TotalStats = ({ totalStats, teamColor, isLoading }) => {
-  console.log(totalStats);
   return (
     <section className={styles.totalStats}>
       <Title title="stats" totalStats teamColor={teamColor} />
