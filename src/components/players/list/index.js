@@ -82,8 +82,6 @@ const List = ({
       );
     });
 
-  // const isLoading = !players.some((player) => Object.keys(player).length !== 0);
-
   return (
     <div ref={domRef} className={classnames(styles.container, isLoading && styles.noScroll)}>
       <Overlay isLoading={isLoading}>
