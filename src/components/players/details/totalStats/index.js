@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Spinner from 'components/_shared/spinner';
 import Table from 'components/_shared/table';
@@ -18,13 +17,6 @@ const TotalStats = ({ totalStats, teamColor, isLoading }) => {
       )}
     </section>
   );
-};
-
-TotalStats.propTypes = {
-  isLoading: PropTypes.bool,
-  section: PropTypes.string,
-  teamColor: PropTypes.string,
-  totalStats: PropTypes.array,
 };
 
 export default TotalStats;

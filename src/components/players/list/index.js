@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import Overlay from 'components/_shared/overlay';
@@ -17,6 +16,7 @@ const List = ({
     details: { person_id: selectedPlayerId },
   },
   players,
+  isLoading,
   selectedTeam: { teamId, teamColor, urlName },
   history,
   getSelectedPlayer,
@@ -48,7 +48,8 @@ const List = ({
             history.push(`/${urlName}/players/${person_id}`);
             getSelectedPlayer(player);
           }}
-          className={classnames(styles.playerCard, isSelected && styles.selectedCard)}>
+          className={classnames(styles.playerCard, isSelected && styles.selectedCard)}
+        >
           <div className={styles.imageContainer}>
             <img
               src={person_id ? formatPlayerPhotoUrl(teamId, person_id) : placeholderImg}
@@ -77,8 +78,6 @@ const List = ({
       );
     });
 
-  const isLoading = !players.some((player) => Object.keys(player).length !== 0);
-
   return (
     <div ref={domRef} className={classnames(styles.container, isLoading && styles.noScroll)}>
       <Overlay isLoading={isLoading}>
@@ -89,28 +88,8 @@ const List = ({
   );
 };
 
-List.propTypes = {
-  first_name: PropTypes.string,
-  getSelectedPlayer: PropTypes.func,
-  height_ft: PropTypes.number,
-  height_in: PropTypes.number,
-  history: PropTypes.object,
-  jersey_number: PropTypes.number,
-  last_name: PropTypes.string,
-  person_id: PropTypes.number,
-  player: PropTypes.object,
-  players: PropTypes.array,
-  position_full: PropTypes.string,
-  selectedPlayerId: PropTypes.number,
-  selectedTeam: PropTypes.object,
-  teamColor: PropTypes.string,
-  teamId: PropTypes.number,
-  urlName: PropTypes.string,
-  weight_lbs: PropTypes.number,
-};
-
-const mapStateToProps = ({ player, players, teams: { selectedTeam } }) => {
-  return { player, players, selectedTeam };
+const mapStateToProps = ({ player, players: { list, isLoading }, teams: { selectedTeam } }) => {
+  return { player, players: list, isLoading, selectedTeam };
 };
 
 export default connect(mapStateToProps, { getSelectedPlayer })(withRouter(List));

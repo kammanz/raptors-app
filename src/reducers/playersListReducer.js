@@ -1,11 +1,14 @@
-const initialPlayers = new Array(20).fill({});
+const initialState = {
+  list: new Array(20).fill({}),
+  isLoading: true,
+};
 
-export default (state = initialPlayers, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case 'RESET_PLAYERS':
-      return initialPlayers;
+      return initialState;
     case 'SET_PLAYERS':
-      return action.payload;
+      return { list: action.payload, isLoading: false };
     default:
       return state;
   }
