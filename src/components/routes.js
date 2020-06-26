@@ -27,14 +27,14 @@ const Routes = ({ selectedTeam }) => (
   </Switch>
 );
 
-Routes.propTypes = {
-  selectedTeam: PropTypes.object,
-};
-
 const mapStateToProps = ({ teams: { selectedTeam } }) => {
   return {
     selectedTeam,
   };
+};
+
+Routes.propTypes = {
+  selectedTeam: PropTypes.object.isRequired,
 };
 
 export default connect(mapStateToProps)(Routes);

@@ -8,7 +8,8 @@ import Table from 'components/_shared/table';
 
 import styles from './index.module.scss';
 
-const RecentGamesStats = ({ teams, teamColor, recentGamesArray, isLoading }) => {
+const RecentGamesStats = ({ teams, teamColor, recentGames, isLoading }) => {
+  const recentGamesArray = Object.values(recentGamesStats);
   const teamsArray = Object.values(teams);
 
   const recentGames = recentGamesArray.map(({ gameId, isHomeGame, hTeam, vTeam, gameDateUTC, stats }) => {
@@ -75,13 +76,6 @@ const RecentGamesStats = ({ teams, teamColor, recentGamesArray, isLoading }) => 
       {isLoading ? <Spinner isLoading={isLoading} /> : games}
     </section>
   );
-};
-
-RecentGamesStats.propTypes = {
-  isLoading: PropTypes.bool,
-  recentGamesArray: PropTypes.array,
-  teams: PropTypes.array,
-  teamColor: PropTypes.string,
 };
 
 export default RecentGamesStats;
