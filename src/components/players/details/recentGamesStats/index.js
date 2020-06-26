@@ -8,7 +8,7 @@ import Table from 'components/_shared/table';
 
 import styles from './index.module.scss';
 
-const RecentGamesStats = ({ teams, teamColor, recentGames, isLoading }) => {
+const RecentGamesStats = ({ teams, teamColor, recentGamesStats, isLoading }) => {
   const recentGamesArray = Object.values(recentGamesStats);
   const teamsArray = Object.values(teams);
 

@@ -81,7 +81,7 @@ const Details = ({ player: { details, isLoading }, teams, selectedTeam: { teamId
       <Card teamColor={teamColor} player={details} playerTeamId={teamId} isSticky={isSticky} isAnimated={isAnimated} />
       <QuickStats teamColor={teamColor} quickStats={quickStats} isLoading={isLoading} />
       <TotalStats teamColor={teamColor} totalStats={totalStats} isLoading={isLoading} />
-      <RecentGamesStats teams={teams} teamColor={teamColor} recentGamesArray={recentGames} isLoading={isLoading} />
+      <RecentGamesStats teams={teams} teamColor={teamColor} recentGamesStats={recentGames} isLoading={isLoading} />
     </div>
   );
 };
