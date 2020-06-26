@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import Overlay from 'components/_shared/overlay';
@@ -17,15 +16,19 @@ const List = ({
     details: { person_id: selectedPlayerId },
   },
   players,
+  selectedTeam,
   selectedTeam: { teamId, teamColor, urlName },
   history,
   getSelectedPlayer,
 }) => {
   const domRef = useRef();
+  const selectedTeamRef = useRef(selectedTeam);
 
   useEffect(() => {
-    domRef.current.scrollTo(0, 0);
-  }, [teamId]);
+    if (selectedTeamRef.current !== selectedTeam) {
+      domRef.current.scrollTo(0, 0);
+    }
+  });
 
   const renderPlayers = () =>
     players.map((player, index) => {
@@ -87,26 +90,6 @@ const List = ({
       {renderPlayers()}
     </div>
   );
-};
-
-List.propTypes = {
-  first_name: PropTypes.string,
-  getSelectedPlayer: PropTypes.func,
-  height_ft: PropTypes.number,
-  height_in: PropTypes.number,
-  history: PropTypes.object,
-  jersey_number: PropTypes.number,
-  last_name: PropTypes.string,
-  person_id: PropTypes.number,
-  player: PropTypes.object,
-  players: PropTypes.array,
-  position_full: PropTypes.string,
-  selectedPlayerId: PropTypes.number,
-  selectedTeam: PropTypes.object,
-  teamColor: PropTypes.string,
-  teamId: PropTypes.number,
-  urlName: PropTypes.string,
-  weight_lbs: PropTypes.number,
 };
 
 const mapStateToProps = ({ player, players, teams: { selectedTeam } }) => {
