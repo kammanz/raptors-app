@@ -72,7 +72,7 @@ const RecentGamesStats = ({ teams, teamColor, recentGamesStats, isLoading }) => 
 
   return (
     <section className={styles.recentGames}>
-      <Title title="recent games" teamColor={teamColor} section="games" />
+      <Title title="recent games" teamColor={teamColor} isRecentGames />
       {isLoading ? <Spinner isLoading={isLoading} /> : games}
     </section>
   );

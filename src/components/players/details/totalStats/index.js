@@ -9,7 +9,7 @@ import styles from './index.module.scss';
 const TotalStats = ({ totalStats, teamColor, isLoading }) => {
   return (
     <section className={styles.totalStats}>
-      <Title title="stats" totalStats teamColor={teamColor} />
+      <Title title="stats" teamColor={teamColor} />
       {isLoading ? <Spinner isLoading={isLoading} containerHeight={43} /> : <Table array={totalStats} isTotalStats />}
     </section>
   );
