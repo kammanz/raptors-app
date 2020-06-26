@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Select from 'react-select';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import * as Logos from 'assets/icons/logos';
@@ -26,7 +27,8 @@ const DropdownMenu = ({ teams, selectedTeam, getSelectedTeam, history }) => {
         <div
           style={{ backgroundColor: teamColor }}
           className={classnames(styles.optionContainer, isSingleValue && styles.hasNoBorder)}
-          {...innerProps}>
+          {...innerProps}
+        >
           <div className={styles.optionImgContainer}>
             <TeamLogo />
           </div>
@@ -69,6 +71,13 @@ const mapStateToProps = ({ teams: { teams, selectedTeam } }) => {
     teams,
     selectedTeam,
   };
+};
+
+DropdownMenu.propTypes = {
+  getSelectedTeam: PropTypes.func.isRequired,
+  teams: PropTypes.array.isRequired,
+  selectedTeam: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
 export default connect(mapStateToProps, { getSelectedTeam })(withRouter(DropdownMenu));
