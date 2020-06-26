@@ -63,7 +63,7 @@ const RecentGamesStats = ({ teams, teamColor, recentGamesStats, isLoading }) => 
           </div>
         </header>
         <div className={styles.line} />
-        <Table array={tableArray} teamColor={teamColor} section="games" result={getGameResult()} />
+        <Table array={tableArray} result={getGameResult()} />
       </div>
     );
   });

@@ -10,11 +10,7 @@ const TotalStats = ({ totalStats, teamColor, isLoading }) => {
   return (
     <section className={styles.totalStats}>
       <Title title="stats" totalStats teamColor={teamColor} />
-      {isLoading ? (
-        <Spinner isLoading={isLoading} containerHeight={43} />
-      ) : (
-        <Table array={totalStats} section="totalStats" teamColor={teamColor} isLoading={isLoading} />
-      )}
+      {isLoading ? <Spinner isLoading={isLoading} containerHeight={43} /> : <Table array={totalStats} isTotalStats />}
     </section>
   );
 };
