@@ -1,18 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Route, Switch } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Games from './games';
 import Players from './players';
 import Standings from './standings';
 
-const Routes = ({ selectedTeam }) => (
+const Routes = ({ selectedTeam: { urlName } }) => (
   <Switch>
     <Route exact path="/">
-      <Redirect to={`/${selectedTeam.urlName}/players`} />
+      <Redirect to={`/${urlName}/players`} />
     </Route>
     <Route exact path="/:id">
-      <Redirect to={`/${selectedTeam.urlName}/players`} />
+      <Redirect to={`/${urlName}/players`} />
     </Route>
     <Route path="/:id/players">
       <Players />
@@ -30,6 +31,10 @@ const mapStateToProps = ({ teams: { selectedTeam } }) => {
   return {
     selectedTeam,
   };
+};
+
+Routes.propTypes = {
+  selectedTeam: PropTypes.object.isRequired,
 };
 
 export default connect(mapStateToProps)(Routes);
