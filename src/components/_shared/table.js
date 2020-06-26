@@ -39,12 +39,12 @@ const Table = ({ array, isTotalStats, result }) => {
 Table.propTypes = {
   array: PropTypes.array.isRequired,
   isTotalStats: PropTypes.bool,
-  result: PropTypes.string,
+  result: PropTypes.oneOf(['W', 'L']),
 };
 
 Table.defaultProps = {
   isTotalStats: false,
-  result: '',
+  result: null,
 };
 
 export default Table;
