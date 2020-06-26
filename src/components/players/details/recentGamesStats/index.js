@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import * as TeamLogos from 'assets/icons/logos';
 
@@ -11,7 +12,6 @@ import styles from './index.module.scss';
 const RecentGamesStats = ({ teams, teamColor, recentGamesStats, isLoading }) => {
   const recentGamesArray = Object.values(recentGamesStats);
   const teamsArray = Object.values(teams);
-
   const recentGames = recentGamesArray.map(({ gameId, isHomeGame, hTeam, vTeam, gameDateUTC, stats }) => {
     const { points, assists, offReb, defReb, totReb } = stats;
 
@@ -76,6 +76,13 @@ const RecentGamesStats = ({ teams, teamColor, recentGamesStats, isLoading }) => 
       {isLoading ? <Spinner isLoading={isLoading} /> : games}
     </section>
   );
+};
+
+RecentGamesStats.propTypes = {
+  teams: PropTypes.array.isRequired,
+  teamColor: PropTypes.string.isRequired,
+  recentGamesStats: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 export default RecentGamesStats;

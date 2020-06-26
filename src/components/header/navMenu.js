@@ -9,7 +9,6 @@ const NavMenu = ({ selectedTeam: { teamColor, urlName }, playerId }) => {
     color: teamColor,
     borderBottom: `4px solid ${teamColor}`,
   };
-  console.log(teamColor, urlName);
 
   return (
     <div className={styles.container}>
