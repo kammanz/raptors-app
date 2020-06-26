@@ -16,6 +16,7 @@ const List = ({
     details: { person_id: selectedPlayerId },
   },
   players,
+  isLoading,
   selectedTeam,
   selectedTeam: { teamId, teamColor, urlName },
   history,
@@ -51,7 +52,8 @@ const List = ({
             history.push(`/${urlName}/players/${person_id}`);
             getSelectedPlayer(player);
           }}
-          className={classnames(styles.playerCard, isSelected && styles.selectedCard)}>
+          className={classnames(styles.playerCard, isSelected && styles.selectedCard)}
+        >
           <div className={styles.imageContainer}>
             <img
               src={person_id ? formatPlayerPhotoUrl(teamId, person_id) : placeholderImg}
@@ -80,7 +82,7 @@ const List = ({
       );
     });
 
-  const isLoading = !players.some((player) => Object.keys(player).length !== 0);
+  // const isLoading = !players.some((player) => Object.keys(player).length !== 0);
 
   return (
     <div ref={domRef} className={classnames(styles.container, isLoading && styles.noScroll)}>
@@ -92,8 +94,8 @@ const List = ({
   );
 };
 
-const mapStateToProps = ({ player, players, teams: { selectedTeam } }) => {
-  return { player, players, selectedTeam };
+const mapStateToProps = ({ player, players: { list, isLoading }, teams: { selectedTeam } }) => {
+  return { player, players: list, isLoading, selectedTeam };
 };
 
 export default connect(mapStateToProps, { getSelectedPlayer })(withRouter(List));
