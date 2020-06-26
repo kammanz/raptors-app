@@ -16,19 +16,15 @@ const List = ({
     details: { person_id: selectedPlayerId },
   },
   players,
-  selectedTeam,
   selectedTeam: { teamId, teamColor, urlName },
   history,
   getSelectedPlayer,
 }) => {
   const domRef = useRef();
-  const selectedTeamRef = useRef(selectedTeam);
 
   useEffect(() => {
-    if (selectedTeamRef.current !== selectedTeam) {
-      domRef.current.scrollTo(0, 0);
-    }
-  });
+    domRef.current.scrollTo(0, 0);
+  }, [teamId]);
 
   const renderPlayers = () =>
     players.map((player, index) => {
