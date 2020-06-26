@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import styles from './navMenu.module.scss';
 
@@ -28,6 +29,12 @@ const NavMenu = ({ selectedTeam: { teamColor, urlName }, playerId }) => {
       </div>
     </div>
   );
+};
+
+NavMenu.propTypes = {
+  playerId: PropTypes.number,
+  teamColor: PropTypes.string,
+  urlName: PropTypes.string,
 };
 
 export default NavMenu;

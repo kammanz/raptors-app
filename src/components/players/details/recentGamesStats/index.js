@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import * as TeamLogos from 'assets/icons/logos';
 
@@ -76,6 +77,13 @@ const RecentGamesStats = ({ teams, teamColor, recentGamesStats, isLoading }) => 
       {isLoading ? <Spinner isLoading={isLoading} /> : games}
     </section>
   );
+};
+
+RecentGamesStats.propTypes = {
+  isLoading: PropTypes.bool,
+  recentGamesStats: PropTypes.object,
+  teams: PropTypes.array,
+  teamColor: PropTypes.string,
 };
 
 export default RecentGamesStats;

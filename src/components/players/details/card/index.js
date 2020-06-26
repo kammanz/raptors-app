@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import placeholderImg from 'assets/imgs/placeholder.png';
@@ -51,5 +52,20 @@ const Card = ({
     </div>
   </>
 );
+
+Card.propTypes = {
+  first_name: PropTypes.string,
+  height_ft: PropTypes.number,
+  height_in: PropTypes.number,
+  isAnimated: PropTypes.bool,
+  isSticky: PropTypes.bool,
+  jersey_number: PropTypes.number,
+  last_name: PropTypes.string,
+  person_id: PropTypes.number,
+  playerTeamId: PropTypes.number,
+  position_full: PropTypes.string,
+  teamColor: PropTypes.string,
+  weight_lbs: PropTypes.number,
+};
 
 export default Card;

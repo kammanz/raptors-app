@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, useRouteMatch } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import List from './list';
 import Details from './details';
@@ -21,6 +22,10 @@ const PlayersPage = () => {
       </div>
     </>
   );
+};
+
+PlayersPage.propTypes = {
+  path: PropTypes.string,
 };
 
 export default PlayersPage;

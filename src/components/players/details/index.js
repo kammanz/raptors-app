@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import Placeholder from './placeholder';
@@ -76,14 +77,40 @@ const Details = ({ player: { details, isLoading }, teams, selectedTeam: { teamId
     { title: 'pts', value: points },
   ];
 
+  console.log('recentGames', recentGames);
+  // const recentGamesArray = Object.values(recentGamesStats);
+
   return (
     <div onScroll={onScroll} ref={ref} className={classnames(styles.container, isLoading && styles.scrollHidden)}>
-      <Card teamColor={teamColor} player={details} playerTeamId={teamId} isSticky={isSticky} isAnimated={isAnimated} />
+      <Card
+        teamColor={teamColor}
+        player={details}
+        playerTeamId={parseInt(teamId)}
+        isSticky={isSticky}
+        isAnimated={isAnimated}
+      />
       <QuickStats teamColor={teamColor} quickStats={quickStats} isLoading={isLoading} />
       <TotalStats teamColor={teamColor} totalStats={totalStats} isLoading={isLoading} />
       <RecentGamesStats teams={teams} teamColor={teamColor} recentGamesStats={recentGames} isLoading={isLoading} />
     </div>
   );
+};
+
+Details.propTypes = {
+  details: PropTypes.object,
+  isAnimated: PropTypes.bool,
+  isLoading: PropTypes.bool,
+  isSticky: PropTypes.bool,
+  player: PropTypes.object,
+  playerTeamId: PropTypes.number,
+  quickStats: PropTypes.number,
+  recentGames: PropTypes.object,
+  result: PropTypes.string,
+  section: PropTypes.string,
+  teamColor: PropTypes.string,
+  teamId: PropTypes.number,
+  teams: PropTypes.array,
+  totalStats: PropTypes.number,
 };
 
 const mapStateToProps = ({ player, teams: { teams, selectedTeam } }) => ({

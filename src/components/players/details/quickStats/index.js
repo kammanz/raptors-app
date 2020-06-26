@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import Spinner from 'components/_shared/spinner';
@@ -28,6 +29,14 @@ const QuickStats = ({ quickStats, teamColor, isLoading }) => {
       })}
     </section>
   );
+};
+
+QuickStats.propTypes = {
+  isLoading: PropTypes.bool,
+  quickStats: PropTypes.array,
+  teamColor: PropTypes.string,
+  title: PropTypes.string,
+  value: PropTypes.number,
 };
 
 export default QuickStats;
