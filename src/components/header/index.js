@@ -46,7 +46,7 @@ Header.propTypes = {
   getTeams: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
   location: PropTypes.shape({
-    pathname: PropTypes.string.isRequired,
+    pathname: PropTypes.string,
   }).isRequired,
   player: PropTypes.object.isRequired,
   selectedTeam: PropTypes.object.isRequired,
