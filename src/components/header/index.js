@@ -19,9 +19,11 @@ const Header = ({
     details: { person_id },
   },
 }) => {
-  useEffect(() => {
+  const getTeamsCallback = () => {
     getTeams(pathname, history);
-  }, []);
+  };
+
+  useEffect(getTeamsCallback, []);
 
   return (
     <div className={styles.container}>
