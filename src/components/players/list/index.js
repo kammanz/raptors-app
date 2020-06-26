@@ -1,4 +1,4 @@
-import React, { createRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
@@ -11,33 +11,24 @@ import { formatPlayerPhotoUrl } from 'utils/stringUtils';
 
 import styles from './index.module.scss';
 
-class List extends React.Component {
-  constructor(props) {
-    super(props);
+const List = ({
+  player: {
+    details: { person_id: selectedPlayerId },
+  },
+  players,
+  isLoading,
+  selectedTeam: { teamId, teamColor, urlName },
+  history,
+  getSelectedPlayer,
+}) => {
+  const domRef = useRef();
 
-    this.ref = createRef();
-  }
+  useEffect(() => {
+    domRef.current.scrollTo(0, 0);
+  }, [teamId]);
 
-  componentDidUpdate(prevProps) {
-    const { selectedTeam } = this.props;
-    const { selectedTeam: selectedTeamPrev } = prevProps;
-
-    if (selectedTeamPrev !== selectedTeam) {
-      this.ref.current.scrollTo(0, 0);
-    }
-  }
-
-  renderPlayers() {
-    const {
-      players,
-      player: {
-        details: { person_id: selectedPlayerId },
-      },
-      selectedTeam: { teamId, teamColor, urlName },
-      history,
-    } = this.props;
-
-    return players.map((player, index) => {
+  const renderPlayers = () =>
+    players.map((player, index) => {
       const {
         person_id,
         first_name,
@@ -55,9 +46,10 @@ class List extends React.Component {
           key={index}
           onClick={() => {
             history.push(`/${urlName}/players/${person_id}`);
-            this.props.getSelectedPlayer(player);
+            getSelectedPlayer(player);
           }}
-          className={classnames(styles.playerCard, isSelected && styles.selectedCard)}>
+          className={classnames(styles.playerCard, isSelected && styles.selectedCard)}
+        >
           <div className={styles.imageContainer}>
             <img
               src={person_id ? formatPlayerPhotoUrl(teamId, person_id) : placeholderImg}
@@ -85,25 +77,19 @@ class List extends React.Component {
         </div>
       );
     });
-  }
 
-  render() {
-    const { players } = this.props;
-    const isLoading = !players.some((player) => Object.keys(player).length !== 0);
+  return (
+    <div ref={domRef} className={classnames(styles.container, isLoading && styles.noScroll)}>
+      <Overlay isLoading={isLoading}>
+        <Spinner height={19} width={4} radius={3} isLoading={isLoading} />
+      </Overlay>
+      {renderPlayers()}
+    </div>
+  );
+};
 
-    return (
-      <div ref={this.ref} className={classnames(styles.container, isLoading && styles.noScroll)}>
-        <Overlay isLoading={isLoading}>
-          <Spinner height={19} width={4} radius={3} isLoading={isLoading} />
-        </Overlay>
-        {this.renderPlayers()}
-      </div>
-    );
-  }
-}
-
-const mapStateToProps = ({ player, players, teams: { selectedTeam } }) => {
-  return { player, players, selectedTeam };
+const mapStateToProps = ({ player, players: { list, isLoading }, teams: { selectedTeam } }) => {
+  return { player, players: list, isLoading, selectedTeam };
 };
 
 export default connect(mapStateToProps, { getSelectedPlayer })(withRouter(List));

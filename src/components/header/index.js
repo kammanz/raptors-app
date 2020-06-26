@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
@@ -10,34 +10,29 @@ import NavMenu from './navMenu';
 
 import styles from './index.module.scss';
 
-class Header extends React.Component {
-  componentDidMount() {
-    const {
-      history,
-      location: { pathname },
-      getTeams,
-    } = this.props;
-
+const Header = ({
+  history,
+  location: { pathname },
+  getTeams,
+  selectedTeam,
+  player: {
+    details: { person_id },
+  },
+}) => {
+  const getTeamsCallback = () => {
     getTeams(pathname, history);
-  }
+  };
 
-  render() {
-    const {
-      selectedTeam,
-      player: {
-        details: { person_id },
-      },
-    } = this.props;
+  useEffect(getTeamsCallback, []);
 
-    return (
-      <div className={styles.container}>
-        <DropdownMenu />
-        <NavMenu selectedTeam={selectedTeam} playerId={person_id} />
-        <UserLogin />
-      </div>
-    );
-  }
-}
+  return (
+    <div className={styles.container}>
+      <DropdownMenu />
+      <NavMenu selectedTeam={selectedTeam} playerId={person_id} />
+      <UserLogin />
+    </div>
+  );
+};
 
 const mapStateToProps = ({ teams: { selectedTeam }, player }) => {
   return {
