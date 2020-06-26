@@ -22,6 +22,7 @@ const Header = ({
   const getTeamsCallback = () => {
     getTeams(pathname, history);
   };
+
   useEffect(getTeamsCallback, []);
 
   return (
