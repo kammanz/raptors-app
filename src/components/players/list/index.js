@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import Overlay from 'components/_shared/overlay';
@@ -12,14 +13,14 @@ import { formatPlayerPhotoUrl } from 'utils/stringUtils';
 import styles from './index.module.scss';
 
 const List = ({
+  getSelectedPlayer,
+  players,
   player: {
     details: { person_id: selectedPlayerId },
   },
-  players,
-  isLoading,
   selectedTeam: { teamId, teamColor, urlName },
   history,
-  getSelectedPlayer,
+  isLoading,
 }) => {
   const domRef = useRef();
 
@@ -90,6 +91,15 @@ const List = ({
 
 const mapStateToProps = ({ player, players: { list, isLoading }, teams: { selectedTeam } }) => {
   return { player, players: list, isLoading, selectedTeam };
+};
+
+List.propTypes = {
+  getSelectedPlayer: PropTypes.func.isRequired,
+  players: PropTypes.array.isRequired,
+  player: PropTypes.object.isRequired,
+  selectedTeam: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 export default connect(mapStateToProps, { getSelectedPlayer })(withRouter(List));
