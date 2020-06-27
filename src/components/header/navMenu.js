@@ -13,8 +13,8 @@ const NavMenu = ({
 }) => {
   const activeBorder = {
     position: 'absolute',
-    width: 'calc(100% - 20px)',
-    left: '10px',
+    width: 'calc(100% - 40px)',
+    left: '20px',
     bottom: '0',
     borderBottom: `4px solid ${teamColor}`,
   };
