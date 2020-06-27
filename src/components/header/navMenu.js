@@ -11,6 +11,10 @@ const NavMenu = ({
   selectedTeam: { teamColor, urlName },
   playerId,
 }) => {
+  const activeStyle = {
+    pointerEvents: 'none',
+    color: teamColor,
+  };
   const activeBorder = {
     position: 'absolute',
     width: 'calc(100% - 40px)',
@@ -22,21 +26,19 @@ const NavMenu = ({
   return (
     <div className={styles.container}>
       <div className={styles.linkContainer}>
-        <NavLink
-          to={playerId ? `/${urlName}/players/${playerId}` : `/${urlName}/players`}
-          activeStyle={{ color: teamColor }}>
+        <NavLink to={playerId ? `/${urlName}/players/${playerId}` : `/${urlName}/players`} activeStyle={activeStyle}>
           Players
           <div style={pathname.indexOf('/players') >= 0 ? activeBorder : null} />
         </NavLink>
       </div>
       <div className={styles.linkContainer}>
-        <NavLink to={`/${urlName}/standings`} activeStyle={{ color: teamColor }}>
+        <NavLink to={`/${urlName}/standings`} activeStyle={activeStyle}>
           Standings
           <div style={pathname.indexOf('/standings') >= 0 ? activeBorder : null} />
         </NavLink>
       </div>
       <div className={styles.linkContainer}>
-        <NavLink to={`/${urlName}/games`} activeStyle={{ color: teamColor }}>
+        <NavLink to={`/${urlName}/games`} activeStyle={activeStyle}>
           Games
           <div style={pathname.indexOf('/games') >= 0 ? activeBorder : null} />
         </NavLink>
