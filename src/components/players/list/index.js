@@ -10,6 +10,8 @@ import placeholderImg from 'assets/imgs/placeholder.png';
 import { getSelectedPlayer } from 'actions';
 import { formatPlayerPhotoUrl } from 'utils/stringUtils';
 
+import Card from './card';
+
 import styles from './index.module.scss';
 
 const List = ({
@@ -43,39 +45,62 @@ const List = ({
       const isSelected = person_id && selectedPlayerId === person_id;
 
       return (
-        <div
+        <Card
           key={index}
-          onClick={() => {
-            history.push(`/${urlName}/players/${person_id}`);
-            getSelectedPlayer(player);
-          }}
-          className={classnames(styles.playerCard, isSelected && styles.selectedCard)}>
-          <div className={styles.imageContainer}>
-            <img
-              src={person_id ? formatPlayerPhotoUrl(teamId, person_id) : placeholderImg}
-              alt="player headshot"
-              onError={(e) => (e.target.src = placeholderImg)}
-            />
-          </div>
-          <div style={{ borderColor: teamColor }} className={styles.imageLine} />
-          <div style={{ backgroundColor: isSelected && teamColor }} className={styles.detailsContainer}>
-            {!!Object.keys(player).length && (
-              <>
-                <div className={styles.number}>{jersey_number}</div>
-                <div className={styles.details}>
-                  <div className={styles.name}>
-                    {first_name} {last_name}
-                  </div>
-                  <div className={styles.position}>{position_full.replace('-', ' - ')}</div>
-                  <div className={styles.size}>
-                    {height_ft}' {height_in}, {weight_lbs} lbs
-                  </div>
-                </div>
-              </>
-            )}
-          </div>
-        </div>
+          personId={person_id}
+          firstName={first_name}
+          lastName={last_name}
+          jerseyNumber={jersey_number}
+          position={position_full}
+          heightInFeet={height_ft}
+          heightInInches={height_in}
+          weight={weight_lbs}
+          urlName={urlName}
+          teamId={teamId}
+          teamColor={teamColor}
+          isSelected={isSelected}
+          getSelectedPlayer={getSelectedPlayer}
+          player={player}
+          history={history}
+          formatPlayerPhotoUrl={formatPlayerPhotoUrl}
+          placeholderImg={placeholderImg}
+        />
       );
+
+      // return (
+      //   <div
+      //     key={index}
+      //     onClick={() => {
+      //       history.push(`/${urlName}/players/${person_id}`);
+      //       getSelectedPlayer(player);
+      //     }}
+      //     className={classnames(styles.playerCard, isSelected && styles.selectedCard)}>
+      //     <div className={styles.imageContainer}>
+      //       <img
+      //         src={person_id ? formatPlayerPhotoUrl(teamId, person_id) : placeholderImg}
+      //         alt="player headshot"
+      //         onError={(e) => (e.target.src = placeholderImg)}
+      //       />
+      //     </div>
+      //     <div style={{ borderColor: teamColor }} className={styles.imageLine} />
+      //     <div style={{ backgroundColor: isSelected && teamColor }} className={styles.detailsContainer}>
+      //       {!!Object.keys(player).length && (
+      //         <>
+      //           <div className={styles.number}>{jersey_number}</div>
+      //           <div className={styles.details}>
+      //             <div className={styles.name}>
+      //               {first_name} {last_name}
+      //             </div>
+      //             <div className={styles.position}>{position_full.replace('-', ' - ')}</div>
+      //             <div className={styles.size}>
+      //               {height_ft}' {height_in}, {weight_lbs} lbs
+      //             </div>
+      //           </div>
+      //         </>
+      //       )}
+      //     </div>
+      //   </div>
+      // );
     });
 
   return (
