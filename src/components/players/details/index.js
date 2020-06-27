@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import Placeholder from './placeholder';
@@ -78,9 +79,9 @@ const Details = ({ player: { details, isLoading }, teams, selectedTeam: { teamId
 
   return (
     <div onScroll={onScroll} ref={ref} className={classnames(styles.container, isLoading && styles.scrollHidden)}>
-      <Card teamColor={teamColor} player={details} playerTeamId={teamId} isSticky={isSticky} isAnimated={isAnimated} />
-      <QuickStats teamColor={teamColor} quickStats={quickStats} isLoading={isLoading} />
-      <TotalStats teamColor={teamColor} totalStats={totalStats} isLoading={isLoading} />
+      <Card player={details} playerTeamId={teamId} teamColor={teamColor} isSticky={isSticky} isAnimated={isAnimated} />
+      <QuickStats quickStats={quickStats} teamColor={teamColor} isLoading={isLoading} />
+      <TotalStats totalStats={totalStats} teamColor={teamColor} isLoading={isLoading} />
       <RecentGamesStats teams={teams} teamColor={teamColor} recentGamesStats={recentGames} isLoading={isLoading} />
     </div>
   );
@@ -91,5 +92,11 @@ const mapStateToProps = ({ player, teams: { teams, selectedTeam } }) => ({
   teams,
   selectedTeam,
 });
+
+Details.propTypes = {
+  player: PropTypes.object.isRequired,
+  teams: PropTypes.array.isRequired,
+  selectedTeam: PropTypes.object.isRequired,
+};
 
 export default connect(mapStateToProps)(Details);

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import placeholderImg from 'assets/imgs/placeholder.png';
@@ -51,5 +52,13 @@ const Card = ({
     </div>
   </>
 );
+
+Card.propTypes = {
+  player: PropTypes.object.isRequired,
+  playerTeamId: PropTypes.string.isRequired,
+  isSticky: PropTypes.bool.isRequired,
+  isAnimated: PropTypes.bool.isRequired,
+  teamColor: PropTypes.string.isRequired,
+};
 
 export default Card;

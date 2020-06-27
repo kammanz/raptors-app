@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { getTeams } from 'actions';
 
@@ -39,6 +40,16 @@ const mapStateToProps = ({ teams: { selectedTeam }, player }) => {
     selectedTeam,
     player,
   };
+};
+
+Header.propTypes = {
+  getTeams: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }).isRequired,
+  player: PropTypes.object.isRequired,
+  selectedTeam: PropTypes.object.isRequired,
 };
 
 export default connect(mapStateToProps, { getTeams })(withRouter(Header));

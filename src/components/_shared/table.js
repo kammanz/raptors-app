@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import styles from './table.module.scss';
 
-const Table = ({ array, result, section }) => {
+const Table = ({ array, isTotalStats, result }) => {
   return (
     <table className={styles.table}>
       <tbody>
@@ -12,7 +13,7 @@ const Table = ({ array, result, section }) => {
             return <th key={title}>{title}</th>;
           })}
         </tr>
-        <tr className={classnames(styles.table, section === 'totalStats' ? styles.totalStats : styles.games)}>
+        <tr className={classnames(styles.table, isTotalStats ? styles.totalStats : styles.games)}>
           {array.map(({ title, value }) => {
             const val = parseInt(value) === -1 ? <div className={styles.invalid}>-</div> : value;
 
@@ -33,6 +34,17 @@ const Table = ({ array, result, section }) => {
       </tbody>
     </table>
   );
+};
+
+Table.propTypes = {
+  array: PropTypes.array.isRequired,
+  isTotalStats: PropTypes.bool,
+  result: PropTypes.oneOf(['W', 'L']),
+};
+
+Table.defaultProps = {
+  isTotalStats: false,
+  result: null,
 };
 
 export default Table;
