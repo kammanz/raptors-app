@@ -99,6 +99,8 @@
   }
 
   &.selectedCard {
+    cursor: default;
+    pointer-events: none;
     .detailsContainer {
       .number {
         color: $white;
