@@ -12,15 +12,18 @@
   text-transform: uppercase;
 
   .linkContainer {
+    position: relative;
     display: inline-block;
     height: 100%;
-    padding: 0 25px;
+    padding: 0;
   }
 
   a {
     display: inline-block;
     height: calc(100% - 19px);
     padding-top: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
     color: $grey5;
     text-decoration: none;
 
@@ -37,4 +40,18 @@
     border-top: 45px solid $white;
     border-right: 16px solid transparent;
   }
+}
+
+.fuck {
+  background-color: pink;
+}
+
+.fuck::after {
+  content: '';
+  position: absolute;
+  width: calc(100% - 20px);
+  left: 10px;
+  bottom: 0;
+  border-bottom: 4px solid red;
+  z-index: 2;
 }

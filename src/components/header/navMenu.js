@@ -1,30 +1,44 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import styles from './navMenu.module.scss';
 
-const NavMenu = ({ selectedTeam: { teamColor, urlName }, playerId }) => {
-  const activeStyle = {
-    color: teamColor,
+const NavMenu = ({
+  history: {
+    location: { pathname },
+  },
+  selectedTeam: { teamColor, urlName },
+  playerId,
+}) => {
+  const activeBorder = {
+    position: 'absolute',
+    width: 'calc(100% - 20px)',
+    left: '10px',
+    bottom: '0',
     borderBottom: `4px solid ${teamColor}`,
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.linkContainer}>
-        <NavLink to={playerId ? `/${urlName}/players/${playerId}` : `/${urlName}/players`} activeStyle={activeStyle}>
+        <NavLink
+          to={playerId ? `/${urlName}/players/${playerId}` : `/${urlName}/players`}
+          activeStyle={{ color: teamColor }}>
           Players
+          <div style={pathname.indexOf('/players') >= 0 ? activeBorder : null} />
         </NavLink>
       </div>
       <div className={styles.linkContainer}>
-        <NavLink to={`/${urlName}/standings`} activeStyle={activeStyle}>
+        <NavLink to={`/${urlName}/standings`} activeStyle={{ color: teamColor }}>
           Standings
+          <div style={pathname.indexOf('/standings') >= 0 ? activeBorder : null} />
         </NavLink>
       </div>
       <div className={styles.linkContainer}>
-        <NavLink to={`/${urlName}/games`} activeStyle={activeStyle}>
+        <NavLink to={`/${urlName}/games`} activeStyle={{ color: teamColor }}>
           Games
+          <div style={pathname.indexOf('/games') >= 0 ? activeBorder : null} />
         </NavLink>
       </div>
     </div>
@@ -32,6 +46,11 @@ const NavMenu = ({ selectedTeam: { teamColor, urlName }, playerId }) => {
 };
 
 NavMenu.propTypes = {
+  history: PropTypes.shape({
+    location: PropTypes.shape({
+      pathname: PropTypes.string,
+    }),
+  }).isRequired,
   selectedTeam: PropTypes.shape({
     teamColor: PropTypes.string,
     urlName: PropTypes.string,
@@ -43,4 +62,4 @@ NavMenu.defaultProps = {
   playerId: null,
 };
 
-export default NavMenu;
+export default withRouter(NavMenu);
