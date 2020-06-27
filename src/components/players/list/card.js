@@ -1,27 +1,28 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import styles from './index.module.scss';
 
 const Card = ({
-  personId,
-  firstName,
-  lastName,
-  jerseyNumber,
-  position,
+  formatPlayerPhotoUrl,
+  getSelectedPlayer,
+  placeholderImg,
+  history,
+  player,
   heightInFeet,
   heightInInches,
-  weight,
-  urlName,
+  jerseyNumber,
   teamId,
+  weight,
+  firstName,
+  lastName,
+  personId,
+  position,
   teamColor,
-  player,
+  urlName,
   isSelected,
-  getSelectedPlayer,
-  history,
-  formatPlayerPhotoUrl,
-  placeholderImg,
 }) => {
   return (
     <div
@@ -56,6 +57,26 @@ const Card = ({
       </div>
     </div>
   );
+};
+
+Card.propTypes = {
+  formatPlayerPhotoUrl: PropTypes.func.isRequired,
+  getSelectedPlayer: PropTypes.func.isRequired,
+  placeholderImg: PropTypes.string.isRequired,
+  history: PropTypes.object.isRequired,
+  player: PropTypes.object.isRequired,
+  heightInFeet: PropTypes.string,
+  heightInInches: PropTypes.string,
+  jerseyNumber: PropTypes.string,
+  teamId: PropTypes.string,
+  weight: PropTypes.string,
+  firstName: PropTypes.string,
+  lastName: PropTypes.string,
+  personId: PropTypes.string,
+  position: PropTypes.string,
+  teamColor: PropTypes.string,
+  urlName: PropTypes.string,
+  isSelected: PropTypes.bool,
 };
 
 export default withRouter(Card);
