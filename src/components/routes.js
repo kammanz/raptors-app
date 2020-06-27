@@ -31,11 +31,7 @@ const mapStateToProps = ({
   teams: {
     selectedTeam: { urlName },
   },
-}) => {
-  return {
-    urlName,
-  };
-};
+}) => urlName;
 
 Routes.propTypes = {
   urlName: PropTypes.string.isRequired,
