@@ -73,15 +73,10 @@ const mapStateToProps = ({ teams: { teams, selectedTeam } }) => {
 };
 
 DropdownMenu.propTypes = {
-  fullName: PropTypes.string,
-  getSelectedTeam: PropTypes.func,
-  history: PropTypes.object,
-  isSingleValue: PropTypes.bool,
-  selectedTeam: PropTypes.object,
-  selectedTeamId: PropTypes.number,
-  teamId: PropTypes.number,
-  teams: PropTypes.array,
-  tricode: PropTypes.string,
+  getSelectedTeam: PropTypes.func.isRequired,
+  teams: PropTypes.array.isRequired,
+  selectedTeam: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
 export default connect(mapStateToProps, { getSelectedTeam })(withRouter(DropdownMenu));

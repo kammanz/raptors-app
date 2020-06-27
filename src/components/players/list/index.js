@@ -13,13 +13,14 @@ import { formatPlayerPhotoUrl } from 'utils/stringUtils';
 import styles from './index.module.scss';
 
 const List = ({
+  getSelectedPlayer,
+  players,
   player: {
     details: { person_id: selectedPlayerId },
   },
-  players,
   selectedTeam: { teamId, teamColor, urlName },
   history,
-  getSelectedPlayer,
+  isLoading,
 }) => {
   const domRef = useRef();
 
@@ -77,8 +78,6 @@ const List = ({
       );
     });
 
-  const isLoading = !players.some((player) => Object.keys(player).length !== 0);
-
   return (
     <div ref={domRef} className={classnames(styles.container, isLoading && styles.noScroll)}>
       <Overlay isLoading={isLoading}>
@@ -89,28 +88,17 @@ const List = ({
   );
 };
 
-List.propTypes = {
-  first_name: PropTypes.string,
-  getSelectedPlayer: PropTypes.func,
-  height_ft: PropTypes.number,
-  height_in: PropTypes.number,
-  history: PropTypes.object,
-  jersey_number: PropTypes.number,
-  last_name: PropTypes.string,
-  person_id: PropTypes.number,
-  player: PropTypes.object,
-  players: PropTypes.array,
-  position_full: PropTypes.string,
-  selectedPlayerId: PropTypes.number,
-  selectedTeam: PropTypes.object,
-  teamColor: PropTypes.string,
-  teamId: PropTypes.number,
-  urlName: PropTypes.string,
-  weight_lbs: PropTypes.number,
+const mapStateToProps = ({ player, players: { list, isLoading }, teams: { selectedTeam } }) => {
+  return { player, players: list, isLoading, selectedTeam };
 };
 
-const mapStateToProps = ({ player, players, teams: { selectedTeam } }) => {
-  return { player, players, selectedTeam };
+List.propTypes = {
+  getSelectedPlayer: PropTypes.func.isRequired,
+  players: PropTypes.array.isRequired,
+  player: PropTypes.object.isRequired,
+  selectedTeam: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 export default connect(mapStateToProps, { getSelectedPlayer })(withRouter(List));

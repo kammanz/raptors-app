@@ -1,7 +1,7 @@
 export default (
   state = {
     details: {
-      recentGames: {},
+      recentGames: [],
     },
     isLoading: false,
   },
@@ -17,7 +17,7 @@ export default (
       return {
         ...state,
         details: {
-          recentGames: {},
+          recentGames: [],
           ...action.payload,
         },
       };

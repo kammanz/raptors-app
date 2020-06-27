@@ -77,39 +77,14 @@ const Details = ({ player: { details, isLoading }, teams, selectedTeam: { teamId
     { title: 'pts', value: points },
   ];
 
-  const recentGamesArray = Object.values(recentGames);
-
   return (
     <div onScroll={onScroll} ref={ref} className={classnames(styles.container, isLoading && styles.scrollHidden)}>
-      <Card
-        teamColor={teamColor}
-        player={details}
-        playerTeamId={parseInt(teamId)}
-        isSticky={isSticky}
-        isAnimated={isAnimated}
-      />
-      <QuickStats teamColor={teamColor} quickStats={quickStats} isLoading={isLoading} />
-      <TotalStats teamColor={teamColor} totalStats={totalStats} isLoading={isLoading} />
-      <RecentGamesStats teams={teams} teamColor={teamColor} recentGamesArray={recentGamesArray} isLoading={isLoading} />
+      <Card player={details} playerTeamId={teamId} teamColor={teamColor} isSticky={isSticky} isAnimated={isAnimated} />
+      <QuickStats quickStats={quickStats} teamColor={teamColor} isLoading={isLoading} />
+      <TotalStats totalStats={totalStats} teamColor={teamColor} isLoading={isLoading} />
+      <RecentGamesStats teams={teams} teamColor={teamColor} recentGamesStats={recentGames} isLoading={isLoading} />
     </div>
   );
-};
-
-Details.propTypes = {
-  details: PropTypes.object,
-  isAnimated: PropTypes.bool,
-  isLoading: PropTypes.bool,
-  isSticky: PropTypes.bool,
-  player: PropTypes.object,
-  playerTeamId: PropTypes.number,
-  quickStats: PropTypes.number,
-  recentGamesArray: PropTypes.array,
-  result: PropTypes.string,
-  section: PropTypes.string,
-  teamColor: PropTypes.string,
-  teamId: PropTypes.number,
-  teams: PropTypes.array,
-  totalStats: PropTypes.number,
 };
 
 const mapStateToProps = ({ player, teams: { teams, selectedTeam } }) => ({
@@ -117,5 +92,11 @@ const mapStateToProps = ({ player, teams: { teams, selectedTeam } }) => ({
   teams,
   selectedTeam,
 });
+
+Details.propTypes = {
+  player: PropTypes.object.isRequired,
+  teams: PropTypes.array.isRequired,
+  selectedTeam: PropTypes.object.isRequired,
+};
 
 export default connect(mapStateToProps)(Details);

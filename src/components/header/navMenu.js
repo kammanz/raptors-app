@@ -32,9 +32,15 @@ const NavMenu = ({ selectedTeam: { teamColor, urlName }, playerId }) => {
 };
 
 NavMenu.propTypes = {
-  playerId: PropTypes.number,
-  teamColor: PropTypes.string,
-  urlName: PropTypes.string,
+  selectedTeam: PropTypes.shape({
+    teamColor: PropTypes.string,
+    urlName: PropTypes.string,
+  }).isRequired,
+  playerId: PropTypes.string,
+};
+
+NavMenu.defaultProps = {
+  playerId: null,
 };
 
 export default NavMenu;

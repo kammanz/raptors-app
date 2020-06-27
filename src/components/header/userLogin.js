@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Bell from 'assets/icons/bell';
 import Gear from 'assets/icons/gear';
@@ -24,12 +23,6 @@ const UserLogin = () => {
       </button>
     </div>
   );
-};
-
-UserLogin.propTypes = {
-  color: PropTypes.string,
-  height: PropTypes.number,
-  width: PropTypes.number,
 };
 
 export default UserLogin;

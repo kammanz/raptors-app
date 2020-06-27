@@ -54,18 +54,11 @@ const Card = ({
 );
 
 Card.propTypes = {
-  first_name: PropTypes.string,
-  height_ft: PropTypes.number,
-  height_in: PropTypes.number,
-  isAnimated: PropTypes.bool,
-  isSticky: PropTypes.bool,
-  jersey_number: PropTypes.number,
-  last_name: PropTypes.string,
-  person_id: PropTypes.number,
-  playerTeamId: PropTypes.number,
-  position_full: PropTypes.string,
-  teamColor: PropTypes.string,
-  weight_lbs: PropTypes.number,
+  player: PropTypes.object.isRequired,
+  playerTeamId: PropTypes.string.isRequired,
+  isSticky: PropTypes.bool.isRequired,
+  isAnimated: PropTypes.bool.isRequired,
+  teamColor: PropTypes.string.isRequired,
 };
 
 export default Card;

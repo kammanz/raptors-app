@@ -9,10 +9,10 @@ import Table from 'components/_shared/table';
 
 import styles from './index.module.scss';
 
-const RecentGamesStats = ({ teams, teamColor, recentGamesArray, isLoading }) => {
+const RecentGamesStats = ({ teams, teamColor, recentGamesStats, isLoading }) => {
   const teamsArray = Object.values(teams);
 
-  const recentGames = recentGamesArray.map(({ gameId, isHomeGame, hTeam, vTeam, gameDateUTC, stats }) => {
+  const recentGames = recentGamesStats.map(({ gameId, isHomeGame, hTeam, vTeam, gameDateUTC, stats }) => {
     const { points, assists, offReb, defReb, totReb } = stats;
 
     const getGameResult = () => {
@@ -63,7 +63,7 @@ const RecentGamesStats = ({ teams, teamColor, recentGamesArray, isLoading }) => 
           </div>
         </header>
         <div className={styles.line} />
-        <Table array={tableArray} teamColor={teamColor} section="games" result={getGameResult()} />
+        <Table array={tableArray} result={getGameResult()} />
       </div>
     );
   });
@@ -72,17 +72,17 @@ const RecentGamesStats = ({ teams, teamColor, recentGamesArray, isLoading }) => 
 
   return (
     <section className={styles.recentGames}>
-      <Title title="recent games" teamColor={teamColor} section="games" />
+      <Title title="recent games" teamColor={teamColor} isRecentGames />
       {isLoading ? <Spinner isLoading={isLoading} /> : games}
     </section>
   );
 };
 
 RecentGamesStats.propTypes = {
-  isLoading: PropTypes.bool,
-  recentGamesArray: PropTypes.array,
-  teams: PropTypes.array,
-  teamColor: PropTypes.string,
+  teams: PropTypes.array.isRequired,
+  teamColor: PropTypes.string.isRequired,
+  recentGamesStats: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 export default RecentGamesStats;

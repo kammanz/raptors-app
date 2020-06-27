@@ -9,7 +9,8 @@ const Overlay = ({ children, isLoading }) => {
 };
 
 Overlay.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 Overlay.defaultProps = {

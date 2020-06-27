@@ -7,13 +7,13 @@ import Games from './games';
 import Players from './players';
 import Standings from './standings';
 
-const Routes = ({ selectedTeam }) => (
+const Routes = ({ urlName }) => (
   <Switch>
     <Route exact path="/">
-      <Redirect to={`/${selectedTeam.urlName}/players`} />
+      <Redirect to={`/${urlName}/players`} />
     </Route>
     <Route exact path="/:id">
-      <Redirect to={`/${selectedTeam.urlName}/players`} />
+      <Redirect to={`/${urlName}/players`} />
     </Route>
     <Route path="/:id/players">
       <Players />
@@ -27,14 +27,18 @@ const Routes = ({ selectedTeam }) => (
   </Switch>
 );
 
-Routes.propTypes = {
-  selectedTeam: PropTypes.object,
+const mapStateToProps = ({
+  teams: {
+    selectedTeam: { urlName },
+  },
+}) => {
+  return {
+    urlName,
+  };
 };
 
-const mapStateToProps = ({ teams: { selectedTeam } }) => {
-  return {
-    selectedTeam,
-  };
+Routes.propTypes = {
+  urlName: PropTypes.string.isRequired,
 };
 
 export default connect(mapStateToProps)(Routes);

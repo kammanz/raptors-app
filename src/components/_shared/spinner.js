@@ -23,13 +23,12 @@ const Spinner = ({ isLoading, containerHeight, height, ...props }) => (
 );
 
 Spinner.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
   containerHeight: PropTypes.number,
   height: PropTypes.number,
-  isLoading: PropTypes.bool,
 };
 
 Spinner.defaultProps = {
-  isLoading: false,
   containerHeight: 48,
   height: 12,
 };

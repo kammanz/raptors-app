@@ -32,11 +32,9 @@ const QuickStats = ({ quickStats, teamColor, isLoading }) => {
 };
 
 QuickStats.propTypes = {
-  isLoading: PropTypes.bool,
-  quickStats: PropTypes.array,
-  teamColor: PropTypes.string,
-  title: PropTypes.string,
-  value: PropTypes.number,
+  quickStats: PropTypes.array.isRequired,
+  teamColor: PropTypes.string.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 export default QuickStats;

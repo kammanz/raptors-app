@@ -10,7 +10,7 @@ import styles from './index.module.scss';
 const TotalStats = ({ totalStats, teamColor, isLoading }) => {
   return (
     <section className={styles.totalStats}>
-      <Title title="stats" totalStats teamColor={teamColor} />
+      <Title title="stats" teamColor={teamColor} />
       {isLoading ? (
         <Spinner isLoading={isLoading} containerHeight={43} />
       ) : (
@@ -21,10 +21,9 @@ const TotalStats = ({ totalStats, teamColor, isLoading }) => {
 };
 
 TotalStats.propTypes = {
-  isLoading: PropTypes.bool,
-  section: PropTypes.string,
-  teamColor: PropTypes.string,
-  totalStats: PropTypes.array,
+  totalStats: PropTypes.array.isRequired,
+  teamColor: PropTypes.string.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 export default TotalStats;
