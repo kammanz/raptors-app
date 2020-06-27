@@ -14,6 +14,7 @@
   height: 292px;
   background-image: url('../../../../assets/imgs/player-backdrop.png');
   background-size: cover;
+  user-select: none;
 
   img {
     height: calc(100% - 10px);

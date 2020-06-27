@@ -38,6 +38,7 @@
     padding-top: 10px;
     background-image: url('../../../assets/imgs/player-backdrop.png');
     background-size: cover;
+    user-select: none;
 
     img {
       display: flex;
