@@ -1,7 +1,7 @@
 @import 'src/scss/variables.scss';
 
 .card {
-  min-width: 440px;
+  min-width: calc(440px - 28px);
   padding-top: 5px;
   background-color: $white;
   font-family: arial;
