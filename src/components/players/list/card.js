@@ -9,12 +9,12 @@ import { formatPlayerPhotoUrl } from 'utils/stringUtils';
 import styles from './index.module.scss';
 
 const Card = ({
-  player,
-  player: { person_id, first_name, last_name, jersey_number, position_full, height_ft, height_in, weight_lbs },
   getSelectedPlayer,
-  selectedPlayerId,
-  selectedTeam: { teamId, teamColor, urlName },
   history,
+  player,
+  player: { first_name, height_ft, height_in, jersey_number, last_name, person_id, position_full, weight_lbs },
+  selectedPlayerId,
+  selectedTeam: { teamColor, teamId, urlName },
 }) => {
   const isSelected = person_id === selectedPlayerId;
   return (
