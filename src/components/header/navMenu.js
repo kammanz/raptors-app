@@ -19,6 +19,8 @@ const NavMenu = ({
     borderBottom: `4px solid ${teamColor}`,
   };
 
+  const getActiveStyle = (path) => (pathname.indexOf(path) >= 0 ? activeBorder : null);
+
   return (
     <div className={styles.container}>
       <div className={styles.linkContainer}>
@@ -26,19 +28,19 @@ const NavMenu = ({
           to={playerId ? `/${urlName}/players/${playerId}` : `/${urlName}/players`}
           activeStyle={{ color: teamColor }}>
           Players
-          <div style={pathname.indexOf('/players') >= 0 ? activeBorder : null} />
+          <div style={getActiveStyle('/players')} />
         </NavLink>
       </div>
       <div className={styles.linkContainer}>
         <NavLink to={`/${urlName}/standings`} activeStyle={{ color: teamColor }}>
           Standings
-          <div style={pathname.indexOf('/standings') >= 0 ? activeBorder : null} />
+          <div style={getActiveStyle('/standings')} />
         </NavLink>
       </div>
       <div className={styles.linkContainer}>
         <NavLink to={`/${urlName}/games`} activeStyle={{ color: teamColor }}>
           Games
-          <div style={pathname.indexOf('/games') >= 0 ? activeBorder : null} />
+          <div style={getActiveStyle('/games')} />
         </NavLink>
       </div>
     </div>
