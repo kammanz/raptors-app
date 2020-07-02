@@ -32,17 +32,15 @@ const List = ({
       <Overlay isLoading={isLoading}>
         <Spinner height={19} width={4} radius={3} isLoading={isLoading} />
       </Overlay>
-      {players.map((player, index) => {
-        return (
-          <Card
-            key={index}
-            getSelectedPlayer={getSelectedPlayer}
-            selectedTeam={selectedTeam}
-            selectedPlayerId={selectedPlayerId}
-            player={player}
-          />
-        );
-      })}
+      {players.map((player, index) => (
+        <Card
+          key={index}
+          getSelectedPlayer={getSelectedPlayer}
+          selectedTeam={selectedTeam}
+          selectedPlayerId={selectedPlayerId}
+          player={player}
+        />
+      ))}
     </div>
   );
 };

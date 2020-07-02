@@ -17,6 +17,7 @@ const Card = ({
   selectedTeam: { teamColor, teamId, urlName },
 }) => {
   const isSelected = person_id === selectedPlayerId;
+
   return (
     <div
       onClick={() => {
@@ -53,43 +54,14 @@ const Card = ({
 };
 
 Card.propTypes = {
-  formatPlayerPhotoUrl: PropTypes.func,
   getSelectedPlayer: PropTypes.func.isRequired,
-  history: PropTypes.object,
+  selectedTeam: PropTypes.object.isRequired,
   player: PropTypes.object.isRequired,
-  placeholderImg: PropTypes.string,
-  first_name: PropTypes.string,
-  height_ft: PropTypes.string,
-  height_in: PropTypes.string,
-  jersey_number: PropTypes.string,
-  last_name: PropTypes.string,
-  person_id: PropTypes.string,
-  position_full: PropTypes.string,
   selectedPlayerId: PropTypes.string,
-  teamColor: PropTypes.string,
-  teamId: PropTypes.string,
-  urlName: PropTypes.string,
-  weight_lbs: PropTypes.string,
-  isSelected: PropTypes.bool,
 };
 
 Card.defaultProps = {
-  formatPlayerPhotoUrl: null,
-  history: null,
-  placeholderImg: null,
-  first_name: null,
-  height_ft: null,
-  height_in: null,
-  jersey_number: null,
-  last_name: null,
-  person_id: null,
-  position_full: null,
   selectedPlayerId: null,
-  teamColor: null,
-  teamId: null,
-  urlName: null,
-  weight_lbs: null,
-  isSelected: false,
 };
 
 export default withRouter(Card);
