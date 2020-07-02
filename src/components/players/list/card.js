@@ -3,37 +3,31 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
+import placeholderImg from 'assets/imgs/placeholder.png';
+import { formatPlayerPhotoUrl } from 'utils/stringUtils';
+
 import styles from './index.module.scss';
 
 const Card = ({
-  formatPlayerPhotoUrl,
   getSelectedPlayer,
-  history,
+  selectedTeam: { teamColor, teamId, urlName },
   player,
-  placeholderImg,
-  firstName,
-  heightInFeet,
-  heightInInches,
-  jerseyNumber,
-  lastName,
-  personId,
-  position,
-  teamColor,
-  teamId,
-  urlName,
-  weight,
-  isSelected,
+  history,
+  selectedPlayerId,
+  player: { first_name, height_ft, height_in, jersey_number, last_name, person_id, position_full, weight_lbs },
 }) => {
+  const isSelected = person_id === selectedPlayerId;
+
   return (
     <div
       onClick={() => {
-        history.push(`/${urlName}/players/${personId}`);
+        history.push(`/${urlName}/players/${person_id}`);
         getSelectedPlayer(player);
       }}
       className={classnames(styles.playerCard, isSelected && styles.selectedCard)}>
       <div className={styles.imageContainer}>
         <img
-          src={personId ? formatPlayerPhotoUrl(teamId, personId) : placeholderImg}
+          src={person_id ? formatPlayerPhotoUrl(teamId, person_id) : placeholderImg}
           alt="player headshot"
           onError={(e) => (e.target.src = placeholderImg)}
         />
@@ -42,14 +36,14 @@ const Card = ({
       <div style={{ backgroundColor: isSelected && teamColor }} className={styles.detailsContainer}>
         {!!Object.keys(player).length && (
           <>
-            <div className={styles.number}>{jerseyNumber}</div>
+            <div className={styles.number}>{jersey_number}</div>
             <div className={styles.details}>
               <div className={styles.name}>
-                {firstName} {lastName}
+                {first_name} {last_name}
               </div>
-              <div className={styles.position}>{position.replace('-', ' - ')}</div>
+              <div className={styles.position}>{position_full.replace('-', ' - ')}</div>
               <div className={styles.size}>
-                {heightInFeet}' {heightInInches}, {weight} lbs
+                {height_ft}' {height_in}, {weight_lbs} lbs
               </div>
             </div>
           </>
@@ -60,38 +54,16 @@ const Card = ({
 };
 
 Card.propTypes = {
-  formatPlayerPhotoUrl: PropTypes.func.isRequired,
   getSelectedPlayer: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired,
+  selectedTeam: PropTypes.object.isRequired,
   player: PropTypes.object.isRequired,
-  placeholderImg: PropTypes.string.isRequired,
-  firstName: PropTypes.string,
-  heightInFeet: PropTypes.string,
-  heightInInches: PropTypes.string,
-  jerseyNumber: PropTypes.string,
-  lastName: PropTypes.string,
-  personId: PropTypes.string,
-  position: PropTypes.string,
-  teamColor: PropTypes.string,
-  teamId: PropTypes.string,
-  urlName: PropTypes.string,
-  weight: PropTypes.string,
-  isSelected: PropTypes.bool,
+  history: PropTypes.object,
+  selectedPlayerId: PropTypes.string,
 };
 
 Card.defaultProps = {
-  firstName: null,
-  heightInFeet: null,
-  heightInInches: null,
-  jerseyNumber: null,
-  lastName: null,
-  personId: null,
-  position: null,
-  teamColor: null,
-  teamId: null,
-  urlName: null,
-  weight: null,
-  isSelected: false,
+  history: null,
+  selectedPlayerId: null,
 };
 
 export default withRouter(Card);
