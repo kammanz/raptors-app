@@ -12,9 +12,9 @@ const Card = ({
   getSelectedPlayer,
   selectedTeam: { teamColor, teamId, urlName },
   player,
+  history,
   selectedPlayerId,
   player: { first_name, height_ft, height_in, jersey_number, last_name, person_id, position_full, weight_lbs },
-  history,
 }) => {
   const isSelected = person_id === selectedPlayerId;
 
@@ -57,10 +57,12 @@ Card.propTypes = {
   getSelectedPlayer: PropTypes.func.isRequired,
   selectedTeam: PropTypes.object.isRequired,
   player: PropTypes.object.isRequired,
+  history: PropTypes.object,
   selectedPlayerId: PropTypes.string,
 };
 
 Card.defaultProps = {
+  history: null,
   selectedPlayerId: null,
 };
 
