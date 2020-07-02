@@ -1,5 +1,6 @@
 import React from 'react';
-import lebron from 'assets/gifs/lebron.gif';
+
+import gamesGif from 'assets/gifs/games.gif';
 
 import styles from './index.module.scss';
 
@@ -7,7 +8,7 @@ const GamesPage = () => {
   return (
     <div className={styles.container}>
       <p>Still working out the kinks</p>
-      <img src={lebron} className={styles.img} />
+      <img src={gamesGif} className={styles.img} alt="angry lebron james" />
       <p>Games coming soon</p>
     </div>
   );
