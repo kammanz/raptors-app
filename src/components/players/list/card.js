@@ -10,11 +10,11 @@ import styles from './index.module.scss';
 
 const Card = ({
   getSelectedPlayer,
-  history,
-  player,
-  player: { first_name, height_ft, height_in, jersey_number, last_name, person_id, position_full, weight_lbs },
-  selectedPlayerId,
   selectedTeam: { teamColor, teamId, urlName },
+  player,
+  selectedPlayerId,
+  player: { first_name, height_ft, height_in, jersey_number, last_name, person_id, position_full, weight_lbs },
+  history,
 }) => {
   const isSelected = person_id === selectedPlayerId;
 
