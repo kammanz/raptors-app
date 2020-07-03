@@ -11,21 +11,19 @@
   font-size: 16px;
   text-transform: uppercase;
 
-  .linkContainer {
-    display: inline-block;
-    height: 100%;
-    padding: 0 25px;
+  .navLink {
+    padding-top: 7px;
+    border-bottom: 4px solid transparent;
   }
 
   a {
     display: inline-block;
-    height: calc(100% - 19px);
-    padding-top: 15px;
+    height: calc(100% - 14px);
+    padding: 15px 20px 0;
     color: $grey5;
     text-decoration: none;
 
     &:hover {
-      height: calc(100% - 19px);
       color: $grey-three;
     }
   }
