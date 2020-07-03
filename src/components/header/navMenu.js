@@ -16,9 +16,8 @@ const NavMenu = ({
     color: teamColor,
   };
   const activeBorder = {
-    borderBottom: `4px solid ${teamColor}`,
+    borderColor: teamColor,
   };
-  const activeStyle = { color: teamColor, cursor: 'default' };
   const getActiveStyle = (path) => (pathname.indexOf(path) >= 0 ? activeBorder : null);
 
   return (
