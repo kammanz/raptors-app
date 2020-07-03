@@ -9,7 +9,7 @@ const StandingsPage = () => {
     <div className={styles.container}>
       <p>Still working out the kinks</p>
       <img src={standingsGif} className={styles.img} alt="lebron james gif" />
-      <p>Standings coming soon</p>
+      <p>Standings coming soon!</p>
     </div>
   );
 };
