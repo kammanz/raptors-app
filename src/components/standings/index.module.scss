@@ -1,0 +1,20 @@
+@import 'src/scss/variables.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 1;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 45px);
+  background-color: $white;
+  color: $grey4;
+  font-family: arial;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+.img {
+  border: 2px solid $grey3;
+  border-radius: 2px;
+}

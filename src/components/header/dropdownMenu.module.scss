@@ -3,6 +3,7 @@
 .teamContainer {
   position: relative;
   display: flex;
+  user-select: none;
 }
 
 .optionContainer {

@@ -1,9 +1,15 @@
 import React from 'react';
 
+import standingsGif from 'assets/gifs/standings.gif';
+
+import styles from './index.module.scss';
+
 const StandingsPage = () => {
   return (
-    <div>
-      <h1>Standings</h1>
+    <div className={styles.container}>
+      <p>Still working out the kinks</p>
+      <img src={standingsGif} className={styles.img} alt="slam dunk fail" />
+      <p>Standings coming soon</p>
     </div>
   );
 };
