@@ -11,6 +11,10 @@ const NavMenu = ({
   selectedTeam: { teamColor, urlName },
   playerId,
 }) => {
+  const activeStyle = {
+    pointerEvents: 'none',
+    color: teamColor,
+  };
   const activeBorder = {
     borderBottom: `4px solid ${teamColor}`,
   };
