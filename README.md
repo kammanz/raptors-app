@@ -2,7 +2,7 @@
 
 This app lets you search through NBA players and view their statistics. Good for those who play Fantasy Basketball or simply avid fans exploring their curiosity. You will also be able to view team standings and recent game results.
 
-Currently this app displays Toronto Raptors stats (all NBA Team stats coming soon). All data and images are pulled from official NBA sources. Api can be found here: http://data.nba.net/
+Currently this app displays all team player stats. All data and images are pulled from official NBA sources. Api can be found here: http://data.nba.net/
 
 **NOTE**: Due to Covid-19 the 2019-20 NBA season has been cancelled. Statistics go far as March 12, 2020
 
